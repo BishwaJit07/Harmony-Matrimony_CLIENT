@@ -1,13 +1,12 @@
-import React from 'react';
-import About from './homecompnent/about';
+import Gellary from "./HomeCompnent/Gellary";
 
 const Home = () => {
-    return (
-        <div className='text-cener text-3xl'>
-           Home Page
-           <About/>
-        </div>
-    );
+  return (
+    <div className="text-cener text-3xl">
+      Home Page
+      <Gellary />
+    </div>
+  );
 };
 
 export default Home;
