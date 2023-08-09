@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.red-primary{
+    @apply bg-[#cf2532] text-white
+}
