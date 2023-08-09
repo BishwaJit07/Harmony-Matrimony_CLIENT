@@ -31,7 +31,7 @@ const Footer = () => {
       </footer>
       <footer className="footer footer-center p-1 bg-white text-red-600 font-bold">
         <div>
-          <p>Copyright © 2023 - All right reserved</p>
+          <p className=" text-xs">Copyright © 2023 - All right reserved</p>
         </div>
       </footer>
     </div>
