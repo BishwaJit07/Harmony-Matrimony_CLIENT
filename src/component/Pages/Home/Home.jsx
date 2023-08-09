@@ -9,7 +9,7 @@ import HappyStory from './HomeComponents/HappyStory/HappyStory';
 const Home = () => {
   return (
     <div className="text-center text-3xl">
-      Home Page
+     
       <HeroSection />
 
       <BestRecommendation/>

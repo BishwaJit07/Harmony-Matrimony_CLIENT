@@ -6,7 +6,10 @@ const Main = () => {
     return (
         <div>
             <Navbar/>
+            <div className='mx-12'>
             <Outlet/>
+            </div>
+            
             <Footer/>
         </div>
     );
