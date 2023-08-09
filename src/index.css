@@ -5,3 +5,9 @@
 .red-primary{
     @apply bg-[#cf2532] text-white
 }
+.red-text{
+    @apply text-[#cf2532]
+}
+.secondary{
+    @apply bg-[#FFFBF0]
+}
