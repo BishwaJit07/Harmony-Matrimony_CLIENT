@@ -20,9 +20,9 @@ const Footer = () => {
           <a className="link link-hover">Testimonial</a>
         </div>
 
-        <div className="lg:ps-28 sm:p-0 lg:border-s-2 sm:border-hidden border-slate-300">
+        <div className="lg:ps-28 sm:p-0 lg:border-s-2 sm:border-hidden border-slate-300 ">
           <span className="uppercase text-3xl font-extralight text-white pb-4">Social Media</span>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 ">
             <FaGoogle className="text-2xl" />
             <FaGithub className="text-2xl" />
             <FaYoutube className="text-2xl" />
