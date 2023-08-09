@@ -1,12 +1,12 @@
 import "./gellary.css";
-const Gellary = () => {
+const Gallary = () => {
   return (
     <div className="mb-8">
       <h1 className="text-red-600 font-bold border-b-2 border-red-600 w-fit mx-auto mb-8">
-        Photo Gellary
+        Photo Gallary
       </h1>
 
-      <div className="galContent grid grid-cols-7 grid-rows-3 gap-2 relative max-h-[calc(100vh-350px)]">
+      <div className="galContent grid grid-cols-3 md:grid-cols-7 grid-rows-1 md:grid-rows-3 gap-2 relative max-h-[calc(150vh-50px)] md:max-h-[calc(100vh-350px)]">
         <div>
           <img
             src="https://i.ibb.co/NmzGg7F/beautiful-stylish-couple-field-with-sunflowers-1157-25972.jpg"
@@ -63,4 +63,4 @@ const Gellary = () => {
   );
 };
 
-export default Gellary;
+export default Gallary;

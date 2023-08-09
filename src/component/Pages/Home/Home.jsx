@@ -1,10 +1,11 @@
-import Gellary from "./HomeCompnent/gellary/Gellary";
+import Gallary from "./HomeCompnent/gellary/Gallary";
+
 
 const Home = () => {
   return (
     <div className="text-cener text-3xl">
       Home Page
-      <Gellary />
+      <Gallary />
     </div>
   );
 };
