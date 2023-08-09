@@ -1,4 +1,4 @@
-import About from './homecompnent/about';
+import About from './HomeCompnent/About';
 import SearchFunction from './SearchFunction/SearchFunction';
 
 const Home = () => {
