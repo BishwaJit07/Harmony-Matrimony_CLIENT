@@ -1,4 +1,4 @@
-import Gellary from "./HomeCompnent/Gellary";
+import Gellary from "./HomeCompnent/gellary/Gellary";
 
 const Home = () => {
   return (
