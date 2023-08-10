@@ -7,21 +7,21 @@ import SearchFunction from "./SearchFunction/SearchFunction";
 import HappyStory from './HomeComponents/HappyStory/HappyStory';
 
 const Home = () => {
+
   return (
     <div className="text-center text-3xl">
-     
+
       <HeroSection />
-
-      <BestRecommendation/>
-
-      <SearchFunction></SearchFunction>
-
-      <Gallary />
-      <About />
-      <HappyStory />
+      <div className="w-[80%] mx-auto">
+        <SearchFunction></SearchFunction>
+        <BestRecommendation />
+        <Gallary />
+        <About />
+        <HappyStory />
+      </div>
     </div>
   );
-};
+
 
 export default Home;
 

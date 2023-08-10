@@ -1,10 +1,14 @@
 import "./gellary.css";
+import flower from "../../../../../../public/flower.png"
 const Gallary = () => {
   return (
-    <div className="mb-8">
-      <h1 className="text-red-600 font-bold border-b-2 border-red-600 w-fit mx-auto mb-8">
+    <div className="my-60">
+      <h1 className="text-red-600 font-bold border-b-2 border-red-600 w-fit mx-auto p-2">
         Photo Gallary
       </h1>
+        <div className="">
+          <img src={flower} alt="" className="lg:w-[15%] w-[60%] md:w-[40%] mx-auto -mt-2 mb-10"/>
+        </div>
 
       <div className="galContent grid grid-cols-3 md:grid-cols-7 grid-rows-1 md:grid-rows-3 gap-2 relative max-h-[calc(150vh-50px)] md:max-h-[calc(100vh-350px)]">
         <div>
@@ -27,17 +31,24 @@ const Gallary = () => {
             src="https://i.ibb.co/chdn9y8/man-hugs-his-wife-they-smile-each-other.jpg"
             className="galImg"
           />
+          
         </div>
         <div className="row-span-2">
           <img src="https://i.ibb.co/c1zwDyw/pxfuel-2.jpg" className="galImg" />
         </div>
-        <div className="row-span-2">
+        <div className="row-span-3 md:row-span-2">
           <img
             src="https://i.ibb.co/z2zcbNJ/315b896025e1da6a9fbaf95c836f1b4c.jpg"
             className="galImg"
           />
         </div>
-        <div className="row-span-2">
+        <div className="row-span-2 hidden md:flex ">
+          <img
+            src="https://i.ibb.co/PZ83F9w/pexels-jonathan-borba-3014860.jpg"
+            className="galImg"
+          />
+        </div>
+        <div className="col-span-2 md:hidden ">
           <img
             src="https://i.ibb.co/PZ83F9w/pexels-jonathan-borba-3014860.jpg"
             className="galImg"
@@ -52,7 +63,7 @@ const Gallary = () => {
             className="galImg"
           />
         </div>
-        <div>
+        <div className="hidden md:flex">
           <img
             src="https://i.ibb.co/Z1wcgNk/55a1435552506b9f7ef0054b74ecde4c.jpg"
             className="galImg"
