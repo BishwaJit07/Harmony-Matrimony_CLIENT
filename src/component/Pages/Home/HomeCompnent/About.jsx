@@ -1,4 +1,4 @@
-import flower from "../../../../../public/flower.png"
+import flower from "/flower.png"
 const About = () => {
   return (
     <div className="">

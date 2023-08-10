@@ -1,5 +1,5 @@
 import "./gellary.css";
-import flower from "../../../../../../public/flower.png"
+import flower from "/public/flower.png"
 const Gallary = () => {
   return (
     <div className="my-60">

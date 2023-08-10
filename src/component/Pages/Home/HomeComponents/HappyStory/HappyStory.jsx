@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import HappyStoryCard from "./HappyStoryCard";
-import flower from "../../../../../../public/flower.png"
+import flower from "/flower.png"
 const HappyStory = () => {
   const [happyStories, setHappyStories] = useState([])
 
