@@ -7,6 +7,7 @@ import SearchFunction from "./SearchFunction/SearchFunction";
 import HappyStory from './HomeComponents/HappyStory/HappyStory';
 
 const Home = () => {
+
   return (
     <div className="text-center text-3xl">
 
@@ -20,7 +21,7 @@ const Home = () => {
       </div>
     </div>
   );
-};
+
 
 export default Home;
 
