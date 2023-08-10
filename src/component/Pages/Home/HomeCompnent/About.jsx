@@ -12,7 +12,7 @@ const About = () => {
 
         
         <div> <img className="rounded" src="https://i.ibb.co/h18P50G/01197-619-M-1-1024x683.jpg" alt="" /></div>
-        <div></div>
+        <div>At SecureMatrimony, our vision is to foster meaningful connections that lead to lasting marriages. We believe in the power of compatibility, shared values, and understanding in creating strong foundations for relationships.</div>
       </div>
       <div></div>
     </div>
