@@ -3,7 +3,7 @@ const Footer = () => {
   return (
     <div>
       {/* THIS IS DEMO FOOTER  */}
-      <footer className="footer p-10 red-primary text-white rounded-t-2xl flex flex-col md:flex-row justify-center items-center">
+      <footer className="footer p-10 bg-[#cf2532] bg-opacity-95 text-white rounded-t-2xl flex flex-col md:flex-row justify-center items-center">
              <div>
               <img className="w-60 md:w-40" src="https://i.ibb.co/mqcyHYS/20230809-145351.png" alt="" />
              </div>
