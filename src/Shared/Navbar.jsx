@@ -23,7 +23,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="text-left">
-            <Link to='/' className="btn btn-ghost normal-case md:text-3xl  font-mono text-xl">SoulMates</Link>
+            <Link to='/' className=" normal-case md:text-3xl  font-mono text-xl">SoulMates</Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
