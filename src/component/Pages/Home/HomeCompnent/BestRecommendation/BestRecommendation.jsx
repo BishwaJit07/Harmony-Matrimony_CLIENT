@@ -19,7 +19,7 @@ const BestRecommendation = () => {
     <div className=" w-full  ">
       {/* content-section */}
       <div className="mb-10">
-        <h1 className="font-bold  text-[#cf2532] md:text-left text-xl text-center">
+        <h1 className="font-bold  text-[#cf2532]  text-xl text-center">
           Best Recommendation <span className="text-[#000000]">For you</span>
         </h1>
       </div>

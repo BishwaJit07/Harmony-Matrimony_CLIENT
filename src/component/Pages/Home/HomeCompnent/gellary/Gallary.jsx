@@ -1,5 +1,5 @@
 import "./gellary.css";
-import flower from "/public/flower.png"
+
 const Gallary = () => {
   return (
     <div className="my-60">
@@ -7,7 +7,7 @@ const Gallary = () => {
         Photo Gallary
       </h1>
         <div className="">
-          <img src={flower} alt="" className="lg:w-[15%] w-[60%] md:w-[40%] mx-auto -mt-2 mb-10"/>
+          <img src='https://i.ibb.co/swBsp3p/flower.png' alt="" className="lg:w-[15%] w-[60%] md:w-[40%] mx-auto -mt-2 mb-10"/>
         </div>
 
       <div className="galContent grid grid-cols-3 md:grid-cols-7 grid-rows-1 md:grid-rows-3 gap-2 relative max-h-[calc(150vh-50px)] md:max-h-[calc(100vh-350px)]">
