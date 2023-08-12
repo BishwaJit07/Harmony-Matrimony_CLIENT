@@ -11,3 +11,7 @@
 .secondary{
     @apply bg-[#FFFBF0]
 }
+
+.font-soul{
+    font-family: 'Pacifico', cursive;
+}

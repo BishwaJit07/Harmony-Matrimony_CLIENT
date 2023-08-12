@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import HappyStoryCard from "./HappyStoryCard";
-import flower from "../../../../../../public/flower.png"
+
 const HappyStory = () => {
   const [happyStories, setHappyStories] = useState([])
 
@@ -17,7 +17,7 @@ const HappyStory = () => {
         Happy Story
       </h1>
         <div className="">
-          <img src={flower} alt="" className="lg:w-[15%] w-[60%] md:w-[40%] mx-auto -mt-2 mb-10"/>
+          <img src='https://i.ibb.co/swBsp3p/flower.png' alt="" className="lg:w-[15%] w-[60%] md:w-[40%] mx-auto -mt-2 mb-10"/>
         </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {

@@ -1,4 +1,4 @@
-import flower from "../../../../../public/flower.png"
+
 const About = () => {
   return (
     <div className="">
@@ -8,7 +8,7 @@ const About = () => {
             About
           </h1>
           <div className="">
-            <img src={flower} alt="" className="lg:w-[15%] w-[60%] md:w-[40%] mx-auto -mt-2 mb-10" />
+            <img src='https://i.ibb.co/swBsp3p/flower.png' alt="" className="lg:w-[15%] w-[60%] md:w-[40%] mx-auto -mt-2 mb-10" />
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
@@ -18,7 +18,7 @@ const About = () => {
               About
             </h1>
             <div className="">
-              <img src={flower} alt="" className="w-[50%]  mx-auto -mt-2 mb-10" />
+              <img src='https://i.ibb.co/swBsp3p/flower.png' alt="" className="w-[50%]  mx-auto -mt-2 mb-10" />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-2 -mb-10 md:hidden">
