@@ -16,18 +16,18 @@ const About = () => {
         {/* about cards */}
 
         <div className="absolute w-full top-[85%] md:top-[80%]">
-          <div className="grid justify-center md:gap-10 md:flex">
-            <div className="w-[263px] h-[206px] p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
+          <div className="grid justify-center gap-6 md:gap-4 lg:gap-10 md:flex">
+            <div className="w-[263px] md:w-[203px] lg:w-[263px] h-[206px] p-8 md:p-4 lg:p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
               <img className='w-[50px] h-[50px] mx-auto' src={badge} alt="" />
               <p className='font-semibold'>Genuine profiles</p>
               <p className='text-sm'>The most trusted wedding matrimony brand</p>
             </div>
-            <div className="w-[263px] h-[206px] p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
+            <div className="w-[263px] md:w-[203px] lg:w-[263px] h-[206px] p-8 md:p-4 lg:p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
               <img className='w-[50px] h-[50px] mx-auto' src={badge} alt="" />
               <p className='font-semibold'>Genuine profiles</p>
               <p className='text-sm'>The most trusted wedding matrimony brand</p>
             </div>
-            <div className="w-[263px] h-[206px] p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
+            <div className="w-[263px] md:w-[203px] lg:w-[263px] h-[206px] p-8 md:p-4 lg:p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
               <img className='w-[50px] h-[50px] mx-auto' src={badge} alt="" />
               <p className='font-semibold'>Genuine profiles</p>
               <p className='text-sm'>The most trusted wedding matrimony brand</p>
