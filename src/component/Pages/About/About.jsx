@@ -1,5 +1,5 @@
 import { BsTelephoneFill } from "react-icons/bs";
-import { AiOutlineMail } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineMail } from "react-icons/ai";
 import badge from '../../../assets/icons/badge.png'
 import img1 from '../../../assets/about-photos/1.jpg'
 import img2 from '../../../assets/about-photos/2.jpg'
@@ -78,6 +78,46 @@ const About = () => {
                 <p className="text-[18px] font-semibold text-black">info@example.com</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* counting section */}
+      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mb-4 px-2">
+        <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full md:border-l-0">
+          <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
+            <AiOutlineHeart className="text-[20px]"/>
+          </div>
+          <div className="text-center md:text-left">
+            <p className="font-cinzel text-[40px] font-bold">2K</p>
+            <p className="text-sm font-normal">COUPLES PARED</p>
+          </div>
+        </div>
+        <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full">
+          <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
+            <AiOutlineHeart className="text-[20px]" />
+          </div>
+          <div className="text-center md:text-left">
+            <p className="font-cinzel text-[40px] font-bold">2K</p>
+            <p className="text-sm font-normal">COUPLES PARED</p>
+          </div>
+        </div>
+        <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full">
+          <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
+            <AiOutlineHeart className="text-[20px]" />
+          </div>
+          <div className="text-center md:text-left">
+            <p className="font-cinzel text-[40px] font-bold">2K</p>
+            <p className="text-sm font-normal">COUPLES PARED</p>
+          </div>
+        </div>
+        <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full md:border-r-0">
+          <div className="border-[#d7d1be] border  p-3 w-auto rounded-2xl mt-2">
+            <AiOutlineHeart className="text-[20px]" />
+          </div>
+          <div className="text-center md:text-left">
+            <p className="font-cinzel text-[40px] font-bold">2K</p>
+            <p className="text-sm font-normal">COUPLES PARED</p>
           </div>
         </div>
       </div>
