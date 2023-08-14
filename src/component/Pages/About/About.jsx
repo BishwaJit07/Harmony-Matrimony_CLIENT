@@ -1,8 +1,12 @@
+import { BsTelephoneFill } from "react-icons/bs";
+import { AiOutlineMail } from "react-icons/ai";
 import badge from '../../../assets/icons/badge.png'
+import img1 from '../../../assets/about-photos/1.jpg'
+import img2 from '../../../assets/about-photos/2.jpg'
 
 const About = () => {
   return (
-    <div className='font-poppins'>
+    <div className='font-poppins max-w-7xl mx-auto'>
       {/* about header */}
       <div className="relative">
         {/* about text */}
@@ -36,6 +40,47 @@ const About = () => {
         </div>
       </div>
       <div className="h-[700px] md:h-[200px]"></div>
+
+      {/* welcome section */}
+      <div className="lg:grid lg:grid-cols-2 mb-12">
+        {/* photo section */}
+        <div className="relative hidden lg:block">
+          <div className="w-[100px] h-[100px] border-[7px] border-[#f0a805] rounded-full absolute -top-[7%] -left-[5%] -z-10 "></div>
+          <img className='w-[75%] h-[550px] object-cover rounded-2xl' src={img1} alt="two couples picture" />
+          <img className='w-[80%] h-[300px] object-cover rounded-se-[100px] rounded-br-[15px] rounded-bl-[100px] border-white border-t-[15px] border-l-[15px] absolute top-[46%] left-[16%]' src={img2} alt="two couples picture" />
+          <div className="w-[200px] h-[200px] border-[7px] border-[#ffe2f0] rounded-2xl absolute top-[68%] left-[68%] -z-10"></div>
+        </div>
+        <div className="text-[#66451c] space-y-6 font-semibold px-8">
+          <div className="font-cinzel">
+            <p className='text-[58px] font-bold'>Welcome to</p>
+            <p className='text-[35px] font-bold text-[#e5026b]'>Wedding matrimony</p>
+          </div>
+          <p>Best wedding matrimony It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+          <p>Click here to Start you matrimony service now.</p>
+          <hr />
+          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable.</p>
+          <div className="md:flex gap-10 space-y-6 md:space-y-0">
+            <div className="flex items-center gap-3">
+              <div className="w-[50px] h-[50px] bg-black flex justify-center items-center rounded-full border-gray-300 border-[7px]">
+                <BsTelephoneFill className="text-white  text-[18px] "/>
+              </div>
+              <div className="">
+                <p className="text-[#7a7a7a]">Enquiry</p>
+                <p className="text-[18px] font-semibold text-black">+01 2242 3366</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-[50px] h-[50px] bg-black flex justify-center items-center rounded-full border-gray-300 border-[7px]">
+                <AiOutlineMail className="text-white  text-[18px] " />
+              </div>
+              <div className="">
+                <p className="text-[#7a7a7a]">Get Support</p>
+                <p className="text-[18px] font-semibold text-black">info@example.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
