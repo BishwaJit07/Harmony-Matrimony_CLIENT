@@ -13,7 +13,7 @@ const HappyStory = () => {
   
   return (
     <div className="my-60">
-       <h1 className="text-red-600 font-bold border-b-2 border-red-600 w-fit mx-auto p-2">
+       <h1 className="red-text font-bold border-b-2  w-fit mx-auto p-2">
         Happy Story
       </h1>
         <div className="">

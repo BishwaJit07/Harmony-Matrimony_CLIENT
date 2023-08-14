@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
 import { useContext } from "react";
-import logo from "../assets/logo/White logo.png"
+import logo from "../../../../assets/logo/logo.png"
+import { AuthContext } from "../../../../Provider/AuthProvider";
 
-const Navbar = () => {
-  const navItem = < >
+const HomeNavbar = () => {
+    const navItem = < >
     <li><Link  to='/'>Home</Link></li>
     <li><Link  to='/'>About</Link></li>
     <li><Link  to='/'>Contact</Link></li>
@@ -19,9 +19,9 @@ const Navbar = () => {
         .catch(error => console.log(error))
 }
   return (
-    <div className="red-primary">
+    <div className="secondary">
 
-      <div className="navbar  text-white w-[84%] mx-auto ">
+      <div className="navbar  text-[#728483] w-[84%] mx-auto ">
         <div className="navbar-start ">
           <div className="dropdown ">
             <label tabIndex={0} className="btn btn-ghost lg:hidden ">
@@ -47,7 +47,7 @@ const Navbar = () => {
           
           <button >
             <Link to="signup">
-              <p className="  text-white p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
+              <p className="  text-[#FF725E] p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-[#FF725E] hover:outline-[#bc1828]">
                 Join Now
               </p>
             </Link>
@@ -55,7 +55,7 @@ const Navbar = () => {
         </div>}
       </div>
     </div>
-  );
+  )
 };
 
-export default Navbar;
+export default HomeNavbar;
