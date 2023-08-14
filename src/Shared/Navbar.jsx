@@ -19,7 +19,7 @@ const Navbar = () => {
         .catch(error => console.log(error))
 }
   return (
-    <div className="red-primary">
+    <div className="bg-red-500">
 
       <div className="navbar  text-white w-[84%] mx-auto ">
         <div className="navbar-start ">

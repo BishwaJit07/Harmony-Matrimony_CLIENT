@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from "react";
-import img from '../../../assets/Groom-and-bride-wedding-vector-vector.jpg'
+import img from '../../../assets/other/login.png'
 import { AuthContext } from '../../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import SocialLogin from '../../../Shared/SocialLogin';
