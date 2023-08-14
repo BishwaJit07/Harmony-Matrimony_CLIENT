@@ -3,6 +3,7 @@ import { AiOutlineHeart, AiOutlineMail } from "react-icons/ai";
 import badge from '../../../assets/icons/badge.png'
 import img1 from '../../../assets/about-photos/1.jpg'
 import img2 from '../../../assets/about-photos/2.jpg'
+import img4 from '../../../assets/about-photos/4.jpg'
 
 const About = () => {
   return (
@@ -120,6 +121,85 @@ const About = () => {
             <p className="text-sm font-normal">COUPLES PARED</p>
           </div>
         </div>
+      </div>
+
+      {/* faq section */}
+      <div className="mb-4 grid grid-cols-1 lg:grid-cols-2 items-center">
+
+        <div className="space-y-4 px-4">
+          {/* single accordion */}
+          <div className="collapse collapse-plus bg-white shadow rounded">
+            <input type="radio" name="my-accordion-3" />
+            <div className="collapse-title text-xl font-bold">
+              It is a long established fact
+            </div>
+            <div className="collapse-content text-[#66451c]">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+            </div>
+          </div>
+
+          {/* single accordion */}
+          <div className="collapse collapse-plus bg-white shadow rounded ">
+            <input type="radio" name="my-accordion-3" />
+            <div className="collapse-title text-xl font-bold">
+              Where can I get some?
+            </div>
+            <div className="collapse-content text-[#66451c]">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+            </div>
+          </div>
+
+          {/* single accordion */}
+          <div className="collapse collapse-plus bg-white shadow rounded">
+            <input type="radio" name="my-accordion-3" />
+            <div className="collapse-title text-xl font-bold">
+              Where does it come from?
+            </div>
+            <div className="collapse-content text-[#66451c]">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+            </div>
+          </div>
+
+          {/* single accordion */}
+          <div className="collapse collapse-plus bg-white shadow rounded">
+            <input type="radio" name="my-accordion-3" />
+            <div className="collapse-title text-xl font-bold">
+              Why do we use it?
+              
+            </div>
+            <div className="collapse-content text-[#66451c]">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+            </div>
+          </div>
+
+          {/* single accordion */}
+          <div className="collapse collapse-plus bg-white shadow rounded">
+            <input type="radio" name="my-accordion-3" />
+            <div className="collapse-title text-xl font-bold">
+              What is Lorem Ipsum?
+            </div>
+            <div className="collapse-content text-[#66451c]">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+            </div>
+          </div>
+
+          {/* single accordion */}
+          <div className="collapse collapse-plus bg-white shadow rounded">
+            <input type="radio" name="my-accordion-3" />
+            <div className="collapse-title text-xl font-bold">
+              Contrary to popular belief
+            </div>
+            <div className="collapse-content text-[#66451c]">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+            </div>
+          </div>
+        </div>
+
+        {/* faq img */}
+        <div className="">
+          <img className="rounded h-[630px] w-full object-top object-cover mx-2" src={img4} alt="" />
+        </div>
+        
       </div>
     </div>
   );
