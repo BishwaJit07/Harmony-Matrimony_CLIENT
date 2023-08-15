@@ -45,15 +45,11 @@ const Navbar = () => {
         {user ? <div className="navbar-end me-3"><button onClick={handleLogOut} className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs ">Logout</button></div>
          : 
          <div className="navbar-end me-3 ">
-          
-          
-          <button >
             <Link to="signup">
               <p className="  text-white p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
                 Join Now
               </p>
             </Link>
-          </button>
         </div>}
       </div>
     </div>
