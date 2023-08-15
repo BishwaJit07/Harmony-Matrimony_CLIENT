@@ -33,7 +33,7 @@ const Blog = () => {
         </p>
       </div>
       <div className="flex justify-center gap-16 ">
-        <div className="lg:w-2/3 mx-auto w-full lg:ml-28 mt-10">
+        <div className="lg:w-2/3 mx-5 w-full lg:ml-28 mt-10">
           <h1 className="text-2xl font-semibold mb-4">LATEST & POPULAR</h1>
           {blogData.map((data) => (
             <BlogCard key={data._id} data={data}></BlogCard>
@@ -41,7 +41,7 @@ const Blog = () => {
         </div>
         <div className="w-1/3 hidden lg:block lg:mr-28  mt-10">
           <h1 className="text-xl font-semibold mb-5">TRENDING POSTS</h1>
-          {blogData.slice(0,4).map((data) => (
+          {blogData.map((data) => (
             <LeftCard key={data._id} data={data}></LeftCard>
           ))}
         </div>

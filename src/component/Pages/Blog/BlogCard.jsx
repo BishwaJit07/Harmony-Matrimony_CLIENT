@@ -1,7 +1,7 @@
 const BlogCard = ({data}) => {
   return (
     <>
-      <div className="card card-compact w-full bg-base-100 shadow-xl mb-10 mx-auto">
+      <div className="card card-compact w-full bg-base-100 shadow-xl mb-10 ">
         <figure>
           <img
             src={data.image}
