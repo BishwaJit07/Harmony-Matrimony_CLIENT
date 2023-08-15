@@ -9,7 +9,6 @@ const Navbar = () => {
     <li><Link to='/'>Home</Link></li>
     <li><Link to='/'>About</Link></li>
     <li><Link to='/'>Contact</Link></li>
-    <li><Link to='/'>All Profile</Link></li>
     <li><Link to='/blog'>Blog</Link></li>
 
   </>
@@ -22,7 +21,7 @@ const Navbar = () => {
 }
   return (
     <div className="bg-[#FF725E]">
-
+ 
       <div className="navbar  text-white w-[84%] mx-auto ">
         <div className="navbar-start ">
           <div className="dropdown ">
