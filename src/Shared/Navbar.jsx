@@ -9,7 +9,6 @@ const Navbar = () => {
     <li><Link to='/'>Home</Link></li>
     <li><Link to='/'>About</Link></li>
     <li><Link to='/'>Contact</Link></li>
-    <li><Link to='/'>All Profile</Link></li>
     <li><Link to='/blog'>Blog</Link></li>
 
   </>
@@ -21,8 +20,8 @@ const Navbar = () => {
         .catch(error => console.log(error))
 }
   return (
-    <div className="bg-red-500">
-
+    <div className="bg-[#FF725E]">
+ 
       <div className="navbar  text-white w-[84%] mx-auto ">
         <div className="navbar-start ">
           <div className="dropdown ">
@@ -45,15 +44,11 @@ const Navbar = () => {
         {user ? <div className="navbar-end me-3"><button onClick={handleLogOut} className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs ">Logout</button></div>
          : 
          <div className="navbar-end me-3 ">
-          
-          
-          <button >
             <Link to="signup">
               <p className="  text-white p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
                 Join Now
               </p>
             </Link>
-          </button>
         </div>}
       </div>
     </div>

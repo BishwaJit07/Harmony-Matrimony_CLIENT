@@ -5,7 +5,7 @@ import HomeNavbar from '../component/Pages/Home/HomeCompnent/HomeNavbar';
 
 const Main = () => {
     const location = useLocation();
-    const homeheader = location.pathname.includes("/signup") || location.pathname.includes("/signin") ;
+    const homeheader = location.pathname.includes("/signup") || location.pathname.includes("/signin")  || location.pathname.includes("/blog") ;
     return (
         <div>
             { homeheader ?  <Navbar/> : <HomeNavbar/>}

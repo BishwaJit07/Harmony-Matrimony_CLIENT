@@ -73,12 +73,12 @@ const SignUp = () => {
 
   }
   return (
-    <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto my-10 rounded-3xl h-[50%]">
+    <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
       
-      <figure><img className='object-cover -ml-24' src={img} alt="" /></figure>
-      <div className="card-body">
-        <div className='text-center mb-5'>
-        <img className='w-52 mx-auto' src={logo} alt="" />
+    <figure className='w-[50%]'><img className='object-cover -ml-24 h-[750px] ' src={img} alt="" /></figure>
+    <div className="card-body">
+      <div className='text-center mb-5'>
+      <img className='w-52 mx-auto mt-10' src={logo} alt="" />
         </div>
         <p className='text-center text-[#a2a2a2] text-xl'>Welcome to SoulMate</p>
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-6 mx-4 md:mx-0' action="">
