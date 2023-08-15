@@ -4,9 +4,9 @@ const SearchFunction = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
-        <div className='mt-48'>
+        <div className='mt-10 mb-44'>
             <h2 className='text-3xl font-semibold '>Find your <span className='red-text'>Partner</span> </h2>
-            <div className='secondary p-10 rounded-xl my-10  border-2 border-[#FF725E] border-opacity-50 '>
+            <div className='secondary p-5 rounded-xl my-10  border-2 border-[#FF725E] border-opacity-50 '>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='grid md:grid-cols-2 2xl:grid-cols-5 lg:gap-16 md:gap-10 gap-6 w-[100%] mx-auto '>
                     <div className='flex flex-col'>

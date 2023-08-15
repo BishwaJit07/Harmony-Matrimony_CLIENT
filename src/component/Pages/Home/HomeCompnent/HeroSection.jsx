@@ -34,7 +34,7 @@ const HeroSection = () => {
       </div>
     </>
   return (
-    <div className="secondary ">
+    <div className="secondary -mt-12">
 
       <div className="w-[80]%">
       <Carousel className="  gap-8 flex justify-center items-center flex-col-reverse  mx-auto"swipeable={true} autoFocus={false} emulateTouch={true} showStatus={false} autoPlay={true} infiniteLoop={true} showArrows={false}>
