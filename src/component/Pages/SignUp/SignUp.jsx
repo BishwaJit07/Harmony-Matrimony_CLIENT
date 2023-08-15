@@ -37,7 +37,7 @@ const SignUp = () => {
             console.log(loggedUser);
             updateUserProfile(data.name, imgUrl)
               .then(() => {
-                const saveUser = { name: data.name, email: data.email, photoUrl: imgUrl, status : "user" };
+                const saveUser = { name: data.name, email: data.email, image: imgUrl, status : "user" };
                 fetch('https://harmony-matrimony-server.vercel.app/alluser', {
                   method: 'POST',
                   headers: {
@@ -128,7 +128,7 @@ const SignUp = () => {
         <div className="flex justify-center items-center gap-4">
           <SocialLogin></SocialLogin>
         </div>
-        <p className='text-center text-[#a2a2a2] '>Already have an account? <Link className='red-text' to="/signin">Sign in</Link></p>
+        <p className='text-center text-[#a2a2a2] '>Already have an account? <Link className='red-text' to="/signIn">Sign in</Link></p>
       </div>
     </div>
   );

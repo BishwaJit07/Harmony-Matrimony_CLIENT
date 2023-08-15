@@ -13,12 +13,11 @@ const Navbar = () => {
 
   </>
   const { user, logOut } = useContext(AuthContext);
-
   const handleLogOut = () => {
     logOut()
-        .then(() => { })
-        .catch(error => console.log(error))
-}
+      .then(() => { })
+      .catch(error => console.log(error))
+  }
   return (
     <div className="bg-[#FF725E]">
  
@@ -41,15 +40,22 @@ const Navbar = () => {
             {navItem}
           </ul>
         </div>
-        {user ? <div className="navbar-end me-3"><button onClick={handleLogOut} className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs ">Logout</button></div>
-         : 
-         <div className="navbar-end me-3 ">
-            <Link to="signup">
+        {user ? <div className="flex">
+          <div className="navbar-end me-3"><button onClick={handleLogOut} className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs ">Logout</button></div>
+          <div className="avatar online">
+            <div className="w-16 rounded-full">
+              <img src={user.photoURL} />
+            </div>
+          </div>
+        </div>
+          :
+          <div className="navbar-end me-3 ">
+            <Link to="signUp">
               <p className="  text-white p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
                 Join Now
               </p>
             </Link>
-        </div>}
+          </div>}
       </div>
     </div>
   );
