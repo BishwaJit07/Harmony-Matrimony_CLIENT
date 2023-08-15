@@ -26,11 +26,9 @@ const Blog = () => {
 
   return (
     <div>
-      <div className="bg-[#FFFBF0] py-10">
-        <h1 className="text-center text-5xl font-semibold">Blog & Articles</h1>
-        <p className="text-center pt-5">
-          lacinia viverra lectus. Fusce imperdiet ullamcorper metus eu fringilla
-        </p>
+      <div className="secondary py-10">
+        <h1 className="text-center text-5xl font-semibold text-[#FF725E]">Blog & Articles</h1>
+        
       </div>
       <div className="flex justify-center gap-16 ">
         <div className="lg:w-2/3 mx-5 w-full lg:ml-28 mt-10">

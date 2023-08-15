@@ -3,12 +3,12 @@ const LeftCard = ({data}) => {
     <>
       <div className="card  card-side bg-base-100 shadow-xl mb-4 ml-2 hover:translate-x-6 duration-700">
         <figure>
-          <img
+          <img 
             src={data.image}
             alt={data.title}
 
            
-            className=" h-full object-cover"
+            className=" h-full object-cover w-60"
           />
         </figure>
         <div className="card-body">
