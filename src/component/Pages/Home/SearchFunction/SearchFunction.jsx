@@ -4,9 +4,9 @@ const SearchFunction = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
-        <div className='text-center my-60'>
-            <h2 className='text-3xl font-semibold '>Find your <br /><span className='red-text'>Right Match</span> here</h2>
-            <div className='secondary p-10 rounded-xl my-10  border-2 border-[#cf2532] border-opacity-50 '>
+        <div className='mt-48'>
+            <h2 className='text-3xl font-semibold '>Find your <span className='red-text'>Partner</span> </h2>
+            <div className='secondary p-10 rounded-xl my-10  border-2 border-[#FF725E] border-opacity-50 '>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='grid md:grid-cols-2 2xl:grid-cols-5 lg:gap-16 md:gap-10 gap-6 w-[100%] mx-auto '>
                     <div className='flex flex-col'>
@@ -53,13 +53,13 @@ const SearchFunction = () => {
                     </div>
                     
                     
-                    <div className='hidden h-10 my-auto w-36 mx-auto  2xl:flex  gap-2 justify-center items-center bg-[#cf2532] text-white rounded' type="submit">
+                    <div className='hidden h-10 my-auto w-36 mx-auto  2xl:flex  gap-2 justify-center items-center bg-[#FF725E] text-white rounded' type="submit">
                         <h2 className='text-lg '>Search </h2>
                         <p className='text-2xl ' ><BsSearchHeartFill></BsSearchHeartFill></p>
                     </div>
                     </div>
                     
-                    <div className=' 2xl:hidden flex mt-10 h-10 my-auto w-36 mx-auto  gap-2 justify-center items-center bg-[#cf2532] text-white rounded' type="submit">
+                    <div className=' 2xl:hidden flex mt-10 h-10 my-auto w-36 mx-auto  gap-2 justify-center items-center bg-[#FF725E] text-white rounded' type="submit">
                         <h2 className='text-lg '>Search </h2>
                         <p className='text-2xl ' ><BsSearchHeartFill></BsSearchHeartFill></p>
                     </div>

@@ -1,9 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom';
-import img from '../../../assets/Groom-and-bride-wedding-vector-vector.jpg'
+import img from '../../../assets/other/login.png'
 import { useContext } from "react";
 import { AuthContext } from '../../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import SocialLogin from '../../../Shared/SocialLogin';
+import logo from "../../../assets/logo/logo.png"
+
 
 const SignIn = () => {
   const { signIn } = useContext(AuthContext);
@@ -33,10 +35,13 @@ const SignIn = () => {
 
   }
   return (
-    <div className="w-full  grid grid-cols-1 md:grid-cols-2 items-center ">
-      <img className='w-full object-cover ' src={img} alt="" />
-      <div className="md:px-12 md:py-10 space-y-6 my-8 md:my-0">
-        <p className='font-soul text-4xl text-center'>SoulMate</p>
+    <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto my-10 rounded-3xl h-[50%]">
+      
+      <figure><img className='object-cover -ml-24' src={img} alt="" /></figure>
+      <div className="card-body">
+        <div className='text-center mb-5'>
+        <img className='w-52 mx-auto' src={logo} alt="" />
+        </div>
         <p className='text-center text-[#a2a2a2] text-xl'>Welcome to SoulMate</p>
         <form onSubmit={handleSignIn} className='flex flex-col gap-6 mx-4 md:mx-0' action="">
 
