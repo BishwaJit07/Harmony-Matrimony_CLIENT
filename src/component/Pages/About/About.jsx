@@ -3,14 +3,17 @@ import { AiOutlineHeart, AiOutlineMail } from "react-icons/ai";
 import { FaFemale, FaMale, FaUsers } from "react-icons/fa";
 import { BiLogoFacebook, BiLogoInstagram, BiLogoLinkedin, BiLogoWhatsapp } from "react-icons/bi";
 import badge from '../../../assets/icons/badge.png'
+import trust from '../../../assets/about-photos/trust.png'
+import ring from '../../../assets/about-photos/rings.png'
 import img1 from '../../../assets/about-photos/1.jpg'
 import img2 from '../../../assets/about-photos/2.jpg'
 import img4 from '../../../assets/about-photos/4.jpg'
 import girl from '../../../assets/about-photos/girl.jpg'
+import Heading from "../../../Shared/Heading/Heading";
 
 const About = () => {
   return (
-    <div className='font-poppins max-w-7xl mx-auto'>
+    <div className='font-poppins '>
       {/* about header */}
       <div className="relative">
         {/* about text */}
@@ -31,13 +34,13 @@ const About = () => {
               <p className='text-sm'>The most trusted wedding matrimony brand</p>
             </div>
             <div className="w-[263px] md:w-[203px] lg:w-[263px] h-[206px] p-8 md:p-4 lg:p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
-              <img className='w-[50px] h-[50px] mx-auto' src={badge} alt="" />
-              <p className='font-semibold'>Genuine profiles</p>
+              <img className='w-[50px] h-[50px] mx-auto' src={trust} alt="" />
+              <p className='font-semibold'>Most trusted</p>
               <p className='text-sm'>The most trusted wedding matrimony brand</p>
             </div>
             <div className="w-[263px] md:w-[203px] lg:w-[263px] h-[206px] p-8 md:p-4 lg:p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
-              <img className='w-[50px] h-[50px] mx-auto' src={badge} alt="" />
-              <p className='font-semibold'>Genuine profiles</p>
+              <img className='w-[50px] h-[50px] mx-auto' src={ring} alt="" />
+              <p className='font-semibold'>2000+ weddings</p>
               <p className='text-sm'>The most trusted wedding matrimony brand</p>
             </div>
           </div>
@@ -46,7 +49,7 @@ const About = () => {
       <div className="h-[700px] md:h-[200px]"></div>
 
       {/* welcome section */}
-      <div className="lg:grid lg:grid-cols-2 mb-12">
+      <div className="lg:grid lg:grid-cols-2 mb-12 max-w-7xl mx-auto">
         {/* photo section */}
         <div className="relative hidden lg:block">
           <div className="w-[100px] h-[100px] border-[7px] border-[#f0a805] rounded-full absolute -top-[7%] -left-[5%] -z-10 "></div>
@@ -87,39 +90,39 @@ const About = () => {
       </div>
 
       {/* counting section */}
-      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mt-16 mb-10 px-2">
-        <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full md:border-l-0">
+      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mt-16 mb-10 px-2 max-w-7xl mx-auto">
+        <div className="border p-5 flex flex-col lg:flex-row items-center lg:items-start gap-2 w-full md:border-l-0">
           <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
             <AiOutlineHeart className="text-[20px]"/>
           </div>
-          <div className="text-center md:text-left">
+          <div className="text-center lg:text-left">
             <p className="font-cinzel text-[40px] font-bold">2K</p>
             <p className="text-sm font-normal">COUPLES PARED</p>
           </div>
         </div>
-        <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full">
+        <div className="border p-5 flex flex-col lg:flex-row items-center lg:items-start gap-2 w-full">
           <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
             <FaUsers className="text-[20px]" />
           </div>
-          <div className="text-center md:text-left">
+          <div className="text-center lg:text-left">
             <p className="font-cinzel text-[40px] font-bold">4000+</p>
             <p className="text-sm font-normal">REGISTERED USERS</p>
           </div>
         </div>
-        <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full">
+        <div className="border p-5 flex flex-col lg:flex-row items-center lg:items-start gap-2 w-full">
           <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
             <FaMale className="text-[20px]" />
           </div>
-          <div className="text-center md:text-left">
+          <div className="text-center lg:text-left">
             <p className="font-cinzel text-[40px] font-bold">1600+</p>
             <p className="text-sm font-normal">MENS</p>
           </div>
         </div>
-        <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full md:border-r-0">
+        <div className="border p-5 flex flex-col lg:flex-row items-center lg:items-start gap-2 w-full md:border-r-0">
           <div className="border-[#d7d1be] border  p-3 w-auto rounded-2xl mt-2">
             <FaFemale className="text-[20px]" />
           </div>
-          <div className="text-center md:text-left">
+          <div className="text-center lg:text-left">
             <p className="font-cinzel text-[40px] font-bold">2000+</p>
             <p className="text-sm font-normal">WOMENS</p>
           </div>
@@ -127,7 +130,7 @@ const About = () => {
       </div>
 
       {/* faq section */}
-      <div className="mb-4 grid grid-cols-1 lg:grid-cols-2 items-center">
+      <div className="mb-4 grid grid-cols-1 lg:grid-cols-2 items-center max-w-7xl mx-auto">
 
         <div className="space-y-4 px-4">
           {/* single accordion */}
@@ -199,13 +202,17 @@ const About = () => {
         </div>
 
         {/* faq img */}
-        <div className="">
-          <img className="rounded h-[630px] w-full object-top object-cover mx-2" src={img4} alt="" />
+        <div className="px-2">
+          <img className="rounded h-[630px] w-full object-top object-cover " src={img4} alt="" />
         </div>
       </div>
 
+      <div className=" mt-10">
+        <Heading title="Meet Our Team"/>
+      </div>
+      
       {/* team section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center my-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 justify-center my-8 max-w-7xl mx-auto">
         
         {/* card */}
         <div className="shadow rounded mx-4 overflow-hidden group relative">
