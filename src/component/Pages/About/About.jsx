@@ -1,9 +1,12 @@
-import { BsTelephoneFill } from "react-icons/bs";
+import { BsTelephoneFill,  } from "react-icons/bs";
 import { AiOutlineHeart, AiOutlineMail } from "react-icons/ai";
+import { FaFemale, FaMale, FaUsers } from "react-icons/fa";
+import { BiLogoFacebook, BiLogoInstagram, BiLogoLinkedin, BiLogoWhatsapp } from "react-icons/bi";
 import badge from '../../../assets/icons/badge.png'
 import img1 from '../../../assets/about-photos/1.jpg'
 import img2 from '../../../assets/about-photos/2.jpg'
 import img4 from '../../../assets/about-photos/4.jpg'
+import girl from '../../../assets/about-photos/girl.jpg'
 
 const About = () => {
   return (
@@ -84,7 +87,7 @@ const About = () => {
       </div>
 
       {/* counting section */}
-      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mb-4 px-2">
+      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mt-16 mb-10 px-2">
         <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full md:border-l-0">
           <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
             <AiOutlineHeart className="text-[20px]"/>
@@ -96,29 +99,29 @@ const About = () => {
         </div>
         <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full">
           <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
-            <AiOutlineHeart className="text-[20px]" />
+            <FaUsers className="text-[20px]" />
           </div>
           <div className="text-center md:text-left">
-            <p className="font-cinzel text-[40px] font-bold">2K</p>
-            <p className="text-sm font-normal">COUPLES PARED</p>
+            <p className="font-cinzel text-[40px] font-bold">4000+</p>
+            <p className="text-sm font-normal">REGISTERED USERS</p>
           </div>
         </div>
         <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full">
           <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
-            <AiOutlineHeart className="text-[20px]" />
+            <FaMale className="text-[20px]" />
           </div>
           <div className="text-center md:text-left">
-            <p className="font-cinzel text-[40px] font-bold">2K</p>
-            <p className="text-sm font-normal">COUPLES PARED</p>
+            <p className="font-cinzel text-[40px] font-bold">1600+</p>
+            <p className="text-sm font-normal">MENS</p>
           </div>
         </div>
         <div className="border p-5 flex flex-col md:flex-row items-center md:items-start gap-2 w-full md:border-r-0">
           <div className="border-[#d7d1be] border  p-3 w-auto rounded-2xl mt-2">
-            <AiOutlineHeart className="text-[20px]" />
+            <FaFemale className="text-[20px]" />
           </div>
           <div className="text-center md:text-left">
-            <p className="font-cinzel text-[40px] font-bold">2K</p>
-            <p className="text-sm font-normal">COUPLES PARED</p>
+            <p className="font-cinzel text-[40px] font-bold">2000+</p>
+            <p className="text-sm font-normal">WOMENS</p>
           </div>
         </div>
       </div>
@@ -199,7 +202,136 @@ const About = () => {
         <div className="">
           <img className="rounded h-[630px] w-full object-top object-cover mx-2" src={img4} alt="" />
         </div>
+      </div>
+
+      {/* team section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center my-8">
         
+        {/* card */}
+        <div className="shadow rounded mx-4 overflow-hidden group relative">
+          <img className="w-full object-cover hover:scale-110  duration-700" src={girl} alt="" />
+          <div className="h-[100px]"></div>
+          <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
+            <p className="text-xl font-bold text-[#5A4F24] group-hover:text-[#ffc107]">Ashley Jen</p>
+            <p className="text-sm group-hover:text-white">Marketing Manager</p>
+          </div>
+
+          {/* socials */}
+          <div className="flex justify-center absolute group-hover:bottom-[40px] duration-700 -bottom-6 inset-x-0 z-10">
+            <div className="flex gap-8">
+              <div className="p-1 rounded-lg text-black ">
+                <BiLogoFacebook className="text-xl cursor-pointer" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoInstagram className="text-xl" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoLinkedin className="text-xl" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoWhatsapp className="text-xl" />
+              </div>
+            </div>
+          </div>
+          <div className=" bg-gradient-to-b from-[#2a262691] to-[#2a2c3c]  rounded-t-[40px] duration-700 absolute group-hover:h-[180px] h-0 group-hover:w-full w-0 group-hover:bottom-0 right-0">
+            
+          </div>
+        </div>
+
+        {/* card */}
+        <div className="shadow rounded mx-4 overflow-hidden group relative">
+          <img className="w-full object-cover hover:scale-110  duration-700" src={girl} alt="" />
+          <div className="h-[100px]"></div>
+          <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
+            <p className="text-xl font-bold text-[#5A4F24] group-hover:text-[#ffc107]">Ashley Jen</p>
+            <p className="text-sm group-hover:text-white">Marketing Manager</p>
+          </div>
+
+          {/* socials */}
+          <div className="flex justify-center absolute group-hover:bottom-[40px] duration-700 -bottom-6 inset-x-0 z-10">
+            <div className="flex gap-8">
+              <div className="p-1 rounded-lg text-black ">
+                <BiLogoFacebook className="text-xl cursor-pointer" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoInstagram className="text-xl" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoLinkedin className="text-xl" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoWhatsapp className="text-xl" />
+              </div>
+            </div>
+          </div>
+          <div className=" bg-gradient-to-b from-[#2a262691] to-[#2a2c3c]  rounded-t-[40px] duration-700 absolute group-hover:h-[180px] h-0 group-hover:w-full w-0 group-hover:bottom-0 right-0">
+
+          </div>
+        </div>
+
+        {/* card */}
+        <div className="shadow rounded mx-4 overflow-hidden group relative">
+          <img className="w-full object-cover hover:scale-110  duration-700" src={girl} alt="" />
+          <div className="h-[100px]"></div>
+          <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
+            <p className="text-xl font-bold text-[#5A4F24] group-hover:text-[#ffc107]">Ashley Jen</p>
+            <p className="text-sm group-hover:text-white">Marketing Manager</p>
+          </div>
+
+          {/* socials */}
+          <div className="flex justify-center absolute group-hover:bottom-[40px] duration-700 -bottom-6 inset-x-0 z-10">
+            <div className="flex gap-8">
+              <div className="p-1 rounded-lg text-black ">
+                <BiLogoFacebook className="text-xl cursor-pointer" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoInstagram className="text-xl" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoLinkedin className="text-xl" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoWhatsapp className="text-xl" />
+              </div>
+            </div>
+          </div>
+          <div className=" bg-gradient-to-b from-[#2a262691] to-[#2a2c3c]  rounded-t-[40px] duration-700 absolute group-hover:h-[180px] h-0 group-hover:w-full w-0 group-hover:bottom-0 right-0">
+
+          </div>
+        </div>
+
+        {/* card */}
+        <div className="shadow rounded mx-4 overflow-hidden group relative">
+          <img className="w-full object-cover hover:scale-110  duration-700" src={girl} alt="" />
+          <div className="h-[100px]"></div>
+          <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
+            <p className="text-xl font-bold text-[#5A4F24] group-hover:text-[#ffc107]">Ashley Jen</p>
+            <p className="text-sm group-hover:text-white">Marketing Manager</p>
+          </div>
+
+          {/* socials */}
+          <div className="flex justify-center absolute group-hover:bottom-[40px] duration-700 -bottom-6 inset-x-0 z-10">
+            <div className="flex gap-8">
+              <div className="p-1 rounded-lg text-black ">
+                <BiLogoFacebook className="text-xl cursor-pointer" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoInstagram className="text-xl" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoLinkedin className="text-xl" />
+              </div>
+              <div className="p-1 rounded-lg text-black cursor-pointer">
+                <BiLogoWhatsapp className="text-xl" />
+              </div>
+            </div>
+          </div>
+          <div className=" bg-gradient-to-b from-[#2a262691] to-[#2a2c3c]  rounded-t-[40px] duration-700 absolute group-hover:h-[180px] h-0 group-hover:w-full w-0 group-hover:bottom-0 right-0">
+
+          </div>
+        </div>
+        
+
       </div>
     </div>
   );
