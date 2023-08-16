@@ -55,7 +55,7 @@ const BestRecommendation = () => {
               <div className="rounded-sm z-auto">
                 <div className="">
                   <img
-                    src={item.img}
+                    src={item?.img}
                     alt=""
                     className="rounded-xl  object-cover w-full"
                   />

@@ -1,8 +1,13 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { BsSearchHeartFill } from "react-icons/bs";
 const SearchFunction = () => {
+
+    const [searchData, setSearchData] = useState([]);
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => setSearchData(data);
+
+    console.log(searchData)
     return (
         <div className='mt-10 mb-44'>
             <h2 className='text-3xl font-semibold '>Find your <span className='red-text'>Partner</span> </h2>
@@ -53,16 +58,16 @@ const SearchFunction = () => {
                     </div>
                     
                     
-                    <div className='hidden h-10 my-auto w-36 mx-auto  2xl:flex  gap-2 justify-center items-center bg-[#FF725E] text-white rounded' type="submit">
+                    <button className='hidden h-10 my-auto w-36 mx-auto  2xl:flex  gap-2 justify-center items-center bg-[#FF725E] text-white rounded' type="submit">
                         <h2 className='text-lg '>Search </h2>
                         <p className='text-2xl ' ><BsSearchHeartFill></BsSearchHeartFill></p>
-                    </div>
+                    </button>
                     </div>
                     
-                    <div className=' 2xl:hidden flex mt-10 h-10 my-auto w-36 mx-auto  gap-2 justify-center items-center bg-[#FF725E] text-white rounded' type="submit">
+                    <button className=' 2xl:hidden flex mt-10 h-10 my-auto w-36 mx-auto  gap-2 justify-center items-center bg-[#FF725E] text-white rounded' type="submit">
                         <h2 className='text-lg '>Search </h2>
                         <p className='text-2xl ' ><BsSearchHeartFill></BsSearchHeartFill></p>
-                    </div>
+                    </button>
 
                 </form>
             </div>
