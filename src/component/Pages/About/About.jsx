@@ -216,7 +216,7 @@ const About = () => {
         
         {/* card */}
         <div className="shadow rounded mx-4 overflow-hidden group relative">
-          <img className="w-full object-cover hover:scale-110  duration-700" src={girl} alt="" />
+          <img className="w-full object-cover group-hover:scale-110  duration-700" src={girl} alt="" />
           <div className="h-[100px]"></div>
           <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
             <p className="text-xl font-bold text-[#5A4F24] group-hover:text-[#ffc107]">Ashley Jen</p>
@@ -224,7 +224,7 @@ const About = () => {
           </div>
 
           {/* socials */}
-          <div className="flex justify-center absolute group-hover:bottom-[40px] duration-700 -bottom-6 inset-x-0 z-10">
+          <div className="flex justify-center absolute  group-hover:bottom-[40px] duration-700 -bottom-6 inset-x-0 z-10">
             <div className="flex gap-8">
               <div className="p-1 rounded-lg text-black ">
                 <BiLogoFacebook className="text-xl cursor-pointer" />
@@ -247,7 +247,7 @@ const About = () => {
 
         {/* card */}
         <div className="shadow rounded mx-4 overflow-hidden group relative">
-          <img className="w-full object-cover hover:scale-110  duration-700" src={girl} alt="" />
+          <img className="w-full object-cover group-hover:scale-110  duration-700" src={girl} alt="" />
           <div className="h-[100px]"></div>
           <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
             <p className="text-xl font-bold text-[#5A4F24] group-hover:text-[#ffc107]">Ashley Jen</p>
@@ -278,7 +278,7 @@ const About = () => {
 
         {/* card */}
         <div className="shadow rounded mx-4 overflow-hidden group relative">
-          <img className="w-full object-cover hover:scale-110  duration-700" src={girl} alt="" />
+          <img className="w-full object-cover group-hover:scale-110  duration-700" src={girl} alt="" />
           <div className="h-[100px]"></div>
           <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
             <p className="text-xl font-bold text-[#5A4F24] group-hover:text-[#ffc107]">Ashley Jen</p>
@@ -309,7 +309,7 @@ const About = () => {
 
         {/* card */}
         <div className="shadow rounded mx-4 overflow-hidden group relative">
-          <img className="w-full object-cover hover:scale-110  duration-700" src={girl} alt="" />
+          <img className="w-full object-cover group-hover:scale-110  duration-700" src={girl} alt="" />
           <div className="h-[100px]"></div>
           <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
             <p className="text-xl font-bold text-[#5A4F24] group-hover:text-[#ffc107]">Ashley Jen</p>
