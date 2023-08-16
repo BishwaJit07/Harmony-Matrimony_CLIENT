@@ -4,22 +4,17 @@ import { useContext } from "react";
 import logo from "../assets/logo/White logo.png";
 
 const Navbar = () => {
-  const navItem = (
-    <>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/">About</Link>
-      </li>
-      <li>
-        <Link to="/">Contact</Link>
-      </li>
-      <li>
-        <Link to="/blog">Blog</Link>
-      </li>
-    </>
-  );
+
+
+  const navItem = <>
+    <li><Link to='/'>Home</Link></li>
+    <li><Link to='/'>About</Link></li>
+    <li><Link to='/'>Contact</Link></li>
+    <li><Link to='/'>All User</Link></li>
+    <li><Link to='/blog'>Blog</Link></li>
+
+  </>
+
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut()

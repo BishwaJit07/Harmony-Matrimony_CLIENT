@@ -4,29 +4,23 @@ import logo from "../../../../assets/logo/logo.png";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const HomeNavbar = () => {
-  const navItem = (
-    <>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
-      <li>
-        <Link to="/">Contact</Link>
-      </li>
-      <li>
-        <Link to="/blog">Blog</Link>
-      </li>
-    </>
-  );
+
+    const navItem = < >
+    <li><Link  to='/'>Home</Link></li>
+    <li><Link  to='/about'>About</Link></li>
+    <li><Link to='/alluser'>All User</Link></li>
+    <li><Link  to='/blog'>Blog</Link></li>
+  </>
+
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
+
       .then(() => {})
       .catch((error) => console.log(error));
   };
+
   return (
     <div className="secondary">
       <div className="navbar  text-[#728483] w-[84%] mx-auto ">
