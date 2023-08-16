@@ -1,13 +1,21 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { BsSearchHeartFill } from "react-icons/bs";
+import {  useNavigate } from 'react-router-dom';
 const SearchFunction = () => {
 
-    const [searchData, setSearchData] = useState([]);
+    // const [searchData, setSearchData] = useState([]);
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => setSearchData(data);
+    const navigate = useNavigate();
+    const onSubmit = data => {
+        navigate("/alluser", {
+                state: data
+            }
+           )
 
-    console.log(searchData)
+    };
+
+    // console.log(searchData)
     return (
         <div className='mt-10 mb-44'>
             <h2 className='text-3xl font-semibold '>Find your <span className='red-text'>Partner</span> </h2>
