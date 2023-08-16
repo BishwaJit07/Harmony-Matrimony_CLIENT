@@ -61,17 +61,24 @@ const HomeNavbar = () => {
           </ul>
         </div>
         {user ? (
-          <div className="navbar-end me-3">
-            <button
-              onClick={handleLogOut}
-              className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs "
-            >
-              Logout
-            </button>
-          </div>
+                <div className="flex">
+                <div className="navbar-end me-3">
+                  <button
+                    onClick={handleLogOut}
+                    className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs "
+                  >
+                    Logout
+                  </button>
+                </div>
+                <div className="avatar online">
+                  <div className="w-16 rounded-full">
+                    <img src={user.photoURL} />
+                  </div>
+                </div>
+              </div>
         ) : (
           <div className="navbar-end me-3 ">
-            <Link to="signup">
+            <Link to="signup/step-1">
               <button className="  text-[#FF725E] p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-[#FF725E] hover:outline-[#bc1828]">
                 Join Now
               </button>
