@@ -2,8 +2,8 @@ import "./gellary.css";
 
 const Gallary = () => {
   return (
-    <div className="my-60">
-      <h1 className="text-red-600 font-bold border-b-2 border-red-600 w-fit mx-auto p-2">
+    <div className="my-36">
+      <h1 className="text-[#FF725E] font-bold border-b-2 border-[#FF725E] w-fit mx-auto p-2">
         Photo Gallary
       </h1>
         <div className="">
