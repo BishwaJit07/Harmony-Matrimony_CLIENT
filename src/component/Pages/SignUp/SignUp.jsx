@@ -15,7 +15,7 @@ const SignUp = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const image_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Hosting_Token}`;
-  console.log(image_hosting_url);
+  // console.log(image_hosting_url);
 
   const onSubmit = data => {
 
@@ -30,7 +30,7 @@ const SignUp = () => {
       .then(res => res.json())
       .then(imgResponse => {
         const imgUrl = imgResponse.data.display_url;
-        console.log(data, imgUrl);
+        // console.log(data, imgUrl);
         createUser(data.email, data.password)
           .then(result => {
             const loggedUser = result.user;
@@ -61,14 +61,14 @@ const SignUp = () => {
                   })
 
               })
-              .catch(error => console.log(error))
+              // .catch(error => console.log(error))
 
           })
           .catch(error => {
             console.log(error);
           })
       })
-      .catch(error => console.log(error))
+      // .catch(error => console.log(error))
 
 
   }
