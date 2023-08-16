@@ -1,52 +1,102 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from "react";
-import img from '../../../assets/Groom-and-bride-wedding-vector-vector.jpg'
+import img from '../../../assets/other/login.png'
+import logo from '../../../assets/logo/logo.png'
 import { AuthContext } from '../../../Provider/AuthProvider';
-import Swal from 'sweetalert2';
 import SocialLogin from '../../../Shared/SocialLogin';
+import Swal from 'sweetalert2';
+import { useForm } from 'react-hook-form';
 
 
-
+const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
-const navigate = useNavigate()
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(name, email, password);
-    
-    createUser(email, password)
-    .then(result =>{
-      const loggedUser = result.user;
-      console.log(loggedUser);
-      if(loggedUser){
-        Swal.fire(
-          'Good job!',
-          'User Created Successful',
-          'success'
-        )
-        navigate('/');
-      }
+  const navigate = useNavigate('/')
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { register, handleSubmit, reset } = useForm();
+
+  const image_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Hosting_Token}`;
+  console.log(image_hosting_url);
+
+  const onSubmit = data => {
+
+    // console.log(data);
+    const formData = new FormData();
+    formData.append('image', data.image[0])
+
+    fetch(image_hosting_url, {
+      method: 'POST',
+      body: formData
     })
-    .catch(error => {
-      console.log(error);
-    })
+      .then(res => res.json())
+      .then(imgResponse => {
+        const imgUrl = imgResponse.data.display_url;
+        console.log(data, imgUrl);
+        createUser(data.email, data.password)
+          .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            updateUserProfile(data.name, imgUrl)
+              .then(() => {
+                const saveUser = { name: data.name, email: data.email, image: imgUrl, status : "user" };
+                fetch('https://harmony-matrimony-server.vercel.app/alluser', {
+                  method: 'POST',
+                  headers: {
+                    'content-type': 'application/json'
+                  },
+                  body: JSON.stringify(saveUser)
+                })
+                  .then(res => res.json())
+                  .then(data => {
+                    if (data.insertedId) {
+                      reset();
+                      Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'User created successfully.',
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                      navigate('/');
+                    }
+                  })
+
+              })
+              .catch(error => console.log(error))
+
+          })
+          .catch(error => {
+            console.log(error);
+          })
+      })
+      .catch(error => console.log(error))
+
+
   }
   return (
-    <div className="w-full  grid grid-cols-1 md:grid-cols-2 items-center ">
-      <img className='w-full object-cover ' src={img} alt="" />
-      <div className="md:px-12 md:py-10 space-y-6 my-8 md:my-0">
-        <p className='font-soul text-4xl text-center'>SoulMate</p>
+    <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
+      
+    <figure className='w-[50%]'><img className='object-cover -ml-24 h-[750px] ' src={img} alt="" /></figure>
+    <div className="card-body">
+      <div className='text-center mb-5'>
+      <img className='w-52 mx-auto mt-10' src={logo} alt="" />
+        </div>
         <p className='text-center text-[#a2a2a2] text-xl'>Welcome to SoulMate</p>
-        <form onSubmit={handleSubmit} className='flex flex-col gap-6 mx-4 md:mx-0' action="">
+        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-6 mx-4 md:mx-0' action="">
           {/* name field*/}
           <div>
             <div className="relative z-0">
-              <input name='name' type="text" id="standard_success" aria-describedby="standard_success_help" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none dark:text-white dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer" placeholder=" " required />
+              <input name='name' {...register("name", { required: true })} type="text" id="standard_success" aria-describedby="standard_success_help" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none dark:text-white dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer" placeholder=" " required />
               <label htmlFor="standard_success" className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
+            </div>
+            {/* This paragraph is for input validation. if user inter invalid email or password this paragraph will be shown and text color will be red */}
+            <p id="standard_success_help" className="hidden mt-2 text-xs text-[#a2a2a2] dark:text-gray-400"><span className="font-medium">Well done!</span> Some success message.</p>
+          </div>
+          {/* photo field*/}
+          <div>
+            <div className="relative z-0 ">
+              <input name='photo' {...register("image", { required: true })} type="file" id="standard_success"  aria-describedby="standard_success_help" className="
+               file-input block py-2.5 px-0 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none w-full dark:text-white dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer" placeholder="" required />
+              <label htmlFor="standard_success" className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Photo Url</label>
             </div>
             {/* This paragraph is for input validation. if user inter invalid email or password this paragraph will be shown and text color will be red */}
             <p id="standard_success_help" className="hidden mt-2 text-xs text-[#a2a2a2] dark:text-gray-400"><span className="font-medium">Well done!</span> Some success message.</p>
@@ -55,7 +105,7 @@ const navigate = useNavigate()
           {/* Email field*/}
           <div>
             <div className="relative z-0">
-              <input name='email' type="email" id="standard_success" aria-describedby="standard_success_help" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none dark:text-white dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer" placeholder=" " required />
+              <input name='email' {...register("email", { required: true })} type="email" id="standard_success" aria-describedby="standard_success_help" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none dark:text-white dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer" placeholder=" " required />
               <label htmlFor="standard_success" className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">User name or Email</label>
             </div>
             {/* This paragraph is for input validation. if user inter invalid email or password this paragraph will be shown and text color will be red */}
@@ -65,7 +115,7 @@ const navigate = useNavigate()
           {/* password field*/}
           <div>
             <div className="relative z-0">
-              <input name='password' type="password" id="standard_success" aria-describedby="standard_success_help" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none dark:text-white dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer" placeholder=" " required />
+              <input name='password' {...register("password", { required: true })} type="password" id="standard_success" aria-describedby="standard_success_help" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none dark:text-white dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer" placeholder=" " required />
               <label htmlFor="standard_success" className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
             </div>
             {/* This paragraph is for input validation. if user inter invalid email or password this paragraph will be shown and text color will be red */}
@@ -78,7 +128,7 @@ const navigate = useNavigate()
         <div className="flex justify-center items-center gap-4">
           <SocialLogin></SocialLogin>
         </div>
-        <p className='text-center text-[#a2a2a2] '>Already have an account? <Link className='red-text' to="/signin">Sign in</Link></p>
+        <p className='text-center text-[#a2a2a2] '>Already have an account? <Link className='red-text' to="/signIn">Sign in</Link></p>
       </div>
     </div>
   );
