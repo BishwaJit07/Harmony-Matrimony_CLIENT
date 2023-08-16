@@ -3,7 +3,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../component/Pages/Home/Home";
 import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
-
 import About from "../component/Pages/About/About";
 import Blog from "../component/Pages/Blog/Blog";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
@@ -50,11 +49,7 @@ const router = createBrowserRouter([
         path: "final_signup",
         element: <SignUp />,
       },
-      // {
-      //   path: "stop",
-      //   element: <Step2 />,
-      // },
-    ],
+     ],
   },
 ]);
 
