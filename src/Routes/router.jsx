@@ -3,13 +3,14 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../component/Pages/Home/Home";
 import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
-import About from "../component/Pages/About/About";
+
 import Blog from "../component/Pages/Blog/Blog";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import AllUser from "../component/Pages/AllUser/AllUser";
 import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
 import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
 import SignUp from "../component/Pages/SignUp/SignUp";
+import About from "../component/Pages/Home/HomeCompnent/About";
 
 
 const router = createBrowserRouter([
@@ -41,7 +42,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "signup",
+    path: "/signup",
+   
     children: [
       {
         path: "step-1",
