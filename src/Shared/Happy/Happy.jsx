@@ -1,6 +1,7 @@
 import logo from '../../assets/logo/logo.png'
 import couple from '../../assets/Happy-form/couple.jpg'
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Happy = () => {
 
@@ -50,6 +51,13 @@ const Happy = () => {
     
 
     <div className="relative overflow-hidden">
+
+      {/* Title */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Soulmate | Happy Story</title>
+      </Helmet>
+      
       {/* img */}
       <div className="relative">
         <img className="w-full h-[100vh] object-cover" src={couple} alt="" />

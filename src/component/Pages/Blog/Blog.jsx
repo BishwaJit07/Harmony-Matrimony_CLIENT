@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 import LeftCard from "./LeftCard";
-import Loading from "../../../Shared/loading";
+import Loading from "../../../Shared/Loading";
+import { Helmet } from "react-helmet";
 const Blog = () => {
   const [blogData, setBlogData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,6 +28,13 @@ const Blog = () => {
 
   return (
     <div>
+
+      {/* Title */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Soulmate | Blog</title>
+      </Helmet>
+      
       <div className="secondary py-10">
         <h1 className="text-center text-5xl font-semibold text-[#FF725E]">Blog & Articles</h1>
         

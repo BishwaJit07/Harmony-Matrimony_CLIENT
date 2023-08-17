@@ -5,6 +5,7 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import SocialLogin from '../../../Shared/SocialLogin';
 import logo from "../../../assets/logo/logo.png"
+import { Helmet } from 'react-helmet';
 
 
 const SignIn = () => {
@@ -36,6 +37,12 @@ const SignIn = () => {
   }
   return (
     <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
+
+      {/* Title */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Soulmate | Sign In</title>
+      </Helmet>
       
       <figure className='w-[50%]'><img className='object-cover -ml-24 h-[750px] ' src={img} alt="" /></figure>
       <div className="card-body">
