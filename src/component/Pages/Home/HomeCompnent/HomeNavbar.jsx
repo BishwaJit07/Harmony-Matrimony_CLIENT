@@ -5,6 +5,7 @@ import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const HomeNavbar = () => {
 
+
     const navItem = < >
     <li><Link  to='/'>Home</Link></li>
     <li><Link  to='/about'>About</Link></li>
@@ -14,14 +15,24 @@ const HomeNavbar = () => {
     <li><Link to='/plans'>Plans</Link></li>
   </>
 
+
   const { user, logOut } = useContext(AuthContext);
+
+  const navItem = < >
+    <li><Link to='/'>Home</Link></li>
+    <li><Link to='/about'>About</Link></li>
+    {user && <li><Link to='/contact'>Dashboard</Link></li>}
+    <li><Link to='/blog'>Blog</Link></li>
+  </>
 
   const handleLogOut = () => {
     logOut()
 
+
       .then(() => {})
       .catch((error) => console.log(error));
   };
+
 
   return (
     <div className="secondary">
@@ -62,6 +73,7 @@ const HomeNavbar = () => {
             {navItem}
           </ul>
         </div>
+
         <div className="navbar-end">
         {user ? (
           <div className="flex gap-2 items-center">
@@ -89,6 +101,7 @@ const HomeNavbar = () => {
           </div>
         )}
         </div>
+
       </div>
     </div>
   );
