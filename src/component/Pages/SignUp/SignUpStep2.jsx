@@ -3,6 +3,7 @@ import logo from "../../../assets/logo/logo.png";
 import { useForm } from "react-hook-form";
 import countries from "countries-list";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const SignUpStep2 = () => {
   const navigate = useNavigate("/");
@@ -23,6 +24,13 @@ const SignUpStep2 = () => {
 
   return (
     <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
+
+      {/* Title */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Soulmate | Sign Up</title>
+      </Helmet>
+      
       <figure className="w-[50%]">
         <img className="object-cover -ml-24 h-[750px] " src={img} alt="" />
       </figure>

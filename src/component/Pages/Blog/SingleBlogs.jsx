@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 
 const SingleBlogs = () => {
@@ -15,6 +16,12 @@ const{image,title,details}=blogs;
 
     return (
         <div>
+            {/* Title */}
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Soulmate | {title}</title>
+            </Helmet>
+
             <div className="card card-side bg-base-100 shadow-2xl p-5">
   <figure><img src={image} alt="Blog"/></figure>
   <div className="card-body ">
