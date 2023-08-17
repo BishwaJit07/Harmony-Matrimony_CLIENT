@@ -10,7 +10,8 @@ import AllUser from "../component/Pages/AllUser/AllUser";
 import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
 import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
 import SignUp from "../component/Pages/SignUp/SignUp";
-import About from "../component/Pages/Home/HomeCompnent/About";
+import About from "../component/Pages/AboutP/About";
+
 
 
 const router = createBrowserRouter([
