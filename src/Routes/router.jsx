@@ -5,6 +5,9 @@ import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
 
 import Blog from "../component/Pages/Blog/Blog";
+
+import Plans from "../component/Pages/Plans/Plans";
+
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import AllUser from "../component/Pages/AllUser/AllUser";
 import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
@@ -13,7 +16,6 @@ import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
-
 
 
 const router = createBrowserRouter([
@@ -39,6 +41,11 @@ const router = createBrowserRouter([
         element:<Blog></Blog>
       },
       {
+
+        path:'/plans',
+        element:<Plans></Plans>
+      },
+      {
         path:'/alluser',
         element: <AllUser></AllUser>
       },
@@ -49,6 +56,7 @@ const router = createBrowserRouter([
       {
         path:'/blogs/:id',
         element: <SingleBlogs/>
+
       }
     ],
   },
