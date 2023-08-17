@@ -15,7 +15,6 @@ const SignUp = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const image_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Hosting_Token}`;
-  console.log(image_hosting_url);
 
   const onSubmit = data => {
 

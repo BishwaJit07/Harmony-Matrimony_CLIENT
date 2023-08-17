@@ -4,19 +4,20 @@ import logo from "../../../../assets/logo/logo.png"
 import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const HomeNavbar = () => {
-    const navItem = < >
-    <li><Link  to='/'>Home</Link></li>
-    <li><Link  to='/about'>About</Link></li>
-    <li><Link  to='/'>Contact</Link></li>
-    <li><Link  to='/blog'>Blog</Link></li>
-  </>
   const { user, logOut } = useContext(AuthContext);
+
+  const navItem = < >
+    <li><Link to='/'>Home</Link></li>
+    <li><Link to='/about'>About</Link></li>
+    {user && <li><Link to='/contact'>Dashboard</Link></li>}
+    <li><Link to='/blog'>Blog</Link></li>
+  </>
 
   const handleLogOut = () => {
     logOut()
-        .then(() => { })
-        .catch(error => console.log(error))
-}
+      .then(() => { })
+      .catch(error => console.log(error))
+  }
   return (
     <div className="secondary">
 
@@ -39,19 +40,24 @@ const HomeNavbar = () => {
             {navItem}
           </ul>
         </div>
-        {user ? <div className="navbar-end me-3"><button onClick={handleLogOut} className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs ">Logout</button></div>
-         : 
-         <div className="navbar-end me-3 ">
-          
-          
-          <button >
-            <Link to="signup">
-              <p className="  text-[#FF725E] p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-[#FF725E] hover:outline-[#bc1828]">
-                Join Now
-              </p>
-            </Link>
-          </button>
-        </div>}
+        {user ? <div className="flex ms-20">
+          <div className="navbar-end me-3"><button onClick={handleLogOut} className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs ">Logout</button></div>
+          <div className="avatar online">
+            <div className="w-16 rounded-full">
+              <img src={user.photoURL} />
+            </div>
+          </div>
+        </div>
+          :
+          <div className="navbar-end me-3 ">
+            <button >
+              <Link to="signup">
+                <p className="  text-[#FF725E] p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-[#FF725E] hover:outline-[#bc1828]">
+                  Join Now
+                </p>
+              </Link>
+            </button>
+          </div>}
       </div>
     </div>
   )

@@ -2,17 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-.red-primary{
+.red-primary {
     @apply bg-[#FF725E] text-white
 }
-.red-text{
+
+.red-text {
     @apply text-[#FF725E]
 }
 
-.secondary{
+.secondary {
     @apply bg-[#EBFFF6]
 }
 
-.font-soul{
+.font-soul {
     font-family: 'Pacifico', cursive;
+}
+
+.navStyle a.active {
+    background-color: blue;
 }
