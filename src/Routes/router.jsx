@@ -9,6 +9,7 @@ import Blog from "../component/Pages/Blog/Blog";
 import Plans from "../component/Pages/Plans/Plans";
 
 import ErrorPage from "../component/ErrorPage/ErrorPage";
+import Happy from "../Shared/Happy/Happy";
 import AllUser from "../component/Pages/AllUser/AllUser";
 import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
 import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
@@ -42,8 +43,12 @@ const router = createBrowserRouter([
       },
       {
 
+        path: "/happy",
+        element: <Happy />
+
         path:'/plans',
         element:<Plans></Plans>
+
       },
       {
         path:'/alluser',
