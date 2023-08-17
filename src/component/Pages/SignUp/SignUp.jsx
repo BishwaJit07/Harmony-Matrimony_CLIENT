@@ -68,11 +68,8 @@ const SignUp = () => {
               })
               .catch((error) => console.log(error));
           })
-          .catch((error) => {
-            console.log(error);
-          });
       })
-      .catch((error) => console.log(error));
+     
   };
   return (
     <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">

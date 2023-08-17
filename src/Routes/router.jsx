@@ -56,7 +56,8 @@ const router = createBrowserRouter([
 
         path:'/patnerProfile/:id',
         element: <PatnerProfile></PatnerProfile>
-
+      },
+      {
         path:'/allcouple/:id',
         element: <SingleHappyStory/>
       },
