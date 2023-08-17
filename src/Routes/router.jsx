@@ -5,6 +5,8 @@ import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
 import SignUp from "../component/Pages/SignUp/SignUp";
 import Blog from "../component/Pages/Blog/Blog";
+import Plans from "../component/Pages/Plans/Plans";
+
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
       {
         path:'/blog',
         element:<Blog></Blog>
+      },
+      {
+        path:'/plans',
+        element:<Plans></Plans>
       }
 
     ],
