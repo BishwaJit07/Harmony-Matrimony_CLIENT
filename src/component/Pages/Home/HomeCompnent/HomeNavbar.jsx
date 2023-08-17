@@ -60,31 +60,33 @@ const HomeNavbar = () => {
             {navItem}
           </ul>
         </div>
+        <div className="navbar-end">
         {user ? (
-                <div className="flex">
-                <div className="navbar-end me-3">
-                  <button
-                    onClick={handleLogOut}
-                    className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs "
-                  >
-                    Logout
-                  </button>
-                </div>
-                <div className="avatar online">
-                  <div className="w-16 rounded-full">
-                    <img src={user.photoURL} />
-                  </div>
-                </div>
+          <div className="flex gap-2 items-center">
+            <div className="navbar-end me-3">
+              <button
+                onClick={handleLogOut}
+                className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs "
+              >
+                Logout
+              </button>
+            </div>
+            <div className="avatar online">
+              <div className="w-11 rounded-full border border-[#FF725E] border-2">
+                <img src={user.photoURL} />
               </div>
+            </div>
+          </div>
         ) : (
           <div className="navbar-end me-3 ">
             <Link to="signup/step-1">
-              <button className="  text-[#FF725E] p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-[#FF725E] hover:outline-[#bc1828]">
+              <p className="  text-white p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
                 Join Now
-              </button>
+              </p>
             </Link>
           </div>
         )}
+        </div>
       </div>
     </div>
   );
