@@ -11,6 +11,8 @@ import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
 import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
 import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
+import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
+import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
 
 
 
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
       {
         path:'/alluser',
         element: <AllUser></AllUser>
+      },
+      {
+        path:'/allcouple/:id',
+        element: <SingleHappyStory/>
+      },
+      {
+        path:'/blogs/:id',
+        element: <SingleBlogs/>
       }
     ],
   },
