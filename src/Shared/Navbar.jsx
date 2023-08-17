@@ -13,6 +13,10 @@ const Navbar = () => {
     <li><Link to='/'>All User</Link></li>
     <li><Link to='/blog'>Blog</Link></li>
 
+    <li><Link to='/plans'>Plans</Link></li>
+
+
+
   </>
 
   const { user, logOut } = useContext(AuthContext);
