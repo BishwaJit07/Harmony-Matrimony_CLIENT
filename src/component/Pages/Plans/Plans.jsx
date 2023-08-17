@@ -1,6 +1,15 @@
+import { Helmet } from "react-helmet";
+
 const Plans = () => {
   return (
     <div className="font-plans">
+
+      {/* Title */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Soulmate | Services</title>
+      </Helmet>
+      
       {/* hero Content */}
       <div className="bg-gradient-to-r from-[#8A216B]  to-[#D74354] pb-10 text-center text-white pt-20 w-full lg:h-[calc(100vh-150px)]">
         <p className="font-semibold font-plans ">PRICING</p>

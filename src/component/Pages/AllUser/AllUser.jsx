@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import UserCard from "./UserCard";
-import Loading from "../../../Shared/loading";
+import Loading from "../../../Shared/Loading";
 import { useLocation } from "react-router";
 import { useForm } from 'react-hook-form';
 import { BsSearchHeartFill } from "react-icons/bs";
+import { Helmet } from "react-helmet";
 const AllUser = () => {
   const { register, handleSubmit } = useForm();
   const location = useLocation();
@@ -76,6 +77,13 @@ const AllUser = () => {
 
   return (
     <div className=" w-[80%] mx-auto">
+
+      {/* Title */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Soulmate | All User</title>
+      </Helmet>
+      
       <div>
         <div className='p-5 rounded-xl my-10   border-opacity-50 '>
           <form onSubmit={handleSubmit(onSubmit)}>
