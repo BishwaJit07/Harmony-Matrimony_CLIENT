@@ -9,7 +9,7 @@ const PatnerProfile = () => {
             .then(res => res.json())
             .then(data => setUser(data));
     }, [])
-    const { img, name, country, religion, physical_attributes, contact , phone, email, gender  } = user
+    const { img, name, country, religion, physical_attributes, contact , gender  } = user
     return (
         <div className="h-screen ">
             <div className="flex gap-5 card card-side shadow-xl bg-[#f2fef9] w-[80%] mx-auto  my-20">
