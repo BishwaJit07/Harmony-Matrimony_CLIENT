@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 import LeftCard from "./LeftCard";
+import Loading from "../../../Shared/loading";
 const Blog = () => {
   const [blogData, setBlogData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,23 +15,21 @@ const Blog = () => {
         setBlogData(data);
       });
   }, []);
-  console.log(blogData);
+
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen text-2xl animate-bounce">
-        Loading...
+      <div>
+        <Loading></Loading>
       </div>
     );
   }
 
   return (
     <div>
-      <div className="bg-[#FFFBF0] py-10">
-        <h1 className="text-center text-5xl font-semibold">Blog & Articles</h1>
-        <p className="text-center pt-5">
-          lacinia viverra lectus. Fusce imperdiet ullamcorper metus eu fringilla
-        </p>
+      <div className="secondary py-10">
+        <h1 className="text-center text-5xl font-semibold text-[#FF725E]">Blog & Articles</h1>
+        
       </div>
       <div className="flex justify-center gap-16 ">
         <div className="lg:w-2/3 mx-5 w-full lg:ml-28 mt-10">

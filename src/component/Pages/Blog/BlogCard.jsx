@@ -6,7 +6,7 @@ const BlogCard = ({data}) => {
           <img
             src={data.image}
             alt={data.title}
-            className="w-full"
+            className="w-full h-96 object-cover"
           />
         </figure>
         <div className="card-body">
