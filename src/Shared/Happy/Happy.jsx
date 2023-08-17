@@ -1,5 +1,6 @@
 import logo from '../../assets/logo/logo.png'
 import couple from '../../assets/Happy-form/couple.jpg'
+import Swal from 'sweetalert2';
 
 const Happy = () => {
 
@@ -9,9 +10,40 @@ const Happy = () => {
     const husband = form.husband.value
     const wife = form.wife.value
     const img = form.image.value
-    const story = form.story.value
-    const data = {husband, wife, img, story }
+    const about_marriage = form.story.value
+    const name = husband + "& " + wife
+    const data = {  img, name, about_marriage }
     console.log(data)
+
+    fetch('https://harmony-matrimony-server.vercel.app/allCouple', {
+      method: "POST",
+      headers: {
+        "content-type" : "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId){
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Thank you for sharing you story',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+        else{
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Something went wrong',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+      })
+
   }
   
   return (
