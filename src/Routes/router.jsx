@@ -3,16 +3,22 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../component/Pages/Home/Home";
 import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
-import SignUp from "../component/Pages/SignUp/SignUp";
+
 import Blog from "../component/Pages/Blog/Blog";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
+import AllUser from "../component/Pages/AllUser/AllUser";
+import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
+import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
+import SignUp from "../component/Pages/SignUp/SignUp";
+import About from "../component/Pages/AboutP/About";
+
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -20,18 +26,39 @@ const router = createBrowserRouter([
       },
       {
         path: "/signIn",
-        element: <SignIn />
+        element: <SignIn />,
       },
       {
-        path: "/signUp",
-        element: <SignUp />
+        path: "/about",
+        element: <About />,
       },
       {
         path:'/blog',
         element:<Blog></Blog>
+      },
+      {
+        path:'/alluser',
+        element: <AllUser></AllUser>
       }
-
     ],
+  },
+  {
+    path: "/signup",
+   
+    children: [
+      {
+        path: "step-1",
+        element: <SignUpStep1 />,
+      },
+      {
+        path: "step-2",
+        element: <SignUpStep2 />,
+      },
+      {
+        path: "final_signup",
+        element: <SignUp />,
+      },
+     ],
   },
 ]);
 
