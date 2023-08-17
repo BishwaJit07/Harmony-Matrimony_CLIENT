@@ -2,6 +2,7 @@ import logo from '../../assets/logo/logo.png'
 import couple from '../../assets/Happy-form/couple.jpg'
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
+import { Navigate } from 'react-router';
 
 const Happy = () => {
 
@@ -33,7 +34,12 @@ const Happy = () => {
             showConfirmButton: false,
             timer: 1500
           })
+          .then(() => {
+            // Navigate to the root route after showing the success message
+            window.location.href = '/';
+          });
         }
+        
         else{
           Swal.fire({
             position: 'top-end',
