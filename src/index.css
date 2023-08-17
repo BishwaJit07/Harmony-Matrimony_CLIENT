@@ -22,10 +22,15 @@
     transform: translate(-50%, -50%);
 }
 
+.font-plans{
+    font-family: 'Lora', serif;
+
+
 .font-poppins{
     font-family: 'Poppins', sans-serif;
 }
 
 .font-cinzel{
     font-family: 'Cinzel Decorative', cursive;
+
 }
