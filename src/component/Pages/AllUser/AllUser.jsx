@@ -57,7 +57,9 @@ const AllUser = () => {
 
 
   const onSubmit = data => {
+
     const { gender, age , religion, country, language } = data;
+
 
     const filteredData = users.filter(user => {
       return (
@@ -146,7 +148,9 @@ const AllUser = () => {
           </form>
         </div>
       </div>
+
       <div className="grid lg:grid-cols-2 xl:grid-cols-3 mx-auto my-10 gap-10 h-screen">
+
         {
           filteredUsers.map((user) => <UserCard key={user._id} user={user} ></UserCard>)
         }

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const BlogCard = ({data}) => {
   return (
     <>
@@ -11,7 +13,7 @@ const BlogCard = ({data}) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{data.title}</h2>
-          <p>{data.details}</p>
+          <p>{data.details}<Link to={`/blogs/${data._id}`} className="text-blue-500">Read more...</Link></p>
           
         </div>
       </div>
