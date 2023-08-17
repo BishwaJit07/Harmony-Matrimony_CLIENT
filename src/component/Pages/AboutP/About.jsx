@@ -2,14 +2,14 @@ import { BsTelephoneFill,  } from "react-icons/bs";
 import { AiOutlineHeart, AiOutlineMail } from "react-icons/ai";
 import { FaFemale, FaMale, FaUsers } from "react-icons/fa";
 import { BiLogoFacebook, BiLogoInstagram, BiLogoLinkedin, BiLogoWhatsapp } from "react-icons/bi";
-import badge from '../../../assets/icons/badge.png'
+import badge from '../../../assets/about-photos/badge.png'
 import trust from '../../../assets/about-photos/trust.png'
 import ring from '../../../assets/about-photos/rings.png'
 import img1 from '../../../assets/about-photos/1.jpg'
 import img2 from '../../../assets/about-photos/2.jpg'
 import img4 from '../../../assets/about-photos/4.jpg'
 import girl from '../../../assets/about-photos/girl.jpg'
-import Heading from "../../../Shared/Heading/Heading";
+import Heading from "../../../Shared/Heading";
 
 const About = () => {
   return (

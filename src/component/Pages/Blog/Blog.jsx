@@ -14,7 +14,7 @@ const Blog = () => {
         setBlogData(data);
       });
   }, []);
-  console.log(blogData);
+
 
   if (loading) {
     return (

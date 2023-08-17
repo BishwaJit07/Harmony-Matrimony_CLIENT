@@ -21,3 +21,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.font-poppins{
+    font-family: 'Poppins', sans-serif;
+}
+
+.font-cinzel{
+    font-family: 'Cinzel Decorative', cursive;
+}
