@@ -1,6 +1,6 @@
 import useAllUsers from "../../../hooks/useAllUsers";
 
-const AllUser = () => {
+const AllUserD = () => {
     const [users] = useAllUsers();
     console.log(users);
     return (
@@ -46,4 +46,4 @@ const AllUser = () => {
     );
 };
 
-export default AllUser;
+export default AllUserD;
