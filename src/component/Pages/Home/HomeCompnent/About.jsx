@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -34,7 +35,7 @@ const About = () => {
           <div className="text-justify text-sm flex flex-col justify-center ">
             <p >Welcome to Soulmate Matrimony, a distinguished platform dedicated to helping individuals embark on the profound journey of discovering their life partner – a journey founded on the bedrock of trust, compatibility, and love.
 
-              In the intricate tapestry of life, finding that one special person who aligns with your values, beliefs, and dreams can be a transformative experience. Soulmate Matrimony is committed to facilitating these extraordinary connections that have the power to shape destinies and create enduring bonds. <span className="text-blue-500">Read more...</span></p>
+              In the intricate tapestry of life, finding that one special person who aligns with your values, beliefs, and dreams can be a transformative experience. Soulmate Matrimony is committed to facilitating these extraordinary connections that have the power to shape destinies and create enduring bonds. <Link to='/about' className="text-blue-500">Read more...</Link></p>
           </div>
 
         </div>

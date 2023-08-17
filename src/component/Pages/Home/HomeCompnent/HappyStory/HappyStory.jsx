@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -8,17 +6,19 @@ import "swiper/css/pagination";
 
 
 import { Pagination, Navigation, A11y } from "swiper/modules";
-import { SwiperNavButtons } from "../../HomeCompnent/BestRecommendation/SwiperNavButton";
+import { SwiperNavButtons } from "../BestRecommendation/SwiperNavButton";
+import { Link } from "react-router-dom";
+import UseHappyStoty from "../../../../../Hooks/UseHappyStoty";
 
 const HappyStory = () => {
-  const [happyStories, setHappyStories] = useState([])
+  const [happyStories] = UseHappyStoty();
 
-  // fetch happyStories data
-  useEffect(() => {
-    fetch('https://harmony-matrimony-server.vercel.app/allCouple')
-      .then(res => res.json())
-      .then(data => setHappyStories(data))
-  }, [])
+  // // fetch happyStories data
+  // useEffect(() => {
+  //   fetch('https://harmony-matrimony-server.vercel.app/allCouple')
+  //     .then(res => res.json())
+  //     .then(data => setHappyStories(data))
+  // }, [])
 
   return (
     <div className="my-60">
@@ -66,7 +66,7 @@ const HappyStory = () => {
                         <>{happyStory?.about_marriage.slice(0, 100)}... </>
                     }</p>
                 <div className="card-actions justify-center">
-                  <button className="btn red-primary">Read More</button>
+                  <Link to={`/allcouple/${happyStory._id}`} className="btn red-primary">Read More</Link>
                 </div>
               </div>
             </div>

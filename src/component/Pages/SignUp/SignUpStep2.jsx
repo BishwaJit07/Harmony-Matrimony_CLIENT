@@ -2,8 +2,10 @@ import img from "../../../assets/other/login.png";
 import logo from "../../../assets/logo/logo.png";
 import { useForm } from "react-hook-form";
 import countries from "countries-list";
+import { useNavigate } from "react-router-dom";
 
 const SignUpStep2 = () => {
+  const navigate = useNavigate("/");
   const { register, handleSubmit } = useForm();
 
   const countryNames = Object.values(countries.countries).map(
@@ -11,7 +13,12 @@ const SignUpStep2 = () => {
   );
 
   const onSubmit = (data) => {
-    console.log(data);
+    const strCart = localStorage.getItem("step2");
+    if (strCart) {
+      localStorage.removeItem("step2");
+    }
+    localStorage.setItem("step2", JSON.stringify(data));
+    navigate("/signup/final_signup");
   };
 
   return (
@@ -43,11 +50,11 @@ const SignUpStep2 = () => {
               <option selected disabled value="">
                 Religion
               </option>
-              <option value="muslim">Muslim</option>
-              <option value="hindu">Hindu</option>
-              <option value="christian">Christian</option>
-              <option value="buddhist">Buddhist</option>
-              <option value="others">Others</option>
+              <option value="Muslim">Muslim</option>
+              <option value="Hindu">Hindu</option>
+              <option value="Christian">Christian</option>
+              <option value="Buddhist">Buddhist</option>
+              <option value="Others">Others</option>
             </select>
           </div>
 
@@ -64,10 +71,10 @@ const SignUpStep2 = () => {
               <option selected disabled value="">
                 Community
               </option>
-              <option value="bengla">Bengali</option>
-              <option value="english">English</option>
-              <option value="hindi">Hindi</option>
-              <option value="others">Others</option>
+              <option value="Bengali">Bengali</option>
+              <option value="English">English</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Others">Others</option>
             </select>
           </div>
 
