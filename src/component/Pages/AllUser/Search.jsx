@@ -12,10 +12,10 @@ const Search = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='grid md:grid-cols-2 2xl:grid-cols-5  gap-3 w-[100%] mx-auto '>
                     <div className='flex flex-col'>
-                        <h4 className='text-base font-medium mb-2 text-left'>What are Your looking for</h4>
-                        <select {...register("gender", { required: true })} className='text-lg border-2 border-[#4B5958] border-opacity-50 px-2 rounded-md w-44 md:w-52 text-left'>
-                            <option value="Woman">Woman</option>
-                            <option value="Man">Man</option>
+                        <h4 className='text-base font-medium mb-2 text-left text-[#4B5958]'>What are Your looking for</h4>
+                        <select {...register("gender", { required: true })} className='text-lg font-medium text-[#4B5958] border-2 border-[#4B5958] border-opacity-50 px-2 rounded-md w-44 md:w-52 text-left'>
+                            <option className='font-medium' value="Woman">Woman</option>
+                            <option className='font-medium' value="Man">Man</option>
                         </select>
                     </div>
                     <div className='flex flex-col'>
@@ -29,8 +29,8 @@ const Search = () => {
                         </select>
                     </div>
                     <div className='flex flex-col'>
-                        <h4 className='text-base font-medium mb-2 text-left mx-auto'>religion</h4>
-                        <select {...register("religion", { required: true })} className='text-lg border-2 border-red-800 px-2 border-opacity-50 rounded-md w-44 md:w-52 mx-auto text-center'>
+                        <h4 className='text-base font-medium mb-2 text-left'>Religion</h4>
+                        <select {...register("religion", { required: true })} className='text-lg border-2 border-[#4B5958] border-opacity-50 px-2 rounded-md w-44 md:w-52 text-left'>
                             <option value="Woman">Hindu</option>
                             <option value="Muslim">Muslim</option>
                             <option value="Christian">Christian</option>
