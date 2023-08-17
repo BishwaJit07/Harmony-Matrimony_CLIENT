@@ -16,7 +16,7 @@ const HeroSection = () => {
 
         <div className="flex justify-center lg:justify-start gap-3 lg:text-left   mt-5">
           <button >
-            <Link to="signup">
+            <Link to="signup/step-1">
               <p className=" red-primary text-white p-3 px-4 text-base lg:text-xl font-semibold rounded-xl hover:bg-[#bc1828] ">
                 Register
               </p>
@@ -38,7 +38,7 @@ const HeroSection = () => {
 
       <div className="w-[80]% ">
       <Carousel className="  gap-8 flex justify-center items-center flex-col-reverse  mx-auto lg:-mt-10"swipeable={true} autoFocus={false} emulateTouch={true} showStatus={false} autoPlay={true} infiniteLoop={true} showArrows={false}>
-      <div className="flex justify-around items-center flex-col-reverse lg:flex-row  mx-auto lg:w-[90%] px-10 pb-10 xl:pb-0 xl:p-0 ">
+      <div className="flex justify-around items-center flex-col-reverse lg:flex-row  mx-auto lg:w-[90%] px-10 pb-20 md:pb-10  xl:pb-0 xl:p-0 ">
           <div className="md:w-1/2 text-center md:text-left">
             {herodetails}
           </div>

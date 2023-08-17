@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 import LeftCard from "./LeftCard";
+import Loading from "../../../Shared/loading";
 const Blog = () => {
   const [blogData, setBlogData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,12 +15,12 @@ const Blog = () => {
         setBlogData(data);
       });
   }, []);
-  console.log(blogData);
+
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen text-2xl animate-bounce">
-        Loading...
+      <div>
+        <Loading></Loading>
       </div>
     );
   }
