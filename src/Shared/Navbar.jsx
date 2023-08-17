@@ -8,10 +8,14 @@ const Navbar = () => {
 
   const navItem = <>
     <li><Link to='/'>Home</Link></li>
-    <li><Link to='/'>About</Link></li>
+    <li><Link to='/about'>About</Link></li>
     <li><Link to='/'>Contact</Link></li>
-    <li><Link to='/'>All User</Link></li>
+    <li><Link to='/alluser'>All User</Link></li>
     <li><Link to='/blog'>Blog</Link></li>
+
+    <li><Link to='/plans'>Plans</Link></li>
+
+
 
   </>
 
@@ -60,8 +64,9 @@ const Navbar = () => {
             {navItem}
           </ul>
         </div>
+        <div className="navbar-end">
         {user ? (
-          <div className="flex">
+          <div className="flex gap-2 items-center">
             <div className="navbar-end me-3">
               <button
                 onClick={handleLogOut}
@@ -71,7 +76,7 @@ const Navbar = () => {
               </button>
             </div>
             <div className="avatar online">
-              <div className="w-16 rounded-full">
+              <div className="w-11 rounded-full">
                 <img src={user.photoURL} />
               </div>
             </div>
@@ -85,6 +90,7 @@ const Navbar = () => {
             </Link>
           </div>
         )}
+        </div>
       </div>
     </div>
   );

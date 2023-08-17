@@ -5,7 +5,7 @@ import HeroSection from "./HomeCompnent/HeroSection";
 import Gallary from "./HomeCompnent/gellary/Gallary";
 import SearchFunction from "./SearchFunction/SearchFunction";
 
-import HappyStory from './HomeComponents/HappyStory/HappyStory';
+import HappyStory from './HomeCompnent/HappyStory/HappyStory';
 
 const Home = () => {
 

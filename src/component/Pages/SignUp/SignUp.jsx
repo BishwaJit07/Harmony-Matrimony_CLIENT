@@ -14,11 +14,11 @@ const SignUp = () => {
 
   const image_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Hosting_Token}`;
 
-  // console.log(image_hosting_url);
-
-
-
   const onSubmit = (data) => {
+    const strCart1 = JSON.parse(localStorage.getItem("step1"));
+    const strCart2 = JSON.parse(localStorage.getItem("step2"));
+    const mergedObject = { ...strCart1, ...strCart2 };
+
     const formData = new FormData();
     formData.append("image", data.image[0]);
 
@@ -29,9 +29,6 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((imgResponse) => {
         const imgUrl = imgResponse.data.display_url;
-
-        // console.log(data, imgUrl);
-
         createUser(data.email, data.password)
           .then((result) => {
             const loggedUser = result.user;
@@ -39,10 +36,11 @@ const SignUp = () => {
             updateUserProfile(data.name, imgUrl)
               .then(() => {
                 const saveUser = {
-                  name: data.name,
+                  mobile: data.mobile,
                   email: data.email,
                   image: imgUrl,
-                  status: "user",
+                  status: "User",
+                  ...mergedObject,
                 };
                 fetch("https://harmony-matrimony-server.vercel.app/alluser", {
                   method: "POST",
@@ -55,6 +53,8 @@ const SignUp = () => {
                   .then((data) => {
                     if (data.insertedId) {
                       reset();
+                      localStorage.removeItem("step1");
+                      localStorage.removeItem("step2");
                       Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -66,17 +66,11 @@ const SignUp = () => {
                     }
                   });
               })
-
               .catch((error) => console.log(error));
-
           })
-          .catch((error) => {
-            console.log(error);
-          });
       })
-      .catch((error) => console.log(error));
+     
   };
-
   return (
     <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
       <figure className="w-[50%]">
