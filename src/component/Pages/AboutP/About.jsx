@@ -10,10 +10,18 @@ import img2 from '../../../assets/about-photos/2.jpg'
 import img4 from '../../../assets/about-photos/4.jpg'
 import girl from '../../../assets/about-photos/girl.jpg'
 import Heading from "../../../Shared/Heading";
+import { Helmet } from "react-helmet";
 
 const About = () => {
   return (
     <div className='font-poppins '>
+
+      {/* Title */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Soulmate | About us</title>
+      </Helmet>
+      
       {/* about header */}
       <div className="relative">
         {/* about text */}
