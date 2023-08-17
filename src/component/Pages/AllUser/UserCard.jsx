@@ -4,10 +4,10 @@ const UserCard = ({ user }) => {
     return (
         <div>
             <div className="flex gap-5 card card-side shadow-xl bg-[#f2fef9]">
-                <figure className=" hover:scale-105 duration-300 "><img src={img} alt="Movie" className="h-[300px]"/></figure>
+                <figure className=" hover:scale-105 duration-300 "><img src={img} alt="Movie" className=" h-full  lg:h-[300px]"/></figure>
                 <div className="">
 
-                    <div className="lg:w-[100%] w-[70%] md:w-[50%]  flex flex-col flex-grow-0 p-5">
+                    <div className="w-[100%]   flex flex-col flex-grow-0 p-5">
                         <div >
                             <h2 className="text-2xl font-bold mb-5">{name}</h2>
                         </div>

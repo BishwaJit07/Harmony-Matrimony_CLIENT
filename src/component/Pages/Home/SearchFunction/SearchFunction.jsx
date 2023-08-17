@@ -25,8 +25,8 @@ const SearchFunction = () => {
                     <div className='flex flex-col'>
                         <h4 className='text-base font-medium mb-2 text-left mx-auto'>I am looking for a </h4>
                         <select {...register("gender", { required: true })} className='text-lg border-2 border-red-800 border-opacity-50 px-2 rounded-md w-44 md:w-52 mx-auto text-center'>
-                            <option value="Woman">Woman</option>
-                            <option value="Man">Man</option>
+                            <option value="Female">Woman</option>
+                            <option value="Male">Man</option>
                         </select>
                     </div>
                     <div className='flex flex-col'>
@@ -42,7 +42,7 @@ const SearchFunction = () => {
                     <div className='flex flex-col'>
                         <h4 className='text-base font-medium mb-2 text-left mx-auto'>religion</h4>
                         <select {...register("religion", { required: true })} className='text-lg border-2 border-red-800 px-2 border-opacity-50 rounded-md w-44 md:w-52 mx-auto text-center'>
-                            <option value="Woman">Hindu</option>
+                            <option value="Hindu">Hindu</option>
                             <option value="Muslim">Muslim</option>
                             <option value="Christian">Christian</option>
                             <option value="Buddhist">Buddhist</option>
@@ -58,7 +58,7 @@ const SearchFunction = () => {
                             <option value="India">India</option>
                             <option value="Pakistan">Pakistan</option>
                             <option value="MUSAan">USA</option>
-                            <option value="UK">UK</option>
+                            <option value="United Kingdom">UK</option>
                             <option value="Canada">Canada</option>
                             <option value="Australia">Australia</option>
                             <option value="Saudi Arabia">Saudi Arabia</option>

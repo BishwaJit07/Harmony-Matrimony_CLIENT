@@ -2,44 +2,157 @@ import { useEffect, useState } from "react";
 import UserCard from "./UserCard";
 import Loading from "../../../Shared/loading";
 import { useLocation } from "react-router";
-import Search from "./Search";
-
+import { useForm } from 'react-hook-form';
+import { BsSearchHeartFill } from "react-icons/bs";
 const AllUser = () => {
-        const location = useLocation();
-        const searchData = location.state;
-        console.log(searchData)
-        const [users, setUserData] = useState([])
-        const [loading, setLoading] = useState(true);
-        // fetch happyStories data
-        useEffect(() => {
-          fetch('https://harmony-matrimony-server.vercel.app/allUser')
-            .then(res => res.json())
-            .then(data => { 
-                setLoading(false);
-                setUserData(data);
-            }
-                )
-        }, [])
-    if (loading) {
-            return (
-              <div className="flex justify-center items-center h-screen text-2xl animate-pulse">
-                <Loading></Loading>
-              </div>
-            );
-    }
-    
-    
+  const { register, handleSubmit } = useForm();
+  const location = useLocation();
+  const searchData = location.state;
+  const [users, setUserData] = useState([])
+  const [loading, setLoading] = useState(true);
+  const [filteredUsers, setFilteredUsers] = useState(users); 
+  // fetch happyStories data
+  useEffect(() => {
+    fetch('https://harmony-matrimony-server.vercel.app/allUser')
+      .then(res => res.json())
+      .then(data => {
+        setLoading(false);
+        setUserData(data);
+      }
+      )
+  }, [])
 
+  useEffect(() => {
+    if (searchData) {
+      // If searchData is available from location state, filter the users accordingly
+      const filtered = users.filter((user) => {
+        // Apply filters based on searchData
+        return (
+          user.gender === searchData.gender &&
+          // user.age >= searchData.minAge &&
+          // user.age <= searchData.maxAge &&
+          user.religion === searchData.religion &&
+          user.country === searchData.country
+          // user.language === searchData.language
+        );
+      });
+      setFilteredUsers(filtered); // Update filteredUsers, not users
+    } else {
+      // If searchData is not available, show all users
+      setFilteredUsers(users);
+    }
+  }, [searchData, users]);
+
+  
+  if (loading) {
     return (
-        <div className=" w-[80%] mx-auto">
-          <Search></Search>
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 mx-auto my-10 gap-10">
-            {
-                users.map((user)=> <UserCard key={user._id} user={user} ></UserCard>)
-            }
-        </div>
-        </div>
+      <div className="flex justify-center items-center h-screen text-2xl animate-pulse">
+        <Loading></Loading>
+      </div>
     );
+  }
+
+
+ 
+
+
+  const onSubmit = data => {
+    const { gender, age, religion, country, language } = data;
+
+    const filteredData = users.filter(user => {
+      return (
+        (gender === "" || user.gender === gender) &&
+        // (age === "" || user.age === age) &&
+        (religion === "" || user.religion === religion) &&
+        (country === "" || user.country === country)
+        // (language === "" || user.language === language) 
+      );
+    });
+
+    setFilteredUsers(filteredData);
+  };
+
+  return (
+    <div className=" w-[80%] mx-auto">
+      <div>
+        <div className='p-5 rounded-xl my-10   border-opacity-50 '>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className='grid md:grid-cols-2 2xl:grid-cols-6  w-[100%] mx-auto '>
+              <div className='flex flex-col'>
+                <h4 className='text-base font-medium mb-2 text-left text-[#4B5958]'>What are Your looking for</h4>
+                <select {...register("gender", { required: true })} className='text-lg font-medium text-[#4B5958] border-2 border-[#4B5958] border-opacity-50 px-2 rounded-md w-44 md:w-52 text-left'>
+                  <option className='font-medium' value="Female">Woman</option>
+                  <option className='font-medium' value="male">Man</option>
+                </select>
+              </div>
+              <div className='flex flex-col'>
+                <h4 className='text-base font-medium mb-2 text-left text-[#4B5958]'>Select The age</h4>
+                <select {...register("age", { required: true })} className='text-lg border-2 border-[#4B5958] border-opacity-50 px-2 rounded-md w-44 md:w-52 text-left'>
+                  <option value="20 to 23">20 to 23</option>
+                  <option value="24 to 27">24 to 27</option>
+                  <option value="28 to 31">28 to 31</option>
+                  <option value="32 to 35">32 to 35</option>
+                  <option value="36 to 40">36 to 40</option>
+                </select>
+              </div>
+              <div className='flex flex-col'>
+                <h4 className='text-base font-medium mb-2 text-left text-[#4B5958]'>Religion</h4>
+                <select {...register("religion", { required: true })} className='text-lg border-2 border-[#4B5958] border-opacity-50 px-2 rounded-md w-44 md:w-52 text-left'>
+                  <option value="Hindu">Hindu</option>
+                  <option value="Muslim">Muslim</option>
+                  <option value="Christian">Christian</option>
+                  <option value="Buddhist">Buddhist</option>
+                  <option value="Jewish">Jewish</option>
+                  <option value="No Religion">No Religion</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div className='flex flex-col'>
+                <h4 className='text-base font-medium mb-2 text-left text-[#4B5958]'>living in</h4>
+                <select {...register("country", { required: true })} className='text-lg border-2 border-[#4B5958] border-opacity-50 px-2 rounded-md w-44 md:w-52 text-lef'>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="India">India</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="MUSAan">USA</option>
+                  <option value="United Kingdom">UK</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Saudi Arabia">Saudi Arabia</option>
+                </select>
+              </div>
+
+              <div className='flex flex-col'>
+                <h4 className='text-base font-medium mb-2 text-left text-[#4B5958]'>Mother tongue</h4>
+                <select {...register("language", { required: true })} className='text-lg border-2 border-[#4B5958] border-opacity-50 px-2 rounded-md w-44 md:w-52 text-lef'>
+                  <option value="Bangle">Bangla</option>
+                  <option value="English">English</option>
+                  <option value="Hindi">Hindi</option>
+
+                </select>
+              </div>
+
+              <button className='hidden h-10 my-auto w-36 mx-auto  2xl:flex  gap-2 justify-center items-center bg-[#FF725E] text-white rounded' type="submit">
+                <h2 className='text-lg '>Search </h2>
+
+              </button>
+
+            </div>
+
+            <button className=' 2xl:hidden flex mt-10 h-10 my-auto w-36 mx-auto  gap-2 justify-center items-center bg-[#FF725E] text-white rounded' type="submit">
+              <h2 className='text-lg '>Search </h2>
+              <p className='text-2xl ' ><BsSearchHeartFill></BsSearchHeartFill></p>
+            </button>
+
+          </form>
+        </div>
+      </div>
+      <div className="grid lg:grid-cols-2 xl:grid-cols-3 mx-auto my-10 gap-10">
+        {
+          filteredUsers.map((user) => <UserCard key={user._id} user={user} ></UserCard>)
+        }
+      </div>
+    </div>
+  );
 };
 
 export default AllUser;
