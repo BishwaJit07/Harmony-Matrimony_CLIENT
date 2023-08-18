@@ -1,43 +1,53 @@
-import { BsChatSquareHeartFill, BsFillEnvelopeFill, BsFillTelephoneFill } from "react-icons/bs";
+
 
 import { Link } from "react-router-dom";
 const UserCard = ({ user }) => {
-    const { img, name, country, religion, physical_attributes, contact , gender , _id } = user
+    const { img, name, country, religion, physical_attributes, gender, _id , about } = user
 
     return (
         <div>
-            <div className="flex gap-5 card card-side shadow-xl bg-[#f2fef9]">
-                <figure className=" hover:scale-105 duration-300 "><img src={img} alt="Movie" className=" h-full  lg:h-[300px]"/></figure>
-                <div className="">
-
-
-                    <div className="w-[100%] flex flex-col  p-5">
-    <div >
-                            <h2 className="text-2xl font-bold mb-5">{name}</h2>
-                        </div>
-                        <div className="flex flex-wrap gap-1 lg:gap-4">
-                            <h2 className="text-white bg-[#99dabc] py-1 px-2 rounded text-xs">{gender}</h2>
-                            <h2 className="text-white bg-[#99dabc] py-1 px-2 rounded text-xs">{country}</h2>
-                            <h2 className="text-white bg-[#99dabc] py-1 px-2 rounded text-xs">{religion}</h2>
-                            <h2 className="text-white bg-[#99dabc] py-1 px-2 rounded text-xs">{physical_attributes?.height}</h2>
-                            <h2 className="text-white bg-[#99dabc] py-1 px-2 rounded text-xs">{physical_attributes?.weight}</h2>
-                        </div>
-
-                        <hr className="h-px my-6 bg-gray-200 border-0 dark:bg-gray-400 mt-10  " />
-                        <div className="flex flex-grow-0 ">
-                            <div className="flex gap-1">
-                                <button className=" hover:bg-[#FF725E] hover:text-white hover:rounded-full hover:duration-300 py-2 px-2 text-base"><BsChatSquareHeartFill /></button>
-                                <button data-tip={contact?.email} className="tooltip hover:bg-[#FF725E] hover:text-white hover:rounded-full hover:duration-300 py-2 px-2 text-lg"><BsFillEnvelopeFill /></button>
-                                <button data-tip={contact?.phone} className="tooltip hover:bg-[#FF725E] hover:text-white hover:rounded-full hover:duration-300 py-2 px-2 text-lg"><BsFillTelephoneFill /></button>
-
-                            </div>
-                            <button className="text-white bg-[#FF725E] py-1 px-2 rounded text-xs  ml-auto"><Link to={`/patnerProfile/${_id}`}>More Details</Link></button>
-
+           
+                <div className="card-container bg-[#FF725E] bg-opacity-5  rounded-lg shadow-2xl text-gray-700 p-7 md:w-96 mx-auto text-center">
+                    
+                    <div className="mx-auto w-[99%]">
+                    <img
+                        className="round border border-teal-400 rounded-full p-2 text w-40 h-40 mx-auto object-fill"
+                        src={img}
+                        alt="user"
+                    />
+                    </div>
+                    <h3 className="my-2 text-xl font-semibold text-[#ec5553] "><Link to={`/patnerProfile/${_id}`}>{name}</Link></h3>
+                    <h6 className="mb-1 text-sm tracking-wide uppercase font-medium">{country}</h6>
+                    <p className="text-sm leading-relaxed">{about}
+                    </p>
+                    <div className="buttons mt-3 space-x-3">
+                        <button className="primary-btn bg-[#62b08d] p-2 text-white rounded-md">Message</button>
+                        <button className="primary-btn bg-[#62b08d] p-2 text-white rounded-md ghost-btn">Following</button>
+                    </div>
+                    <div className="skills  text-left p-3 mt-6">
+                        <h6 className="mb-2 text-xs tracking-wide uppercase">Myself</h6>
+                        <ul className="list-none m-0 p-0">
+                            <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
+                                {religion}
+                            </li>
+                            <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
+                                {gender}
+                            </li>
+                            <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
+                                {religion}
+                            </li>
+                            <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
+                                {physical_attributes?.height}
+                            </li>
+                            <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
+                                {physical_attributes?.weight}
+                            </li>
+                           
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
+       
     );
 };
 

@@ -23,18 +23,18 @@ const About = () => {
       </Helmet>
       
       {/* about header */}
-      <div className="relative">
+      <div className="relative mb-20">
         {/* about text */}
-        <div className="h-[300px] bg-gradient-to-r from-[#2a262691] to-[#2a2c3c] ">
+        <div className="h-[300px] bg-gradient-to-r from-[#6ed3a6] to-[#EBFFF6] ">
           <div className="text-center space-y-5 pt-10">
-            <p className="text-[#FFB400] text-xl">#1 Wedding Website</p>
-            <p className="text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#1FE89D] to-[#57C0EA]">About us</p>
+            <p className="text-[#e99085] text-xl">#1 Wedding Website</p>
+            <p className="text-7xl font-extrabold bg-clip-text text-transparent bg-[#FF725E]">About us</p>
             <p className="text-white text-lg">Most Trusted and premium Matrimony Service in the World.</p>
           </div>
         </div>
         {/* about cards */}
 
-        <div className="absolute w-full top-[85%] md:top-[80%]">
+        <div className="absolute w-full top-[85%] md:top-[80%] ">
           <div className="grid justify-center gap-6 md:gap-4 lg:gap-10 md:flex">
             <div className="w-[263px] md:w-[203px] lg:w-[263px] h-[206px] p-8 md:p-4 lg:p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
               <img className='w-[50px] h-[50px] mx-auto' src={badge} alt="" />
@@ -46,7 +46,7 @@ const About = () => {
               <p className='font-semibold'>Most trusted</p>
               <p className='text-sm'>The most trusted wedding matrimony brand</p>
             </div>
-            <div className="w-[263px] md:w-[203px] lg:w-[263px] h-[206px] p-8 md:p-4 lg:p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
+            <div className=" w-[263px] md:w-[203px] lg:w-[263px] h-[206px] p-8 md:p-4 lg:p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
               <img className='w-[50px] h-[50px] mx-auto' src={ring} alt="" />
               <p className='font-semibold'>2000+ weddings</p>
               <p className='text-sm'>The most trusted wedding matrimony brand</p>
@@ -57,7 +57,7 @@ const About = () => {
       <div className="h-[700px] md:h-[200px]"></div>
 
       {/* welcome section */}
-      <div className="lg:grid lg:grid-cols-2 mb-12 max-w-7xl mx-auto">
+      <div className="lg:grid lg:grid-cols-2 mb-12 max-w-7xl mx-auto ">
         {/* photo section */}
         <div className="relative hidden lg:block">
           <div className="w-[100px] h-[100px] border-[7px] border-[#f0a805] rounded-full absolute -top-[7%] -left-[5%] -z-10 "></div>
@@ -65,10 +65,10 @@ const About = () => {
           <img className='w-[80%] h-[300px] object-cover rounded-se-[100px] rounded-br-[15px] rounded-bl-[100px] border-white border-t-[15px] border-l-[15px] absolute top-[46%] left-[16%]' src={img2} alt="two couples picture" />
           <div className="w-[200px] h-[200px] border-[7px] border-[#ffe2f0] rounded-2xl absolute top-[68%] left-[68%] -z-10"></div>
         </div>
-        <div className="text-[#66451c] space-y-6 font-semibold px-8">
-          <div className="font-cinzel">
+        <div className=" space-y-6 font-semibold px-8">
+          <div className="">
             <p className='text-[58px] font-bold'>Welcome to</p>
-            <p className='text-[35px] font-bold text-[#e5026b]'>Wedding matrimony</p>
+            <p className='text-[35px] font-bold text-[#FF725E]'>Wedding matrimony</p>
           </div>
           <p>Best wedding matrimony It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
           <p>Click here to Start you matrimony service now.</p>
@@ -98,7 +98,7 @@ const About = () => {
       </div>
 
       {/* counting section */}
-      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mt-16 mb-10 px-2 max-w-7xl mx-auto">
+      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mt-32 mb-10 px-2 max-w-7xl mx-auto ">
         <div className="border p-5 flex flex-col lg:flex-row items-center lg:items-start gap-2 w-full md:border-l-0">
           <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
             <AiOutlineHeart className="text-[20px]"/>
@@ -215,12 +215,12 @@ const About = () => {
         </div>
       </div>
 
-      <div className=" mt-10">
+      <div className=" mt-32">
         <Heading title="Meet Our Team"/>
       </div>
       
       {/* team section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 justify-center my-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 justify-center  max-w-7xl mx-auto mb-32">
         
         {/* card */}
         <div className="shadow rounded mx-4 overflow-hidden group relative">

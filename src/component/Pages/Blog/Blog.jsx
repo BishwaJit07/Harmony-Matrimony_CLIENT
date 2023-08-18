@@ -42,9 +42,11 @@ const Blog = () => {
       <div className="flex justify-center gap-16 ">
         <div className="lg:w-2/3 mx-5 w-full lg:ml-28 mt-10">
           <h1 className="text-2xl font-semibold mb-4">LATEST & POPULAR</h1>
+          <div className="grid xl:grid-cols-2 gap-5">
           {blogData.map((data) => (
             <BlogCard key={data._id} data={data}></BlogCard>
           ))}
+          </div>
         </div>
         <div className="w-1/3 hidden lg:block lg:mr-28  mt-10">
           <h1 className="text-xl font-semibold mb-5">TRENDING POSTS</h1>

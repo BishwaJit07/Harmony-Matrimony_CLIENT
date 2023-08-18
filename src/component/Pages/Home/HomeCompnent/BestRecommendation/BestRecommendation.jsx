@@ -18,10 +18,9 @@ const BestRecommendation = () => {
   return (
     <div className=" w-full  ">
       {/* content-section */}
-      <div className="mb-10">
-        <h1 className="font-bold  text-[#FF725E]  text-xl text-center">
-          Best Recommendation <span className="text-[#000000]">For you</span>
-        </h1>
+      <div className="mb-8">
+        
+        <h2 className='text-3xl font-semibold '>Best Recommendation <span className='red-text'>for you</span> </h2>
       </div>
       {/* slider Section */}
       <div>
@@ -57,7 +56,7 @@ const BestRecommendation = () => {
                   <img
                     src={item?.img}
                     alt=""
-                    className="rounded-xl  object-cover w-full"
+                    className="rounded-xl  object-cover w-full h-[300px]"
                   />
                   <p className="bg-[#FF725E] text-white absolute w-full bottom-0  p-2 text-xl font-semibold rounded "><span className="text-lg font-medium b"></span> {item.name}</p>
                   

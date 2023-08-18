@@ -10,21 +10,16 @@ const Plans = () => {
         <title>Soulmate | Services</title>
       </Helmet>
       
-      {/* hero Content */}
-      <div className="bg-gradient-to-r from-[#8A216B]  to-[#D74354] pb-10 text-center text-white pt-20 w-full lg:h-[calc(100vh-150px)]">
-        <p className="font-semibold font-plans ">PRICING</p>
-        <h1 className="text-5xl font-bold pt-5 font-plans leading-snug">
-          Get Started <br /> Pick your Plan Now
-        </h1>
-        <p className=" mt-4 ">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </p>
-        <p className="mt-4 bg-[#DB214C] w-56 mx-auto rounded-xl ">
-          No credit card required
-        </p>
-      </div>
+        {/* about text */}
+        <div className="h-[400px] bg-gradient-to-r from-[#6ed3a6] to-[#EBFFF6] ">
+          <div className="text-center space-y-5 pt-10">
+            <p className="text-[#e99085] text-xl">PRICING</p>
+            <p className="text-7xl font-extrabold bg-clip-text text-transparent bg-[#FF725E]">Get Started <br /> Pick your Plan Now</p>
+          </div>
+        </div>
+     
 
+     
       {/* 
 
 card section */}
