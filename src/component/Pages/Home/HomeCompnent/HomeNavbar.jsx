@@ -11,7 +11,6 @@ const HomeNavbar = () => {
     <li><Link  to='/'>Home</Link></li>
     <li><Link  to='/about'>About</Link></li>
     {user && <li><Link to='/contact'>Dashboard</Link></li>}
-    <li><Link to='/'>Contact</Link></li>
     <li><Link to='/alluser'>All User</Link></li>
     <li><Link  to='/blog'>Blog</Link></li>
     <li><Link to='/plans'>Plans</Link></li>
@@ -84,11 +83,9 @@ const HomeNavbar = () => {
             </div>
           </div>
         ) : (
-          <div className="navbar-end me-3 ">
+          <div >
             <Link to="signup/step-1">
-              <p className="  text-white p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
-                Join Now
-              </p>
+              <p className="  text-[#FF725E] p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">Join Now</p>
             </Link>
           </div>
         )}

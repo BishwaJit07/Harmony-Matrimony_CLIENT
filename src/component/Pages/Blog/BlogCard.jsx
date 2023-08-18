@@ -13,7 +13,10 @@ const BlogCard = ({data}) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{data.title}</h2>
-          <p>{data.details}<Link to={`/blogs/${data._id}`} className="text-blue-500">Read more...</Link></p>
+       
+          <p className="text-xs lg:text-sm xl:text-base py-3 text text-[#728483] text-clip text ">{data.details < 200 ? <>{data.details }</> :
+                        <>{data?.details.slice(0, 200)}... </>} </p>
+          <button><Link to={`/blogs/${data._id}`} className="btn red-primary">Read more</Link></button>
           
         </div>
       </div>

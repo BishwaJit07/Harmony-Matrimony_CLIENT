@@ -39,7 +39,7 @@ const SignUp = () => {
                 const saveUser = {
                   mobile: data.mobile,
                   email: data.email,
-                  image: imgUrl,
+                  img: imgUrl,
                   status: "User",
                   ...mergedObject,
                 };

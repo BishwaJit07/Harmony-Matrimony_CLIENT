@@ -86,7 +86,7 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <div className="navbar-end me-3 ">
+          <div className="">
             <Link to="signup/step-1">
               <p className="  text-white p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
                 Join Now
