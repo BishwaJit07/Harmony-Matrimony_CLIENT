@@ -5,14 +5,15 @@ import logo from "../assets/logo/White logo.png";
 
 const Navbar = () => {
 
+  const { user, logOut } = useContext(AuthContext);
 
   const navItem = <>
     <li><Link to='/'>Home</Link></li>
 
     <li><Link to='/about'>About</Link></li>
 
-    <li><Link to='/contact'>Dashboard</Link></li>
-
+    {user && <li><Link to='/contact'>Dashboard</Link></li>}
+    
     <li><Link to='/alluser'>All User</Link></li>
 
     <li><Link to='/blog'>Blog</Link></li>
@@ -23,10 +24,9 @@ const Navbar = () => {
 
   </>
 
-  const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
   return (
@@ -69,31 +69,31 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-        {user ? (
-          <div className="flex gap-2 items-center">
-            <div className="navbar-end me-3">
-              <button
-                onClick={handleLogOut}
-                className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs "
-              >
-                Logout
-              </button>
-            </div>
-            <div className="avatar online">
-              <div className="w-11 rounded-full">
-                <img src={user.photoURL} />
+          {user ? (
+            <div className="flex gap-2 items-center">
+              <div className="navbar-end me-3">
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs "
+                >
+                  Logout
+                </button>
+              </div>
+              <div className="avatar online">
+                <div className="w-11 rounded-full">
+                  <img src={user.photoURL} />
+                </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <div className="">
-            <Link to="signup/step-1">
-              <p className="  text-white p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
-                Join Now
-              </p>
-            </Link>
-          </div>
-        )}
+          ) : (
+            <div className="">
+              <Link to="signup/step-1">
+                <p className="  text-white p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
+                  Join Now
+                </p>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>
