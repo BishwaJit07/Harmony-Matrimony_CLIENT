@@ -1,6 +1,7 @@
 
 import { Link, useRouteError } from 'react-router-dom';
 import { FcHome } from "react-icons/fc";
+import { Helmet } from 'react-helmet';
 
 
 
@@ -10,6 +11,13 @@ const ErrorPage = () => {
 
     return (
         <section className='flex items-center h-screen p-16 bg-gray-100 text-gray-900'>
+
+        {/* Title */}
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Soulmate | Error Page</title>
+        </Helmet>
+          
         <div className='container flex flex-col items-center justify-center px-5 mx-auto my-8'>
         <img src="https://i.ibb.co/m8mtLbc/xanrs3yj.png" className='w-80' alt="" />
           <div className='max-w-md text-center'>

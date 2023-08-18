@@ -16,7 +16,7 @@ const HeroSection = () => {
 
         <div className="flex justify-center lg:justify-start gap-3 lg:text-left   mt-5">
           <button >
-            <Link to="signup">
+            <Link to="signup/step-1">
               <p className=" red-primary text-white p-3 px-4 text-base lg:text-xl font-semibold rounded-xl hover:bg-[#bc1828] ">
                 Register
               </p>
