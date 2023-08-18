@@ -19,7 +19,7 @@ const BestRecommendation = () => {
     <div className=" w-full  ">
       {/* content-section */}
       <div className="mb-10">
-        <h1 className="font-bold  text-[#cf2532]  text-xl text-center">
+        <h1 className="font-bold  text-[#FF725E]  text-xl text-center">
           Best Recommendation <span className="text-[#000000]">For you</span>
         </h1>
       </div>
@@ -55,11 +55,11 @@ const BestRecommendation = () => {
               <div className="rounded-sm z-auto">
                 <div className="">
                   <img
-                    src={item.img}
+                    src={item?.img}
                     alt=""
                     className="rounded-xl  object-cover w-full"
                   />
-                  <p className="bg-[#cf2532] text-white absolute w-full bottom-0  p-2 text-xl font-semibold rounded "><span className="text-lg font-medium b"></span> {item.name}</p>
+                  <p className="bg-[#FF725E] text-white absolute w-full bottom-0  p-2 text-xl font-semibold rounded "><span className="text-lg font-medium b"></span> {item.name}</p>
                   
                 </div>
               </div>

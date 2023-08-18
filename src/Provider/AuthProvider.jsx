@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 import app from '../Firebase/firebase.config';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth';
+import axios from 'axios';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -10,7 +11,7 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     
     const googleProvider = new GoogleAuthProvider();
-    
+
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
@@ -27,11 +28,27 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signOut(auth)
     }
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo
+        })
+    }
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            console.log('currentUser ', currentUser);
-            setLoading(false)
+            // get and set token!!!!
+            if (currentUser) {
+                axios.post('https://harmony-matrimony-server.vercel.app/jwt', { email: currentUser.email })
+                    .then(data => {
+                        localStorage.setItem('access-token', data.data.token)
+                        setLoading(false);
+                    })
+            }
+            else {
+                localStorage.removeItem('access-token')
+            }
+            // console.log('current user', currentUser);
         })
         return () => {
             return unsubscribe();
@@ -44,6 +61,7 @@ const AuthProvider = ({ children }) => {
         signIn,
         googleSignIn,
         logOut,
+        updateUserProfile
     }
     return (
         <AuthContext.Provider value={authInfo}>

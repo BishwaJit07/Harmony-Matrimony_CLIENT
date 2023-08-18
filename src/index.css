@@ -3,18 +3,28 @@
 @tailwind utilities;
 
 .red-primary{
-    @apply bg-[#cf2532] text-white
+    @apply bg-[#FF725E] text-white
 }
 .red-text{
-    @apply text-[#cf2532]
+    @apply text-[#FF725E]
 }
+
 .secondary{
-    @apply bg-[#FFFBF0]
+    @apply bg-[#EBFFF6]
 }
 
 .font-soul{
     font-family: 'Pacifico', cursive;
 }
+
 .font-plans{
     font-family: 'Lora', serif;
+
+
+.font-poppins{
+    font-family: 'Poppins', sans-serif;
+}
+.font-cinzel{
+    font-family: 'Cinzel Decorative', cursive;
+
 }
