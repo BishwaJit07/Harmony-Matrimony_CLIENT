@@ -1,22 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
-
 import Home from "../component/Pages/Home/Home";
 import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
-
 import Blog from "../component/Pages/Blog/Blog";
-
 import Plans from "../component/Pages/Plans/Plans";
-
 import ErrorPage from "../component/ErrorPage/ErrorPage";
+import Dashboard from "../component/Pages/Dashboard/Dashboard";
+import ManageUser from "../component/Pages/Dashboard/ManageUser";
+import AllUserD from "../component/Pages/Dashboard/AllUserD";
 import Happy from "../Shared/Happy/Happy";
 import AllUser from "../component/Pages/AllUser/AllUser";
 import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
 import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
 import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
+import PatnerProfile from "../component/Pages/patnerProfile/patnerProfile";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
+
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,21 @@ const router = createBrowserRouter([
       },
       {
 
+        path: '/contact',
+        element : <Dashboard></Dashboard>,
+        children : [
+          {
+            path :'/contact/manageUser',
+            element : <ManageUser></ManageUser>
+          },
+          {
+            path :'/contact/allUser',
+            element : <AllUserD></AllUserD>
+          },
+        ]
+      },
+
+      {
         path: "/happy",
         element: <Happy />
       },
@@ -56,6 +72,11 @@ const router = createBrowserRouter([
         element: <AllUser></AllUser>
       },
       {
+
+        path:'/patnerProfile/:id',
+        element: <PatnerProfile></PatnerProfile>
+      },
+      {
         path:'/allcouple/:id',
         element: <SingleHappyStory/>
       },
@@ -63,9 +84,12 @@ const router = createBrowserRouter([
         path:'/blogs/:id',
         element: <SingleBlogs/>
 
+
+
       }
     ],
   },
+
   {
     path: "/signup",
    
@@ -84,6 +108,7 @@ const router = createBrowserRouter([
       },
      ],
   },
+
 ]);
 
 export default router;
