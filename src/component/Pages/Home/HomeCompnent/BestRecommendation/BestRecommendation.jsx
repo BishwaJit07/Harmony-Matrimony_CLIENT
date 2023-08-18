@@ -9,12 +9,15 @@ import "./styles.css";
 import { Pagination , Navigation , A11y } from "swiper/modules";
 import { SwiperNavButtons } from "./SwiperNavButton";
 const BestRecommendation = () => {
+
+  
   const [datas, setDatas] = useState([]);
   useEffect(() => {
     fetch("https://harmony-matrimony-server.vercel.app/allUser")
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, []);
+
   return (
     <div className=" w-full  ">
       {/* content-section */}
