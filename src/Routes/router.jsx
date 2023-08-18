@@ -42,8 +42,9 @@ const router = createBrowserRouter([
 
         path:'/plans',
         element:<Plans></Plans>
+      },
 
-        path:'/alluser',
+       { path:'/alluser',
         element: <AllUser></AllUser>
 
       }
