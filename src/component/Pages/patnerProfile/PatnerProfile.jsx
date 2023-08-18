@@ -5,11 +5,11 @@ const PatnerProfile = () => {
     const params = useParams();
     const [user, setUser] = useState([]);
     useEffect(() => {
-        fetch(`https://harmony-matrimony-server.vercel.app/specificUser/${params.id}`)
+        fetch(`http://localhost:5000/specificUser/${params.id}`)
             .then(res => res.json())
             .then(data => setUser(data));
     }, [])
-    const { img, name, country, religion, physical_attributes, contact, gender, about, age } = user
+    const { img, name, country, religion, physical_attributes, mobile,email, gender, about, age } = user
 
 
     const [activeTab, setActiveTab] = useState(0);
@@ -54,10 +54,10 @@ const PatnerProfile = () => {
                         {/* Profile Information */}
                         <div className=" bg-white shadow-md p-8">
                             <p className="mobile-no text-gray-600">
-                                phone: {contact?.phone}
+                                phone: {mobile}
                             </p>
                             <p className="user-mail text-gray-600">
-                                Email: {contact?.email}
+                                Email: {email}
                             </p>
                             <div className=" mt-4">
                                 <h3 className="font-semibold text-xl">Bio</h3>
