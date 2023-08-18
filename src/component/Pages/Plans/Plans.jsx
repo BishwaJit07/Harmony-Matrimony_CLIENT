@@ -14,7 +14,7 @@ const Plans = () => {
         <div className="h-[400px] bg-gradient-to-r from-[#6ed3a6] to-[#EBFFF6] ">
           <div className="text-center space-y-5 pt-10">
             <p className="text-[#e99085] text-xl">PRICING</p>
-            <p className="text-7xl font-extrabold bg-clip-text text-transparent bg-[#FF725E]">Get Started <br /> Pick your Plan Now</p>
+            <p className="text-7xl  bg-clip-text text-transparent bg-[#FF725E]">Get Started <br /> Pick your Plan Now</p>
           </div>
         </div>
      
@@ -24,7 +24,7 @@ const Plans = () => {
 
 card section */}
 
-      <div className="bg-white w-full lg:h-[calc(100vh-100px)] xl:h-[calc(100vh-200px)]">
+      <div className="bg-white w-full mb-32">
         <div className="lg:grid grid-cols-3 gap-10 xl:gap-20 mx-auto  lg:mx-28 ">
           {/* card-1 */}
           <div className="lg:-mt-16  mb-10 lg:mb-0  w-80 lg:w-full mx-auto mt-10 ">
@@ -312,10 +312,7 @@ card section */}
 
       </div>
 
-      {/* support-section */}
-        <div className=" relative top-7 text-center mx-auto max-w-2xl ">
-          <p className="bg-[#FF166C] py-5 px-4 text-xl text-white rounded-md"><span>Free support:<a href="tel:+4733378901"> + 47 333 78 901</a></span> | <span>Email: <a href="mailto:m.bluth@example.com">info@example.com</a></span></p>
-        </div>
+      
     </div>
   );
 };

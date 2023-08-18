@@ -33,9 +33,10 @@ const About = () => {
 
           <div> <img className="rounded  hidden md:flex" src="https://i.ibb.co/h18P50G/01197-619-M-1-1024x683.jpg" alt="" /></div>
           <div className="text-justify text-sm flex flex-col justify-center ">
-            <p >Welcome to Soulmate Matrimony, a distinguished platform dedicated to helping individuals embark on the profound journey of discovering their life partner – a journey founded on the bedrock of trust, compatibility, and love.
-
-              In the intricate tapestry of life, finding that one special person who aligns with your values, beliefs, and dreams can be a transformative experience. Soulmate Matrimony is committed to facilitating these extraordinary connections that have the power to shape destinies and create enduring bonds. <Link to='/about' className="text-blue-500">Read more...</Link></p>
+            <p className="mb-10 text-lg">Welcome to Soulmate Matrimony, a distinguished platform dedicated to helping individuals embark on the profound journey of discovering their life partner – a journey founded on the bedrock of trust, compatibility, and love.In the intricate tapestry of life, finding that one special person who aligns with your values, beliefs, and dreams can be a transformative experience. Soulmate Matrimony is committed to facilitating these extraordinary connections that have the power to shape destinies and create enduring bonds...</p>
+              <div>
+              <button ><Link to='/about' className=" red-primary text-white p-3 px-4 text-base lg:text-xl font-semibold rounded-xl hover:bg-[#bc1828] mt-20">Read more</Link></button>
+              </div>
           </div>
 
         </div>

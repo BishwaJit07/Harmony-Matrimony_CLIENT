@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { BsChatSquareHeartFill, BsFillEnvelopeFill, BsFillTelephoneFill } from "react-icons/bs";
-import {  useParams } from 'react-router-dom';
+import { TbUserEdit } from "react-icons/tb";
+import { useParams } from 'react-router-dom';
 const PatnerProfile = () => {
     const params = useParams();
     const [user, setUser] = useState([]);
@@ -9,42 +9,130 @@ const PatnerProfile = () => {
             .then(res => res.json())
             .then(data => setUser(data));
     }, [])
-    const { img, name, country, religion, physical_attributes, contact , gender  } = user
+    const { img, name, country, religion, physical_attributes, contact, gender, about, age } = user
+
+
+    const [activeTab, setActiveTab] = useState(0);
+
+    const tabs = ['Posts', 'Followers'];
+
+    const changeTab = (index) => {
+        setActiveTab(index);
+    };
 
     console.log(user);
     return (
-        <div className="h-screen ">
-            <div className="flex gap-5 card card-side shadow-xl bg-[#f2fef9] w-[80%] mx-auto  my-20">
-                <figure className=" hover:scale-105 duration-300 "><img src={img} alt="Movie" className=" h-full  lg:h-[300px]"/></figure>
-                <div className="">
-
-                    <div className="w-[100%] flex flex-col flex-grow  p-5">
-                        <div >
-                            <h2 className="text-2xl font-bold mb-5">{name}</h2>
+        
+            <div className="w-[80%] mx-auto my-20 ">
+                {/* Profile Header */}
+                <div className=" bg-white w-full flex h-40 items-center relative shadow-lg rounded-xl">
+                    {/* Profile Image */}
+                    <div className=" ml-4">
+                        <img
+                            className="round border border-teal-400 rounded-full p-2 text w-20 h-20 md:w-32 md:h-32 mx-auto object-fill"
+                            src={img}
+                            alt="user"
+                        />
+                    </div>
+                    {/* Profile Info */}
+                    <div className="ml-4">
+                        <h3 className="user-name font-semibold md:text-2xl text-base ">{name}</h3>
+                        <div className="address flex items-center text-gray-700 font-bold">
+                            <p className="block">{country}</p>
                         </div>
-                        <div className="flex flex-wrap gap-1 lg:gap-4">
-                            <h2 className="text-white bg-[#99dabc] py-1 px-2 rounded text-base">{gender}</h2>
-                            <h2 className="text-white bg-[#99dabc] py-1 px-2 rounded text-base">{country}</h2>
-                            <h2 className="text-white bg-[#99dabc] py-1 px-2 rounded text-base">{religion}</h2>
-                            <h2 className="text-white bg-[#99dabc] py-1 px-2 rounded text-base">{physical_attributes?.height}</h2>
-                            <h2 className="text-white bg-[#99dabc] py-1 px-2 rounded text-base">{physical_attributes?.weight}</h2>
+                        <p className="">Age: {age}</p>
+                    </div>
+                    {/* Notification Bell */}
+                    <div className="text-white absolute rounded-full top-1/2 right-2 md:right-8 transform -translate-y-1/2 w-10 h-10 flex justify-center items-center cursor-pointer transition duration-500 ease-in-out bg-[#FF725E] hover:bg-white border-2  hover:text-[#FF725E]">
+                        <TbUserEdit></TbUserEdit>
+                    </div>
+                </div>
+
+                <div className="flex flex-col xl:flex-row py-6 xl:pr-16">
+                    {/* Left Side */}
+                    <div className="w-full xl:w-1/4">
+                        {/* Profile Information */}
+                        <div className=" bg-white shadow-md p-8">
+                            <p className="mobile-no text-gray-600">
+                                phone: {contact?.phone}
+                            </p>
+                            <p className="user-mail text-gray-600">
+                                Email: {contact?.email}
+                            </p>
+                            <div className=" mt-4">
+                                <h3 className="font-semibold text-xl">Bio</h3>
+                                <p className=" text-gray-600">
+                                    {about}
+                                </p>
+                            </div>
+                            <div >
+                                <h6 className="my-2 font-medium">More Info</h6>
+                                <ul >
+                                    <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
+                                        {religion}
+                                    </li>
+                                    <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
+                                        {gender}
+                                    </li>
+                                    <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
+                                        {physical_attributes?.height}
+                                    </li>
+                                    <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
+                                        {physical_attributes?.weight}
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div className="flex gap-5 mt-4">
+                                <button className=" bg-[#FF725E] text-white py-2 px-4 rounded-md">
+                                    Chat
+                                </button>
+                                <button className=" bg-[#FF725E] text-white py-2 px-4 rounded-md ">
+                                    Follow
+                                </button>
+                            </div>
+
                         </div>
-                       
-                        <div className="flex flex-grow-0 absolute bottom-10 ">
-                            <div className="flex gap-1">
-                                <button className=" hover:bg-[#FF725E] hover:text-white hover:rounded-full hover:duration-300 py-2 px-2 text-base"><BsChatSquareHeartFill /></button>
-                                <button  data-tip={contact?.email} className="tooltip hover:bg-[#FF725E] hover:text-white hover:rounded-full hover:duration-300 py-2 px-2 text-lg"><BsFillEnvelopeFill /></button>
-                                <button data-tip={contact?.phone} className="tooltip hover:bg-[#FF725E] hover:text-white hover:rounded-full hover:duration-300 py-2 px-2 text-lg"><BsFillTelephoneFill /></button>
-
+                    </div>
+                    {/* Right Side */}
+                    <div className="xl:w-3/4 w-full xl:pl-16 my-20 lg:my-0 ">
+                        {/* Tab Navigation */}
+                        <div className=" bg-white shadow-md">
+                            <ul className="flex">
+                                {tabs.map((tab, index) => (
+                                    <li
+                                        key={index}
+                                        className={`cursor-pointer px-6 py-2 w-full text-center transition duration-200 ease-in-out ${activeTab === index ? 'active bg-[#FF725E] text-white' : ''
+                                            }`}
+                                        onClick={() => changeTab(index)}
+                                    >
+                                        {tab}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        {/* Profile Content */}
+                        <div className="mt-10">
+                            <div className={`profile-posts tab ${activeTab === 0 ? 'block' : 'hidden'}`}>
+                                <h1 className="font-semibold text-2xl mb-4">Your Posts</h1>
+                                <p className="text-gray-600">
+                                    Post will show here
+                                </p>
                             </div>
-                           <div>
-
+                            <div className={`profile-reviews tab ${activeTab === 1 ? 'block' : 'hidden'}`}>
+                                <h1 className="font-semibold text-2xl mb-4">Followers</h1>
+                                <p className="text-gray-600">
+                                    followers will show here
+                                </p>
                             </div>
+
                         </div>
                     </div>
                 </div>
-            </div>
+            
+            {/* Rest of the content */}
         </div>
+
     );
 };
 
