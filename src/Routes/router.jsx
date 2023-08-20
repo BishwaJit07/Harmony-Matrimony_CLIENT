@@ -65,10 +65,12 @@ const router = createBrowserRouter([
       {
         path:'/plans',
         element:<Plans></Plans>
-
       },
+
+
       {
         path:'/alluser',
+
         element: <AllUser></AllUser>
       },
       {

@@ -24,10 +24,12 @@ const Plans = () => {
 
 card section */}
 
-      <div className="bg-white w-full mb-32">
-        <div className="lg:grid grid-cols-3 gap-10 xl:gap-20 mx-auto  lg:mx-28 ">
+
+      <div className="bg-white w-full lg:h-[calc(100vh-100px)] xl:h-[calc(100vh-200px)]">
+        <div className="lg:grid grid-cols-3 gap-10  mx-auto justify-items-center   max-w-screen-lg ">
+
           {/* card-1 */}
-          <div className="lg:-mt-16  mb-10 lg:mb-0  w-80 lg:w-full mx-auto mt-10 ">
+          <div className="lg:-mt-16  mb-10 lg:mb-0  mx-auto mt-10 max-w-sm">
             <div className="bg-white shadow-md rounded-xl p-6">
               <div className="mb-4 text-center">
                 <h2 className="text-5xl font-semibold mb-4 text-[#66451C]">
@@ -127,7 +129,7 @@ card section */}
 
           {/* 2nd card */}
 
-          <div className="lg:-mt-32 mb-10 w-80 lg:w-full mx-auto lg:mb-0">
+          <div className="lg:-mt-32 mb-10 max-w-sm mx-auto lg:mb-0">
             <div className="bg-white shadow-md rounded-xl p-6 w-full">
               <div className=" mb-4 text-center">
                 <span className="bg-yellow-400 text-white px-2 py-1 rounded-full text-sm font-semibold">
@@ -219,7 +221,7 @@ card section */}
             </div>
           </div>
           {/* 3rd card */}
-          <div className="lg:-mt-16 mb-10 w-80 lg:w-full mx-auto lg:mb-0">
+          <div className="lg:-mt-16 mb-10 max-w-sm mx-auto lg:mb-0">
             <div className="bg-white shadow-md rounded-xl p-6 w-full">
               <div className="mb-4 text-center">
                 <h2 className="font-semibold mb-4 text-5xl text-[#66451C] ">Platinum</h2>
