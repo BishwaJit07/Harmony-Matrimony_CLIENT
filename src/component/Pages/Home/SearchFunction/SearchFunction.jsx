@@ -17,7 +17,7 @@ const SearchFunction = () => {
 
     // console.log(searchData)
     return (
-        <div className='mt-10 mb-44'>
+        <div className='mt-10 mb-32'>
             <h2 className='text-3xl font-semibold '>Find your <span className='red-text'>Partner</span> </h2>
             <div className='secondary p-5 rounded-xl my-10  border-2 border-[#FF725E] border-opacity-50 '>
                 <form onSubmit={handleSubmit(onSubmit)}>

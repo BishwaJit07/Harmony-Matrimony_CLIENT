@@ -2,17 +2,34 @@ import img from "../../../assets/other/login.png";
 import logo from "../../../assets/logo/logo.png";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { calculateAge } from "../../../utilities/utilities";
+import { Helmet } from "react-helmet";
 
 const SignUpStep1 = () => {
   const navigate = useNavigate("/");
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const birthdate = new Date(data.birth);
+    const age = calculateAge(birthdate);
+    const addData = { age, ...data };
+
+    const strCart = localStorage.getItem("step1");
+    if (strCart) {
+      localStorage.removeItem("step1");
+    }
+    localStorage.setItem("step1", JSON.stringify(addData));
     navigate("/signup/step-2");
   };
   return (
     <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
+
+      {/* Title */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Soulmate | Sign Up</title>
+      </Helmet>
+      
       <figure className="w-[50%]">
         <img className="object-cover -ml-24 h-[750px] " src={img} alt="" />
       </figure>
@@ -38,13 +55,34 @@ const SignUpStep1 = () => {
                 <option selected disabled value="">
                   This Profile is for
                 </option>
-                <option value="myself">Myself</option>
-                <option value="son">My Son</option>
-                <option value="daughter">My Daughter</option>
-                <option value="brother">My Brother</option>
-                <option value="sister">My Sister</option>
-                <option value="friend">My Friend</option>
-                <option value="relative">My Relative</option>
+                <option value="Myself">Myself</option>
+                <option value="Son">My Son</option>
+                <option value="Daughter">My Daughter</option>
+                <option value="Brother">My Brother</option>
+                <option value="Sister">My Sister</option>
+                <option value="Friend">My Friend</option>
+                <option value="Relative">My Relative</option>
+              </select>
+            </div>
+          </div>
+
+          {/*marital status field*/}
+          <div>
+            <div className="relative z-0">
+              <select
+                className="select select-bordered w-full max-w-xs"
+                id="marital_status"
+                {...register("marital_status")}
+              >
+                <option selected disabled value="">
+                  Marital Status
+                </option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+                <option value="Widowed">Widowed</option>
+                <option value="Separated">Separated</option>
+                <option value="Other">Other</option>
               </select>
             </div>
           </div>
@@ -82,27 +120,27 @@ const SignUpStep1 = () => {
                 </label>
               </div>
               <div className="form-control">
-                <label className="label cursor-pointer">
-                  <span className="label-text">Male</span>
+                <label className="label cursor-pointer justify-start gap-2">
                   <input
                     type="radio"
                     name="gender"
-                    className="radio checked:bg-red-500"
-                    value="male"
+                    className="radio checked:bg-gray-500"
+                    value="Male"
                     {...register("gender")}
                   />
+                  <span className="label-text">Male</span>
                 </label>
               </div>
               <div className="form-control">
-                <label className="label cursor-pointer">
-                  <span className="label-text">Female</span>
+                <label className="label cursor-pointer justify-start gap-2">
                   <input
                     type="radio"
                     name="gender"
-                    className="radio checked:bg-blue-500"
-                    value="female"
+                    className="radio checked:bg-gray-500"
+                    value="Female"
                     {...register("gender")}
                   />
+                  <span className="label-text">Female</span>
                 </label>
               </div>
             </div>

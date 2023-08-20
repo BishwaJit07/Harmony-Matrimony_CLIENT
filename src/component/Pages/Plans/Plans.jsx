@@ -1,27 +1,33 @@
+import { Helmet } from "react-helmet";
+
 const Plans = () => {
   return (
     <div className="font-plans">
-      {/* hero Content */}
-      <div className="bg-gradient-to-r from-[#8A216B]  to-[#D74354] pb-10 text-center text-white pt-20 w-full lg:h-[calc(100vh-150px)]">
-        <p className="font-semibold font-plans ">PRICING</p>
-        <h1 className="text-5xl font-bold pt-5 font-plans leading-snug">
-          Get Started <br /> Pick your Plan Now
-        </h1>
-        <p className=" mt-4 ">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </p>
-        <p className="mt-4 bg-[#DB214C] w-56 mx-auto rounded-xl ">
-          No credit card required
-        </p>
-      </div>
 
+      {/* Title */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Soulmate | Services</title>
+      </Helmet>
+      
+        {/* about text */}
+        <div className="h-[400px] bg-gradient-to-r from-[#6ed3a6] to-[#EBFFF6] ">
+          <div className="text-center space-y-5 pt-10">
+            <p className="text-[#e99085] text-xl">PRICING</p>
+            <p className="text-7xl  bg-clip-text text-transparent bg-[#FF725E]">Get Started <br /> Pick your Plan Now</p>
+          </div>
+        </div>
+     
+
+     
       {/* 
 
 card section */}
 
+
       <div className="bg-white w-full lg:h-[calc(100vh-100px)] xl:h-[calc(100vh-200px)]">
         <div className="lg:grid grid-cols-3 gap-10  mx-auto justify-items-center   max-w-screen-lg ">
+
           {/* card-1 */}
           <div className="lg:-mt-16  mb-10 lg:mb-0  mx-auto mt-10 max-w-sm">
             <div className="bg-white shadow-md rounded-xl p-6">
@@ -308,10 +314,7 @@ card section */}
 
       </div>
 
-      {/* support-section */}
-        <div className=" relative top-7 text-center mx-auto max-w-2xl ">
-          <p className="bg-[#FF166C] py-5 px-4 text-xl text-white rounded-md"><span>Free support:<a href="tel:+4733378901"> + 47 333 78 901</a></span> | <span>Email: <a href="mailto:m.bluth@example.com">info@example.com</a></span></p>
-        </div>
+      
     </div>
   );
 };
