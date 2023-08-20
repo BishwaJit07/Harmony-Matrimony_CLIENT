@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 const Contact = () => {
 
@@ -9,7 +10,35 @@ const Contact = () => {
     const email = form.email.value
     const message = form.message.value
     const contactData = {name, subject, email, status: 'pending', message}
-    console.log(contactData)
+
+    fetch('https://harmony-matrimony-server.vercel.app/contact', {
+        method: "POST",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify(contactData)
+      })
+        .then(res => res.json())
+        .then(data => {
+          if(data.insertedId){
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Thank you',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          } 
+        })
+        .catch(e => {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Something Went Wrong!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        })
   }
   
   return (
