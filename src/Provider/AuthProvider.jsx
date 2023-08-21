@@ -42,8 +42,7 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 axios.post('https://harmony-matrimony-server.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
-                      
-                        localStorage.setItem('access-token', data.data.jwtToken)
+                        localStorage.setItem('access-token', data.data.token)
                         setLoading(false);
                     })
             }
