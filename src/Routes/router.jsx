@@ -17,9 +17,8 @@ import About from "../component/Pages/AboutP/About";
 import PatnerProfile from "../component/Pages/patnerProfile/patnerProfile";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
-import Post from "../component/Pages/Post/Post";
-
-
+import Service from "../component/Pages/Service/Service";
+import ServiceCard from "../component/Pages/Service/ServiceCard";
 
 const router = createBrowserRouter([
   {
@@ -40,66 +39,67 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path:'/blog',
-        element:<Blog></Blog>
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
+        path: "/service",
+        element: <Service></Service>,
+      },
+      {
+        path: "hotel/:id",
+        element: <ServiceCard></ServiceCard>,
+        loader: ({ params }) =>
+          fetch(`https://harmony-matrimony-server.vercel.app/allcouple/${params.id}`),
+      },
 
-        path: '/contact',
-        element : <Dashboard></Dashboard>,
-        children : [
+      {
+        path: "/contact",
+        element: <Dashboard></Dashboard>,
+        children: [
           {
-            path :'/contact/manageUser',
-            element : <ManageUser></ManageUser>
+            path: "/contact/manageUser",
+            element: <ManageUser></ManageUser>,
           },
           {
-            path :'/contact/allUser',
-            element : <AllUserD></AllUserD>
+            path: "/contact/allUser",
+            element: <AllUserD></AllUserD>,
           },
-        ]
+        ],
       },
 
       {
         path: "/happy",
-        element: <Happy />
+        element: <Happy />,
       },
       {
-        path:'/plans',
-        element:<Plans></Plans>
+        path: "/plans",
+        element: <Plans></Plans>,
       },
 
-
       {
-        path:'/alluser',
+        path: "/alluser",
 
-        element: <AllUser></AllUser>
+        element: <AllUser></AllUser>,
       },
       {
-
-        path:'/patnerProfile/:id',
-        element: <PatnerProfile></PatnerProfile>
+        path: "/patnerProfile/:id",
+        element: <PatnerProfile></PatnerProfile>,
       },
       {
-        path:'/allcouple/:id',
-        element: <SingleHappyStory/>
+        path: "/allcouple/:id",
+        element: <SingleHappyStory />,
       },
       {
-        path:'/blogs/:id',
-        element: <SingleBlogs/>
-
-
-
+        path: "/blogs/:id",
+        element: <SingleBlogs />,
       },
-      {
-        path:"/post",
-        element:<Post></Post>
-      }
     ],
   },
 
   {
     path: "/signup",
-   
+
     children: [
       {
         path: "step-1",
@@ -113,10 +113,8 @@ const router = createBrowserRouter([
         path: "final_signup",
         element: <SignUp />,
       },
-      
-     ],
+    ],
   },
-
 ]);
 
 export default router;
