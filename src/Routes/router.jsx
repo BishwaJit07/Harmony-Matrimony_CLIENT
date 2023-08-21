@@ -14,9 +14,10 @@ import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
 import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
 import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
-import PatnerProfile from "../component/Pages/patnerProfile/patnerProfile";
+import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
+import Contact from "../component/Pages/Contact/Contact";
 
 
 
@@ -66,8 +67,10 @@ const router = createBrowserRouter([
         path:'/plans',
         element:<Plans></Plans>
       },
-
-
+      {
+        path:'/contact-us',
+        element: <Contact />
+      },
       {
         path:'/alluser',
 
