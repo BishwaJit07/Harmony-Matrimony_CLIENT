@@ -21,7 +21,7 @@ const Post = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/statusPosts?user=${user?.email}`)
+      .get(`https://harmony-matrimony-server.vercel.app/statusPosts?user=${user?.email}`)
       .then((response) => {
         setPrevStatus(response.data);
       });
@@ -54,7 +54,10 @@ const Post = () => {
           };
 
           axios
-            .post(`http://localhost:5000/statusPost`, statusPost)
+            .post(
+              `https://harmony-matrimony-server.vercel.app/statusPost`,
+              statusPost
+            )
             .then((response) => {
               if (response.data.insertedId) {
                 reset();

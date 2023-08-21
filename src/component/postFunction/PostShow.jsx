@@ -24,11 +24,13 @@ const PostShow = ({ status, setLoader }) => {
 
   const handleDelete = (id) => {
     setLoader(true);
-    axios.delete(`http://localhost:5000/statusPost/${id}`).then((response) => {
-      if (response.data.deletedCount) {
-        setLoader(false);
-      }
-    });
+    axios
+      .delete(`https://harmony-matrimony-server.vercel.app/statusPost/${id}`)
+      .then((response) => {
+        if (response.data.deletedCount) {
+          setLoader(false);
+        }
+      });
   };
 
   return (
