@@ -8,7 +8,7 @@ const SingleHappyStory = () => {
         fetch(`https://harmony-matrimony-server.vercel.app/allcouple/${params.id}`)
             .then(res => res.json())
             .then(data => setHappyStories(data));
-    }, [])
+    }, [params.id])
    
    const {name,img,about_marriage}= happyStories;
 

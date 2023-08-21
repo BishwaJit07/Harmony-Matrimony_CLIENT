@@ -11,12 +11,19 @@ import { Link } from "react-router-dom";
 const Service = () => {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch("https://harmony-matrimony-server.vercel.app/allCouple")
+    fetch("https://harmony-matrimony-server.vercel.app/service/catering")
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, []);
 
-  console.log(datas)
+  const [pdata, setpDatas] = useState([]);
+  useEffect(() => {
+    fetch("https://harmony-matrimony-server.vercel.app/service/photography")
+      .then((res) => res.json())
+      .then((data) => setpDatas(data));
+  }, []);
+
+ 
 
 
 
@@ -66,17 +73,17 @@ const Service = () => {
               <Link to={`/hotel/${item._id}`}>
                 <div className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl">
                   <img
-                    src={item?.img}
+                    src={item?.image}
                     alt="Hotel cover"
                     className="object-cover w-full h-56 md:h-64 xl:h-80"
                   />
 
-                  <div className="bg-black px-6 py-4 bg-opacity-75 opacity-0 hover:opacity-100 text-gray-300 absolute inset-0 transition-opacity duration-200 flex flex-col">
-                    <p>{item.name}</p>
+                  <div className="bg-black  px-6 py-4 bg-opacity-75 opacity-0 hover:opacity-100 text-gray-300 absolute inset-0 transition-opacity duration-200 flex flex-col">
+                    <p className="font-semibold">{item.name}</p>
                     <br />
-                    <p>{item.about_marriage.substring(0, 100)}...</p>
+                    <p>{item.description.substring(0, 100)}...</p>
                     <br />
-                    {/* <p className="mt-auto">Price: {item.price}</p> */}
+                    <p className="mt-auto">Price: {item.price}</p>
                   </div>
                 </div>
               </Link>
@@ -104,7 +111,7 @@ const Service = () => {
           slidesPerView={4}
           spaceBetween={30}
           autoplay={{
-            delay: 2500,
+            delay: 3000,
             disableOnInteraction: false,
             pauseOnMouseEnter:true,
           }}
@@ -130,12 +137,12 @@ const Service = () => {
           modules={[Navigation, Pagination, A11y,Autoplay]}
           className="mySwiper"
         >
-          {datas.map((item) => (
+          {pdata.map((item) => (
             <SwiperSlide key={item._id}>
               <Link to={`/hotel/${item._id}`}>
                 <div className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl">
                   <img
-                    src={item?.img}
+                    src={item?.image}
                     alt="Hotel cover"
                     className="object-cover w-full h-56 md:h-64 xl:h-80"
                   />
@@ -143,9 +150,9 @@ const Service = () => {
                   <div className="bg-black px-6 py-4 bg-opacity-75 opacity-0 hover:opacity-100 text-gray-300 absolute inset-0 transition-opacity duration-200 flex flex-col">
                     <p>{item.name}</p>
                     <br />
-                    <p>{item.about_marriage.substring(0, 100)}...</p>
+                    <p>{item.description.substring(0, 100)}...</p>
                     <br />
-                    {/* <p className="mt-auto">Price: {item.price}</p> */}
+                    <p className="mt-auto">Price: {item.price}</p>
                   </div>
                 </div>
               </Link>

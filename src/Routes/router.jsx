@@ -50,9 +50,10 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-          fetch(`https://harmony-matrimony-server.vercel.app/allcouple/${params.id}`),
+          fetch(
+            `https://harmony-matrimony-server.vercel.app/service/${params.id}`
+          ),
       },
-
       {
         path: "/contact",
         element: <Dashboard></Dashboard>,
