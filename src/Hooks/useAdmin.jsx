@@ -11,8 +11,13 @@ const useAdmin = () => {
         queryKey: ['isAdmin', user?.email],
         enabled: !loading,
         queryFn: async () => {
+
+            const res = await fetch(`https://harmony-matrimony-server.vercel.app/${user?.email}`);
+            return res.json();
+
             const res = await axiosSecure.get(`/users/admin/${user?.email}`)
             return res.data.admin;
+
         }
     })
     return [isAdmin, isAdminLoading]

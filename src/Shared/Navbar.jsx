@@ -15,7 +15,7 @@ const Navbar = () => {
     {user && <li><Link to='/contact'>Dashboard</Link></li>}
     
     <li><Link to='/alluser'>All User</Link></li>
-
+    <li><Link to='/happy'>Happy</Link></li>
     <li><Link to='/blog'>Blog</Link></li>
 
     <li><Link to='/plans'>Plans</Link></li>
