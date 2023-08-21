@@ -79,11 +79,13 @@ const Navbar = () => {
                   Logout
                 </button>
               </div>
+                <Link to="/myProfile">
               <div className="avatar online">
                 <div className="w-11 rounded-full">
                   <img src={user.photoURL} />
                 </div>
               </div>
+                </Link>
             </div>
           ) : (
             <div className="">

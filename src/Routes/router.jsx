@@ -18,7 +18,13 @@ import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
 import Contact from "../component/Pages/Contact/Contact";
+
 import Post from "../component/postFunction/Post";
+
+import MyProfile from "../component/Pages/MyProfle/MyProfile";
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -82,14 +88,20 @@ const router = createBrowserRouter([
         path: "/allcouple/:id",
         element: <SingleHappyStory />,
       },
-      {
-        path: "/blogs/:id",
-        element: <SingleBlogs />,
-      },
+     
       {
         path: "/post",
         element: <Post />,
       },
+
+        path:'/blogs/:id',
+        element: <SingleBlogs/>
+      },
+      {
+        path:'/myProfile',
+        element: <MyProfile></MyProfile>
+      }
+
     ],
   },
 

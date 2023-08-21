@@ -82,6 +82,7 @@ const HomeNavbar = () => {
         </div>
 
         <div className="navbar-end">
+
           {user ? (
             <div className="flex gap-2 items-center">
               <div className="navbar-end me-3">
@@ -107,6 +108,7 @@ const HomeNavbar = () => {
               </Link>
             </div>
           )}
+
         </div>
       </div>
     </div>
