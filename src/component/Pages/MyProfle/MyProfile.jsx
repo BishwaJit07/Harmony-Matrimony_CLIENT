@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import useMyData from "../../../Hooks/useMydata";
 import { TbUserEdit } from "react-icons/tb";
-import { useParams } from 'react-router-dom';
-const PatnerProfile = () => {
-    const params = useParams();
-    const [user, setUser] = useState([]);
-    useEffect(() => {
-        fetch(`https://harmony-matrimony-server.vercel.app/specificUser/${params.id}`)
-            .then(res => res.json())
-            .then(data => setUser(data));
-    }, [])
-    const { img, name, country, religion, physical_attributes, mobile,email, gender, about, age } = user
+
+
+
+const MyProfile = () => {
+
+    const [userInfo, refetch] = useMyData();
+    const { img, name, country, religion, physical_attributes, mobile,email, gender, about, age } = userInfo
+    console.log(userInfo);
 
 
     const [activeTab, setActiveTab] = useState(0);
@@ -19,13 +18,10 @@ const PatnerProfile = () => {
     const changeTab = (index) => {
         setActiveTab(index);
     };
-
-    console.log(user);
     return (
-        
-            <div className="w-[80%] mx-auto my-20 ">
-                {/* Profile Header */}
-                <div className=" bg-white w-full flex h-40 items-center relative shadow-lg rounded-xl">
+        <div className="w-[80%] mx-auto m-32">
+             {/* Profile Header */}
+             <div className=" bg-white w-full flex h-40 items-center relative shadow-lg rounded-xl">
                     {/* Profile Image */}
                     <div className=" ml-4">
                         <img
@@ -130,10 +126,8 @@ const PatnerProfile = () => {
                     </div>
                 </div>
             
-            {/* Rest of the content */}
         </div>
-
     );
 };
 
-export default PatnerProfile;
+export default MyProfile;
