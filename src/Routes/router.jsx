@@ -18,6 +18,7 @@ import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
 import Contact from "../component/Pages/Contact/Contact";
+import MyProfile from "../component/Pages/MyProfle/MyProfile";
 
 
 
@@ -88,9 +89,10 @@ const router = createBrowserRouter([
       {
         path:'/blogs/:id',
         element: <SingleBlogs/>
-
-
-
+      },
+      {
+        path:'/myProfile',
+        element: <MyProfile></MyProfile>
       }
     ],
   },

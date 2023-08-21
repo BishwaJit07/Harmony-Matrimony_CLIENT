@@ -37,11 +37,13 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+
             // get and set token!!!!
             if (currentUser) {
                 axios.post('https://harmony-matrimony-server.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
-                        localStorage.setItem('access-token', data.data.token)
+                      
+                        localStorage.setItem('access-token', data.data.jwtToken)
                         setLoading(false);
                     })
             }
