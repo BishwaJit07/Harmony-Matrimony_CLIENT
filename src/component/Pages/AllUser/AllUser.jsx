@@ -59,10 +59,6 @@ const AllUser = () => {
   }
 
 
-
-
-
-
   const onSubmit = data => {
 
     const { gender, age, religion, country, language } = data;
