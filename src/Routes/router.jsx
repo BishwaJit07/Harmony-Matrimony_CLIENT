@@ -44,15 +44,15 @@ const router = createBrowserRouter([
       },
       {
 
-        path: '/contact',
+        path: '/dashboard',
         element : <Dashboard></Dashboard>,
         children : [
           {
-            path :'/contact/manageUser',
+            path :'/dashboard/manageUser',
             element : <ManageUser></ManageUser>
           },
           {
-            path :'/contact/allUser',
+            path :'/dashboard/allUser',
             element : <AllUserD></AllUserD>
           },
         ]
