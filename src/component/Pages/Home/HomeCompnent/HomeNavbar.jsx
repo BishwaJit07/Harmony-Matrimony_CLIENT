@@ -34,6 +34,7 @@ const HomeNavbar = () => {
     </>
   );
 
+
   const handleLogOut = () => {
     logOut()
       .then(() => {})
