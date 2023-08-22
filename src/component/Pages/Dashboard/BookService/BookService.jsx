@@ -1,18 +1,35 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import BookServiceCard from "./BookServiceCard";
+import Loading from "../../../../Shared/Loading";
 
 
 const BookService = () => {
     const {user}=useContext(AuthContext)
     console.log(user?.email)
     const [datas, setDatas]=useState([])
+    const [loading, setLoading] = useState(true);
     useEffect(()=>{
-        fetch('https://harmony-matrimony-server.vercel.app/service/photography')
+        fetch(`https://harmony-matrimony-server.vercel.app/singleBookedService/${user?.email}`)
         .then(res=>res.json())
-        .then(data=>setDatas(data))
+        .then(data=>{
+            setLoading(false)
+            setDatas(data)
+        })
     },[])
     console.log(datas)
+
+    if (loading) {
+        return (
+          <div>
+            <Loading></Loading>
+          </div>
+        );
+      }
+
+
+
+
     return (
         <div>
            <div className="bg-gradient-to-r from-[#6ed3a6] to-[#EBFFF6]">

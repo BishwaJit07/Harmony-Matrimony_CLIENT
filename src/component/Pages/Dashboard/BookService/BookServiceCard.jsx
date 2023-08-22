@@ -12,10 +12,11 @@ const BookServiceCard = ({ data }) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{data.name}</h2>
+          <h2 >Email: {data?.email}</h2>
           <p>{data.description}</p>
-          <div className="card-actions justify-end">
-            {/* <div className="badge badge-outline">Fashion</div>
-            <div className="badge badge-outline">Products</div> */}
+          <div className="card-actions">
+            <p className=" text-gray-900">Provider: {data.provider?.name}</p>
+            <p className=" text-gray-900">Contact: {data.provider?.contact}</p>
           </div>
         </div>
       </div>
