@@ -23,6 +23,7 @@ import ServiceCard from "../component/Pages/Service/ServiceCard";
 import Contact from "../component/Pages/Contact/Contact";
 import Post from "../component/postFunction/Post";
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
+import BookService from "../component/Pages/Dashboard/BookService/BookService";
 
 
 const router = createBrowserRouter([
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
           {
             path: "/contact/allUser",
             element: <AllUserD></AllUserD>,
+          },
+          {
+            path: "/contact/bookService",
+            element: <BookService></BookService>,
           },
         ],
       },

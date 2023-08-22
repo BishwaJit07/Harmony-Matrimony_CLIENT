@@ -31,7 +31,11 @@ const Dashboard = () => {
                     </div> : <div className="navStyle">
                         <div className="divider"> Home</div>
                         <li><NavLink to='/contact/manageUser'>Manage User!!!</NavLink></li>
-                        <li><NavLink to='/contact/allUser'>All User</NavLink></li> </div>}
+                        <li><NavLink to='/contact/allUser'>All User</NavLink></li> 
+                        <li><NavLink to='/contact/bookService'>Service Booking </NavLink></li> 
+                        
+                        
+                        </div>}
                 </ul>
 
             </div>
