@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const PostShow = ({ status, setLoader }) => {
   const { user } = useContext(AuthContext);
   const [showOptions, setShowOptions] = useState(false);
   const optionsRef = useRef(null);
 
-  const { _id, userId, post, postDate, postImg } = status;
+  const { _id, post, postDate, postImg } = status;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -34,7 +34,7 @@ const PostShow = ({ status, setLoader }) => {
   };
 
   return (
-    <div className="card card-compact w-96 bg-base-100 shadow-xl mb-2">
+    <div className="card card-compact bg-base-100 shadow-xl mb-2  text-left">
       <div className="card-body relative">
         {/* Toggle button */}
         <button
@@ -62,14 +62,14 @@ const PostShow = ({ status, setLoader }) => {
           </div>
         )}
 
-        <div className="flex gap-3">
+        <div className="flex gap-3 items-center">
           <img
             src={user?.photoURL}
             className="w-12 h-12 rounded-full"
             alt="User"
           />
           <div>
-            <h2 className="card-title">{userId}</h2>
+            <h2 className="card-title">{user?.displayName}</h2>
             <p>{postDate}</p>
           </div>
         </div>
