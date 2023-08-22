@@ -17,13 +17,12 @@ import About from "../component/Pages/AboutP/About";
 import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
+
+import Service from "../component/Pages/Service/Service";
+import ServiceCard from "../component/Pages/Service/ServiceCard";
 import Contact from "../component/Pages/Contact/Contact";
-
 import Post from "../component/postFunction/Post";
-
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
-
-
 
 
 const router = createBrowserRouter([
@@ -49,6 +48,20 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
+
+        path: "/service",
+        element: <Service></Service>,
+      },
+      {
+        path: "hotel/:id",
+        element: <ServiceCard></ServiceCard>,
+        loader: ({ params }) =>
+          fetch(
+            `https://harmony-matrimony-server.vercel.app/service/${params.id}`
+          ),
+      },
+      {
+t
         path: "/contact",
         element: <Dashboard></Dashboard>,
         children: [
@@ -71,6 +84,7 @@ const router = createBrowserRouter([
         path: "/plans",
         element: <Plans></Plans>,
       },
+
       {
         path: "/contact-us",
         element: <Contact />,
