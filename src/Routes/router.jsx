@@ -21,9 +21,7 @@ import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
 import Service from "../component/Pages/Service/Service";
 import ServiceCard from "../component/Pages/Service/ServiceCard";
 import Contact from "../component/Pages/Contact/Contact";
-import Post from "../component/postFunction/Post";
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
-
 
 const router = createBrowserRouter([
   {
@@ -48,7 +46,6 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
-
         path: "/service",
         element: <Service></Service>,
       },
@@ -61,7 +58,6 @@ const router = createBrowserRouter([
           ),
       },
       {
-
         path: "/contact",
         element: <Dashboard></Dashboard>,
         children: [
@@ -102,24 +98,16 @@ const router = createBrowserRouter([
         path: "/allcouple/:id",
         element: <SingleHappyStory />,
       },
-     
       {
-        path: "/post",
-        element: <Post />,
-      },
-
-        {
-
-        path:'/blogs/:id',
-        element: <SingleBlogs/>
+        path: "/blogs/:id",
+        element: <SingleBlogs />,
       },
       {
-        path:'/myProfile',
-        element: <MyProfile></MyProfile>
-      }
-
-      ],
-    },
+        path: "/myProfile",
+        element: <MyProfile></MyProfile>,
+      },
+    ],
+  },
   {
     path: "/signup",
 
