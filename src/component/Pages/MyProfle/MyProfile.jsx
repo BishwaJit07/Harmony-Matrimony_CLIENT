@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useMyData from "../../../Hooks/useMydata";
+import useMyData from "../../../Hooks/useMyData";
 import { TbUserEdit } from "react-icons/tb";
 
 
