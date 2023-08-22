@@ -61,7 +61,7 @@ const router = createBrowserRouter([
           ),
       },
       {
-t
+
         path: "/contact",
         element: <Dashboard></Dashboard>,
         children: [
@@ -107,7 +107,7 @@ t
         path: "/post",
         element: <Post />,
       },
-
+        {
         path:'/blogs/:id',
         element: <SingleBlogs/>
       },
@@ -116,9 +116,8 @@ t
         element: <MyProfile></MyProfile>
       }
 
-    ],
-  },
-
+      ],
+    },
   {
     path: "/signup",
 
