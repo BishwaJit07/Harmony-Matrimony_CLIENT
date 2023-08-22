@@ -12,13 +12,14 @@ const Navbar = () => {
 
     <li><Link to='/about'>About</Link></li>
 
-    {user && <li><Link to='/contact'>Dashboard</Link></li>}
-    
+    {user && <li><Link to='/contact'>Dashboard</Link></li>} 
     <li><Link to='/alluser'>All User</Link></li>
+
     <li><Link to='/happy'>Happy</Link></li>
     <li><Link to='/blog'>Blog</Link></li>
-
     <li><Link to='/plans'>Plans</Link></li>
+    <li><Link to='/post'>Post</Link></li>
+    <li><Link to='/service'>Service</Link></li>
 
 
 
