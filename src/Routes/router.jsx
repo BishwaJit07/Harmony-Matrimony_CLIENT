@@ -21,10 +21,12 @@ import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
 import Service from "../component/Pages/Service/Service";
 import ServiceCard from "../component/Pages/Service/ServiceCard";
 import Contact from "../component/Pages/Contact/Contact";
-import Post from "../component/postFunction/Post";
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
+
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
 
+
+import AddService from "../Shared/AddService/AddService";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +51,6 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
-
         path: "/service",
         element: <Service></Service>,
       },
@@ -62,7 +63,6 @@ const router = createBrowserRouter([
           ),
       },
       {
-
         path: "/contact",
         element: <Dashboard></Dashboard>,
         children: [
@@ -75,9 +75,15 @@ const router = createBrowserRouter([
             element: <AllUserD></AllUserD>,
           },
           {
+
             path: "/contact/bookService",
             element: <BookService></BookService>,
           },
+
+            path: "/contact/addService",
+            element: <AddService />
+          }
+
         ],
       },
 
@@ -107,24 +113,16 @@ const router = createBrowserRouter([
         path: "/allcouple/:id",
         element: <SingleHappyStory />,
       },
-     
       {
-        path: "/post",
-        element: <Post />,
-      },
-
-        {
-
-        path:'/blogs/:id',
-        element: <SingleBlogs/>
+        path: "/blogs/:id",
+        element: <SingleBlogs />,
       },
       {
-        path:'/myProfile',
-        element: <MyProfile></MyProfile>
-      }
-
-      ],
-    },
+        path: "/myProfile",
+        element: <MyProfile></MyProfile>,
+      },
+    ],
+  },
   {
     path: "/signup",
 
