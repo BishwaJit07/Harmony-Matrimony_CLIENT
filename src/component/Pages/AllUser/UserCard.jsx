@@ -1,9 +1,11 @@
 
 
 import { Link } from "react-router-dom";
-const UserCard = ({ user }) => {
+import Loading from "../../../Shared/Loading";
+const UserCard = ({ user , length }) => {
     const { img, name, country, religion, physical_attributes, gender, _id , about } = user
 
+   
     return (
         <div>
            
@@ -42,6 +44,11 @@ const UserCard = ({ user }) => {
                            
                         </ul>
                     </div>
+                    {
+                        length === 0 ? 
+                         <Loading></Loading> : <></>
+
+                    }
                 </div>
             </div>
        

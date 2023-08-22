@@ -46,7 +46,7 @@ const SignUpStep1 = () => {
         >
           {/*profile select field*/}
           <div>
-            <div className="relative z-0">
+            <div className="relative z-0 w-full">
               <select
                 className="select select-bordered w-full max-w-xs"
                 id="profile"

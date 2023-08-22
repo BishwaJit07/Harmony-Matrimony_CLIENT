@@ -14,11 +14,16 @@ import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
 import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
 import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
-import PatnerProfile from "../component/Pages/patnerProfile/patnerProfile";
+import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
+
 import Service from "../component/Pages/Service/Service";
 import ServiceCard from "../component/Pages/Service/ServiceCard";
+import Contact from "../component/Pages/Contact/Contact";
+import Post from "../component/postFunction/Post";
+import MyProfile from "../component/Pages/MyProfle/MyProfile";
+
 
 const router = createBrowserRouter([
   {
@@ -43,6 +48,7 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
+
         path: "/service",
         element: <Service></Service>,
       },
@@ -55,6 +61,7 @@ const router = createBrowserRouter([
           ),
       },
       {
+t
         path: "/contact",
         element: <Dashboard></Dashboard>,
         children: [
@@ -79,6 +86,10 @@ const router = createBrowserRouter([
       },
 
       {
+        path: "/contact-us",
+        element: <Contact />,
+      },
+      {
         path: "/alluser",
 
         element: <AllUser></AllUser>,
@@ -91,10 +102,20 @@ const router = createBrowserRouter([
         path: "/allcouple/:id",
         element: <SingleHappyStory />,
       },
+     
       {
-        path: "/blogs/:id",
-        element: <SingleBlogs />,
+        path: "/post",
+        element: <Post />,
       },
+
+        path:'/blogs/:id',
+        element: <SingleBlogs/>
+      },
+      {
+        path:'/myProfile',
+        element: <MyProfile></MyProfile>
+      }
+
     ],
   },
 

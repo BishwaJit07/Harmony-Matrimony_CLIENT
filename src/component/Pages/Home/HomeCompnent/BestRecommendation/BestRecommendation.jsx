@@ -8,14 +8,18 @@ import "swiper/css/pagination";
 import "./styles.css";
 import { Pagination , Navigation , A11y } from "swiper/modules";
 import { SwiperNavButtons } from "./SwiperNavButton";
+import { Link } from "react-router-dom";
 const BestRecommendation = () => {
+
+  
   const [datas, setDatas] = useState([]);
   useEffect(() => {
     fetch("https://harmony-matrimony-server.vercel.app/allUser")
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, []);
-  console.log(datas)
+
+
   return (
     <div className=" w-full  ">
       {/* content-section */}
@@ -59,7 +63,7 @@ const BestRecommendation = () => {
                     alt=""
                     className="rounded-xl  object-cover w-full h-[300px]"
                   />
-                  <p className="bg-[#FF725E] text-white absolute w-full bottom-0  p-2 text-xl font-semibold rounded "><span className="text-lg font-medium b"></span> {item.name}</p>
+                  <p className="bg-[#FF725E] text-white absolute w-full bottom-0  p-2 text-xl font-semibold rounded "><span className="text-lg font-medium b"></span><Link to={`/patnerProfile/${item?._id}`}>{item?.name}</Link></p>
                   
                 </div>
               </div>

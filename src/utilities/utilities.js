@@ -19,3 +19,12 @@ export function calculateAge(birthdate) {
 
   return age;
 }
+
+export function formatDate(date) {
+  const options = { day: "numeric", month: "long", year: "numeric" };
+  const parts = date.toLocaleDateString(undefined, options).split(" ");
+  const day = parts[1];
+  const month = parts[0];
+  const year = parts[2];
+  return `${day} ${month} ${year}`;
+}
