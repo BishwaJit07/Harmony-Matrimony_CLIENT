@@ -36,7 +36,11 @@ import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 
 
 import AddService from "../Shared/AddService/AddService";
+
+import StripePayment from "../payments/StripePayment/StripePayment";
+
 import Post from "../component/Pages/MyProfle/postFunction/Post";
+
 
 const router = createBrowserRouter([
   {
@@ -157,6 +161,10 @@ const router = createBrowserRouter([
 
         path: "/contact-us",
         element: <Contact />,
+      },
+      {
+        path: '/payment',
+        element: <StripePayment />
       },
       {
         path: "/alluser",
