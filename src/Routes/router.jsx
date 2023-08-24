@@ -3,6 +3,7 @@ import Home from "../component/Pages/Home/Home";
 import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
 import Blog from "../component/Pages/Blog/Blog";
+import AddBlog from "../component/Pages/Blog/addBlog";
 import Plans from "../component/Pages/Plans/Plans";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import Dashboard from "../component/Pages/Dashboard/Dashboard";
@@ -18,7 +19,8 @@ import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
 import Contact from "../component/Pages/Contact/Contact";
-
+import BlogDetails from "../component/Pages/Blog/BlogDetails";
+import TermCondition from '../component/Pages/SignUp/TermCondition'
 
 
 const router = createBrowserRouter([
@@ -40,21 +42,34 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path:'/blog',
-        element:<Blog></Blog>
+        path: '/blog',
+        element: <Blog></Blog>
+      },
+      {
+        path: '/addBlog',
+        element : <AddBlog></AddBlog>
+      },
+      {
+        path: '/blogDetails/:id',
+        element : <BlogDetails></BlogDetails>,
+        loader: ({params}) => fetch(`https://harmony-matrimony-server.vercel.app/blogsDetails/${params.id}`)
+      },
+      {
+        path :'/termCondition',
+        element : <TermCondition></TermCondition>
       },
       {
 
         path: '/dashboard',
-        element : <Dashboard></Dashboard>,
-        children : [
+        element: <Dashboard></Dashboard>,
+        children: [
           {
-            path :'/dashboard/manageUser',
-            element : <ManageUser></ManageUser>
+            path: '/dashboard/manageUser',
+            element: <ManageUser></ManageUser>
           },
           {
-            path :'/dashboard/allUser',
-            element : <AllUserD></AllUserD>
+            path: '/dashboard/allUser',
+            element: <AllUserD></AllUserD>
           },
         ]
       },
@@ -64,30 +79,30 @@ const router = createBrowserRouter([
         element: <Happy />
       },
       {
-        path:'/plans',
-        element:<Plans></Plans>
+        path: '/plans',
+        element: <Plans></Plans>
       },
       {
-        path:'/contact-us',
+        path: '/contact-us',
         element: <Contact />
       },
       {
-        path:'/alluser',
+        path: '/alluser',
 
         element: <AllUser></AllUser>
       },
       {
 
-        path:'/patnerProfile/:id',
+        path: '/patnerProfile/:id',
         element: <PatnerProfile></PatnerProfile>
       },
       {
-        path:'/allcouple/:id',
-        element: <SingleHappyStory/>
+        path: '/allcouple/:id',
+        element: <SingleHappyStory />
       },
       {
-        path:'/blogs/:id',
-        element: <SingleBlogs/>
+        path: '/blogs/:id',
+        element: <SingleBlogs />
 
 
 
@@ -97,7 +112,7 @@ const router = createBrowserRouter([
 
   {
     path: "/signup",
-   
+
     children: [
       {
         path: "step-1",
@@ -111,7 +126,7 @@ const router = createBrowserRouter([
         path: "final_signup",
         element: <SignUp />,
       },
-     ],
+    ],
   },
 
 ]);

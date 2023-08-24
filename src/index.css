@@ -22,22 +22,37 @@
 .navStyle a.active {
     background-color: blue;
 }
-.center-div{
+
+.center-div {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.font-plans{
+.font-plans {
     font-family: 'Lora', serif;
 }
 
-.font-poppins{
+.font-poppins {
     font-family: 'Poppins', sans-serif;
 }
 
-.font-cinzel{
+.font-cinzel {
     font-family: 'Cinzel Decorative', cursive;
 
 
+}
+
+/* scrollbar style */
+.hide-scrollbar::-webkit-scrollbar {
+    width: 0.4em;
+}
+
+.hide-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: none;
 }

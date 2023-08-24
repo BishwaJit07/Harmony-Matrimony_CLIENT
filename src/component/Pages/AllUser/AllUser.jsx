@@ -59,7 +59,7 @@ const AllUser = () => {
 
   const onSubmit = data => {
 
-    const { gender, age , religion, country, language } = data;
+    const { gender , religion, country } = data;
 
 
     const filteredData = users.filter(user => {
