@@ -6,6 +6,7 @@ import { AuthContext } from "../../../../Provider/AuthProvider";
 const HomeNavbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
+
   const navItem = (
     <>
       <li>
@@ -14,11 +15,7 @@ const HomeNavbar = () => {
       <li>
         <Link to="/about">About</Link>
       </li>
-      {user && (
-        <li>
-          <Link to="/contact">Dashboard</Link>
-        </li>
-      )}
+   
       <li>
         <Link to="/alluser">All User</Link>
       </li>
@@ -31,8 +28,10 @@ const HomeNavbar = () => {
       <li>
         <Link to="/Post">Post</Link>
       </li>
+  {user && <li><Link to='/dashboard'>Dashboard</Link></li>}
     </>
   );
+
 
 
   const handleLogOut = () => {
