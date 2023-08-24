@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const SingleBlogs = () => {
             .then(data => setBlogs(data));
     }, []);
 
-const{image,title,details}=blogs;
+    const { image, title, details } = blogs;
 
     return (
         <div>
@@ -23,15 +23,15 @@ const{image,title,details}=blogs;
             </Helmet>
 
             <div className="card card-side bg-base-100 shadow-2xl p-5">
-  <figure><img src={image} alt="Blog"/></figure>
-  <div className="card-body ">
-    <h2 className="card-title ">{title}</h2>
-    <p>{details}</p>
-    <div className="card-actions justify-end">
-     
-    </div>
-  </div>
-</div>
+                <figure><img src={image} alt="Blog" /></figure>
+                <div className="card-body ">
+                    <h2 className="card-title ">{title}</h2>
+                    <p>{details}</p>
+                    <div className="card-actions justify-end">
+
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

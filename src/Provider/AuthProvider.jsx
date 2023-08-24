@@ -42,14 +42,14 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 axios.post('https://harmony-matrimony-server.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
-                        localStorage.setItem('access-token', data.data.token)
+                        localStorage.setItem('access-token', data.data.jwtToken)
                         setLoading(false);
                     })
             }
             else {
                 localStorage.removeItem('access-token')
             }
-            // console.log('current user', currentUser);
+            console.log('current user', currentUser);
         })
         return () => {
             return unsubscribe();
