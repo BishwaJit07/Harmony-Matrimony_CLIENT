@@ -1,4 +1,5 @@
 import { FaGoogle, FaYoutube, FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="">
@@ -12,7 +13,7 @@ const Footer = () => {
         </div>
         <div className="lg:ps-28 sm:p-0 lg:border-s-2 sm:border-hidden border-slate-300">
           <span className="uppercase text-3xl font-extralight text-white pb-4">Help & Support</span>
-          <a className="link link-hover">About</a>
+          <Link to='/about' className="link link-hover" >About</Link>
           <a className="link link-hover">Feedback</a>
           <a className="link link-hover">Testimonial</a>
         </div>

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import img from "../../../assets/other/login.png";
 import logo from "../../../assets/logo/logo.png";
@@ -70,7 +70,7 @@ const SignUp = () => {
               .catch((error) => console.log(error));
           })
       })
-     
+
   };
   return (
     <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
@@ -80,7 +80,7 @@ const SignUp = () => {
         <meta charSet="utf-8" />
         <title>Soulmate | Sign Up</title>
       </Helmet>
-      
+
       <figure className="w-[50%]">
         <img className="object-cover -ml-24 h-[750px] " src={img} alt="" />
       </figure>
@@ -214,6 +214,11 @@ const SignUp = () => {
               <span className="font-medium">Well done!</span> Some success
               message.
             </p>
+          </div>
+          {/* Terms and Condition Page */}
+          <div className="flex">
+            <input type="checkbox" id='checkId'  className="checkbox" required/>
+          <p className="ms-2 font-medium">I agree with  <Link to='/termCondition'className="text-red-500">Terms & Conditions</Link> </p>
           </div>
           <button className="btn bg-gray-500 text-gray-300 w-[40%] md:w-[25%] rounded-full mx-auto hover:text-black">
             SignUp
