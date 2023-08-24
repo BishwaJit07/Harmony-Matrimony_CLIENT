@@ -15,11 +15,7 @@ const HomeNavbar = () => {
       <li>
         <Link to="/about">About</Link>
       </li>
-      {user && (
-        <li>
-          <Link to="/contact">Dashboard</Link>
-        </li>
-      )}
+   
       <li>
         <Link to="/alluser">All User</Link>
       </li>

@@ -87,7 +87,7 @@ const router = createBrowserRouter([
             path: '/dashboard/allUser',
             element: <AllUserD></AllUserD>
            },
-      
+    ]},
       {
         path: "/service",
         element: <Service></Service>,
@@ -189,8 +189,8 @@ const router = createBrowserRouter([
         element: <MyProfile></MyProfile>,
       },
 
-    ],
-  },
+    
+
   {
     path: "/signup",
 
@@ -209,6 +209,10 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+
+]}
+
+])
+;
 
 export default router;

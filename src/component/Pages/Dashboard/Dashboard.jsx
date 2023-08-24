@@ -2,6 +2,7 @@ import { Outlet } from "react-router";
 // import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import useAdmin from "../../../Hooks/useAdmin";
+import { NavLink } from "react-router-dom";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
@@ -27,7 +28,9 @@ const Dashboard = () => {
                     <div className="">
                         <img src='https://i.ibb.co/swBsp3p/flower.png' alt="" className="lg:w-[40%] w-[60%] md:w-[40%] mx-auto -mt-1 mb-5" />
                     </div>
-                    {/* {isAdmin ? <div className="navStyle">
+                    <div>
+                        
+                    { /* {isAdmin ? <div className="navStyle">
                         <div className="divider">Admin Home</div>
 
                         <li><NavLink to='/dashboard/manageUser'>Manage User</NavLink></li>
@@ -47,7 +50,7 @@ const Dashboard = () => {
                         <li><NavLink to='/contact/bookService'>Service Booking </NavLink></li> 
                         
                         
-                        </div>}
+                        </div>
 
                 </ul>
 
