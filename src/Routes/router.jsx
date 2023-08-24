@@ -27,6 +27,7 @@ import BookService from "../component/Pages/Dashboard/BookService/BookService";
 
 
 import AddService from "../Shared/AddService/AddService";
+import StripePayment from "../payments/StripePayment/StripePayment";
 
 const router = createBrowserRouter([
   {
@@ -79,7 +80,7 @@ const router = createBrowserRouter([
             path: "/contact/bookService",
             element: <BookService></BookService>,
           },
-
+          {
             path: "/contact/addService",
             element: <AddService />
           }
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
       {
         path: "/contact-us",
         element: <Contact />,
+      },
+      {
+        path: '/payment',
+        element: <StripePayment />
       },
       {
         path: "/alluser",
