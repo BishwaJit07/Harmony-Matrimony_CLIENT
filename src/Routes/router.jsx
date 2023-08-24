@@ -24,7 +24,10 @@ import Contact from "../component/Pages/Contact/Contact";
 import Post from "../component/postFunction/Post";
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
-
+import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
+import PaymentCardTwo from "../component/Pages/PaymentPage/PaymentCardTwo";
+import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
+import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +52,6 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
-
         path: "/service",
         element: <Service></Service>,
       },
@@ -62,7 +64,22 @@ const router = createBrowserRouter([
           ),
       },
       {
-
+        path: "/paymentOne",
+        element:<PaymentCard></PaymentCard>
+      },
+      {
+        path: "/paymentTwo",
+        element:<PaymentCardTwo></PaymentCardTwo>
+      },
+      {
+        path: "/payment/success/:tranId",
+        element:<PaymentSuccess></PaymentSuccess>
+      },
+      {
+        path: "/payment/fail/:tranId",
+        element:<PaymentFail></PaymentFail>
+      },
+      {
         path: "/contact",
         element: <Dashboard></Dashboard>,
         children: [
@@ -107,24 +124,22 @@ const router = createBrowserRouter([
         path: "/allcouple/:id",
         element: <SingleHappyStory />,
       },
-     
+
       {
         path: "/post",
         element: <Post />,
       },
 
-        {
-
-        path:'/blogs/:id',
-        element: <SingleBlogs/>
+      {
+        path: "/blogs/:id",
+        element: <SingleBlogs />,
       },
       {
-        path:'/myProfile',
-        element: <MyProfile></MyProfile>
-      }
-
-      ],
-    },
+        path: "/myProfile",
+        element: <MyProfile></MyProfile>,
+      },
+    ],
+  },
   {
     path: "/signup",
 
