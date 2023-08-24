@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
@@ -100,13 +100,13 @@ const ServiceCard = () => {
             </p>
           </div>
           <div className="flex gap-5 mt-8 items-center">
-            <button
+            <Link to='/payment'
               className="btn btn-primary"
               onClick={()=>handleBook()}
               disabled={btnDis}
             >
               Book Now
-            </button>
+            </Link>
             <p className="items-center font-extrabold text-gray-600 ">
               Price: {price}
             </p>
