@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const Plans = () => {
   return (
@@ -215,10 +216,15 @@ card section */}
                   Start Chat
                 </li>
               </ul>
+
+              <Link to='/paymentOne'>
               <button className="bg-blue-500 w-full mx-auto font-semibold my-5  text-white px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out">
                 Get Started
               </button>
+              </Link>
             </div>
+
+             
           </div>
           {/* 3rd card */}
           <div className="lg:-mt-16 mb-10 max-w-sm mx-auto lg:mb-0">
@@ -304,9 +310,11 @@ card section */}
                   Start Chat
                 </li>
               </ul>
-              <button className="bg-blue-500 w-full mx-auto font-semibold text-white px-4 py-2 my-5 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out">
+              <Link to='/paymentTwo'>
+              <button className="bg-blue-500 w-full mx-auto font-semibold my-5  text-white px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out">
                 Get Started
               </button>
+              </Link>
             </div>
           </div>
         </div>

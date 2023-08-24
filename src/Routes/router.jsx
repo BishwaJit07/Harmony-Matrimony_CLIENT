@@ -29,10 +29,14 @@ import TermCondition from '../component/Pages/SignUp/TermCondition'
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
 
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
-
+import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
+import PaymentCardTwo from "../component/Pages/PaymentPage/PaymentCardTwo";
+import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
+import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 
 
 import AddService from "../Shared/AddService/AddService";
+import Post from "../component/Pages/MyProfle/postFunction/Post";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +101,22 @@ const router = createBrowserRouter([
           ),
       },
       {
+        path: "/paymentOne",
+        element:<PaymentCard></PaymentCard>
+      },
+      {
+        path: "/paymentTwo",
+        element:<PaymentCardTwo></PaymentCardTwo>
+      },
+      {
+        path: "/payment/success/:tranId",
+        element:<PaymentSuccess></PaymentSuccess>
+      },
+      {
+        path: "/payment/fail/:tranId",
+        element:<PaymentFail></PaymentFail>
+      },
+      {
         path: "/contact",
         element: <Dashboard></Dashboard>,
         children: [
@@ -114,7 +134,7 @@ const router = createBrowserRouter([
             element: <BookService></BookService>,
 
           },
-
+          {
             path: "/contact/addService",
             element: <AddService />
           }
@@ -153,6 +173,13 @@ const router = createBrowserRouter([
         path: "/allcouple/:id",
         element: <SingleHappyStory />,
       },
+
+      {
+        path: "/post",
+        element: <Post />,
+      },
+
+      
       {
         path: "/blogs/:id",
         element: <SingleBlogs />,
