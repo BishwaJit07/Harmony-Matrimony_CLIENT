@@ -21,13 +21,16 @@ import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
 import Service from "../component/Pages/Service/Service";
 import ServiceCard from "../component/Pages/Service/ServiceCard";
 import Contact from "../component/Pages/Contact/Contact";
-import Post from "../component/postFunction/Post";
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
+
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
 import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
 import PaymentCardTwo from "../component/Pages/PaymentPage/PaymentCardTwo";
 import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
+
+import AddService from "../Shared/AddService/AddService";
+import Post from "../component/Pages/MyProfle/postFunction/Post";
 
 const router = createBrowserRouter([
   {
@@ -92,9 +95,15 @@ const router = createBrowserRouter([
             element: <AllUserD></AllUserD>,
           },
           {
+
             path: "/contact/bookService",
             element: <BookService></BookService>,
           },
+          {
+            path: "/contact/addService",
+            element: <AddService />
+          }
+
         ],
       },
 
@@ -130,6 +139,7 @@ const router = createBrowserRouter([
         element: <Post />,
       },
 
+      
       {
         path: "/blogs/:id",
         element: <SingleBlogs />,
