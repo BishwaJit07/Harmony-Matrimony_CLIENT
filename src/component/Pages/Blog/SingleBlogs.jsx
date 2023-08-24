@@ -19,7 +19,7 @@ const SingleBlogs = () => {
             {/* Title */}
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Soulmate | {title}</title>
+                <title>Soulmate | BLOG</title>
             </Helmet>
 
             <div className="card card-side bg-base-100 shadow-2xl p-5">

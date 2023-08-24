@@ -18,10 +18,21 @@ import About from "../component/Pages/AboutP/About";
 import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
+
+import Service from "../component/Pages/Service/Service";
+import ServiceCard from "../component/Pages/Service/ServiceCard";
 import Contact from "../component/Pages/Contact/Contact";
+
 import BlogDetails from "../component/Pages/Blog/BlogDetails";
 import TermCondition from '../component/Pages/SignUp/TermCondition'
 
+import MyProfile from "../component/Pages/MyProfle/MyProfile";
+
+import BookService from "../component/Pages/Dashboard/BookService/BookService";
+
+
+
+import AddService from "../Shared/AddService/AddService";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +53,7 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
+
         path: '/blog',
         element: <Blog></Blog>
       },
@@ -70,46 +82,88 @@ const router = createBrowserRouter([
           {
             path: '/dashboard/allUser',
             element: <AllUserD></AllUserD>
+           },
+      
+      {
+        path: "/service",
+        element: <Service></Service>,
+      },
+      {
+        path: "hotel/:id",
+        element: <ServiceCard></ServiceCard>,
+        loader: ({ params }) =>
+          fetch(
+            `https://harmony-matrimony-server.vercel.app/service/${params.id}`
+          ),
+      },
+      {
+        path: "/contact",
+        element: <Dashboard></Dashboard>,
+        children: [
+          {
+            path: "/contact/manageUser",
+            element: <ManageUser></ManageUser>,
           },
-        ]
+          {
+            path: "/contact/allUser",
+            element: <AllUserD></AllUserD>,
+          },
+          {
+
+            path: "/contact/bookService",
+            element: <BookService></BookService>,
+
+          },
+
+            path: "/contact/addService",
+            element: <AddService />
+          }
+
+        ],
       },
 
       {
         path: "/happy",
-        element: <Happy />
+        element: <Happy />,
       },
       {
+
         path: '/plans',
         element: <Plans></Plans>
-      },
-      {
-        path: '/contact-us',
-        element: <Contact />
-      },
-      {
-        path: '/alluser',
 
-        element: <AllUser></AllUser>
       },
+
       {
 
-        path: '/patnerProfile/:id',
-        element: <PatnerProfile></PatnerProfile>
+        path: "/contact-us",
+        element: <Contact />,
       },
       {
-        path: '/allcouple/:id',
-        element: <SingleHappyStory />
+        path: "/alluser",
+
+
+        element: <AllUser></AllUser>,
       },
       {
-        path: '/blogs/:id',
-        element: <SingleBlogs />
 
+        path: "/patnerProfile/:id",
+        element: <PatnerProfile></PatnerProfile>,
+      },
+      {
+        path: "/allcouple/:id",
+        element: <SingleHappyStory />,
+      },
+      {
+        path: "/blogs/:id",
+        element: <SingleBlogs />,
+      },
+      {
+        path: "/myProfile",
+        element: <MyProfile></MyProfile>,
+      },
 
-
-      }
     ],
   },
-
   {
     path: "/signup",
 
@@ -128,7 +182,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-
 ]);
 
 export default router;

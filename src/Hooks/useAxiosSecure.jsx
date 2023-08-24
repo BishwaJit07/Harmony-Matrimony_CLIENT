@@ -1,40 +1,44 @@
-import axios from "axios";
-import useAuth from "./useAuth";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import useAuth from './useAuth';
+
 
 const axiosSecure = axios.create({
-    baseURL: '',
+  baseURL: 'https://harmony-matrimony-server.vercel.app', 
 });
+
 const useAxiosSecure = () => {
-    const {logOut} = useAuth();
-    const navigate = useNavigate();
+  const { logOut } = useAuth(); 
+  const navigate = useNavigate(); 
 
-    useEffect(()=>{
+  useEffect(() => {
+    axiosSecure.interceptors.request.use((config) => {
+      const token = localStorage.getItem('access-token');
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+      return config;
+    });
 
-      // axios get the token and send request
-      axiosSecure.interceptors.request.use((request) => {
-        const token = localStorage.getItem('access-token');
-        if(token){
-          request.headers.Authorization = `Bearer ${token}`;
-        }
-        return request;
-      })
-
-      //it token is value the get the response
-      axiosSecure.interceptors.response.use((response) => response,
+    axiosSecure.interceptors.response.use(
+      (response) => response,
       async (error) => {
-        if(error.response && (error.response.status === 401 || error.response.status === 403)){
+        if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+
           await logOut();
           navigate('/login');
         }
         return Promise.reject(error);
       }
+
       )
 
 
     },[logOut, navigate])
     return [axiosSecure];
+
 };
 
 export default useAxiosSecure;

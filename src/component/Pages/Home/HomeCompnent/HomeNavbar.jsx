@@ -4,26 +4,45 @@ import logo from "../../../../assets/logo/logo.png";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const HomeNavbar = () => {
-
   const { user, logOut } = useContext(AuthContext);
 
-    const navItem = < >
-    <li><Link  to='/'>Home</Link></li>
-    <li><Link  to='/about'>About</Link></li>
-    {user && <li><Link to='/dashboard'>Dashboard</Link></li>}
-    <li><Link to='/alluser'>All User</Link></li>
-    <li><Link  to='/blog'>Blog</Link></li>
-    <li><Link to='/plans'>Plans</Link></li>
-  </>
+
+  const navItem = (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      {user && (
+        <li>
+          <Link to="/contact">Dashboard</Link>
+        </li>
+      )}
+      <li>
+        <Link to="/alluser">All User</Link>
+      </li>
+      <li>
+        <Link to="/blog">Blog</Link>
+      </li>
+      <li>
+        <Link to="/plans">Plans</Link>
+      </li>
+      <li>
+        <Link to="/Post">Post</Link>
+      </li>
+  {user && <li><Link to='/dashboard'>Dashboard</Link></li>}
+    </>
+  );
+
+
 
   const handleLogOut = () => {
     logOut()
-
-
       .then(() => {})
       .catch((error) => console.log(error));
   };
-
 
   return (
     <div className="secondary">
@@ -66,31 +85,34 @@ const HomeNavbar = () => {
         </div>
 
         <div className="navbar-end">
-        {user ? (
-          <div className="flex gap-2 items-center">
-            <div className="navbar-end me-3">
-              <button
-                onClick={handleLogOut}
-                className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs "
-              >
-                Logout
-              </button>
-            </div>
-            <div className="avatar online">
-              <div className="w-11 rounded-full border border-[#FF725E] border-2">
-                <img src={user.photoURL} />
+
+          {user ? (
+            <div className="flex gap-2 items-center">
+              <div className="navbar-end me-3">
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs "
+                >
+                  Logout
+                </button>
+              </div>
+              <div className="avatar online">
+                <div className="w-11 rounded-full border-[#FF725E] border-2">
+                  <img src={user.photoURL} />
+                </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <div >
-            <Link to="signup/step-1">
-              <p className="  text-[#FF725E] p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">Join Now</p>
-            </Link>
-          </div>
-        )}
-        </div>
+          ) : (
+            <div>
+              <Link to="signup/step-1">
+                <p className="  text-[#FF725E] p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
+                  Join Now
+                </p>
+              </Link>
+            </div>
+          )}
 
+        </div>
       </div>
     </div>
   );

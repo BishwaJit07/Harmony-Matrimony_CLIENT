@@ -1,6 +1,8 @@
-import { useContext } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
+
 import { useQuery } from "@tanstack/react-query";
+import useAuth from "./useAuth";
+import useAxiosSecure from "./useAxiosSecure";
+
 import useAxiosSecure from './useAxiosSecure'
 
 
@@ -13,6 +15,9 @@ const useAdmin = () => {
         enabled : !loading,
         queryFn : async () => {
             const res = await axiosSecure.get(`http://localhost:5000/users/admin/${user.email}`)
+
+
+
             return res.data.admin;
         }
     })

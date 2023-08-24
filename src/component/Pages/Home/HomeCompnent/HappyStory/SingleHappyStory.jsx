@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import {  useParams } from 'react-router-dom';
+
+import { useParams } from 'react-router-dom';
+
 
 const SingleHappyStory = () => {
     const params = useParams();
@@ -8,7 +10,7 @@ const SingleHappyStory = () => {
         fetch(`https://harmony-matrimony-server.vercel.app/allcouple/${params.id}`)
             .then(res => res.json())
             .then(data => setHappyStories(data));
-    }, [])
+    }, [params.id])
    
    const {name,img,about_marriage}= happyStories;
 
