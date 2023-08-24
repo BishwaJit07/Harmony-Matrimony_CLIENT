@@ -43,7 +43,7 @@ const SignUp = () => {
                   status: "User",
                   ...mergedObject,
                 };
-                fetch("https://harmony-matrimony-server.vercel.app/alluser", {
+                fetch("https://soulmates-server-two.vercel.app/alluser", {
                   method: "POST",
                   headers: {
                     "content-type": "application/json",
