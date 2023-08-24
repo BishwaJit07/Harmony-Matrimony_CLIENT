@@ -18,7 +18,7 @@ const PaymentForm = () => {
   }
 
   useEffect( () => {
-    fetch('http://localhost:5000/create-payment-intent', {
+    fetch('https://soulmates-server-two.vercel.app/create-payment-intent', {
       method: "POST",
       headers: {
         "content-type": "application/json"
@@ -90,7 +90,7 @@ const PaymentForm = () => {
         status: "pending"
       }
 
-      fetch('http://localhost:5000/save-payments', {
+      fetch('https://soulmates-server-two.vercel.app/save-payments', {
         method: "POST",
         headers: {
           "content-type": "application/json"
@@ -127,7 +127,7 @@ const PaymentForm = () => {
             },
           }}
         />
-        <button type="submit" disabled={!stripe || !clientSecret || processing}>
+        <button className='buttonPay' type="submit" disabled={!stripe || !clientSecret || processing}>
           Pay
         </button>
       {transactionId && <p className='text-green-500'>Your Transaction Id Is{transactionId}</p>}
