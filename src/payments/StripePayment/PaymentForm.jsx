@@ -1,6 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useEffect, useState } from 'react';
-import './stripeStyle.css'
+// import './stripeStyle.css'
 
 const PaymentForm = () => {
   const stripe = useStripe()
@@ -106,16 +106,17 @@ const PaymentForm = () => {
   
   return (
     <div className='w-full'>
-      <form className='mx-auto my-4 m-0 flex flex-col  class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 ' onSubmit={handleSubmit}>
-        <h5 className="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
+      <form className='stripefrom mx-auto my-4 m-0 flex flex-col  class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 ' onSubmit={handleSubmit}>
+        <h5 className="mb-3 text-base font-semibold text-gray-900 md:text-xl ">
           Stripe Payment
         </h5>
-        <img src="https://i.ibb.co/82q3yYg/card.png" alt="" />
+        <img src="https://i.ibb.co/82q3yYg/card.png" alt="" className='mb-10'/>
         <CardElement
           options={{
             style: {
               base: {
                 fontSize: '16px',
+                
                 color: '#424770',
                 '::placeholder': {
                   color: '#aab7c4',
@@ -127,7 +128,7 @@ const PaymentForm = () => {
             },
           }}
         />
-        <button className='buttonPay' type="submit" disabled={!stripe || !clientSecret || processing}>
+        <button className='btn bg-red-400 mt-10 text-white' type="submit" disabled={!stripe || !clientSecret || processing}>
           Pay
         </button>
       {transactionId && <p className='text-green-500'>Your Transaction Id Is{transactionId}</p>}
