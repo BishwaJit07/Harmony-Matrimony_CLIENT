@@ -149,7 +149,7 @@ const AllUser = () => {
           </form>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 xl:grid-cols-3 mx-auto my-10 gap-10 mb-24">
+      <div className="grid lg:grid-cols-2 xl:grid-cols-4 mx-auto my-10 gap-10 mb-24">
         {filteredUsers.length > 0 ? (
           filteredUsers.map((user) => <UserCard key={user._id} user={user} />)
         ) : (

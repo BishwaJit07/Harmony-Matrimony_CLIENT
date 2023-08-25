@@ -10,15 +10,12 @@ const Plans = () => {
         <meta charSet="utf-8" />
         <title>Soulmate | Services</title>
       </Helmet>
-      
-        {/* about text */}
-        <div className="h-[400px] bg-gradient-to-r from-[#6ed3a6] to-[#EBFFF6] ">
+        <div className="h-[200px] md:h-[400px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
           <div className="text-center space-y-5 pt-10">
-            <p className="text-[#e99085] text-xl">PRICING</p>
-            <p className="text-7xl  bg-clip-text text-transparent bg-[#FF725E]">Get Started <br /> Pick your Plan Now</p>
+            <p className="text-3xl md:text-7xl font-extrabold bg-clip-text text-transparent text-white">PRICING</p>
+            <p className="text-white text-lg">Get Started <br /> Pick your Plan Now</p>
           </div>
         </div>
-     
 
      
       {/* 
@@ -26,7 +23,7 @@ const Plans = () => {
 card section */}
 
 
-      <div className="bg-white w-full lg:h-[calc(100vh-100px)] xl:h-[calc(100vh-200px)]">
+      <div className="bg-white w-[80%] mx-auto lg:h-[calc(100vh-100px)] xl:h-[calc(100vh-500px)]">
         <div className="lg:grid grid-cols-3 gap-10  mx-auto justify-items-center   max-w-screen-lg ">
 
           {/* card-1 */}
@@ -122,7 +119,7 @@ card section */}
                   Start Chat
                 </li>
               </ul>
-              <button className="bg-blue-500 w-full my-5  text-white font-semibold  mx-auto px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out">
+              <button className="bg-[#34af78] w-full my-5  text-white font-semibold  mx-auto px-4 py-2 rounded-full  hover:bg-[#30855e]transition duration-300 ease-in-out">
                 Get Started
               </button>
             </div>
@@ -216,9 +213,12 @@ card section */}
                   Start Chat
                 </li>
               </ul>
+  <Link to='/paymentOne'>
+              <button className="bg-[#34af78] w-full mx-auto font-semibold my-5  text-white px-4 py-2 rounded-full  hover:bg-[#30855e]transition duration-300 ease-in-out">
 
-              <Link to='/paymentOne'>
-              <button className="bg-blue-500 w-full mx-auto font-semibold my-5  text-white px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out">
+
+            
+             
                 Get Started
               </button>
               </Link>
@@ -310,8 +310,12 @@ card section */}
                   Start Chat
                 </li>
               </ul>
+
+            
+
               <Link to='/paymentTwo'>
-              <button className="bg-blue-500 w-full mx-auto font-semibold my-5  text-white px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out">
+               <button className="bg-[#34af78] w-full mx-auto font-semibold text-white px-4 py-2 my-5 rounded-full hover:bg-[#30855e] transition duration-300 ease-in-out">
+
                 Get Started
               </button>
               </Link>
