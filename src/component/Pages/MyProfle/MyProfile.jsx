@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import useMyData from "../../../Hooks/useMydata";
 import { TbUserEdit } from "react-icons/tb";
@@ -8,7 +9,26 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 
+
+
+
+import Post from "./postFunction/Post";
+
 const MyProfile = () => {
+  const [userInfo, refetch] = useMyData();
+  const {
+    img,
+    name,
+    country,
+    religion,
+    physical_attributes,
+    mobile,
+    email,
+    gender,
+    about,
+    age,
+  } = userInfo;
+
 
     const [userInfo] = useMyData();
     const { img, name, country, religion, physical_attributes, mobile, email, gender, about, age, profile_complete } = userInfo
@@ -266,8 +286,11 @@ const MyProfile = () => {
                 </div>
             </div>
 
+
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default MyProfile;

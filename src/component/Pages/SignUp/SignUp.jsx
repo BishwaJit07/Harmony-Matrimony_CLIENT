@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
+
 import { useContext,useState } from "react";
+
 import img from "../../../assets/other/login.png";
 import logo from "../../../assets/logo/logo.png";
 import { AuthContext } from "../../../Provider/AuthProvider";
@@ -79,6 +81,7 @@ const SignUp = () => {
             },
             body: JSON.stringify(saveUser),
           })
+
             .then((res) => res.json())
             .then((data) => {
               if (data.insertedId) {
@@ -100,6 +103,7 @@ const SignUp = () => {
     })
   
   }
+
 
 
 return (
@@ -175,6 +179,7 @@ return (
             {errors.password?.type === "minLength" && <span className="text-red-600"> Password is must be 6 characters</span>}
             {errors.password?.type === "pattern" && <span className="text-red-600"> Password is must be ona number , one upper and lower case and one characters</span>}
           </div>
+
         </div>
         <div>
           <div className="relative z-0 mt-2">
@@ -198,6 +203,7 @@ return (
          </div>
         <button className="btn bg-[#FF725E] text-white  md:w-[25%] rounded-full mx-auto hover:text-black">SignUp</button>
       </form>
+
     </div>
   </div>
 );

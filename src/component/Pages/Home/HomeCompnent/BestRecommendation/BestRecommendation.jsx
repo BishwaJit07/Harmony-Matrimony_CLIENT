@@ -19,6 +19,7 @@ const BestRecommendation = () => {
       .then((data) => setDatas(data));
   }, []);
 
+
   return (
     <div className=" w-full  ">
       {/* content-section */}
