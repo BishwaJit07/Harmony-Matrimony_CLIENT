@@ -7,7 +7,7 @@ const BlogCard = ({ data, react, setReact }) => {
 
   const handleReact = id => {
     console.log(id);
-    fetch(`https://harmony-matrimony-server.vercel.app/blogs/${id}`, {
+    fetch(`https://soulmates-server-two.vercel.app/blogs/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())

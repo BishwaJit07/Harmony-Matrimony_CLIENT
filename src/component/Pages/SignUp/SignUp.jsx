@@ -80,6 +80,7 @@ const SignUp = () => {
               "content-type": "application/json",
             },
             body: JSON.stringify(saveUser),
+
           })
 
             .then((res) => res.json())

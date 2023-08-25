@@ -15,7 +15,7 @@ const HappyStory = () => {
 
   // // fetch happyStories data
   // useEffect(() => {
-  //   fetch('https://harmony-matrimony-server.vercel.app/allCouple')
+  //   fetch('https://soulmates-server-two.vercel.app/allCouple')
   //     .then(res => res.json())
   //     .then(data => setHappyStories(data))
   // }, [])
