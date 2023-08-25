@@ -9,7 +9,7 @@ const UserCard = ({ user , length }) => {
     return (
         <div>
            
-                <div className=" bg-[#FF725E] bg-opacity-5  rounded-lg shadow-2xl text-gray-700 p-7 md:w-96 mx-auto text-center">
+                <div className=" bg-[#FF725E] bg-opacity-5  rounded-lg shadow-2xl text-gray-700 p-7  mx-auto text-center">
                     
                     <div className="mx-auto w-[99%]">
                     <img
@@ -20,8 +20,10 @@ const UserCard = ({ user , length }) => {
                     </div>
                     <h3 className="my-2 text-xl font-semibold text-[#ec5553] "><Link to={`/patnerProfile/${_id}`}>{name}</Link></h3>
                     <h6 className="mb-1 text-sm  uppercase font-medium">{country}</h6>
-                    <p className="text-sm leading-relaxed">{about}
+                    <p className="text-sm leading-relaxed w-[80%] mx-auto">{about < 50 ? <>{about}</> : <>{about?.slice(0, 50)}... </>} 
                     </p>
+                    {/* <p className="text-xs lg:text-sm xl:text-base py-3 text text-[#728483] text-clip text ">{data.details < 200 ? <>{data.details }</> :
+                        <>{data?.details.slice(0, 200)}... </>} </p> */}
                     <div className="buttons mt-3 space-x-3">
                         <button className="primary-btn bg-[#62b08d] p-2 text-white rounded-md">Message</button>
                         <button className="primary-btn bg-[#62b08d] p-2 text-white rounded-md ghost-btn">Following</button>

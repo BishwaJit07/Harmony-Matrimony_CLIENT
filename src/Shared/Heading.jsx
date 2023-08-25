@@ -5,7 +5,7 @@ const Heading = ({title}) => {
           {title}
         </h1>
         <div className="">
-          <img src='https://i.ibb.co/swBsp3p/flower.png' alt="" className="lg:w-[15%] w-[60%] md:w-[40%] mx-auto -mt-2 mb-10" />
+          <img src='https://i.ibb.co/swBsp3p/flower.png' alt="" className="lg:w-[10%] w-[60%] md:w-[40%] mx-auto -mt-2 mb-10" />
         </div>
       </div>
     );

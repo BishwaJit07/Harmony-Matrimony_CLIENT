@@ -1,232 +1,212 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+
+import { useContext,useState } from "react";
+
 import img from "../../../assets/other/login.png";
 import logo from "../../../assets/logo/logo.png";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+// import intlTelInput from 'intl-tel-input';
 
-const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
+// const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
 const SignUp = () => {
   const navigate = useNavigate("/");
+  const [Error, setError] = useState("")
   const { createUser, updateUserProfile } = useContext(AuthContext);
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const image_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Hosting_Token}`;
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+  // useEffect(() => {
+  //   const phoneInputField = document.querySelector("#phone");
+  //   intlTelInput(phoneInputField, {
+  //     utilsScript:
+  //       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  //   });
+  // }, []);
+
+  // const image_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Hosting_Token}`;
 
   const onSubmit = (data) => {
-    const strCart1 = JSON.parse(localStorage.getItem("step1"));
-    const strCart2 = JSON.parse(localStorage.getItem("step2"));
-    const mergedObject = { ...strCart1, ...strCart2 };
+    if (confirmPassword !== data.password) {
+      setError("Passwords do not match");
+      return;
+    }
 
-    const formData = new FormData();
-    formData.append("image", data.image[0]);
+    // const strCart1 = JSON.parse(localStorage.getItem("step1"));
+    // const strCart2 = JSON.parse(localStorage.getItem("step2"));
+    // const mergedObject = { ...strCart1, ...strCart2 };
 
-    fetch(image_hosting_url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imgResponse) => {
-        const imgUrl = imgResponse.data.display_url;
-        createUser(data.email, data.password)
-          .then((result) => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            updateUserProfile(data.name, imgUrl)
-              .then(() => {
-                const saveUser = {
-                  mobile: data.mobile,
-                  email: data.email,
-                  img: imgUrl,
-                  status: "User",
-                  ...mergedObject,
-                };
-                fetch("https://harmony-matrimony-server.vercel.app/alluser", {
-                  method: "POST",
-                  headers: {
-                    "content-type": "application/json",
-                  },
-                  body: JSON.stringify(saveUser),
-                })
-                  .then((res) => res.json())
-                  .then((data) => {
-                    if (data.insertedId) {
-                      reset();
-                      localStorage.removeItem("step1");
-                      localStorage.removeItem("step2");
-                      Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "User created successfully.",
-                        showConfirmButton: false,
-                        timer: 1500,
-                      });
-                      navigate("/");
-                    }
-                  });
-              })
-              .catch((error) => console.log(error));
+    // const formData = new FormData();
+    // formData.append("image", data.image[0]);
+
+    // fetch(image_hosting_url, {
+    //   method: "POST",
+    //   body: formData,
+    // })
+    //   .then((res) => res.json())
+    //   .then((imgResponse) => {
+    //     const imgUrl = imgResponse.data.display_url;
+
+    
+    createUser(data.email, data.password)
+    .then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      updateUserProfile(data.name)
+        .then(() => {
+          const saveUser = {
+            name: data.name.toUpperCase(),
+            mobile: data.mobile,
+            email: data.email,
+            profile_complete: 10
+            // img: imgUrl,
+            // status: "User",
+            // ...mergedObject,
+          };
+          fetch("https://harmony-matrimony-server.vercel.app/alluser", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
           })
-      })
 
-  };
-  return (
-    <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                // localStorage.removeItem("step1");
+                // localStorage.removeItem("step2");
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User created successfully.",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/myProfile");
+              }
+            });
+        })
+        .catch((error) => setError(error.message));
+    })
+  
+  }
 
-      {/* Title */}
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Soulmate | Sign Up</title>
-      </Helmet>
 
-      <figure className="w-[50%]">
-        <img className="object-cover -ml-24 h-[750px] " src={img} alt="" />
-      </figure>
-      <div className="card-body">
-        <div className="text-center mb-5">
-          <img className="w-52 mx-auto mt-10" src={logo} alt="" />
+
+return (
+  <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
+
+    {/* Title */}
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Soulmate | Sign Up</title>
+    </Helmet>
+
+    <figure className="lg:w-[50%] ">
+      <img className="xl:object-cover hidden lg:flex lg:-ml-24 lg:h-[750px]  " src={img} alt="" />
+    </figure>
+    <div className="card-body">
+      <div className="text-center mb-5">
+        <img className="w-52 mx-auto mt-10" src={logo} alt="" />
+      </div>
+      <p className="text-center text-[#a2a2a2] lg:text-xl text-lg">
+        Welcome to SoulMate
+      </p>
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 mt-5 w-[100%] mx-auto md:mx-0 mb-24 justify-center ">
+
+
+        {/* Email field*/}
+        <div>
+          <div className="relative z-0 mt-2">
+            <input
+              name="name" {...register("name", { required: true })} type="text"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2  dark:border-gray-500 focus:outline-none focus:ring-0  peer"
+              placeholder=""
+
+            />
+            <label className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-3 peer-focus:scale-75 peer-focus:-translate-y-6">Enter your full name</label>
+            {errors.name && <span className="text-red-600">This field is required</span>}
+          </div>
         </div>
-        <p className="text-center text-[#a2a2a2] text-xl">
-          Welcome to SoulMate
-        </p>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-6 mx-4 md:mx-0 mb-24"
-        >
-          {/* photo field*/}
-          <div>
-            <div className="relative z-0 ">
-              <input
-                name="photo"
-                {...register("image", { required: true })}
-                type="file"
-                id="standard_success"
-                aria-describedby="standard_success_help"
-                className="
-               file-input block py-2.5 px-0 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none w-full dark:text-white dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer"
-                placeholder=""
-                required
-              />
-              <label
-                htmlFor="standard_success"
-                className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Photo Url
-              </label>
-            </div>
-            {/* This paragraph is for input validation. if user inter invalid email or password this paragraph will be shown and text color will be red */}
-            <p
-              id="standard_success_help"
-              className="hidden mt-2 text-xs text-[#a2a2a2] dark:text-gray-400"
-            >
-              <span className="font-medium">Well done!</span> Some success
-              message.
-            </p>
-          </div>
 
-          {/* phone num field*/}
-          <div>
-            <div className="relative z-0">
-              <input
-                name="mobile"
-                {...register("mobile", { required: true })}
-                type="number"
-                id="standard_success"
-                aria-describedby="standard_success_help"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none dark:text-white dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer"
-                placeholder=" "
-                required
-              />
-              <label
-                htmlFor="standard_success"
-                className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Mobile No.
-              </label>
-            </div>
-            {/* This paragraph is for input validation. if user inter invalid email or password this paragraph will be shown and text color will be red */}
-            <p
-              id="standard_success_help"
-              className="hidden mt-2 text-xs text-[#a2a2a2] dark:text-gray-400"
-            >
-              <span className="font-medium">Well done!</span> Some success
-              message.
-            </p>
+        <div>
+          <div className="relative z-0 mt-2">
+            <input
+              name="email" {...register("email", { required: true })} type="email"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 peer"
+              placeholder=" "
+            />
+            <label className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-3 peer-focus:scale-75 peer-focus:-translate-y-6">Enter your Email</label>
+            {errors.email && <span className="text-red-600">This field is required</span>}
           </div>
+        </div>
 
-          {/* Email field*/}
-          <div>
-            <div className="relative z-0">
-              <input
-                name="email"
-                {...register("email", { required: true })}
-                type="email"
-                id="standard_success"
-                aria-describedby="standard_success_help"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none dark:text-white dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer"
-                placeholder=" "
-                required
-              />
-              <label
-                htmlFor="standard_success"
-                className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                User name or Email
-              </label>
-            </div>
-            {/* This paragraph is for input validation. if user inter invalid email or password this paragraph will be shown and text color will be red */}
-            <p
-              id="standard_success_help"
-              className="hidden mt-2 text-xs text-[#a2a2a2] dark:text-gray-400"
-            >
-              <span className="font-medium">Well done!</span> Some success
-              message.
-            </p>
-          </div>
-
-          {/* password field*/}
-          <div>
-            <div className="relative z-0">
+        {/* password field*/}
+        <div>
+          <div className="relative z-0 mt-2">
+            <div className="flex">
               <input
                 name="password"
-                {...register("password", { required: true })}
-                type="password"
-                id="standard_success"
-                aria-describedby="standard_success_help"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none dark:text-white dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer"
+                type={passwordVisible ? 'text' : 'password'}
+                {...register("password", { required: true, minLength: 6, maxLength: 20, pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/ })} className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none  dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0  peer"
                 placeholder=" "
-                required
               />
-              <label
-                htmlFor="standard_success"
-                className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
+              <span className="absolute right-3 transform -translate-y-1/2 top-1/2 cursor-pointer">
+                <i
+                  onClick={togglePasswordVisibility}
+                >{passwordVisible ? <FaEyeSlash /> : <FaEye />}</i>
+              </span>
+              <label className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Password
               </label>
+              {/* Toggle button for password visibility */}
+
             </div>
-            {/* This paragraph is for input validation. if user inter invalid email or password this paragraph will be shown and text color will be red */}
-            <p
-              id="standard_success_help"
-              className="hidden mt-2 text-xs text-[#a2a2a2] dark:text-gray-400"
-            >
-              <span className="font-medium">Well done!</span> Some success
-              message.
-            </p>
+            {errors.password?.type === "required" && <span className="text-red-600"> Password is required</span>}
+            {errors.password?.type === "minLength" && <span className="text-red-600"> Password is must be 6 characters</span>}
+            {errors.password?.type === "pattern" && <span className="text-red-600"> Password is must be ona number , one upper and lower case and one characters</span>}
           </div>
-          {/* Terms and Condition Page */}
-          <div className="flex">
-            <input type="checkbox" id='checkId'  className="checkbox" required/>
-          <p className="ms-2 font-medium">I agree with  <Link to='/termCondition'className="text-red-500">Terms & Conditions</Link> </p>
+
+        </div>
+        <div>
+          <div className="relative z-0 mt-2">
+            <input
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              type={passwordVisible ? 'text' : 'password'}
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer"
+              placeholder=" "
+            />
+            <label className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              Confirm Password
+            </label>
           </div>
-          <button className="btn bg-gray-500 text-gray-300 w-[40%] md:w-[25%] rounded-full mx-auto hover:text-black">
-            SignUp
-          </button>
-        </form>
-      </div>
+
+        </div>
+        {Error && <p className="text-red-600">{Error}</p>}
+         <div className="text-center">
+         <p>Already Have an Account <Link className='text-blue-400' to="/signin">Log in</Link> <br /></p>
+         </div>
+        <button className="btn bg-[#FF725E] text-white  md:w-[25%] rounded-full mx-auto hover:text-black">SignUp</button>
+      </form>
+
     </div>
-  );
+  </div>
+);
 };
 
 export default SignUp;
