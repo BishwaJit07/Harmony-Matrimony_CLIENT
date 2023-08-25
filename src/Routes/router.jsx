@@ -22,6 +22,14 @@ import Contact from "../component/Pages/Contact/Contact";
 import Post from "../component/postFunction/Post";
 
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
+import AuthForm from "../component/Pages/AuthFrom/AuthForm";
+import UserInfo1 from "../component/Pages/MyProfle/UserInfo1";
+import SearchFunction from "../component/Pages/SignUp/SearchFunction";
+import Userinfo2 from "../component/Pages/MyProfle/Userinfo2";
+import Userinfo3 from "../component/Pages/MyProfle/Userinfo3";
+import Userinfo4 from "../component/Pages/MyProfle/Userinfo4";
+import Userinfo5 from "../component/Pages/MyProfle/Userinfo5";
+
 
 
 
@@ -100,27 +108,46 @@ const router = createBrowserRouter([
       {
         path:'/myProfile',
         element: <MyProfile></MyProfile>
-      }
+      },
+      {
+        path:'/authFrom',
+        element: <AuthForm></AuthForm>
+      },
+      {
+        path:'/signup',
+        element: <SignUp />
+      },
+      {
+        path:'/select',
+        element: <SearchFunction></SearchFunction>
+      },
 
     ],
   },
 
   {
-    path: "/signup",
-
+    path: "/",
     children: [
       {
-        path: "step-1",
-        element: <SignUpStep1 />,
+        path:'/userinfo1',
+        element: <UserInfo1></UserInfo1>
       },
       {
-        path: "step-2",
-        element: <SignUpStep2 />,
+        path:'/userinfo2',
+        element: <Userinfo2/>
       },
       {
-        path: "final_signup",
-        element: <SignUp />,
+        path:'/userinfo3',
+        element: <Userinfo3/>
       },
+      {
+        path:'/userinfo4',
+        element: <Userinfo4/>
+      },
+      {
+        path:'/userinfo5',
+        element: <Userinfo5/>
+      }
     ],
   },
 ]);

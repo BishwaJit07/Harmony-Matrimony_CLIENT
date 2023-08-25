@@ -25,10 +25,10 @@ const About = () => {
       {/* about header */}
       <div className="relative mb-20">
         {/* about text */}
-        <div className="h-[300px] bg-gradient-to-r from-[#6ed3a6] to-[#EBFFF6] ">
+        <div className="h-[300px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
           <div className="text-center space-y-5 pt-10">
-            <p className="text-[#e99085] text-xl">#1 Wedding Website</p>
-            <p className="text-7xl font-extrabold bg-clip-text text-transparent bg-[#FF725E]">About us</p>
+            <p className=" text-xl text-[#EBFFF6]">#1 Wedding Website</p>
+            <p className="text-7xl font-extrabold bg-clip-text text-transparent text-white">About us</p>
             <p className="text-white text-lg">Most Trusted and premium Matrimony Service in the World.</p>
           </div>
         </div>
@@ -68,7 +68,7 @@ const About = () => {
         <div className=" space-y-6 font-semibold px-8">
           <div className="">
             <p className='text-[58px] font-bold'>Welcome to</p>
-            <p className='text-[35px] font-bold text-[#FF725E]'>Wedding matrimony</p>
+            <p className='text-[35px] font-bold text-[#ec1d02] '>Wedding matrimony</p>
           </div>
           <p>Best wedding matrimony It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
           <p>Click here to Start you matrimony service now.</p>
