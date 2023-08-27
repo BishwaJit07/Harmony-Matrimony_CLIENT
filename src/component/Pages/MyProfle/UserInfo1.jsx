@@ -104,6 +104,8 @@ const UserInfo1 = () => {
     const [state, setState] = useState();
     const [city, setCity] = useState();
 
+    console.log(userInfo);
+    
     useEffect(() => {
         setStateData(State.getStatesOfCountry(country?.isoCode));
     }, [country]);
@@ -132,7 +134,7 @@ const UserInfo1 = () => {
         console.log(data)
 
 
-        fetch('http://localhost:5000/update1', {
+        fetch('https://soulmates-server-two.vercel.app/update1', {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
