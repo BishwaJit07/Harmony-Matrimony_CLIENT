@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import useMyData from '../../../Hooks/useMydata';
+import useMyData from '../../../Hooks/useMyData';
 import { useNavigate } from 'react-router-dom';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
@@ -34,7 +34,7 @@ const Userinfo4 = () => {
                 if (imgResponse.success) {
                     const imgUrl = imgResponse.data.display_url;
                     const userinfo = { profileImage: imgUrl, id: userInfo._id , profile_complete:70 }
-                    fetch('http://localhost:5000/update4', {
+                    fetch('https://soulmates-server-two.vercel.app/update4', {
                         method: "PUT",
                         headers: {
                             "content-type": "application/json"

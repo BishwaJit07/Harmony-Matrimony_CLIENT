@@ -12,7 +12,7 @@ const Dashboard = () => {
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col items-center justify-center">
+            <div className="drawer-content flex flex-col ">
                 {/* Page content here */}
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 <Outlet></Outlet>
@@ -30,7 +30,7 @@ const Dashboard = () => {
                     </div>
                     <div>
                         
-                    { /* {isAdmin ? <div className="navStyle">
+                     {/* {isAdmin ? <div className="navStyle">
                         <div className="divider">Admin Home</div>
 
                         <li><NavLink to='/dashboard/manageUser'>Manage User</NavLink></li>
@@ -38,16 +38,16 @@ const Dashboard = () => {
                     </div> : <div className="navStyle">
                         <div className="divider"> Home</div>
                         <li><NavLink to='/dashboard/manageUser'>Manage User!!!</NavLink></li>
-                        <li><NavLink to='/dashboard/allUser'>All User</NavLink></li> </div>} */}
+                        <li><NavLink to='/dashboard/allUser'>All User</NavLink></li> </div>}  */}
 
-                        <li><NavLink to='/contact/manageUser'>Manage User</NavLink></li>
-                        <li><NavLink to='/contact/allUser'>All User</NavLink></li>
-                        <li><NavLink to='/contact/addService'>Add Service</NavLink></li>
+                        <li><NavLink to='/dashboard/manageUser'>Manage User</NavLink></li>
+                        <li><NavLink to='/dashboard/allUser'>All User</NavLink></li>
+                        <li><NavLink to='/dashboard/addService'>Add Service</NavLink></li>
                     </div> : <div className="navStyle">
                         <div className="divider"> Home</div>
-                        <li><NavLink to='/contact/manageUser'>Manage User!!!</NavLink></li>
-                        <li><NavLink to='/contact/allUser'>All User</NavLink></li> 
-                        <li><NavLink to='/contact/bookService'>Service Booking </NavLink></li> 
+                        <li><NavLink to='/dashboard/manageUser'>Manage User!!!</NavLink></li>
+                        <li><NavLink to='/dashboard/allUser'>All User</NavLink></li> 
+                        <li><NavLink to='/dashboard/bookService'>Service Booking </NavLink></li> 
                         
                         
                         </div>

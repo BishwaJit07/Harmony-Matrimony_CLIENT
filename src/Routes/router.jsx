@@ -3,7 +3,7 @@ import Home from "../component/Pages/Home/Home";
 import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
 import Blog from "../component/Pages/Blog/Blog";
-import AddBlog from "../component/Pages/Blog/addBlog";
+import AddBlog from "../component/Pages/Blog/AddBlog";
 import Plans from "../component/Pages/Plans/Plans";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import Dashboard from "../component/Pages/Dashboard/Dashboard";
@@ -11,8 +11,7 @@ import ManageUser from "../component/Pages/Dashboard/ManageUser";
 import AllUserD from "../component/Pages/Dashboard/AllUserD";
 import Happy from "../Shared/Happy/Happy";
 import AllUser from "../component/Pages/AllUser/AllUser";
-import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
-import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
+
 import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
 import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
@@ -48,6 +47,7 @@ import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
 
 import Post from "../component/Pages/MyProfle/postFunction/Post";
+import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 
 
 const router = createBrowserRouter([
@@ -93,12 +93,20 @@ const router = createBrowserRouter([
         children: [
           {
             path: '/dashboard/manageUser',
-            element: <ManageUser></ManageUser>
+            element: <MangeUsersX />
           },
           {
             path: '/dashboard/allUser',
             element: <AllUserD></AllUserD>
            },
+          {
+            path: "/dashboard/bookService",
+            element: <BookService></BookService>,
+          },
+          {
+            path: "/dashboard/addService",
+            element: <AddService />
+          }
     ]},
       {
         path: "/service",

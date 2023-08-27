@@ -9,7 +9,7 @@ import { calculateAge } from '../../../utilities/utilities';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 import Selector from './Selector';
-import useMyData from '../../../Hooks/useMydata';
+import useMyData from '../../../Hooks/useMyData';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { HiCheck, HiChevronUpDown } from 'react-icons/hi2';
 import { Listbox, Transition } from '@headlessui/react';
@@ -104,6 +104,8 @@ const UserInfo1 = () => {
     const [state, setState] = useState();
     const [city, setCity] = useState();
 
+    console.log(userInfo);
+    
     useEffect(() => {
         setStateData(State.getStatesOfCountry(country?.isoCode));
     }, [country]);
@@ -132,7 +134,7 @@ const UserInfo1 = () => {
         console.log(data)
 
 
-        fetch('http://localhost:5000/update1', {
+        fetch('https://soulmates-server-two.vercel.app/update1', {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
