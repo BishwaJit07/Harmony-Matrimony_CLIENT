@@ -3,7 +3,7 @@ import  { useState, Fragment } from 'react';
 import { useForm } from "react-hook-form";
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { HiCheck, HiChevronUpDown } from 'react-icons/hi2';
-import useMyData from '../../../Hooks/useMydata';
+import useMyData from '../../../Hooks/useMyData';
 import { useNavigate } from 'react-router-dom';
 
 

@@ -9,7 +9,7 @@ import { calculateAge } from '../../../utilities/utilities';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 import Selector from './Selector';
-import useMyData from '../../../Hooks/useMydata';
+import useMyData from '../../../Hooks/useMyData';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { HiCheck, HiChevronUpDown } from 'react-icons/hi2';
 import { Listbox, Transition } from '@headlessui/react';
