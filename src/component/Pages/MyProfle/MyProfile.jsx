@@ -319,6 +319,7 @@ const MyProfile = () => {
             </div>
           </div>
         </div>
+        </div>
         {/* Right Side */}
         <div className="xl:w-3/4 w-full xl:pl-16 my-20 lg:my-0 ">
           {/* Tab Navigation */}
@@ -357,6 +358,7 @@ const MyProfile = () => {
               <p className="text-gray-600">followers will show here</p>
             </div>
           </div>
+        </div>
         </div>
      
     
