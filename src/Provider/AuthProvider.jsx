@@ -41,10 +41,13 @@ const AuthProvider = ({ children }) => {
             // get and set token!!!!
             if (currentUser) {
                 axios.post('https://soulmates-server-two.vercel.app/jwt', { email: currentUser.email })
+                
                     .then(data => {
-                        localStorage.setItem('access-token', data.data.jwtToken)
+                        console.log(data);
+                        localStorage.setItem('access-token', data.data.token)
                         setLoading(false);
                     })
+                    
             }
             else {
                 localStorage.removeItem('access-token')
@@ -55,6 +58,8 @@ const AuthProvider = ({ children }) => {
             return unsubscribe();
         }
     })
+
+    
     const authInfo = {
         user,
         loading,

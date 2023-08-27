@@ -33,7 +33,7 @@ const dietOptions = [
 ];
 
 import { useForm } from "react-hook-form";
-import useMyData from "../../../Hooks/useMydata";
+import useMyData from "../../../Hooks/useMyData";
 import { useNavigate } from "react-router-dom";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 const Userinfo3 = () => {
@@ -46,7 +46,7 @@ const Userinfo3 = () => {
     const [drinkHabit, setDrinkHabit] = useState({});
     const onSubmit = () => {
         const userinfo = { religionValue: religiousValue?.religiousValue, foodHabit: foodHabit?.FoodOptions, smokingHabit: smokingHabit?.smokingHabit, drinkHabit: drinkHabit?.drinkHabit , profile_complete:60 , id: userInfo._id}
-        fetch('http://localhost:5000/update3', {
+        fetch('https://soulmates-server-two.vercel.app/update3', {
             method: "PUT",
             headers: {
               "content-type" : "application/json"

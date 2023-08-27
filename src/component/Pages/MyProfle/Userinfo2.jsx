@@ -3,7 +3,7 @@ import  { useState, Fragment } from 'react';
 import { useForm } from "react-hook-form";
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { HiCheck, HiChevronUpDown } from 'react-icons/hi2';
-import useMyData from '../../../Hooks/useMydata';
+import useMyData from '../../../Hooks/useMyData';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -222,9 +222,9 @@ const Userinfo2 = () => {
     const [salary, setSalary] = useState(null);
     const [jobSector, setJobSector] = useState(null);
     const onSubmit = () => {
-        const userinfo = { education: education.educationValue, qualifications: qualifications.name, workingIn: workingIn.workingCategory, jobSector: jobSector?.name , salary: salary?.name , profile_complete:45 , id: userInfo._id}
+        const userinfo = { education: education.educationValue, qualifications: qualifications?.name, workingIn: workingIn.workingCategory, jobSector: jobSector?.name , salary: salary?.name , profile_complete:45 , id: userInfo._id}
 
-        fetch('http://localhost:5000/update2', {
+        fetch('https://soulmates-server-two.vercel.app/update2', {
             method: "PUT",
             headers: {
               "content-type" : "application/json"
