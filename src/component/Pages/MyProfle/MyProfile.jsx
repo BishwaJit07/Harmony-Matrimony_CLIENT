@@ -27,11 +27,11 @@ const MyProfile = () => {
     gender,
     about,
     age,
+    profile_complete
   } = userInfo;
 
 
-    const [userInfo] = useMyData();
-    const { img, name, country, religion, physical_attributes, mobile, email, gender, about, age, profile_complete } = userInfo
+   
 
     const [selectedOption, setSelectedOption] = useState({});
     const [showModal, setShowModal] = useState(false);
@@ -288,8 +288,8 @@ const MyProfile = () => {
 
 
         </div>
-      </div>
-    </div>
+      
+    
   );
 };
 
