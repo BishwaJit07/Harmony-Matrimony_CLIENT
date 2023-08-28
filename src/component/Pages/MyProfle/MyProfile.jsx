@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useMyData from "../../../Hooks/useMyData";
 import { TbUserEdit } from "react-icons/tb";
+import { BsArrowRightCircle, BsFillCheckCircleFill } from "react-icons/bs";
+import { BiSolidUserCircle } from "react-icons/bi";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import Post from "./postFunction/Post";
 
 const MyProfile = () => {
-  const [userInfo, refetch] = useMyData();
+
+    
+  const [userInfo] = useMyData();
   const {
     img,
     name,
@@ -16,19 +22,241 @@ const MyProfile = () => {
     gender,
     about,
     age,
+    profile_complete
   } = userInfo;
 
+
+  const [selectedOption, setSelectedOption] = useState({});
+  const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = ["Posts", "Followers"];
 
+  const { handleSubmit } = useForm();
+  const navigate = useNavigate();
+  const onSubmit = (data) => {
+    console.log(data);
+    console.log(selectedOption);
+    navigate("/userinfo1", {
+      state: selectedOption,
+    });
+  };
+
   const changeTab = (index) => {
     setActiveTab(index);
   };
+
+  useEffect(() => {
+    if (profile_complete === 10) {
+      setShowModal(true);
+    }
+    if (profile_complete === 30) {
+      setShowModal2(true);
+    }
+  }, [profile_complete]);
+
   return (
-    <div className="w-[80%] mx-auto my-10">
+    <div className="w-[80%] mx-auto m-32">
+      {showModal ? (
+        <>
+          <div className="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-hidden md:inset-0 h-screen max-h-screen flex justify-center items-center bg-opacity-30 backdrop-blur-lg backdrop-filter bg-gray-300">
+            <div className="bg-white p-4 sm:p-10 rounded-lg shadow-2xl card">
+              <div className="md:card-body ">
+                <div className="flex justify-center">
+                  {" "}
+                  <BiSolidUserCircle className="text-6xl" />
+                </div>
+                <div className="text-center mb-20 flex justify-center">
+                  <h2 className="card-title ">Profile For</h2>
+                </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="container  gap-5  grid grid-cols-2 md:grid-cols-3">
+                    <label className="cursor-pointer">
+                      <input
+                        type="radio"
+                        className="peer sr-only"
+                        name="MySelf"
+                        onChange={() =>
+                          setSelectedOption({ Profile_For: "Myself" })
+                        }
+                      />
+                      <div className=" max-w-xl rounded-md bg-gray-100 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+                        <div className="flex flex-col ">
+                          <div className="flex  gap-2 items-center">
+                            <div>
+                              <BsFillCheckCircleFill className="text-xl -mb-1" />
+                            </div>
+                            <p>
+                              <span value="mySelf" className="sm:text-lg ">
+                                Myself
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </label>
+                    <label className="cursor-pointer">
+                      <input
+                        type="radio"
+                        className="peer sr-only"
+                        name="MySelf"
+                        onChange={() =>
+                          setSelectedOption({ Profile_For: "My Son" })
+                        }
+                      />
+                      <div className=" max-w-xl rounded-md bg-gray-100 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+                        <div className="flex flex-col ">
+                          <div className="flex gap-2 items-center">
+                            <div>
+                              <BsFillCheckCircleFill className="text-xl -mb-1" />
+                            </div>
+                            <p>
+                              <span className="sm:text-lg ">My Son</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </label>
+                    <label className="cursor-pointer">
+                      <input
+                        type="radio"
+                        className="peer sr-only"
+                        name="MySelf"
+                        onChange={() =>
+                          setSelectedOption({ Profile_For: "My Daughter" })
+                        }
+                      />
+                      <div className=" max-w-xl rounded-md bg-gray-100 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+                        <div className="flex flex-col ">
+                          <div className="flex gap-2 items-center">
+                            <div>
+                              <BsFillCheckCircleFill className="text-xl -mb-1" />
+                            </div>
+                            <p>
+                              <span className="sm:text-lg ">My Daughter</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </label>
+                    <label className="cursor-pointer">
+                      <input
+                        type="radio"
+                        className="peer sr-only"
+                        name="MySelf"
+                        onChange={() =>
+                          setSelectedOption({ Profile_For: "My Brother" })
+                        }
+                      />
+                      <div className=" max-w-xl rounded-md bg-gray-100 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+                        <div className="flex flex-col ">
+                          <div className="flex gap-2 items-center">
+                            <div>
+                              <BsFillCheckCircleFill className="text-xl -mb-1" />
+                            </div>
+                            <p>
+                              <span className="sm:text-lg ">My Brother</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </label>
+                    <label className="cursor-pointer">
+                      <input
+                        type="radio"
+                        className="peer sr-only"
+                        name="MySelf"
+                        onChange={() =>
+                          setSelectedOption({ Profile_For: "My Sister" })
+                        }
+                      />
+                      <div className=" max-w-xl rounded-md bg-gray-100 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+                        <div className="flex flex-col ">
+                          <div className="flex gap-2 items-center">
+                            <div>
+                              <BsFillCheckCircleFill className="text-xl -mb-1" />
+                            </div>
+                            <p>
+                              <span className="sm:text-lg ">My Sister</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </label>
+                    <label className="cursor-pointer">
+                      <input
+                        type="radio"
+                        className="peer sr-only"
+                        name="MySelf"
+                        onChange={() =>
+                          setSelectedOption({ Profile_For: "My Friend" })
+                        }
+                      />
+                      <div className=" max-w-xl rounded-md bg-gray-100 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+                        <div className="flex flex-col ">
+                          <div className="flex gap-2 items-center">
+                            <div>
+                              <BsFillCheckCircleFill className="text-xl -mb-1" />
+                            </div>
+                            <p>
+                              <span className="sm:text-lg ">My Friend</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  <div className="flex justify-center mt-10">
+                    <button
+                      disabled={!selectedOption}
+                      className="bg-[#34af78] py-2 rounded-lg text-white btn"
+                      type="submit"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : null}
+      {showModal2 ? (
+        <>
+          <div className="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-hidden md:inset-0 h-screen max-h-screen flex justify-center items-center bg-opacity-60 backdrop-blur-xl backdrop-filter bg-gray-300">
+            <div className="bg-white p-4 sm:p-10 rounded-lg shadow-2xl card">
+              <div className="md:card-body ">
+                <p className="text-lg font-medium">
+                  Update Your Profile please
+                </p>
+                <div className="flex justify-center mt-4">
+                  <div
+                    className="radial-progress bg-[#51ac83] text-primary-content border-4 border-[#51ac83] text-center"
+                    style={{ "--value": 30 }}
+                  >
+                    30%
+                  </div>
+                </div>
+                <div className="flex justify-center mt-10">
+                  <Link to="/userinfo2">
+                    {" "}
+                    <button
+                      className="bg-[#34af78] py-2 rounded-lg text-white btn"
+                      type="submit"
+                    >
+                      Continue
+                      <BsArrowRightCircle className="text-lg font-semibold" />
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : null}
       {/* Profile Header */}
-      <div className=" bg-white w-full flex h-40 border items-center relative shadow-lg rounded-xl">
+      <div className=" bg-white w-full flex h-40 items-center relative shadow-lg rounded-xl">
         {/* Profile Image */}
         <div className=" ml-4">
           <img
@@ -91,6 +319,7 @@ const MyProfile = () => {
             </div>
           </div>
         </div>
+        </div>
         {/* Right Side */}
         <div className="xl:w-3/4 w-full xl:pl-16 my-20 lg:my-0 ">
           {/* Tab Navigation */}
@@ -109,8 +338,8 @@ const MyProfile = () => {
               ))}
             </ul>
           </div>
-          {/* Profile Content */}
-          <div className="mt-10">
+         {/* Profile Content */}
+         <div className="mt-10">
             <div
               className={`profile-posts tab ${
                 activeTab === 0 ? "block" : "hidden"
@@ -130,8 +359,9 @@ const MyProfile = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+        </div>
+     
+    
   );
 };
 

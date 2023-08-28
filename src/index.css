@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .red-primary {
-    @apply bg-[#FF725E] text-white
+    @apply bg-[#fa604c] text-white
 }
 
 .red-text {
-    @apply text-[#FF725E]
+    @apply text-[#fa604c]
 }
 
 .secondary {

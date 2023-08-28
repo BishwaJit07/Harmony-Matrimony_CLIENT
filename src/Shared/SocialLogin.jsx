@@ -1,4 +1,4 @@
-import { FcGoogle } from "react-icons/fc";
+import { BsGoogle } from "react-icons/bs";
 import { AuthContext } from '../Provider/AuthProvider';
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -22,9 +22,9 @@ const SocialLogin = () => {
     }
     return (
         <div >
-            <div className='flex'>
-                <button onClick={handleGoogleSignIn} className='text-2xl'><FcGoogle /></button>
-                <p className='text-center'>Sign In with Google</p>
+            <div className='flex gap-4 red-primary py-2 px-4 rounded-md hover:bg-[#b15245]'>
+                <button onClick={handleGoogleSignIn} className='text-2xl'><BsGoogle /></button>
+                <p className='text-center'>Google</p>
             </div>
         </div>
     );

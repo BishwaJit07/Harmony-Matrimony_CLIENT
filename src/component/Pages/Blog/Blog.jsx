@@ -10,7 +10,7 @@ const Blog = () => {
 
   // fetch Blog data
   useEffect(() => {
-    fetch("https://harmony-matrimony-server.vercel.app/blogs")
+    fetch("https://soulmates-server-two.vercel.app/blogs")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -19,7 +19,7 @@ const Blog = () => {
   }, [react]);
 
   const handleShowBlogByCategory = (type) => {
-      fetch(`https://harmony-matrimony-server.vercel.app/blogs/type/${type}`)
+      fetch(`https://soulmates-server-two.vercel.app/blogs/type/${type}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

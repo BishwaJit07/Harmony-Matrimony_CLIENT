@@ -3,7 +3,7 @@ import Home from "../component/Pages/Home/Home";
 import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
 import Blog from "../component/Pages/Blog/Blog";
-import AddBlog from "../component/Pages/Blog/addBlog";
+import AddBlog from "../component/Pages/Blog/AddBlog";
 import Plans from "../component/Pages/Plans/Plans";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import Dashboard from "../component/Pages/Dashboard/Dashboard";
@@ -11,8 +11,7 @@ import ManageUser from "../component/Pages/Dashboard/ManageUser";
 import AllUserD from "../component/Pages/Dashboard/AllUserD";
 import Happy from "../Shared/Happy/Happy";
 import AllUser from "../component/Pages/AllUser/AllUser";
-import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
-import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
+
 import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
 import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
@@ -27,12 +26,29 @@ import BlogDetails from "../component/Pages/Blog/BlogDetails";
 import TermCondition from '../component/Pages/SignUp/TermCondition'
 
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
+import AuthForm from "../component/Pages/AuthFrom/AuthForm";
+import UserInfo1 from "../component/Pages/MyProfle/UserInfo1";
+import SearchFunction from "../component/Pages/SignUp/SearchFunction";
+import Userinfo2 from "../component/Pages/MyProfle/Userinfo2";
+import Userinfo3 from "../component/Pages/MyProfle/Userinfo3";
+import Userinfo4 from "../component/Pages/MyProfle/Userinfo4";
+import Userinfo5 from "../component/Pages/MyProfle/Userinfo5";
+
 
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
-
+import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
+import PaymentCardTwo from "../component/Pages/PaymentPage/PaymentCardTwo";
+import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
+import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 
 
 import AddService from "../Shared/AddService/AddService";
+
+import StripePayment from "../payments/StripePayment/StripePayment";
+
+import Post from "../component/Pages/MyProfle/postFunction/Post";
+import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
+
 
 const router = createBrowserRouter([
   {
@@ -63,8 +79,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/blogDetails/:id',
-        element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`https://harmony-matrimony-server.vercel.app/blogsDetails/${params.id}`)
+        element : <BlogDetails></BlogDetails>,
+        loader: ({params}) => fetch(`https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`)
       },
       {
         path: '/termCondition',
@@ -77,47 +93,71 @@ const router = createBrowserRouter([
         children: [
           {
             path: '/dashboard/manageUser',
-            element: <ManageUser></ManageUser>
+            element: <MangeUsersX />
           },
           {
             path: '/dashboard/allUser',
             element: <AllUserD></AllUserD>
-          },
-
+           },
           {
-            path: "/service",
-            element: <Service></Service>,
-          },
-          {
-            path: "hotel/:id",
-            element: <ServiceCard></ServiceCard>,
-            loader: ({ params }) =>
-              fetch(
-                `https://harmony-matrimony-server.vercel.app/service/${params.id}`
-              ),
+            path: "/dashboard/bookService",
+            element: <BookService></BookService>,
           },
           {
-            path: "/contact",
-            element: <Dashboard></Dashboard>,
-            children: [
-              {
-                path: "/contact/manageUser",
-                element: <ManageUser></ManageUser>,
-              },
-              {
-                path: "/contact/allUser",
-                element: <AllUserD></AllUserD>,
-              },
-              {
+            path: "/dashboard/addService",
+            element: <AddService />
+          }
+    ]},
+      {
+        path: "/service",
+        element: <Service></Service>,
+      },
+      {
+        path: "hotel/:id",
+        element: <ServiceCard></ServiceCard>,
+        loader: ({ params }) =>
+          fetch(
+            `https://soulmates-server-two.vercel.app/service/${params.id}`
+          ),
+      },
+      {
+        path: "/paymentOne",
+        element:<PaymentCard></PaymentCard>
+      },
+      {
+        path: "/paymentTwo",
+        element:<PaymentCardTwo></PaymentCardTwo>
+      },
+      {
+        path: "/payment/success/:tranId",
+        element:<PaymentSuccess></PaymentSuccess>
+      },
+      {
+        path: "/payment/fail/:tranId",
+        element:<PaymentFail></PaymentFail>
+      },
+      {
+        path: "/contact",
+        element: <Dashboard></Dashboard>,
+        children: [
+          {
+            path: "/contact/manageUser",
+            element: <ManageUser></ManageUser>,
+          },
+          {
+            path: "/contact/allUser",
+            element: <AllUserD></AllUserD>,
+          },
+          {
 
                 path: "/contact/bookService",
                 element: <BookService></BookService>,
 
-              },
-              {
-                path: "/contact/addService",
-                element: <AddService />,
-              }
+          },
+          {
+            path: "/contact/addService",
+            element: <AddService />
+          }
 
             ],
           },
@@ -135,54 +175,89 @@ const router = createBrowserRouter([
 
           {
 
-            path: "/contact-us",
-            element: <Contact />,
-          },
-          {
-            path: "/alluser",
+        path: "/contact-us",
+        element: <Contact />,
+      },
+      {
+        path: '/payment',
+        element: <StripePayment />
+      },
+      {
+        path: "/alluser",
 
 
             element: <AllUser></AllUser>,
           },
           {
 
-            path: "/patnerProfile/:id",
-            element: <PatnerProfile></PatnerProfile>,
-          },
-          {
-            path: "/allcouple/:id",
-            element: <SingleHappyStory />,
-          },
-          {
-            path: "/blogs/:id",
-            element: <SingleBlogs />,
-          },
-          {
-            path: "/myProfile",
-            element: <MyProfile></MyProfile>,
-          },
-
-        ],
+        path: "/patnerProfile/:id",
+        element: <PatnerProfile></PatnerProfile>,
       },
       {
-        path: "/signup",
-
-        children: [
-          {
-            path: "step-1",
-            element: <SignUpStep1 />,
-          },
-          {
-            path: "step-2",
-            element: <SignUpStep2 />,
-          },
-          {
-            path: "final_signup",
-            element: <SignUp />,
-          },
-        ],
+        path: "/allcouple/:id",
+        element: <SingleHappyStory />,
       },
-    ]
+
+      {
+        path: "/post",
+        element: <Post />,
+      },
+
+      
+      {
+        path: "/blogs/:id",
+        element: <SingleBlogs />,
+      },
+      {
+
+        path:'/myProfile',
+        element: <MyProfile></MyProfile>
+      },
+      {
+        path:'/authFrom',
+        element: <AuthForm></AuthForm>
+      },
+      {
+        path:'/signup',
+        element: <SignUp />
+      },
+      {
+        path:'/select',
+        element: <SearchFunction></SearchFunction>
+
+      },
+
+    
+
+  {
+    path: "/",
+    children: [
+      {
+        path:'/userinfo1',
+        element: <UserInfo1></UserInfo1>
+      },
+      {
+        path:'/userinfo2',
+        element: <Userinfo2/>
+      },
+      {
+        path:'/userinfo3',
+        element: <Userinfo3/>
+      },
+      {
+        path:'/userinfo4',
+        element: <Userinfo4/>
+      },
+      {
+        path:'/userinfo5',
+        element: <Userinfo5/>
+      }
+    ],
   },
-]);
+
+]}
+
+])
+;
+
 export default router;

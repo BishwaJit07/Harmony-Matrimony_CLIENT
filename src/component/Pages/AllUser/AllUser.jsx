@@ -16,7 +16,7 @@ const AllUser = () => {
   const [filteredUsers, setFilteredUsers] = useState(users);
   // fetch happyStories data
   useEffect(() => {
-    fetch('https://harmony-matrimony-server.vercel.app/allUser')
+    fetch('https://soulmates-server-two.vercel.app/allUser')
       .then(res => res.json())
       .then(data => {
         setLoading(false);
@@ -149,7 +149,7 @@ const AllUser = () => {
           </form>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 xl:grid-cols-3 mx-auto my-10 gap-10 mb-24">
+      <div className="grid lg:grid-cols-2 xl:grid-cols-4 mx-auto my-10 gap-10 mb-24">
         {filteredUsers.length > 0 ? (
           filteredUsers.map((user) => <UserCard key={user._id} user={user} />)
         ) : (

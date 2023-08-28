@@ -16,7 +16,7 @@ const Navbar = () => {
     {user && <li><Link to='/dashboard'>Dashboard</Link></li>}
     
 
-    {user && <li><Link to='/contact'>Dashboard</Link></li>} 
+ 
 
     <li><Link to='/alluser'>All User</Link></li>
 
@@ -36,7 +36,7 @@ const Navbar = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="bg-[#FF725E]">
+    <div className="bg-[#fa604c]">
       <div className="navbar  text-white w-[84%] mx-auto ">
         <div className="navbar-start ">
           <div className="dropdown ">
