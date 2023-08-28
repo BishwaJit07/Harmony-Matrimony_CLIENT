@@ -59,16 +59,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/addBlog',
-        element : <AddBlog></AddBlog>
+        element: <AddBlog></AddBlog>
       },
       {
         path: '/blogDetails/:id',
-        element : <BlogDetails></BlogDetails>,
-        loader: ({params}) => fetch(`https://harmony-matrimony-server.vercel.app/blogsDetails/${params.id}`)
+        element: <BlogDetails></BlogDetails>,
+        loader: ({ params }) => fetch(`https://harmony-matrimony-server.vercel.app/blogsDetails/${params.id}`)
       },
       {
-        path :'/termCondition',
-        element : <TermCondition></TermCondition>
+        path: '/termCondition',
+        element: <TermCondition></TermCondition>
       },
       {
 
@@ -82,106 +82,107 @@ const router = createBrowserRouter([
           {
             path: '/dashboard/allUser',
             element: <AllUserD></AllUserD>
-           },
-      
-      {
-        path: "/service",
-        element: <Service></Service>,
-      },
-      {
-        path: "hotel/:id",
-        element: <ServiceCard></ServiceCard>,
-        loader: ({ params }) =>
-          fetch(
-            `https://harmony-matrimony-server.vercel.app/service/${params.id}`
-          ),
-      },
-      {
-        path: "/contact",
-        element: <Dashboard></Dashboard>,
-        children: [
+          },
+
           {
-            path: "/contact/manageUser",
-            element: <ManageUser></ManageUser>,
+            path: "/service",
+            element: <Service></Service>,
           },
           {
-            path: "/contact/allUser",
-            element: <AllUserD></AllUserD>,
+            path: "hotel/:id",
+            element: <ServiceCard></ServiceCard>,
+            loader: ({ params }) =>
+              fetch(
+                `https://harmony-matrimony-server.vercel.app/service/${params.id}`
+              ),
+          },
+          {
+            path: "/contact",
+            element: <Dashboard></Dashboard>,
+            children: [
+              {
+                path: "/contact/manageUser",
+                element: <ManageUser></ManageUser>,
+              },
+              {
+                path: "/contact/allUser",
+                element: <AllUserD></AllUserD>,
+              },
+              {
+
+                path: "/contact/bookService",
+                element: <BookService></BookService>,
+
+              },
+              {
+                path: "/contact/addService",
+                element: <AddService />,
+              }
+
+            ],
+          },
+
+          {
+            path: "/happy",
+            element: <Happy />,
           },
           {
 
-            path: "/contact/bookService",
-            element: <BookService></BookService>,
+            path: '/plans',
+            element: <Plans></Plans>
 
           },
 
-            path: "/contact/addService",
-            element: <AddService />
-          }
+          {
+
+            path: "/contact-us",
+            element: <Contact />,
+          },
+          {
+            path: "/alluser",
+
+
+            element: <AllUser></AllUser>,
+          },
+          {
+
+            path: "/patnerProfile/:id",
+            element: <PatnerProfile></PatnerProfile>,
+          },
+          {
+            path: "/allcouple/:id",
+            element: <SingleHappyStory />,
+          },
+          {
+            path: "/blogs/:id",
+            element: <SingleBlogs />,
+          },
+          {
+            path: "/myProfile",
+            element: <MyProfile></MyProfile>,
+          },
 
         ],
       },
+      {
+        path: "/signup",
 
-      {
-        path: "/happy",
-        element: <Happy />,
+        children: [
+          {
+            path: "step-1",
+            element: <SignUpStep1 />,
+          },
+          {
+            path: "step-2",
+            element: <SignUpStep2 />,
+          },
+          {
+            path: "final_signup",
+            element: <SignUp />,
+          },
+        ],
       },
-      {
-
-        path: '/plans',
-        element: <Plans></Plans>
-
-      },
-
-      {
-
-        path: "/contact-us",
-        element: <Contact />,
-      },
-      {
-        path: "/alluser",
-
-
-        element: <AllUser></AllUser>,
-      },
-      {
-
-        path: "/patnerProfile/:id",
-        element: <PatnerProfile></PatnerProfile>,
-      },
-      {
-        path: "/allcouple/:id",
-        element: <SingleHappyStory />,
-      },
-      {
-        path: "/blogs/:id",
-        element: <SingleBlogs />,
-      },
-      {
-        path: "/myProfile",
-        element: <MyProfile></MyProfile>,
-      },
-
-    ],
-  },
-  {
-    path: "/signup",
-
-    children: [
-      {
-        path: "step-1",
-        element: <SignUpStep1 />,
-      },
-      {
-        path: "step-2",
-        element: <SignUpStep2 />,
-      },
-      {
-        path: "final_signup",
-        element: <SignUp />,
-      },
-    ],
+    ]
   },
 ]);
-
 export default router;
