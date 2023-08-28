@@ -22,7 +22,7 @@ const MyProfile = () => {
     gender,
     about,
     age,
-    profile_complete,
+    profile_complete
   } = userInfo;
 
 
