@@ -75,7 +75,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addBlog',
-        element : <AddBlog></AddBlog>
+        element: <AddBlog></AddBlog>
       },
       {
         path: '/blogDetails/:id',
@@ -83,8 +83,8 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`)
       },
       {
-        path :'/termCondition',
-        element : <TermCondition></TermCondition>
+        path: '/termCondition',
+        element: <TermCondition></TermCondition>
       },
       {
 
@@ -141,18 +141,41 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
         children: [
           {
-            path: "/contact/manageUser",
-            element: <ManageUser></ManageUser>,
+            path: "/service",
+            element: <Service></Service>,
           },
           {
-            path: "/contact/allUser",
-            element: <AllUserD></AllUserD>,
+            path: "hotel/:id",
+            element: <ServiceCard></ServiceCard>,
+            loader: ({ params }) =>
+              fetch(
+                `https://harmony-matrimony-server.vercel.app/service/${params.id}`
+              ),
           },
           {
+            path: "/contact",
+            element: <Dashboard></Dashboard>,
+            children: [
+              {
+                path: "/contact/manageUser",
+                element: <ManageUser></ManageUser>,
+              },
+              {
+                path: "/contact/allUser",
+                element: <AllUserD></AllUserD>,
+              },
+              {
 
-            path: "/contact/bookService",
-            element: <BookService></BookService>,
+                path: "/contact/bookService",
+                element: <BookService></BookService>,
 
+              },
+              {
+                path: "/contact/addService",
+                element: <AddService />,
+              }
+
+            ],
           },
           {
             path: "/contact/addService",
@@ -161,20 +184,23 @@ const router = createBrowserRouter([
 
         ],
       },
+          {
+            path: "/happy",
+            element: <Happy />,
+          },
+          {
+            path: '/plans',
+            element: <Plans></Plans>
 
-      {
-        path: "/happy",
-        element: <Happy />,
-      },
-      {
+          },
 
-        path: '/plans',
-        element: <Plans></Plans>
+          {
 
-      },
-
-      {
-
+            path: "/contact-us",
+            element: <Contact />,
+          },
+          {
+            path: "/alluser",
         path: "/contact-us",
         element: <Contact />,
       },
@@ -184,12 +210,25 @@ const router = createBrowserRouter([
       },
       {
         path: "/alluser",
+            element: <AllUser></AllUser>,
+          },
+          {
 
-
-        element: <AllUser></AllUser>,
-      },
-      {
-
+            path: "/patnerProfile/:id",
+            element: <PatnerProfile></PatnerProfile>,
+          },
+          {
+            path: "/allcouple/:id",
+            element: <SingleHappyStory />,
+          },
+          {
+            path: "/blogs/:id",
+            element: <SingleBlogs />,
+          },
+          {
+            path: "/myProfile",
+            element: <MyProfile></MyProfile>,
+          },
         path: "/patnerProfile/:id",
         element: <PatnerProfile></PatnerProfile>,
       },
@@ -259,5 +298,25 @@ const router = createBrowserRouter([
 
 ])
 ;
+      {
+        path: "/signup",
 
+        children: [
+          {
+            path: "step-1",
+            element: <SignUpStep1 />,
+          },
+          {
+            path: "step-2",
+            element: <SignUpStep2 />,
+          },
+          {
+            path: "final_signup",
+            element: <SignUp />,
+          },
+        ],
+      },
+    ]
+  },
+]);
 export default router;
