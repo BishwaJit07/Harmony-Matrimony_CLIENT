@@ -1,4 +1,4 @@
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 
 
@@ -6,7 +6,6 @@ import girl from '../../../../../assets/home/recommendation/girl.png'
 import girl2 from '../../../../../assets/home/recommendation/girl2.png'
 import girl3 from '../../../../../assets/home/recommendation/girl3.png'
 import girl4 from '../../../../../assets/home/recommendation/girl4.png'
-import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
 
 const BestRecommendation2 = () => {
   
