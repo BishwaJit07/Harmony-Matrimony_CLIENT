@@ -12,6 +12,7 @@ import MessageUsFb from "../../FacebookMessage/MessageUsFb";
 import HowItWork from "./HowItWork/HowItWork";
 
 import WhyChooseUs2 from "./HomeCompnent/WhyChooseUs2/WhyChooseUs2";
+import BestRecommendation2 from "./HomeCompnent/BestRecommendation2/BestRecommendation2";
 
 
 const Home = () => {
@@ -33,6 +34,7 @@ const Home = () => {
           <WhyChooseUs2 />
         {/* <SearchFunction></SearchFunction> */}
         <BestRecommendation />
+        <BestRecommendation2 />
         <Gallary />
         <About />
         <HappyStory />
