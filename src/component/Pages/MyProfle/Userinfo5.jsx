@@ -1,146 +1,212 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import useMyData from "../../../Hooks/useMydata";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
-const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
-
-const verifyOptions = [
-    { id: 1, name: 'National Identity Card' },
-    { id: 2, name: 'Voter ID' },
-    { id: 3, name: 'Passport' },
-    { id: 4, name: 'Driving License' },
-    { id: 5, name: 'PAN' },
-    { id: 6, name: 'Aadhaar Card' },
-];
+import { creativeOptions, fitnessOptions, funOptions, otherInterestsOptions } from "../../../Shared/Variable";
 
 const Userinfo5 = () => {
-    const image_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Hosting_Token}`;
-    const { handleSubmit, reset, register } = useForm();
-    const [userInfo] = useMyData();
-    const navigate = useNavigate();
-    const [verifyMethod, setverifyMethod] = useState({});
-    const [imagePreview, setImagePreview] = useState(null);
-
-    const handleImageChange = (event) => {
-        const file = event.target.files[0];
-
-        if (file) {
-            const imageURL = URL.createObjectURL(file);
-            setImagePreview(imageURL);
-        }
-    };
-
-    const onSubmit = (data) => {
-        console.log(data, data.image[0])
-        const formData = new FormData();
-        formData.append("image", data.image[0]);
-
-        fetch(image_hosting_url, {
-            method: "POST",
-            body: formData,
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const navigate = useNavigate();
+  const { handleSubmit, reset } = useForm();
+  const [aboutMe, setAboutMe] = useState("");
+  const [isValid, setIsValid] = useState(false);
+  const [userInfo] = useMyData();
+  const onSubmit = () => {
+    const userinfo ={hobbies: selectedOptions, aboutMe : aboutMe ,  id: userInfo._id, profile_complete: 90  }
+    console.log(userInfo)
+    fetch('https://harmony-matrimony-server.vercel.app/update5', {
+        method: "PUT",
+        headers: {
+          "content-type" : "application/json"
+        },
+        body: JSON.stringify(userinfo)
+      })
+        .then(res => res.json())
+        .then(data => {  
+            console.log(data)   
+            reset();
+            navigate("/userinfo7");
         })
-            .then((res) => res.json())
-            .then((imgResponse) => {
-                if (imgResponse.success) {
-                    const imgUrl = imgResponse.data.display_url;
-                    const userinfo = { verificationImage: imgUrl, id: userInfo._id, profile_complete: 80 , email: userInfo.email , name: userInfo.name}
-                    fetch('http://localhost:5000/update5', {
-                        method: "PUT",
-                        headers: {
-                            "content-type": "application/json"
-                        },
-                        body: JSON.stringify(userinfo)
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log(data)
-                            reset();
-                            navigate("/");
-                        })
-                }
 
-
-            })
+  }
+  const handleSelect = (option) => {
+    if (selectedOptions.includes(option)) {
+      setSelectedOptions(selectedOptions.filter(item => item !== option));
+    } else if (selectedOptions.length < 5) {
+      setSelectedOptions([...selectedOptions, option]);
     }
-    return (
-        <div>
-            <div className="bg-green-200 h-2" style={{ width: `${70}%` }}></div>
-            <form className='p-10' onSubmit={handleSubmit(onSubmit)}>
+  };
 
-                <section className="max-w-4xl  mx-auto rounded-md shadow-xl my-10 pb-10 bg-opacity-10">
-                    <div className='flex justify-center bg-[#fa604c] p-2 rounded-t-xl w-full'>
-                        <h1 className="text-xl font-bold text-white capitalize">Verify your profile</h1>
-                    </div>
-                    <div className="mt-10 w-[80%] mx-auto">
-                        <label className="text-black text-lg font-semibold" htmlFor="emailAddress">Securely verify using </label>
-                        <div className='flex gap-4 flex-wrap'>
-                            {verifyOptions.map((value) =>
-                                <div key={value.id}>
-                                    <div className='flex gap-5 mt-3'>
-                                        <label className="cursor-pointer">
-                                            <input type="radio" className="peer sr-only" name="religiousValue" onChange={() => setverifyMethod({ verifyMethod: value?.name })} />
-                                            <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
-                                                <div className="flex flex-col ">
-                                                    <div className="flex  gap-1 items-center justify-center px-2">
-                                                        <p><span value="Gender" className="sm:text-lg ">{value?.name}</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                    {verifyMethod.verifyMethod ? <><div className="flex justify-center mt-8">
-                        <div className="w-[80%] md:max-w-2xl rounded-lg shadow-xl bg-gray-50">
-                            <div className="m-4 ">
-                                <label className="inline-block mb-2 text-gray-500">File Upload</label>
-                                <div className="flex items-center justify-center w-full ">
-                                    <label className="flex flex-col w-full h-32 border-4 border-blue-200 border-dashed hover:bg-gray-100 hover:border-gray-300">
-                                        <div className="flex flex-col items-center justify-center pt-7 ">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                            </svg>
-                                            <p className="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">Attach a file</p>
-                                        </div>
-                                        <div className="flex flex-col items-center justify-center pt-7 ">
-                                            {/* Display the image preview */}
-                                            {imagePreview ? (
-                                                <img src={imagePreview} alt="Preview" className="absolute -mt-28 w-20 h-20 object-contain " />
-                                            ) : (
-                                                <>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-gray-400 group-hover:text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        {/* ... SVG Path ... */}
-                                                    </svg>
-                                                    <p className="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">Attach a file</p>
-                                                </>
-                                            )}
-                                        </div>
-                                        <input
-                                            name="photo"
-                                            {...register("image", { required: true })}
-                                            type="file"
-                                            id="standard_success"
-                                            aria-describedby="standard_success_help"
-                                            className="opacity-0"
-                                            placeholder=""
-                                            required
-                                            onChange={handleImageChange}
-                                        />
-                                    </label>
-                                </div>
+  const handleAboutMeChange = (event) => {
+    const newText = event.target.value;
+    setAboutMe(newText);
+    setIsValid(newText.length >= 50);
+  };
+
+  const characterCount = `${aboutMe.length}/50`;
+  return (
+    <div>
+      <div className="bg-green-200 h-2" style={{ width: `${80}%` }}></div>
+      <section className="lg:max-w-4xl w-[90%]   mx-auto rounded-md shadow-xl my-10  bg-opacity-10">
+        <div className='flex justify-center bg-[#fa604c] p-2 rounded-t-xl w-full'> <h1 className="text-xl font-bold text-white capitalize">About Yourself and Interests</h1></div>
+        <form className='p-10' onSubmit={handleSubmit(onSubmit)}>
+          <div className="mt-10 w-[80%] mx-auto">
+            <label className="text-black text-lg font-semibold" htmlFor="aboutMe">About yourself </label>
+            <div className="relative">
+              <textarea
+                id="aboutMe"
+                className={`w-full h-32 mt-2 p-2 border rounded-md ${isValid ? "border-green-500" : "border-red-500"}`}
+                placeholder="Write something about yourself..."
+                value={aboutMe}
+                onChange={handleAboutMeChange}
+              />
+              <div className="absolute top-0 right-0 p-2 text-gray-400">
+                {characterCount}
+              </div>
+            </div>
+            <div>
+              {isValid ? (
+                <p className="text-green-500">You have written at least 50 characters.</p>
+              ) : (
+                <p className="text-red-500">Please write at least 50 characters.</p>
+              )}
+            </div>
+          </div>
+          <div className="mt-10 w-[80%] mx-auto">
+            <div className="mt-10 ">
+              <div className="mb-3">
+                <label className="text-black text-lg font-semibold" htmlFor="emailAddress">Creative</label>
+              </div>
+              <div className='flex gap-4 flex-wrap'>
+                {creativeOptions.map((value) => (
+                  <div key={value.id}>
+                    <div className='flex gap-3 '>
+                      <label className="cursor-pointer">
+                        <input
+                          type="checkbox"
+                          className="peer sr-only"
+                          name="selectedOption"
+                          checked={selectedOptions.includes(value.name)}
+                          onChange={() => handleSelect(value.name)}
+                        />
+                        <div className={` bg-gray-100 rounded-2xl text-gray-600 ring-2 ring-transparent transition-all hover:shadow  ${selectedOptions.includes(value.name) ? "text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2" : ""}`}>
+                          <div className="flex flex-col ">
+                            <div className="flex gap-1 text-xs px-2 py-1 ">
+                              <p>
+                                {value.name}
+                              </p>
                             </div>
+                          </div>
                         </div>
-                    </div></> : <></>}
-                    <div className="flex justify-center mt-10 ">
-                        <button disabled={!verifyMethod.verifyMethod}  type='submit' className="btn px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-[#fa604c] rounded-md hover:bg-[#943f34] focus:outline-none focus:bg-gray-600">Continue<BsFillArrowRightCircleFill /></button>
+                      </label>
                     </div>
-                </section>
-            </form>
-        </div>
-    );
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-10 ">
+              <div className="mb-3">
+                <label className="text-black text-lg font-semibold" htmlFor="emailAddress">Fun</label>
+              </div>
+              <div className='flex gap-4 flex-wrap'>
+                {funOptions.map((value) => (
+                  <div key={value.id}>
+                    <div className='flex gap-3 '>
+                      <label className="cursor-pointer">
+                        <input
+                          type="checkbox"
+                          className="peer sr-only"
+                          name="selectedOption"
+                          checked={selectedOptions.includes(value.name)}
+                          onChange={() => handleSelect(value.name)}
+                        />
+                        <div className={` bg-gray-100 rounded-2xl text-gray-600 ring-2 ring-transparent transition-all hover:shadow  ${selectedOptions.includes(value.name) ? "text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2" : ""}`}>
+                          <div className="flex flex-col ">
+                            <div className="flex gap-1 text-xs px-2 py-1 ">
+                              <p>
+                                {value.name}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-10 ">
+              <div className="mb-3">
+                <label className="text-black text-lg font-semibold" htmlFor="emailAddress">Fitness</label>
+              </div>
+              <div className='flex gap-4 flex-wrap'>
+                {fitnessOptions.map((value) => (
+                  <div key={value.id}>
+                    <div className='flex gap-3 '>
+                      <label className="cursor-pointer">
+                        <input
+                          type="checkbox"
+                          className="peer sr-only"
+                          name="selectedOption"
+                          checked={selectedOptions.includes(value.name)}
+                          onChange={() => handleSelect(value.name)}
+                        />
+                        <div className={` bg-gray-100 rounded-2xl text-gray-600 ring-2 ring-transparent transition-all hover:shadow  ${selectedOptions.includes(value.name) ? "text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2" : ""}`}>
+                          <div className="flex flex-col ">
+                            <div className="flex gap-1 text-xs px-2 py-1 ">
+                              <p>
+                                {value.name}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-10 ">
+              <div className="mb-3">
+                <label className="text-black text-lg font-semibold" htmlFor="emailAddress">Other Interests</label>
+              </div>
+              <div className='flex gap-4 flex-wrap'>
+                {otherInterestsOptions.map((value) => (
+                  <div key={value.id}>
+                    <div className='flex gap-3 '>
+                      <label className="cursor-pointer">
+                        <input
+                          type="checkbox"
+                          className="peer sr-only"
+                          name="selectedOption"
+                          checked={selectedOptions.includes(value.name)}
+                          onChange={() => handleSelect(value.name)}
+                        />
+                        <div className={` bg-gray-100 rounded-2xl text-gray-600 ring-2 ring-transparent transition-all hover:shadow  ${selectedOptions.includes(value.name) ? "text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2" : ""}`}>
+                          <div className="flex flex-col ">
+                            <div className="flex gap-1 text-xs px-2 py-1 ">
+                              <p>
+                                {value.name}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-center mt-10 ">
+                <button disabled={selectedOptions.length !== 5 || aboutMe.length < 50}  type='submit' className="btn px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-[#fa604c] rounded-md hover:bg-[#943f34] focus:outline-none focus:bg-gray-600">Continue {selectedOptions.length}/5<BsFillArrowRightCircleFill /></button>
+              </div>
+            </div>
+          </div>
+        </form >
+      </section >
+
+    </div >
+  );
 };
 
 export default Userinfo5;

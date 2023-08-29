@@ -7,6 +7,7 @@ const SearchFunction = () => {
     // const [searchData, setSearchData] = useState([]);
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
+
     const onSubmit = data => {
         navigate("/alluser", {
                 state: data
@@ -18,8 +19,8 @@ const SearchFunction = () => {
     // console.log(searchData)
     return (
         <div className='mt-10 mb-32'>
-            <h2 className='text-3xl font-semibold '>Find your <span className='red-text'>Partner</span> </h2>
-            <div className='secondary p-5 rounded-xl my-10  border-2 border-[#FF725E] border-opacity-50 '>
+            <h2 className='text-3xl font-semibold text-left text-gray-500'>Find your <span className='text-black'>Partner</span> </h2>
+            <div className='my-10'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='grid md:grid-cols-2 2xl:grid-cols-5 lg:gap-16 md:gap-10 gap-6 w-[100%] mx-auto '>
                     <div className='flex flex-col'>

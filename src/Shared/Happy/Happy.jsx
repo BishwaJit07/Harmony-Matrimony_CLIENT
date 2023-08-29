@@ -2,7 +2,6 @@ import logo from '../../assets/logo/logo.png'
 import couple from '../../assets/Happy-form/couple.jpg'
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
-import { Navigate } from 'react-router';
 
 const Happy = () => {
 

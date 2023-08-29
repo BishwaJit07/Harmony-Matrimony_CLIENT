@@ -10,25 +10,23 @@ import ManageUser from "../component/Pages/Dashboard/ManageUser";
 import AllUserD from "../component/Pages/Dashboard/AllUserD";
 import Happy from "../Shared/Happy/Happy";
 import AllUser from "../component/Pages/AllUser/AllUser";
-import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
-import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
 import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
 import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
 import Contact from "../component/Pages/Contact/Contact";
-
 import Post from "../component/postFunction/Post";
-
-import MyProfile from "../component/Pages/MyProfle/MyProfile";
 import AuthForm from "../component/Pages/AuthFrom/AuthForm";
-import UserInfo1 from "../component/Pages/MyProfle/UserInfo1";
 import SearchFunction from "../component/Pages/SignUp/SearchFunction";
+import MyProfile from "../component/Pages/MyProfle/MyProfile";
+import UserInfo1 from "../component/Pages/MyProfle/UserInfo1";
 import Userinfo2 from "../component/Pages/MyProfle/Userinfo2";
 import Userinfo3 from "../component/Pages/MyProfle/Userinfo3";
 import Userinfo4 from "../component/Pages/MyProfle/Userinfo4";
 import Userinfo5 from "../component/Pages/MyProfle/Userinfo5";
+import Userinfo6 from "../component/Pages/MyProfle/Userinfo6";
+import Userinfo7 from "../component/Pages/MyProfle/Userinfo7";
 
 
 
@@ -147,6 +145,14 @@ const router = createBrowserRouter([
       {
         path:'/userinfo5',
         element: <Userinfo5/>
+      },
+      {
+        path:'/userinfo6',
+        element: <Userinfo6/>
+      },
+      {
+        path:'/userinfo6',
+        element: <Userinfo7/>
       }
     ],
   },

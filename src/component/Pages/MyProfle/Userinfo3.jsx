@@ -1,41 +1,13 @@
 import { useState } from "react";
 
 
-const religiousValuesOptions = [
-    { id: 1, name: 'Very Religious' },
-    { id: 2, name: 'Average Religious' },
-    { id: 3, name: 'Not Very Religious' },
-    { id: 4, name: 'Atheist' },
-    { id: 5, name: 'Agnostic' },
-    { id: 6, name: 'Other' },
-];
 
-const smokingOptions = [
-    { id: 1, name: 'Non-Smoker' },
-    { id: 2, name: 'Occasional Smoker' },
-    { id: 3, name: 'Regular Smoker' },
-];
-
-const drinkHabitsOptions = [
-    { id: 1, name: 'Non-Drinker' },
-    { id: 2, name: 'Social Drinker' },
-    { id: 3, name: 'Regular Drinker' },
-];
-
-const dietOptions = [
-    { id: 1, name: 'Vegetarian' },
-    { id: 2, name: 'Vegan' },
-    { id: 3, name: 'Non-Vegetarian' },
-    { id: 4, name: 'Pescatarian' },
-    { id: 5, name: 'Flexitarian' },
-    { id: 6, name: 'Halal' },
-    { id: 7, name: 'No Restrictions' },
-];
 
 import { useForm } from "react-hook-form";
 import useMyData from "../../../Hooks/useMydata";
 import { useNavigate } from "react-router-dom";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { dietOptions, drinkHabitsOptions, religiousValuesOptions, smokingOptions } from "../../../Shared/Variable";
 const Userinfo3 = () => {
     const { handleSubmit, reset } = useForm();
     const [userInfo] = useMyData();
@@ -46,7 +18,7 @@ const Userinfo3 = () => {
     const [drinkHabit, setDrinkHabit] = useState({});
     const onSubmit = () => {
         const userinfo = { religionValue: religiousValue?.religiousValue, foodHabit: foodHabit?.FoodOptions, smokingHabit: smokingHabit?.smokingHabit, drinkHabit: drinkHabit?.drinkHabit , profile_complete:60 , id: userInfo._id}
-        fetch('http://localhost:5000/update3', {
+        fetch('https://harmony-matrimony-server.vercel.app/update3', {
             method: "PUT",
             headers: {
               "content-type" : "application/json"
@@ -63,7 +35,7 @@ const Userinfo3 = () => {
     }
     return (
         <div>
-            <div className="bg-green-200 h-2" style={{ width: `${30}%` }}></div>
+            <div className="bg-green-200 h-2" style={{ width: `${45}%` }}></div>
             <section className="lg:max-w-4xl w-[90%] mx-auto rounded-md shadow-xl my-10  bg-opacity-10">
                 <div className='flex justify-center bg-[#fa604c] p-2 rounded-t-xl w-full'> <h1 className="text-xl font-bold text-white capitalize">Life Style & Values</h1></div>
                 <form className='p-10' onSubmit={handleSubmit(onSubmit)}>

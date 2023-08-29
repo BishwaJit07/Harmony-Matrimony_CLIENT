@@ -23,7 +23,6 @@ const Home = () => {
         <SearchFunction></SearchFunction>
         <BestRecommendation />
         <Gallary />
-        <About />
         <HappyStory />
       </div>
     </div>
