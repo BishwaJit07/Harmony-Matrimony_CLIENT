@@ -3,11 +3,11 @@ import man from '../../../../../assets/home/whyChooseUs/man.png'
 
 const WhyChooseUs2 = () => {
   return (
-    <div className='py-20 bg-opacity-30 mx-auto bg-primary-50'>
-      <div className="max-w-7xl mx-auto">
+    <div className=' bg-opacity-30 mx-auto bg-primary-50 mt-[90px] '>
+      <div className="w-[80%] mx-auto py-[75px]">
         <div className="text-center mb-10">
           <p className="text-[45px] mb-3 font-alice">Why Choose Us</p>
-          <p className="font-lato text-[18px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem <br /> Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+          <p className="font-lato md:text-[18px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem <br /> Ipsum has been the industry s standard dummy text ever since the 1500s</p>
         </div>
 
         {/* card section */}

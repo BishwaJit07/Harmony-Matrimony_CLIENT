@@ -9,7 +9,7 @@ const PatnerProfile = () => {
             .then(res => res.json())
             .then(data => setUser(data));
     }, [])
-    const { img, name, country, religion, physical_attributes, mobile,email, gender, about, age } = user
+    const { profileImage, name, country, religion, physical_attributes, mobile,email, gender, about, age } = user
 
 
     const [activeTab, setActiveTab] = useState(0);
@@ -30,7 +30,7 @@ const PatnerProfile = () => {
                     <div className=" ml-4">
                         <img
                             className="round border border-teal-400 rounded-full p-2 text w-20 h-20 md:w-32 md:h-32 mx-auto object-fill"
-                            src={img}
+                            src={profileImage}
                             alt="user"
                         />
                     </div>

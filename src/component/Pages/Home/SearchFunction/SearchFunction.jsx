@@ -1,12 +1,13 @@
 // import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import heart from '../../../../assets/newHomeBannerImg/heart.png'
+import heart from '../../../../assets/home/newHomeBannerImg/heart.png'
 import {  useNavigate } from 'react-router-dom';
 const SearchFunction = () => {
 
     // const [searchData, setSearchData] = useState([]);
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
+
     const onSubmit = data => {
         console.log(data);
         navigate("/alluser", {
@@ -18,7 +19,7 @@ const SearchFunction = () => {
 
     // console.log(searchData)
     return (
-        <div className="absolute right-[5%] top-[13%] bg-white w-[436px] h-[420px] z-20 rounded-xl">
+        <div className=" bg-white md:w-[400px] md:h-[500px] z-20 rounded-xl mt-[100px] ">
 
         <div className="w-[90%] mx-auto">
           <div className="flex items-center justify-between">
@@ -29,7 +30,7 @@ const SearchFunction = () => {
         <hr />
 
         <div>
-        <form onSubmit={handleSubmit(onSubmit)}  className="w-[90%] mx-auto space-y-1" action="">
+        <form onSubmit={handleSubmit(onSubmit)}  className="w-[90%] mx-auto space-y-4" action="">
           <div className="form-control w-full">
             <label className="label">
               <span className="label-text">I am looking for a</span>
@@ -92,8 +93,6 @@ const SearchFunction = () => {
           </div>
         </form>
         </div>
-       
-
       </div>
     );
 };

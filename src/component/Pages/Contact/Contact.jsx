@@ -31,15 +31,6 @@ const Contact = () => {
             })
           } 
         })
-        .catch(e => {
-          Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'Something Went Wrong!',
-            showConfirmButton: false,
-            timer: 1500
-          })
-        })
   }
   
   return (
