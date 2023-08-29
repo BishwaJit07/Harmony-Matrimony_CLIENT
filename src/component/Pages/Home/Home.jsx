@@ -1,27 +1,30 @@
 
 import About from "./HomeCompnent/About";
 import BestRecommendation from "./HomeCompnent/BestRecommendation/BestRecommendation";
-import HeroSection from "./HomeCompnent/HeroSection";
+
 import Gallary from "./HomeCompnent/gellary/Gallary";
-import SearchFunction from "./SearchFunction/SearchFunction";
 
 import HappyStory from './HomeCompnent/HappyStory/HappyStory';
 import { Helmet } from "react-helmet";
 import MessageUsFb from "../../FacebookMessage/MessageUsFb";
+import WhyChooseUs2 from "./HomeCompnent/WhyChooseUs2/WhyChooseUs2";
+import HomeBanner from "./HomeCompnent/HomeBanner/HomeBanner";
 
 const Home = () => {
 
   return (
-    <div className="text-center text-3xl">
+    <div className="">
 
       <Helmet>
         <meta charSet="utf-8" />
         <title>Soulmate | Home</title>
       </Helmet>
-
-      <HeroSection />
+  
+      <div>
+        <HomeBanner />
+      </div>
+        <WhyChooseUs2 />
       <div className="w-[80%] mx-auto">
-        <SearchFunction></SearchFunction>
         <BestRecommendation />
         <Gallary />
         <HappyStory />

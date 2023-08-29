@@ -7,7 +7,6 @@ import AddBlog from "../component/Pages/Blog/AddBlog";
 import Plans from "../component/Pages/Plans/Plans";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import Dashboard from "../component/Pages/Dashboard/Dashboard";
-import ManageUser from "../component/Pages/Dashboard/ManageUser";
 import AllUserD from "../component/Pages/Dashboard/AllUserD";
 import Happy from "../Shared/Happy/Happy";
 import AllUser from "../component/Pages/AllUser/AllUser";
@@ -19,6 +18,7 @@ import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
 import Service from "../component/Pages/Service/Service";
 import ServiceCard from "../component/Pages/Service/ServiceCard";
 import Contact from "../component/Pages/Contact/Contact";
+import BlogDetails from "../component/Pages/Blog/BlogDetails";
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
 import AuthForm from "../component/Pages/AuthFrom/AuthForm";
 import SearchFunction from "../component/Pages/SignUp/SearchFunction";
@@ -31,14 +31,12 @@ import Userinfo6 from "../component/Pages/MyProfle/Userinfo6";
 import Userinfo7 from "../component/Pages/MyProfle/Userinfo7";
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
 import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
-import PaymentCardTwo from "../component/Pages/PaymentPage/PaymentCardTwo";
 import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
-import BlogDetails from "../component/Pages/Blog/BlogDetails";
 import TermCondition from "../component/Pages/SignUp/TermCondition";
-
+import ManageUser from "../component/Pages/Dashboard/ManageUser";
 
 const router = createBrowserRouter([
   {
@@ -59,13 +57,12 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-
-        path: '/blog',
-        element: <Blog></Blog>
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
-        path: '/addBlog',
-        element: <AddBlog></AddBlog>
+        path: "/addBlog",
+        element: <AddBlog></AddBlog>,
       },
       {
         path: '/blogDetails/:id',
@@ -73,8 +70,8 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`)
       },
       {
-        path: '/termCondition',
-        element: <TermCondition></TermCondition>
+        path: "/termCondition",
+        element: <TermCondition></TermCondition>,
       },
       {
         path: "/service",
@@ -84,18 +81,13 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-          fetch(
-            `https://soulmates-server-two.vercel.app/service/${params.id}`
-          ),
+          fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
       },
       {
         path: "/paymentOne",
         element: <PaymentCard></PaymentCard>
       },
-      {
-        path: "/paymentTwo",
-        element: <PaymentCardTwo></PaymentCardTwo>
-      },
+
       {
         path: "/payment/success/:tranId",
         element: <PaymentSuccess></PaymentSuccess>
@@ -118,8 +110,8 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: '/payment',
-        element: <StripePayment />
+        path: "/payment",
+        element: <StripePayment />,
       },
       {
         path: "/alluser",
@@ -215,7 +207,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "manageUser",
-        element: <ManageUser></ManageUser>,
+        element: <ManageUser/>,
       },
       {
         path: "allUser",
