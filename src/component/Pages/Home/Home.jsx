@@ -7,18 +7,20 @@ import SearchFunction from "./SearchFunction/SearchFunction";
 
 import HappyStory from './HomeCompnent/HappyStory/HappyStory';
 import { Helmet } from "react-helmet";
+import HomeBanner from "./HomeCompnent/HomeBanner/HomeBanner";
 
 const Home = () => {
 
   return (
-    <div className="text-center text-3xl">
+    <div className="">
 
       <Helmet>
         <meta charSet="utf-8" />
         <title>Soulmate | Home</title>
       </Helmet>
 
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <HomeBanner />
       <div className="w-[80%] mx-auto">
         <SearchFunction></SearchFunction>
         <BestRecommendation />
