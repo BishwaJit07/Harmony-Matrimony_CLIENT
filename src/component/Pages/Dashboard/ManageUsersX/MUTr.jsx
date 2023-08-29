@@ -1,4 +1,3 @@
-import React from 'react';
 import { RiDeleteBinLine } from "react-icons/ri";
 import {motion} from 'framer-motion'
 
