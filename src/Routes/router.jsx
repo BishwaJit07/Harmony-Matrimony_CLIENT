@@ -11,8 +11,7 @@ import ManageUser from "../component/Pages/Dashboard/ManageUser";
 import AllUserD from "../component/Pages/Dashboard/AllUserD";
 import Happy from "../Shared/Happy/Happy";
 import AllUser from "../component/Pages/AllUser/AllUser";
-import SignUpStep1 from "../component/Pages/SignUp/SignUpStep1";
-import SignUpStep2 from "../component/Pages/SignUp/SignUpStep2";
+
 import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
 import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
