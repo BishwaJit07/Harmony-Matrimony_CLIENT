@@ -1,13 +1,13 @@
 import { BsFillPlayFill } from "react-icons/bs";
 import Marquee from "react-fast-marquee";
 
-import img from '../../../../../assets/newHomeBannerImg/2.jpg'
-import img2 from '../../../../../assets/newHomeBannerImg/3.jpg'
-import img3 from '../../../../../assets/newHomeBannerImg/5.jpg'
-import img4 from '../../../../../assets/newHomeBannerImg/7.jpg'
-import img5 from '../../../../../assets/newHomeBannerImg/8.jpg'
-import img6 from '../../../../../assets/newHomeBannerImg/9.jpg';
-import heart from '../../../../../assets/newHomeBannerImg/heart.png'
+import img from '../../../../../assets/home/newHomeBannerImg/2.jpg'
+import img2 from '../../../../../assets/home/newHomeBannerImg/3.jpg'
+import img3 from '../../../../../assets/home/newHomeBannerImg/5.jpg'
+import img4 from '../../../../../assets/home/newHomeBannerImg/7.jpg'
+import img5 from '../../../../../assets/home/newHomeBannerImg/8.jpg'
+import img6 from '../../../../../assets/home/newHomeBannerImg/9.jpg';
+import heart from '../../../../../assets/home/newHomeBannerImg/heart.png'
 
 const HomeBanner = () => {
   
