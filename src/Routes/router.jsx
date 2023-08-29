@@ -7,24 +7,19 @@ import AddBlog from "../component/Pages/Blog/AddBlog";
 import Plans from "../component/Pages/Plans/Plans";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import Dashboard from "../component/Pages/Dashboard/Dashboard";
-import ManageUser from "../component/Pages/Dashboard/ManageUser";
 import AllUserD from "../component/Pages/Dashboard/AllUserD";
 import Happy from "../Shared/Happy/Happy";
 import AllUser from "../component/Pages/AllUser/AllUser";
-
 import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
 import PatnerProfile from "../component/Pages/patnerProfile/PatnerProfile";
 import SingleHappyStory from "../component/Pages/Home/HomeCompnent/HappyStory/SingleHappyStory";
 import SingleBlogs from "../component/Pages/Blog/SingleBlogs";
-
 import Service from "../component/Pages/Service/Service";
 import ServiceCard from "../component/Pages/Service/ServiceCard";
 import Contact from "../component/Pages/Contact/Contact";
-
 import BlogDetails from "../component/Pages/Blog/BlogDetails";
 import TermCondition from "../component/Pages/SignUp/TermCondition";
-
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
 import AuthForm from "../component/Pages/AuthFrom/AuthForm";
 import UserInfo1 from "../component/Pages/MyProfle/UserInfo1";
@@ -36,16 +31,17 @@ import Userinfo5 from "../component/Pages/MyProfle/Userinfo5";
 
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
 import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
-import PaymentCardTwo from "../component/Pages/PaymentPage/PaymentCardTwo";
 import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 
 import AddService from "../Shared/AddService/AddService";
-
 import StripePayment from "../payments/StripePayment/StripePayment";
-
 import Post from "../component/Pages/MyProfle/postFunction/Post";
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
+
+import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
+import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
+
 
 const router = createBrowserRouter([
   {
@@ -86,6 +82,16 @@ const router = createBrowserRouter([
         element: <TermCondition></TermCondition>,
       },
       {
+
+        path: "/authoritysignin",
+        element: <AuthoritySignIn/>
+      },
+      {
+        path: "/authoritysignup",
+        element: <AuthoritySignUp/>
+      },
+      {
+
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
         children: [
@@ -120,11 +126,14 @@ const router = createBrowserRouter([
       {
         path: "/paymentOne",
         element: <PaymentCard></PaymentCard>,
+
       },
       {
         path: "/paymentTwo",
         element: <PaymentCardTwo></PaymentCardTwo>,
+
       },
+
       {
         path: "/payment/success/:tranId",
         element: <PaymentSuccess></PaymentSuccess>,
@@ -133,6 +142,7 @@ const router = createBrowserRouter([
         path: "/payment/fail/:tranId",
         element: <PaymentFail></PaymentFail>,
       },
+
       {
         path: "/contact",
         element: <Dashboard></Dashboard>,
@@ -164,6 +174,7 @@ const router = createBrowserRouter([
         path: "/plans",
         element: <Plans></Plans>,
       },
+
 
       {
         path: "/contact-us",
@@ -219,7 +230,9 @@ const router = createBrowserRouter([
           {
             path: "/userinfo1",
             element: <UserInfo1></UserInfo1>,
+
           },
+  
           {
             path: "/userinfo2",
             element: <Userinfo2 />,
@@ -229,6 +242,7 @@ const router = createBrowserRouter([
             element: <Userinfo3 />,
           },
           {
+
             path: "/userinfo4",
             element: <Userinfo4 />,
           },
