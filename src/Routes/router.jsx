@@ -30,18 +30,21 @@ import Userinfo2 from "../component/Pages/MyProfle/Userinfo2";
 import Userinfo3 from "../component/Pages/MyProfle/Userinfo3";
 import Userinfo4 from "../component/Pages/MyProfle/Userinfo4";
 import Userinfo5 from "../component/Pages/MyProfle/Userinfo5";
+
 import Userinfo6 from "../component/Pages/MyProfle/Userinfo6";
 import Userinfo7 from "../component/Pages/MyProfle/Userinfo7";
+
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
 import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
 import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
-
+import Post from "../component/Pages/MyProfle/postFunction/Post";
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
+
 
 
 const router = createBrowserRouter([
@@ -95,9 +98,12 @@ const router = createBrowserRouter([
       {
         path: "/paymentOne",
 
+
         element: <PaymentCard></PaymentCard>
 
       },
+
+
 
       {
         path: "/payment/success/:tranId",
@@ -106,7 +112,9 @@ const router = createBrowserRouter([
       {
         path: "/payment/fail/:tranId",
 
+
         element: <PaymentFail></PaymentFail>
+
 
       },
       {

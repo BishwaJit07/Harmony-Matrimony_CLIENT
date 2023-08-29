@@ -1,5 +1,4 @@
 
-import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -10,14 +9,14 @@ import "swiper/css/pagination";
 import './Review.css';
 
 // import required modules
-import { EffectCards, Pagination, Navigation, A11y } from 'swiper/modules';
-import { useSwiper } from 'swiper/react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { EffectCards,  Navigation } from 'swiper/modules';
+
+
 import { RiDoubleQuotesL, RiDoubleQuotesR } from 'react-icons/ri';
 import { SwiperNavButtons } from '../HomeCompnent/BestRecommendation/SwiperNavButton';
 
 const Review = () => {
-    const swiper = useSwiper();
+   
     return (
         <div className='flex justify-between px-16 m-10 relative'>
             {/* div for text */}

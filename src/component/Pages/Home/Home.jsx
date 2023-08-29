@@ -1,5 +1,10 @@
 
+
 import BestRecommendation from "./HomeCompnent/BestRecommendation/BestRecommendation";
+
+import About from "./HomeCompnent/About";
+
+
 
 import Gallary from "./HomeCompnent/gellary/Gallary";
 
@@ -27,14 +32,20 @@ const Home = () => {
         <meta charSet="utf-8" />
         <title>Soulmate | Home</title>
       </Helmet>
-      <HomeBanner />
-      <WhyChooseUs2 />
+ 
+
+      {/* <HeroSection /> */}
+  
+
       <div className="w-[80%] mx-auto">
+        
+            
+         <HowItWork/>
          
-        <HowItWork></HowItWork>
-     
-     
-        <BestRecommendation />
+          <Review/>
+        {/* <SearchFunction></SearchFunction> */}
+        {/* <BestRecommendation /> */}
+
         <BestRecommendation2 />
         <Gallary />
         <HappyStory />
