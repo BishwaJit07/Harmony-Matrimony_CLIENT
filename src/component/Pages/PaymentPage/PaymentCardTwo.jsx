@@ -23,10 +23,10 @@ const PaymentCardTwo = () => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
     })
-      .then(res=>res.json())
-      .then(data=>{
-        window.location.replace(data.url)
-        console.log(data)
+      .then((res) => res.json())
+      .then((data) => {
+        window.location.replace(data.url);
+        console.log(data);
       });
   };
 
