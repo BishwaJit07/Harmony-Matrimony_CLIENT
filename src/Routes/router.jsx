@@ -19,6 +19,9 @@ import Service from "../component/Pages/Service/Service";
 import ServiceCard from "../component/Pages/Service/ServiceCard";
 import Contact from "../component/Pages/Contact/Contact";
 import BlogDetails from "../component/Pages/Blog/BlogDetails";
+
+import TermCondition from "../component/Pages/SignUp/TermCondition";
+
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
 import AuthForm from "../component/Pages/AuthFrom/AuthForm";
 import SearchFunction from "../component/Pages/SignUp/SearchFunction";
@@ -35,10 +38,14 @@ import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
-import TermCondition from "../component/Pages/SignUp/TermCondition";
+import Post from "../component/Pages/MyProfle/postFunction/Post";
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
+
+import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
+import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
+
 
 const router = createBrowserRouter([
   {
@@ -75,6 +82,8 @@ const router = createBrowserRouter([
         path: "/termCondition",
         element: <TermCondition></TermCondition>,
       },
+  
+
       {
 
         path: "/service",
@@ -88,7 +97,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/paymentOne",
+
         element: <PaymentCard></PaymentCard>
+
       },
 
       {
@@ -97,7 +108,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment/fail/:tranId",
+
         element: <PaymentFail></PaymentFail>
+
       },
       {
         path: "/happy",
@@ -107,7 +120,11 @@ const router = createBrowserRouter([
         path: '/plans',
         element: <Plans></Plans>
 
+
       },
+
+
+
       {
         path: "/contact-us",
         element: <Contact />,
@@ -231,11 +248,19 @@ const router = createBrowserRouter([
 
       },
       {
+
         path: "addService",
         element: <AddService />,
-      },
-    ],
-  },
+      }]}
+
+  
+       
+      
+        
+
+      
+    
+  
 
 ]);
 export default router;

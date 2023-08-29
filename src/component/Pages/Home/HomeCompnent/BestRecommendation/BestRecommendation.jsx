@@ -75,7 +75,7 @@ const BestRecommendation = () => {
         }
     
         <div className="-mt-100">
-        <SwiperNavButtons ></SwiperNavButtons>
+          <SwiperNavButtons ></SwiperNavButtons>
         </div>
         </Swiper>
       </div>
