@@ -23,7 +23,7 @@ import ServiceCard from "../component/Pages/Service/ServiceCard";
 import Contact from "../component/Pages/Contact/Contact";
 
 import BlogDetails from "../component/Pages/Blog/BlogDetails";
-import TermCondition from '../component/Pages/SignUp/TermCondition'
+import TermCondition from "../component/Pages/SignUp/TermCondition";
 
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
 import AuthForm from "../component/Pages/AuthFrom/AuthForm";
@@ -34,13 +34,11 @@ import Userinfo3 from "../component/Pages/MyProfle/Userinfo3";
 import Userinfo4 from "../component/Pages/MyProfle/Userinfo4";
 import Userinfo5 from "../component/Pages/MyProfle/Userinfo5";
 
-
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
 import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
 import PaymentCardTwo from "../component/Pages/PaymentPage/PaymentCardTwo";
 import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
-
 
 import AddService from "../Shared/AddService/AddService";
 
@@ -48,7 +46,6 @@ import StripePayment from "../payments/StripePayment/StripePayment";
 
 import Post from "../component/Pages/MyProfle/postFunction/Post";
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
-
 
 const router = createBrowserRouter([
   {
@@ -69,45 +66,47 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-
-        path: '/blog',
-        element: <Blog></Blog>
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
-        path: '/addBlog',
-        element : <AddBlog></AddBlog>
+        path: "/addBlog",
+        element: <AddBlog></AddBlog>,
       },
       {
-        path: '/blogDetails/:id',
-        element : <BlogDetails></BlogDetails>,
-        loader: ({params}) => fetch(`https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`)
+        path: "/blogDetails/:id",
+        element: <BlogDetails></BlogDetails>,
+        loader: ({ params }) =>
+          fetch(
+            `https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`
+          ),
       },
       {
-        path :'/termCondition',
-        element : <TermCondition></TermCondition>
+        path: "/termCondition",
+        element: <TermCondition></TermCondition>,
       },
       {
-
-        path: '/dashboard',
+        path: "/dashboard",
         element: <Dashboard></Dashboard>,
         children: [
           {
-            path: '/dashboard/manageUser',
-            element: <MangeUsersX />
+            path: "/dashboard/manageUser",
+            element: <MangeUsersX />,
           },
           {
-            path: '/dashboard/allUser',
-            element: <AllUserD></AllUserD>
-           },
+            path: "/dashboard/allUser",
+            element: <AllUserD></AllUserD>,
+          },
           {
             path: "/dashboard/bookService",
             element: <BookService></BookService>,
           },
           {
             path: "/dashboard/addService",
-            element: <AddService />
-          }
-    ]},
+            element: <AddService />,
+          },
+        ],
+      },
       {
         path: "/service",
         element: <Service></Service>,
@@ -116,25 +115,23 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-          fetch(
-            `https://soulmates-server-two.vercel.app/service/${params.id}`
-          ),
+          fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
       },
       {
         path: "/paymentOne",
-        element:<PaymentCard></PaymentCard>
+        element: <PaymentCard></PaymentCard>,
       },
       {
         path: "/paymentTwo",
-        element:<PaymentCardTwo></PaymentCardTwo>
+        element: <PaymentCardTwo></PaymentCardTwo>,
       },
       {
         path: "/payment/success/:tranId",
-        element:<PaymentSuccess></PaymentSuccess>
+        element: <PaymentSuccess></PaymentSuccess>,
       },
       {
         path: "/payment/fail/:tranId",
-        element:<PaymentFail></PaymentFail>
+        element: <PaymentFail></PaymentFail>,
       },
       {
         path: "/contact",
@@ -149,16 +146,13 @@ const router = createBrowserRouter([
             element: <AllUserD></AllUserD>,
           },
           {
-
             path: "/contact/bookService",
             element: <BookService></BookService>,
-
           },
           {
             path: "/contact/addService",
-            element: <AddService />
-          }
-
+            element: <AddService />,
+          },
         ],
       },
 
@@ -167,29 +161,24 @@ const router = createBrowserRouter([
         element: <Happy />,
       },
       {
-
-        path: '/plans',
-        element: <Plans></Plans>
-
+        path: "/plans",
+        element: <Plans></Plans>,
       },
 
       {
-
         path: "/contact-us",
         element: <Contact />,
       },
       {
-        path: '/payment',
-        element: <StripePayment />
+        path: "/payment",
+        element: <StripePayment />,
       },
       {
         path: "/alluser",
 
-
         element: <AllUser></AllUser>,
       },
       {
-
         path: "/patnerProfile/:id",
         element: <PatnerProfile></PatnerProfile>,
       },
@@ -203,61 +192,53 @@ const router = createBrowserRouter([
         element: <Post />,
       },
 
-      
       {
         path: "/blogs/:id",
         element: <SingleBlogs />,
       },
       {
-
-        path:'/myProfile',
-        element: <MyProfile></MyProfile>
+        path: "/myProfile",
+        element: <MyProfile></MyProfile>,
       },
       {
-        path:'/authFrom',
-        element: <AuthForm></AuthForm>
+        path: "/authFrom",
+        element: <AuthForm></AuthForm>,
       },
       {
-        path:'/signup',
-        element: <SignUp />
+        path: "/signup",
+        element: <SignUp />,
       },
       {
-        path:'/select',
-        element: <SearchFunction></SearchFunction>
-
+        path: "/select",
+        element: <SearchFunction></SearchFunction>,
       },
 
-    
-
-  {
-    path: "/",
-    children: [
       {
-        path:'/userinfo1',
-        element: <UserInfo1></UserInfo1>
+        path: "/",
+        children: [
+          {
+            path: "/userinfo1",
+            element: <UserInfo1></UserInfo1>,
+          },
+          {
+            path: "/userinfo2",
+            element: <Userinfo2 />,
+          },
+          {
+            path: "/userinfo3",
+            element: <Userinfo3 />,
+          },
+          {
+            path: "/userinfo4",
+            element: <Userinfo4 />,
+          },
+          {
+            path: "/userinfo5",
+            element: <Userinfo5 />,
+          },
+        ],
       },
-      {
-        path:'/userinfo2',
-        element: <Userinfo2/>
-      },
-      {
-        path:'/userinfo3',
-        element: <Userinfo3/>
-      },
-      {
-        path:'/userinfo4',
-        element: <Userinfo4/>
-      },
-      {
-        path:'/userinfo5',
-        element: <Userinfo5/>
-      }
     ],
   },
-
-]}
-
-])
-;
-
+]);
 export default router;
