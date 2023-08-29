@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 import HomeBanner from "./HomeCompnent/HomeBanner/HomeBanner";
 import MessageUsFb from "../../FacebookMessage/MessageUsFb";
 import WhyChooseUs2 from "./HomeCompnent/WhyChooseUs2/WhyChooseUs2";
+import BestRecommendation2 from "./HomeCompnent/BestRecommendation2/BestRecommendation2";
 
 const Home = () => {
 
@@ -26,6 +27,7 @@ const Home = () => {
         <SearchFunction></SearchFunction>
         <WhyChooseUs2 />
         <BestRecommendation />
+        <BestRecommendation2 />
         <Gallary />
         <About />
         <HappyStory />
