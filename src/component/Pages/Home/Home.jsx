@@ -8,6 +8,7 @@ import SearchFunction from "./SearchFunction/SearchFunction";
 import HappyStory from './HomeCompnent/HappyStory/HappyStory';
 import { Helmet } from "react-helmet";
 import MessageUsFb from "../../FacebookMessage/MessageUsFb";
+import HowItWork from "./HowItWork/HowItWork";
 
 const Home = () => {
 
@@ -22,6 +23,7 @@ const Home = () => {
       <HeroSection />
       <div className="w-[80%] mx-auto">
         <SearchFunction></SearchFunction>
+        <HowItWork></HowItWork>
         <BestRecommendation />
         <Gallary />
         <About />
