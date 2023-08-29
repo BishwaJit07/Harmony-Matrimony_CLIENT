@@ -2,30 +2,42 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const Plans = () => {
+  const gold = {
+    plan: "gold",
+    price: 34900,
+  };
+  const goldData = btoa(JSON.stringify(gold));
+
+  const platinum = {
+    plan: "platinum",
+    price: 54900,
+  };
+  const platinumData = btoa(JSON.stringify(platinum));
+
   return (
     <div className="font-plans">
-
       {/* Title */}
       <Helmet>
         <meta charSet="utf-8" />
         <title>Soulmate | Services</title>
       </Helmet>
-        <div className="h-[200px] md:h-[400px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
-          <div className="text-center space-y-5 pt-10">
-            <p className="text-3xl md:text-7xl font-extrabold bg-clip-text text-transparent text-white">PRICING</p>
-            <p className="text-white text-lg">Get Started <br /> Pick your Plan Now</p>
-          </div>
+      <div className="h-[200px] md:h-[400px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
+        <div className="text-center space-y-5 pt-10">
+          <p className="text-3xl md:text-7xl font-extrabold bg-clip-text text-transparent text-white">
+            PRICING
+          </p>
+          <p className="text-white text-lg">
+            Get Started <br /> Pick your Plan Now
+          </p>
         </div>
+      </div>
 
-     
       {/* 
 
 card section */}
 
-
       <div className="bg-white w-[80%] mx-auto lg:h-[calc(100vh-100px)] xl:h-[calc(100vh-500px)]">
         <div className="lg:grid grid-cols-3 gap-10  mx-auto justify-items-center   max-w-screen-lg ">
-
           {/* card-1 */}
           <div className="lg:-mt-16  mb-10 lg:mb-0  mx-auto mt-10 max-w-sm">
             <div className="bg-white shadow-md rounded-xl p-6">
@@ -133,7 +145,9 @@ card section */}
                 <span className="bg-yellow-400 text-white px-2 py-1 rounded-full text-sm font-semibold">
                   Most Popular Plan
                 </span>
-                <h2 className="text-5xl font-semibold text-[#66451C] mb-4 mt-9">Gold Plan</h2>
+                <h2 className="text-5xl font-semibold text-[#66451C] mb-4 mt-9">
+                  Gold Plan
+                </h2>
                 <p className="text-[#66451C]-700 mb-4">
                   Printer took a type and scrambled
                 </p>
@@ -213,24 +227,20 @@ card section */}
                   Start Chat
                 </li>
               </ul>
-  <Link to='/paymentOne'>
-              <button className="bg-[#34af78] w-full mx-auto font-semibold my-5  text-white px-4 py-2 rounded-full  hover:bg-[#30855e]transition duration-300 ease-in-out">
-
-
-            
-             
-                Get Started
-              </button>
+              <Link to={`/paymentOne?plan=${goldData}`}>
+                <button className="bg-[#34af78] w-full mx-auto font-semibold my-5  text-white px-4 py-2 rounded-full  hover:bg-[#30855e]transition duration-300 ease-in-out">
+                  Get Started
+                </button>
               </Link>
             </div>
-
-             
           </div>
           {/* 3rd card */}
           <div className="lg:-mt-16 mb-10 max-w-sm mx-auto lg:mb-0">
             <div className="bg-white shadow-md rounded-xl p-6 w-full">
               <div className="mb-4 text-center">
-                <h2 className="font-semibold mb-4 text-5xl text-[#66451C] ">Platinum</h2>
+                <h2 className="font-semibold mb-4 text-5xl text-[#66451C] ">
+                  Platinum
+                </h2>
                 <p className="text-[#66451C]-700 mb-4">
                   Printer took a type and scrambled
                 </p>
@@ -311,22 +321,15 @@ card section */}
                 </li>
               </ul>
 
-            
-
-              <Link to='/paymentTwo'>
-               <button className="bg-[#34af78] w-full mx-auto font-semibold text-white px-4 py-2 my-5 rounded-full hover:bg-[#30855e] transition duration-300 ease-in-out">
-
-                Get Started
-              </button>
+              <Link to={`/paymentOne?plan=${platinumData}`}>
+                <button className="bg-[#34af78] w-full mx-auto font-semibold text-white px-4 py-2 my-5 rounded-full hover:bg-[#30855e] transition duration-300 ease-in-out">
+                  Get Started
+                </button>
               </Link>
             </div>
           </div>
         </div>
-
-
       </div>
-
-      
     </div>
   );
 };
