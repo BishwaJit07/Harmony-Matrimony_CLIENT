@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 import LeftCard from "./LeftCard";
+// import LatestBlog from "./LatestBlog";
 import Loading from "../../../Shared/Loading";
 import { Helmet } from "react-helmet";
 const Blog = () => {
@@ -74,6 +75,7 @@ const Blog = () => {
             </div>
           </div>
             <LeftCard></LeftCard>
+            {/* <LatestBlog></LatestBlog> */}
         </div>
       </div>
     </div>
