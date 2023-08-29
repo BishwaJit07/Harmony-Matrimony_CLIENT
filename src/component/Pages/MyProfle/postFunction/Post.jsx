@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../../../Provider/AuthProvider";
 import { BsImages } from "react-icons/bs";
 import { useForm } from "react-hook-form";
 import PostShow from "./PostShow";
 import axios from "axios";
-import { formatDate } from "../../utilities/utilities";
+import { formatDate } from "../../../../utilities/utilities";
 const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
 
 const Post = () => {
@@ -21,7 +21,9 @@ const Post = () => {
 
   useEffect(() => {
     axios
-      .get(`https://harmony-matrimony-server.vercel.app/statusPosts?user=${user?.email}`)
+      .get(
+        `https://soulmates-server-two.vercel.app/statusPosts?user=${user?.email}`
+      )
       .then((response) => {
         setPrevStatus(response.data);
       });
@@ -55,7 +57,7 @@ const Post = () => {
 
           axios
             .post(
-              `https://harmony-matrimony-server.vercel.app/statusPost`,
+              `https://soulmates-server-two.vercel.app/statusPost`,
               statusPost
             )
             .then((response) => {
@@ -77,21 +79,21 @@ const Post = () => {
         </>
       ) : (
         <>
-          <div className="m-10 items-center">
-            <div className="card card-compact w-96 bg-base-100 p-4 shadow-xl mb-2">
+          <div className="m-10">
+            <div className="card card-compact bg-base-100 p-4 shadow-xl mb-2 text-left">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex gap-3">
                   <img
                     src={user?.photoURL}
-                    className="w-12 h-12 rounded-full"
+                    className="w-14 h-12 rounded-full"
                     alt="User"
                   />
-                  <input
-                    type="text"
+
+                  <textarea
                     placeholder="What's Up (Optional)"
                     className="input input-bordered w-full focus:outline-0 p-2"
                     {...register("postText")}
-                  />
+                  ></textarea>
                 </div>
                 {selectedImage && (
                   <div className="mt-2">
@@ -103,10 +105,10 @@ const Post = () => {
                   </div>
                 )}
 
-                <div className="form-control my-3">
+                <div className="form-control my-3 text-left">
                   <label className="input-group">
-                    <span>
-                      <BsImages className="text-green-600 text-md me-1" /> Image
+                    <span className="text-green-600">
+                      <BsImages className=" text-md me-1" /> Image
                     </span>
                     <input
                       type="file"

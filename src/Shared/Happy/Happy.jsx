@@ -16,7 +16,7 @@ const Happy = () => {
     const data = {  img, name, about_marriage }
     console.log(data)
 
-    fetch('https://harmony-matrimony-server.vercel.app/allCouple', {
+    fetch('https://soulmates-server-two.vercel.app/allCouple', {
       method: "POST",
       headers: {
         "content-type" : "application/json"

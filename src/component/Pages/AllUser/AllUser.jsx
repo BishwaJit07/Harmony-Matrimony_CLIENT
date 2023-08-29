@@ -16,7 +16,7 @@ const AllUser = () => {
   const [filteredUsers, setFilteredUsers] = useState(users);
   // fetch happyStories data
   useEffect(() => {
-    fetch('https://harmony-matrimony-server.vercel.app/allUser')
+    fetch('https://soulmates-server-two.vercel.app/allUser')
       .then(res => res.json())
       .then(data => {
         setLoading(false);
@@ -60,6 +60,7 @@ const AllUser = () => {
 
 
   const onSubmit = data => {
+
 
     const { gender, age, religion, country, language } = data;
 

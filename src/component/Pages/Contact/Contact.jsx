@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import Heading from "../../../Shared/Heading";
 
 const Contact = () => {
 
@@ -11,7 +12,7 @@ const Contact = () => {
     const message = form.message.value
     const contactData = {name, subject, email, status: 'pending', message}
 
-    fetch('https://harmony-matrimony-server.vercel.app/contact', {
+    fetch('https://soulmates-server-two.vercel.app/contact', {
         method: "POST",
         headers: {
           "content-type": "application/json"
@@ -36,7 +37,7 @@ const Contact = () => {
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left w-1/2">
-          <h1 className="text-5xl font-bold">Contact Us!</h1>
+           <Heading title="Contact"/>
           <p className="py-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos tempore commodi minus eum natus dignissimos? Repellendus exercitationem voluptates, reprehenderit ratione, natus ullam similique atque incidunt eius beatae corrupti deserunt rerum consequatur a voluptatem fuga odit magni perferendis nisi delectus? Temporibus, quaerat laborum! Mollitia modi harum odit corporis quis ea, totam, veritatis eos architecto aut omnis. Delectus, harum perspiciatis. Voluptatem quisquam eaque rerum iusto voluptas doloremque molestiae veritatis, ducimus obcaecati nobis. Praesentium mollitia quasi impedit sequi facilis exercitationem odio nemo iste, ad consequuntur, necessitatibus ipsum. Distinctio earum possimus rem vitae inventore deleniti, facilis, sequi sit vel consequuntur nesciunt voluptas magnam doloremque.</p>
         </div>
         <div className="card w-1/2 shadow-2xl bg-base-100">

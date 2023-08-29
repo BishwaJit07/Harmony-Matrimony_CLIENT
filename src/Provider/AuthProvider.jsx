@@ -40,21 +40,26 @@ const AuthProvider = ({ children }) => {
 
             // get and set token!!!!
             if (currentUser) {
-                axios.post('https://harmony-matrimony-server.vercel.app/jwt', { email: currentUser.email })
+                axios.post('https://soulmates-server-two.vercel.app/jwt', { email: currentUser.email })
+                
                     .then(data => {
+                        console.log(data);
                         localStorage.setItem('access-token', data.data.token)
                         setLoading(false);
                     })
+                    
             }
             else {
                 localStorage.removeItem('access-token')
             }
-            // console.log('current user', currentUser);
+            console.log('current user', currentUser);
         })
         return () => {
             return unsubscribe();
         }
     })
+
+    
     const authInfo = {
         user,
         loading,

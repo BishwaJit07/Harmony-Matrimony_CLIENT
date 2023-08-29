@@ -11,6 +11,8 @@ import img4 from '../../../assets/about-photos/4.jpg'
 import girl from '../../../assets/about-photos/girl.jpg'
 import Heading from "../../../Shared/Heading";
 import { Helmet } from "react-helmet";
+import Contact from "../Contact/Contact";
+import MessageUsFb from "../../FacebookMessage/MessageUsFb";
 
 const About = () => {
   return (
@@ -348,6 +350,10 @@ const About = () => {
         
 
       </div>
+
+      <Contact/>
+
+      <MessageUsFb />
     </div>
   );
 };

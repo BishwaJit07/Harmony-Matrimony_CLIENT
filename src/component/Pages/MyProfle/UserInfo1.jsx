@@ -1,5 +1,4 @@
 import { useLocation } from 'react-router-dom';
-
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { City, Country, State } from "country-state-city";
@@ -9,7 +8,7 @@ import { calculateAge } from '../../../utilities/utilities';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 import Selector from './Selector';
-import useMyData from '../../../Hooks/useMydata';
+import useMyData from '../../../Hooks/useMyData';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { HiCheck, HiChevronUpDown } from 'react-icons/hi2';
 import { Listbox, Transition } from '@headlessui/react';
@@ -44,6 +43,8 @@ const UserInfo1 = () => {
     const [state, setState] = useState();
     const [city, setCity] = useState();
 
+    console.log(userInfo);
+    
     useEffect(() => {
         setStateData(State.getStatesOfCountry(country?.isoCode));
     }, [country]);
@@ -70,8 +71,6 @@ const UserInfo1 = () => {
         }
         data = { mobile: phoneNumber, age: age, gender: selectedOption.gender, maritalStatus: maritalStatus.maritalStatus, religion: religion.Religion, country: country?.name, state: state?.name, city: city?.name, height: height?.name, weight: weight?.name, profile_complete: 30, profileFor: profileFor?.Profile_For, id: userInfo._id , motherTongue:motherTongue?.name , sect: sect.name }
         console.log(data)
-
-
         fetch('https://harmony-matrimony-server.vercel.app/update1', {
             method: "PUT",
             headers: {

@@ -14,10 +14,11 @@ const BestRecommendation = () => {
   
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch("https://harmony-matrimony-server.vercel.app/allUser")
+    fetch("https://soulmates-server-two.vercel.app/allUser")
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, []);
+
 
   return (
     <div className=" w-full  ">

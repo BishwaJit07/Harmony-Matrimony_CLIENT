@@ -7,6 +7,7 @@ import SearchFunction from "./SearchFunction/SearchFunction";
 
 import HappyStory from './HomeCompnent/HappyStory/HappyStory';
 import { Helmet } from "react-helmet";
+import MessageUsFb from "../../FacebookMessage/MessageUsFb";
 
 const Home = () => {
 
@@ -24,6 +25,7 @@ const Home = () => {
         <BestRecommendation />
         <Gallary />
         <HappyStory />
+        <MessageUsFb/>
       </div>
     </div>
   );

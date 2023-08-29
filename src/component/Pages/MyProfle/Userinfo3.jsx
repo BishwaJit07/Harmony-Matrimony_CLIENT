@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 import { useForm } from "react-hook-form";
-import useMyData from "../../../Hooks/useMydata";
+import useMyData from "../../../Hooks/useMyData";
 import { useNavigate } from "react-router-dom";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { dietOptions, drinkHabitsOptions, religiousValuesOptions, smokingOptions } from "../../../Shared/Variable";

@@ -16,11 +16,7 @@ const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const [confirmPassword, setConfirmPassword] = useState("");
-
   const [passwordVisible, setPasswordVisible] = useState(false);
-
-
-
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };

@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import logo from "../../../../assets/logo/logo.png";
 import { AuthContext } from "../../../../Provider/AuthProvider";
-
+import noProfile from "../../../../assets/other/blank.png"
+import useMyData from "../../../../Hooks/useMyData";
 const HomeNavbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [userInfo] = useMyData();
 
   const navItem = (
     <>
@@ -14,11 +16,7 @@ const HomeNavbar = () => {
       <li>
         <Link to="/about">About</Link>
       </li>
-      {user && (
-        <li>
-          <Link to="/contact">Dashboard</Link>
-        </li>
-      )}
+   
       <li>
         <Link to="/alluser">All User</Link>
       </li>
@@ -31,8 +29,10 @@ const HomeNavbar = () => {
       <li>
         <Link to="/Post">Post</Link>
       </li>
+  {user && <li><Link to='/dashboard'>Dashboard</Link></li>}
     </>
   );
+
 
 
   const handleLogOut = () => {
@@ -83,9 +83,9 @@ const HomeNavbar = () => {
 
         <div className="navbar-end">
 
-          {user ? (
+        {user ? (
             <div className="flex gap-2 items-center">
-              <div className="navbar-end me-3">
+              <div className="hidden md:flex navbar-end me-3">
                 <button
                   onClick={handleLogOut}
                   className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs "
@@ -93,18 +93,18 @@ const HomeNavbar = () => {
                   Logout
                 </button>
               </div>
-              <Link to="/myProfile">
+                <Link to="/myProfile">
               <div className="avatar online">
-                <div className="w-11 rounded-full border-[#FF725E] border-2">
-                  <img src={user.photoURL} />
+                <div className="w-11 rounded-full">
+                {userInfo?.profileImage ? <img className="rounded-full w-10 mr-3" src={userInfo?.profileImage} />  : <img src={noProfile} alt="Shoes" className="rounded-full w-10 mr-3"/>}
                 </div>
               </div>
-              </Link>
+                </Link>
             </div>
           ) : (
-            <div>
+            <div className="">
               <Link to="/signup">
-                <p className="  text-[#FF725E] p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
+                <p className="  text-white p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
                   Join Now
                 </p>
               </Link>
