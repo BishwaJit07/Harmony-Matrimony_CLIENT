@@ -2,18 +2,17 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useContext, useState } from "react";
 
-import img from "../../../assets/other/login.png";
-import logo from "../../../assets/logo/logo.png";
+import img from "../../../assets/logo/adminLogin.png";
+import logo from "../../../assets/logo/logo.png/";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-// import intlTelInput from 'intl-tel-input';
 
-// const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
-const SignUp = () => {
-  const navigate = useNavigate("/");
+const AuthoritySignUp = () => {
+
+    const navigate = useNavigate("/");
   const [Error, setError] = useState("");
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
@@ -29,17 +28,7 @@ const SignUp = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-
-  // useEffect(() => {
-  //   const phoneInputField = document.querySelector("#phone");
-  //   intlTelInput(phoneInputField, {
-  //     utilsScript:
-  //       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-  //   });
-  // }, []);
-
-  // const image_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Hosting_Token}`;
-
+  
   const onSubmit = (data) => {
     if (confirmPassword !== data.password) {
       setError("Passwords do not match");
@@ -55,10 +44,11 @@ const SignUp = () => {
             name: data.name.toUpperCase(),
             mobile: data.mobile,
             email: data.email,
-            profile_complete: 10,
-            profileVisit: 20,
+            profileImage:data.imgurl,
+            role: null,
           };
-          fetch("https://soulmates-server-two.vercel.app/alluser", {
+          console.log(saveUser);
+          fetch("https://soulmates-server-two.vercel.app/authority", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -78,20 +68,19 @@ const SignUp = () => {
                   showConfirmButton: false,
                   timer: 1500,
                 });
-                navigate("/myProfile");
+                navigate("/dashboard");
               }
             });
         })
         .catch((error) => setError(error.message));
     });
   };
-
-  return (
-    <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
+    return (
+        <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
       {/* Title */}
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Soulmate | Sign Up</title>
+        <title>Soulmate | Authority SignUp</title>
       </Helmet>
 
       <figure className="lg:w-[50%] ">
@@ -106,7 +95,7 @@ const SignUp = () => {
           <img className="w-52 mx-auto mt-10" src={logo} alt="" />
         </div>
         <p className="text-center text-[#a2a2a2] lg:text-xl text-lg">
-          Welcome to SoulMate
+          Welcome to SoulMate | Authority
         </p>
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -126,6 +115,25 @@ const SignUp = () => {
                 Enter your full name
               </label>
               {errors.name && (
+                <span className="text-red-600">This field is required</span>
+              )}
+            </div>
+          </div>
+
+          {/* img url  */}
+          <div>
+            <div className="relative z-0 mt-2">
+              <input
+                name="imgurl"
+                {...register("imgurl", { required: true })}
+                type="text"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2  dark:border-gray-500 focus:outline-none focus:ring-0  peer"
+                placeholder=""
+              />
+              <label className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-3 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Enter your Image Url
+              </label>
+              {errors.imgurl && (
                 <span className="text-red-600">This field is required</span>
               )}
             </div>
@@ -213,7 +221,7 @@ const SignUp = () => {
           <div className="text-center">
             <p>
               Already Have an Account{" "}
-              <Link className="text-blue-400" to="/signin">
+              <Link className="text-blue-400" to="/authoritysignin">
                 Log in
               </Link>{" "}
               <br />
@@ -225,7 +233,7 @@ const SignUp = () => {
         </form>
       </div>
     </div>
-  );
+    );
 };
 
-export default SignUp;
+export default AuthoritySignUp;

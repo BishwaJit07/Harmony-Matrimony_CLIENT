@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import heart from '../../../../assets/newHomeBannerImg/heart.png'
+import heart from '../../../../assets/home/newHomeBannerImg/heart.png'
 import {  useNavigate } from 'react-router-dom';
 const SearchFunction = () => {
 

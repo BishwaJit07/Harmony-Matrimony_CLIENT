@@ -28,16 +28,16 @@ import Userinfo2 from "../component/Pages/MyProfle/Userinfo2";
 import Userinfo3 from "../component/Pages/MyProfle/Userinfo3";
 import Userinfo4 from "../component/Pages/MyProfle/Userinfo4";
 import Userinfo5 from "../component/Pages/MyProfle/Userinfo5";
-
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
 import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
 import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
-
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
 import Post from "../component/Pages/MyProfle/postFunction/Post";
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
+import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
+import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
@@ -128,11 +128,7 @@ const router = createBrowserRouter([
         element: <PaymentCard></PaymentCard>,
 
       },
-      {
-        path: "/paymentTwo",
-        element: <PaymentCardTwo></PaymentCardTwo>,
 
-      },
 
       {
         path: "/payment/success/:tranId",
@@ -143,28 +139,8 @@ const router = createBrowserRouter([
         element: <PaymentFail></PaymentFail>,
       },
 
-      {
-        path: "/contact",
-        element: <Dashboard></Dashboard>,
-        children: [
-          {
-            path: "/contact/manageUser",
-            element: <ManageUser></ManageUser>,
-          },
-          {
-            path: "/contact/allUser",
-            element: <AllUserD></AllUserD>,
-          },
-          {
-            path: "/contact/bookService",
-            element: <BookService></BookService>,
-          },
-          {
-            path: "/contact/addService",
-            element: <AddService />,
-          },
-        ],
-      },
+      
+
 
       {
         path: "/happy",
