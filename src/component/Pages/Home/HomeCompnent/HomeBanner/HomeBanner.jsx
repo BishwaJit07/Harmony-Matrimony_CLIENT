@@ -7,7 +7,8 @@ import img3 from '../../../../../assets/newHomeBannerImg/5.jpg'
 import img4 from '../../../../../assets/newHomeBannerImg/7.jpg'
 import img5 from '../../../../../assets/newHomeBannerImg/8.jpg'
 import img6 from '../../../../../assets/newHomeBannerImg/9.jpg';
-import heart from '../../../../../assets/newHomeBannerImg/heart.png'
+
+import SearchFunction from "../../SearchFunction/SearchFunction";
 
 const HomeBanner = () => {
   
@@ -43,78 +44,7 @@ const HomeBanner = () => {
 
       {/* form section */}
 
-      <div className="absolute right-[5%] top-[13%] bg-white w-[436px] h-[420px] z-20 rounded-xl">
-
-        <div className="w-[90%] mx-auto">
-          <div className="flex items-center justify-between">
-            <p className="text-[24px] font-alice">Find Your Partner</p>
-            <img className="scale-90" src={heart} alt="" />
-          </div>
-        </div>
-        <hr />
-
-        
-        <form className="w-[90%] mx-auto space-y-1" action="">
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">I am looking for a</span>
-            </label>
-            <select className="select font-normal focus:outline-none rounded-full border-primary-300 select-bordered select-sm">
-              <option disabled selected>Pick one</option>
-              <option>Star Wars</option>
-              <option>Harry Potter</option>
-              <option>Lord of the Rings</option>
-              <option>Planet of the Apes</option>
-              <option>Star Trek</option>
-            </select>
-          </div>
-          {/* age */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Age</span>
-            </label>
-            <select className="select font-normal focus:outline-none rounded-full border-primary-300 select-bordered select-sm">
-              <option disabled selected>Pick one</option>
-              <option>Star Wars</option>
-              <option>Harry Potter</option>
-              <option>Lord of the Rings</option>
-              <option>Planet of the Apes</option>
-              <option>Star Trek</option>
-            </select>
-          </div>
-          {/* Religion */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Religion</span>
-            </label>
-            <select className="select font-normal focus:outline-none select-bordered rounded-full border-primary-300 select-sm">
-              <option disabled selected>Pick one</option>
-              <option>Star Wars</option>
-              <option>Harry Potter</option>
-              <option>Lord of the Rings</option>
-              <option>Planet of the Apes</option>
-              <option>Star Trek</option>
-            </select>
-          </div>
-          {/* Living In */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text">Living In</span>
-            </label>
-            <select className="select font-normal focus:outline-none select-bordered rounded-full border-primary-300 select-sm">
-              <option className="font-normal" disabled selected>Pick one</option>
-              <option>Star Wars</option>
-              <option>Harry Potter</option>
-              <option>Lord of the Rings</option>
-              <option>Planet of the Apes</option>
-              <option>Star Trek</option>
-            </select>
-          </div>
-          <div className="">
-            <button className="bg-primary-500 text-white w-full py-2 rounded-full mt-4">Search</button>
-          </div>
-        </form>
-      </div>
+      <SearchFunction/>
       
     </div>
   );

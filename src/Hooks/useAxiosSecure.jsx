@@ -6,7 +6,7 @@ import useAuth from './useAuth';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'https://harmony-matrimony-server.vercel.app', 
+  baseURL: 'https://soulmates-server-two.vercel.app', 
 });
 
 const useAxiosSecure = () => {

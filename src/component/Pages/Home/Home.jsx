@@ -1,9 +1,9 @@
 
 import About from "./HomeCompnent/About";
 import BestRecommendation from "./HomeCompnent/BestRecommendation/BestRecommendation";
-import HeroSection from "./HomeCompnent/HeroSection";
+
 import Gallary from "./HomeCompnent/gellary/Gallary";
-import SearchFunction from "./SearchFunction/SearchFunction";
+
 import HappyStory from './HomeCompnent/HappyStory/HappyStory';
 import { Helmet } from "react-helmet";
 import HomeBanner from "./HomeCompnent/HomeBanner/HomeBanner";
@@ -22,7 +22,7 @@ const Home = () => {
       {/* <HeroSection /> */}
       <HomeBanner />
       <div className="w-[80%] mx-auto">
-        <SearchFunction></SearchFunction>
+        {/* <SearchFunction></SearchFunction> */}
         <BestRecommendation />
         <Gallary />
         <About />

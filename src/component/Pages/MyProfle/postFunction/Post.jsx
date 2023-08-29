@@ -22,7 +22,7 @@ const Post = () => {
   useEffect(() => {
     axios
       .get(
-        `https://harmony-matrimony-server.vercel.app/statusPosts?user=${user?.email}`
+        `https://soulmates-server-two.vercel.app/statusPosts?user=${user?.email}`
       )
       .then((response) => {
         setPrevStatus(response.data);
@@ -57,7 +57,7 @@ const Post = () => {
 
           axios
             .post(
-              `https://harmony-matrimony-server.vercel.app/statusPost`,
+              `https://soulmates-server-two.vercel.app/statusPost`,
               statusPost
             )
             .then((response) => {
