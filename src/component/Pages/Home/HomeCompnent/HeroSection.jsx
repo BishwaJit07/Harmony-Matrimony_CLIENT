@@ -34,7 +34,7 @@ const HeroSection = () => {
       </div>
     </>
   return (
-    <div className="secondary ">
+    <div className="secondary lg:mt-10">
 
       <div className="w-[80]% ">
       <Carousel  showThumbs={false} className="  gap-8 flex justify-center items-center flex-col-reverse  mx-auto lg:-mt-10"swipeable={true} autoFocus={false} emulateTouch={true} showStatus={false} autoPlay={true} infiniteLoop={true} showArrows={false}>
@@ -42,7 +42,7 @@ const HeroSection = () => {
           <div className="md:w-1/2 text-center md:text-left">
             {herodetails}
           </div>
-          <div className="md:w-1/3" >
+          <div className="w-[50%] md:w-1/3" >
             <img src={carousel1} alt="Hero image" className="" />
           </div>
         </div>
@@ -51,7 +51,7 @@ const HeroSection = () => {
           <div className="md:w-1/2 text-center md:text-left">
             {herodetails}
           </div>
-          <div className="md:w-1/3" >
+          <div className=" w-[50%] md:w-1/3" >
             <img src={carousel2} alt="Hero image" className="" />
           </div>
         </div>
@@ -60,7 +60,7 @@ const HeroSection = () => {
           <div className="md:w-1/2 text-center md:text-left">
             {herodetails}
           </div>
-          <div className="md:w-1/3" >
+          <div className=" w-[50%] md:w-1/3" >
             <img src={carousel3} alt="Hero image" className="" />
           </div>
         </div>
@@ -68,7 +68,7 @@ const HeroSection = () => {
           <div className="md:w-1/2 text-center md:text-left">
             {herodetails}
           </div>
-          <div className="md:w-1/3" >
+          <div className=" w-[50%] md:w-1/3" >
             <img src={carousel4} alt="Hero image" className="" />
           </div>
         </div>

@@ -1,9 +1,10 @@
 
 import { useQuery } from "@tanstack/react-query";
-import useAuth from "./useAuth";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 import useAxiosSecure from "./useAxiosSecure";
 
-import useAxiosSecure from './useAxiosSecure'
+
 
 
 
@@ -14,7 +15,7 @@ const useAdmin = () => {
         queryKey : ["isAdmin", user?.email],
         enabled : !loading,
         queryFn : async () => {
-            const res = await axiosSecure.get(`http://localhost:5000/users/admin/${user.email}`)
+            const res = await axiosSecure.get(`https://soulmates-server-two.vercel.app/users/admin/${user.email}`)
 
 
 

@@ -15,11 +15,7 @@ const HomeNavbar = () => {
       <li>
         <Link to="/about">About</Link>
       </li>
-      {user && (
-        <li>
-          <Link to="/contact">Dashboard</Link>
-        </li>
-      )}
+   
       <li>
         <Link to="/alluser">All User</Link>
       </li>
@@ -96,15 +92,17 @@ const HomeNavbar = () => {
                   Logout
                 </button>
               </div>
+              <Link to="/myProfile">
               <div className="avatar online">
                 <div className="w-11 rounded-full border-[#FF725E] border-2">
                   <img src={user.photoURL} />
                 </div>
               </div>
+              </Link>
             </div>
           ) : (
             <div>
-              <Link to="signup/step-1">
+              <Link to="/signup">
                 <p className="  text-[#FF725E] p-1 px-2 text-base lg:text-base  font-semibold rounded-xl outline outline-offset-2 outline-4 outline-White hover:outline-[#bc1828]">
                   Join Now
                 </p>

@@ -29,7 +29,7 @@ const AddService = () => {
       category: serviceCategory
     }
 
-    fetch('https://harmony-matrimony-server.vercel.app/service', {
+    fetch('https://soulmates-server-two.vercel.app/service', {
       method: "POST",
       headers: {
         "content-type": "application/json"

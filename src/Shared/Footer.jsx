@@ -1,9 +1,10 @@
 import { FaGoogle, FaYoutube, FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="">
       {/* THIS IS DEMO FOOTER  */}
-      <footer className="footer p-10  bg-opacity-95 text-white rounded-t-2xl flex flex-col md:flex-row justify-center  bg-[#FF725E]">
+      <footer className="footer p-10  bg-opacity-95 text-white rounded-t-2xl flex flex-col md:flex-row justify-center  bg-[#fa604c]">
         <div className="lg:ps-8 lg:p-0 ">
           <span className=" uppercase text-3xl font-extralight text-white pb-4">Get In Touch</span>
           <p>Address : Lane City Jackson, USA</p>
@@ -12,9 +13,9 @@ const Footer = () => {
         </div>
         <div className="lg:ps-28 sm:p-0 lg:border-s-2 sm:border-hidden border-slate-300">
           <span className="uppercase text-3xl font-extralight text-white pb-4">Help & Support</span>
-          <a className="link link-hover">About</a>
+          <Link to='/about' className="link link-hover" >About</Link>
           <a className="link link-hover">Feedback</a>
-          <a className="link link-hover">Testimonial</a>
+          <Link to='/termCondition' className="link link-hover">Term and Condition</Link>
         </div>
 
         <div className="lg:ps-28 sm:p-0 lg:border-s-2 sm:border-hidden border-slate-300 ">

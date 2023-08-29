@@ -29,7 +29,7 @@ const SearchFunction = () => {
                             <option value="Male">Man</option>
                         </select>
                     </div>
-                    <div className='flex flex-col'>
+                    <div className='flex flex-col form-control'>
                         <h4 className='text-base font-medium mb-2 text-left mx-auto '>age</h4>
                         <select {...register("age", { required: true })} className='text-lg border-2 border-red-800 border-opacity-50 px-2 rounded-md w-44 md:w-52 mx-auto text-center'>
                             <option value="20 to 23">20 to 23</option>

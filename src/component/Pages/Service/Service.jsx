@@ -11,14 +11,14 @@ import { Link } from "react-router-dom";
 const Service = () => {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch("https://harmony-matrimony-server.vercel.app/service/catering")
+    fetch("https://soulmates-server-two.vercel.app/service/catering")
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, []);
 
   const [pdata, setpDatas] = useState([]);
   useEffect(() => {
-    fetch("https://harmony-matrimony-server.vercel.app/service/photography")
+    fetch("https://soulmates-server-two.vercel.app/service/photography")
       .then((res) => res.json())
       .then((data) => setpDatas(data));
   }, []);
