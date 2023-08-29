@@ -16,7 +16,7 @@ const HowItWork = () => {
       {/* cards */}
       <div className="cards max-w-md mx-auto">
         <div className="cards_body">
-          <img src={imgone} alt="" className="mb-10" />
+          <img src={imgone} alt="" className="mb-32" />
         </div>
       </div>
       {/* cards-2 */}
