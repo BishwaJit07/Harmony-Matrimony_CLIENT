@@ -1,0 +1,70 @@
+.timeline{
+display: block;
+/* width: 80%; */
+/* margin: 150px auto;
+text-align: left; */
+}
+
+.cards{
+    /* width: 45%; */
+    padding: 30px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 0 10px 0;
+    position: relative;
+   
+}
+.cards:nth-child(even){
+    margin-left: auto;
+    margin-top:-290px;
+}
+.cards:nth-child(even)::before{
+    content: '';
+    position: absolute;
+    left: -22%;
+    top:0;
+    /* transform: translateY(-50%); */
+    width: 20px;
+    height: 20px;
+    border: 5px dashed #e7c7b1;
+    background-color: #e7c7b1;
+    border-radius: 50%;
+}
+.cards:nth-child(6)::before{
+    top:40%;
+}
+
+
+.cards:nth-child(even) .cards_body::before{
+content: '';
+position: absolute;
+left: -20%;
+top:0;
+width: 0px;
+height: 100%;
+border: 1px  dashed  #e7c7b1;
+z-index: -1;
+
+}
+.cards:nth-child(6) .cards_body::before{
+    top: 22% !important;; 
+}
+.cards:nth-child(8) .cards_body::before{
+    border: none;  
+}
+
+
+@media only screen and (min-width: 1400px){
+    
+    .cards:nth-child(even)::before{
+        left: -42%; 
+    }
+    .cards:nth-child(even) .cards_body::before{
+        left: -40%;
+    }
+}
+@media only screen and (max-width: 1280px){
+    .cards{
+        display: none; 
+    }
+}
