@@ -21,7 +21,7 @@ const UserCard = ({ filteredUser, length }) => {
   const handleClick = () => {
     axios
       .put(
-        `https://harmony-matrimony-server.vercel.app/profileVisit?user=${userInfo?.email}`
+        `https://soulmates-server-two.vercel.app/profileVisit?user=${userInfo?.email}`
       )
       .then((response) => {
         if (response.data.modifiedCount > 0) {

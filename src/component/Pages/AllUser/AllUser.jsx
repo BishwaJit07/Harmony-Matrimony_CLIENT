@@ -22,7 +22,7 @@ const AllUser = () => {
   const [filteredUsers, setFilteredUsers] = useState(users);
   // fetch happyStories data
   useEffect(() => {
-    fetch("https://harmony-matrimony-server.vercel.app/allUser")
+    fetch("https://soulmates-server-two.vercel.app/allUser")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -33,7 +33,7 @@ const AllUser = () => {
   useEffect(() => {
     axios
       .get(
-        `https://harmony-matrimony-server.vercel.app/userPlan?email=${user?.email}`
+        `https://soulmates-server-two.vercel.app/userPlan?email=${user?.email}`
       )
       .then((response) => {
         if (response.data.profileVisit > 0) {
