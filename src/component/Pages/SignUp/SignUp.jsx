@@ -56,7 +56,7 @@ const SignUp = () => {
             mobile: data.mobile,
             email: data.email,
             profile_complete: 10,
-            profileVisit: 0,
+            profileVisit: 20,
           };
           fetch("https://soulmates-server-two.vercel.app/alluser", {
             method: "POST",
