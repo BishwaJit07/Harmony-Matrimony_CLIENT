@@ -14,58 +14,61 @@ import { EffectCards,  Navigation } from 'swiper/modules';
 
 import { RiDoubleQuotesL, RiDoubleQuotesR } from 'react-icons/ri';
 import { SwiperNavButtons } from '../HomeCompnent/BestRecommendation/SwiperNavButton';
+import { useEffect, useState } from 'react';
+import { calcLength } from 'framer-motion';
 
 const Review = () => {
-   
+    const [reviews, setReview] = useState([]);
+    const [loading, setLoading] = useState(true);
+    useEffect(() =>{
+        fetch('https://soulmates-server-two.vercel.app/reviews')
+        .then(res => res.json())
+        .then(data => {
+            setLoading(false);
+            setReview(data)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    },[])
+   console.log(reviews)
     return (
         <div className='flex justify-between px-16 m-10 relative'>
             {/* div for text */}
             <div className='w-1/3'>
-                <h3 className='font-serif w-4/5 leading-10 mt-12  text-left'>Countless individuals have Discovered their life partners Through SoulMate!</h3>
+                <h3 className='font-serif  leading-10   text-left text-4xl'>Countless individuals have Discovered their life partners Through SoulMate!</h3>
             </div>
 
             {/* div for swiper */}
-            <div className='w-2/3 px-10'>
+            <div className='w-2/3 ms-28'>
                 <Swiper
                     navigation={true} modules={[EffectCards, Navigation]}
                     effect={'cards'}
                     grabCursor={true}
                     className="mySwiper-review"
                 >
-                    <SwiperSlide className='w-[700px] swiper-slide-review border border-gray-200 bg-slate-100'>
-                        <div className="flex p-5 text-black">
-                            <div className='relative'>
-                                <p className='text-sm whitespace-pre-line'>I had a wonderful experience with ForeverBond Matrimony. The user interface is sleek and easy to navigate, making it simple to create a profile and search for potential matches. Thanks to ForeverBond Matrimony, I found my soulmate! <span className='text-red-600'>See More</span></p>
-                                <div className='absolute left-7 bottom-0' >
-                                    <h3 className='text-lg font-serif italic'>Jack & Rose</h3>
-                                    <p className='text-sm'>Washington, USA</p>
-                                </div>
-                            </div>
-                            <div>
-                                <img className='h-full w-5/6' src="https://i.ibb.co/zF8zYfj/Portfolio-Elisabetta-Marzetti-Luxury-Destination-Wedding-and-Editorial-Photography.png" alt="" />
+                   {
+                    reviews?.map(review =>  <SwiperSlide key={review._id} className='w-[600px] swiper-slide-review border border-gray-200 bg-slate-100'>
+                    <div className="flex p-5 text-black">
+                        <div className='mx-5'>
+                            <p className='text-lg whitespace-pre-line pt-5'>{review.review} <span className='text-red-600'>See More</span></p>
+                            <div className='mt-10' >
+                                <h3 className='text-xxl font-serif italic'>{review.coupleName}</h3>
+                                <p className='text-sm'>{review.location}</p>
                             </div>
                         </div>
-                    </SwiperSlide>
-                    <SwiperSlide className='w-[700px] swiper-slide-review border border-gray-200 bg-slate-100'>
-                        <div className="flex p-5 text-black">
-                            <div  className='relative'>
-                                <p className='text-sm whitespace-pre-line'>EternalLove Connect has a decent platform, but it could use some improvements. The search options are quite basic, and I found that some of the profiles were outdated or lacked information. <span className='text-red-600'>See More</span> </p>
-                                <div className='absolute left-7 bottom-0' >
-                                    <h3 className='text-lg font-serif italic'>Peter & Gwen</h3>
-                                    <p className='text-sm'>Washington, USA</p>
-                                </div>
-                            </div>
-                            <div>
-                                <img className='h-full w-3/4' src="https://i.ibb.co/zF8zYfj/Portfolio-Elisabetta-Marzetti-Luxury-Destination-Wedding-and-Editorial-Photography.png" alt="" />
-                            </div>
+                        <div>
+                            <img className='h-full w-[900px] object-cover' src={review.imageURL} alt="" />
                         </div>
-                    </SwiperSlide>
+                    </div>
+                </SwiperSlide>)
+                   }
                     <div className=' absolute -left-[425px] top-48'>
                         <SwiperNavButtons></SwiperNavButtons>
                     </div>
 
-                    <h3 className='fixed top-2 -left-7 text-6xl text-gray-400'><RiDoubleQuotesL /></h3>
-                    <h3 className='fixed -right-10 -bottom-2 text-6xl text-gray-400'><RiDoubleQuotesR /></h3>
+                    <h3 className='fixed top-2 -left-14 text-6xl text-gray-400'><RiDoubleQuotesL /></h3>
+                    <h3 className='fixed -right-20 -bottom-2 text-6xl text-gray-400'><RiDoubleQuotesR /></h3>
 
                 </Swiper>
             </div>
