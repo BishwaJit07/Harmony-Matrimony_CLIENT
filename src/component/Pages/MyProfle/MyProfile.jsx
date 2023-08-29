@@ -22,7 +22,7 @@ const MyProfile = () => {
     gender,
     about,
     age,
-    profile_complete,
+    profile_complete
   } = userInfo;
 
 
@@ -319,6 +319,7 @@ const MyProfile = () => {
             </div>
           </div>
         </div>
+        </div>
         {/* Right Side */}
         <div className="xl:w-3/4 w-full xl:pl-16 my-20 lg:my-0 ">
           {/* Tab Navigation */}
@@ -360,6 +361,7 @@ const MyProfile = () => {
         </div>
      </div>
      </div>
+        </div>
     
   );
 };

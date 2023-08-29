@@ -15,7 +15,7 @@ const Footer = () => {
           <span className="uppercase text-3xl font-extralight text-white pb-4">Help & Support</span>
           <Link to='/about' className="link link-hover" >About</Link>
           <a className="link link-hover">Feedback</a>
-          <a className="link link-hover">Testimonial</a>
+          <Link to='/termCondition' className="link link-hover">Term and Condition</Link>
         </div>
 
         <div className="lg:ps-28 sm:p-0 lg:border-s-2 sm:border-hidden border-slate-300 ">

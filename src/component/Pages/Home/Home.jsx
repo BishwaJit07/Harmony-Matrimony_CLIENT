@@ -4,10 +4,10 @@ import BestRecommendation from "./HomeCompnent/BestRecommendation/BestRecommenda
 import HeroSection from "./HomeCompnent/HeroSection";
 import Gallary from "./HomeCompnent/gellary/Gallary";
 import SearchFunction from "./SearchFunction/SearchFunction";
-
 import HappyStory from './HomeCompnent/HappyStory/HappyStory';
 import { Helmet } from "react-helmet";
 import HomeBanner from "./HomeCompnent/HomeBanner/HomeBanner";
+import MessageUsFb from "../../FacebookMessage/MessageUsFb";
 
 const Home = () => {
 
@@ -27,6 +27,7 @@ const Home = () => {
         <Gallary />
         <About />
         <HappyStory />
+        <MessageUsFb/>
       </div>
     </div>
   );
