@@ -7,7 +7,7 @@ const WhyChooseUs2 = () => {
       <div className="w-[80%] mx-auto py-[75px]">
         <div className="text-center mb-10">
           <p className="text-[45px] mb-3 font-alice">Why Choose Us</p>
-          <p className="font-lato md:text-[18px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem <br /> Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+          <p className="font-lato md:text-[18px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem <br /> Ipsum has been the industry s standard dummy text ever since the 1500s</p>
         </div>
 
         {/* card section */}

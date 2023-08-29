@@ -12,7 +12,7 @@ const HeroSection = () => {
       <div className=" text-center lg:text-left ">
 
         <h1 className="lg:text-4xl xl:text-5xl text-[#000000] font-bold leading-tight text-xl md:text-2xl"><span className="red-text">Discover Your Life Partner</span> from the Comfort of Home on the Ultimate Platform</h1>
-        <p className="text-sm lg:text-lg font-medium mt-5 lg:w-[70%]  mb-5 text-[#6d6969]">End the struggle of finding a bride or groom. Discover your perfect match from the comfort of home. Your ultimate destination to find your ideal partner</p>
+        <p className="text-sm lg:text-lg font-medium mt-5 lg:w-[70%]  mb-5 text-[#6d6969] ">End the struggle of finding a bride or groom. Discover your perfect match from the comfort of home. Your ultimate destination to find your ideal partner</p>
 
         <div className="flex justify-center lg:justify-start gap-3 lg:text-left   mt-5">
           <button >

@@ -1,5 +1,4 @@
 
-import About from "./HomeCompnent/About";
 import BestRecommendation from "./HomeCompnent/BestRecommendation/BestRecommendation";
 
 import Gallary from "./HomeCompnent/gellary/Gallary";

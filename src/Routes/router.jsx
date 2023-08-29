@@ -36,7 +36,7 @@ import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
 import TermCondition from "../component/Pages/SignUp/TermCondition";
-import ManageUser from "../component/Pages/Dashboard/ManageUser";
+import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 
 const router = createBrowserRouter([
   {
@@ -207,7 +207,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "manageUser",
-        element: <ManageUser/>,
+        element: <MangeUsersX></MangeUsersX>
       },
       {
         path: "allUser",
