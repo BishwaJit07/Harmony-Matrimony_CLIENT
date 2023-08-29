@@ -37,13 +37,15 @@ import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
 import TermCondition from "../component/Pages/SignUp/TermCondition";
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
+import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
+import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
     errorElement: <ErrorPage />,
-    children:[ 
+    children: [
       {
         path: "/",
         element: <Home />,
@@ -74,6 +76,7 @@ const router = createBrowserRouter([
         element: <TermCondition></TermCondition>,
       },
       {
+
         path: "/service",
         element: <Service></Service>,
       },
@@ -130,12 +133,12 @@ const router = createBrowserRouter([
         path: "/myProfile",
         element: <MyProfile></MyProfile>,
       },
-     {
+      {
         path: "/blogs/:id",
         element: <SingleBlogs />,
       },
       {
-        
+
         path: '/myProfile',
         element: <MyProfile></MyProfile>
       },
@@ -150,7 +153,7 @@ const router = createBrowserRouter([
       {
         path: '/select',
         element: <SearchFunction></SearchFunction>
-        
+
       },
       {
         path: "/service",
@@ -161,12 +164,12 @@ const router = createBrowserRouter([
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
           fetch(
-            `https://harmony-matrimony-server.vercel.app/service/${params.id}`
+            `https://soulmates-server-two.vercel.app/service/${params.id}`
           ),
       },
     ]
   },
-  
+
   {
     path: "/",
     children: [
@@ -206,6 +209,14 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
+        path: "authoritysignin",
+        element: <AuthoritySignIn />
+      },
+      {
+        path: "authoritysignup",
+        element: <AuthoritySignUp />
+      },
+      {
         path: "manageUser",
         element: <MangeUsersX></MangeUsersX>
       },
@@ -214,15 +225,15 @@ const router = createBrowserRouter([
         element: <AllUserD></AllUserD>,
       },
       {
-        
+
         path: "bookService",
         element: <BookService></BookService>,
-        
+
       },
       {
         path: "addService",
         element: <AddService />,
-      }
+      },
     ],
   },
 

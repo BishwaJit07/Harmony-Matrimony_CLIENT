@@ -66,3 +66,9 @@
     background-color: transparent;
     border: none;
 }
+.font-alice{
+    font-family: 'Alice', serif;
+}
+.font-lato{
+    font-family: 'Lato', serif;
+}

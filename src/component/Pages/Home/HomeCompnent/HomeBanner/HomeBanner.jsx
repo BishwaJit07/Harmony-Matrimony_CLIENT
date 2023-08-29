@@ -18,7 +18,7 @@ const HomeBanner = () => {
       <div className="md:flex gap-5 justify-around w-[80%] xl:w-[100%] mx-auto py-10 md:py-0">
       <div className="space-y-5  mb-8 md:mt-[100px] ">
         <p className='lg:text-[50px] text-3xl font-alice'>Find Your <span className="text-primary-500">Life Partner</span> With Us</p>
-        <p className='text-sm lg:text-[16px] font-lato text-gray-500'>End the struggle of finding a bride or groom. Discover your perfect <br /> match from the comfort of home. Your ultimate <br /> destination to find your ideal pertner</p>
+        <p className='text-sm lg:text-[16px] font-lato text-gray-500 leading-7'>End the struggle of finding a bride or groom. Discover your <br className="hidden md:flex"/> perfect match from the comfort of home. Your ultimate <br className="hidden md:flex"/> destination to find your ideal pertner</p>
         <div className="flex items-center gap-4 mt-6">
           <button className='bg-primary-500 rounded-full text-white px-10 py-2'>Explore</button>
           <button className='flex justify-center items-center gap-2'>

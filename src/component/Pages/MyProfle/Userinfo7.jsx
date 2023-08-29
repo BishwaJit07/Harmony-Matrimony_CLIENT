@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import useMyData from "../../../Hooks/useMydata";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { verifyOptions } from "../../../Shared/Variable";
+import useMyData from "../../../Hooks/useMyData";
 const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
 
 const Userinfo7 = () => {
@@ -38,7 +38,7 @@ const Userinfo7 = () => {
                     if (imgResponse.success) {
                         const imgUrl = imgResponse.data.display_url;
                         const userinfo = { verificationImage: imgUrl, id: userInfo._id, profile_complete: 80 , email: userInfo.email , name: userInfo.name}
-                        fetch('https://harmony-matrimony-server.vercel.app/update5', {
+                        fetch('https://soulmates-server-two.vercel.app/update7', {
                             method: "PUT",
                             headers: {
                                 "content-type": "application/json"
@@ -49,7 +49,7 @@ const Userinfo7 = () => {
                             .then(data => {
                                 console.log(data)
                                 reset();
-                                navigate("/");
+                                navigate("/myProfile");
                             })
                     }
     
