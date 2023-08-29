@@ -10,6 +10,8 @@ import { Helmet } from "react-helmet";
 import MessageUsFb from "../../FacebookMessage/MessageUsFb";
 import HowItWork from "./HowItWork/HowItWork";
 
+
+
 const Home = () => {
 
   return (
@@ -29,6 +31,7 @@ const Home = () => {
         <About />
         <HappyStory />
         <MessageUsFb/>
+       
       </div>
     </div>
   );

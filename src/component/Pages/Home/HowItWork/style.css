@@ -31,7 +31,7 @@ text-align: left; */
     border-radius: 50%;
 }
 .cards:nth-child(6)::before{
-    top:40%;
+    top:10%;
 }
 
 

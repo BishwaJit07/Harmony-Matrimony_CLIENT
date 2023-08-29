@@ -1,7 +1,9 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import Footer from '../Shared/Footer';
+
 import Navbar from '../Shared/Navbar';
 import HomeNavbar from '../component/Pages/Home/HomeCompnent/HomeNavbar';
+import Footer from '../Shared/Footer/Footer';
+
 
 const Main = () => {
     const location = useLocation();
@@ -10,7 +12,7 @@ const Main = () => {
         <div>
             { homeheader ?  <Navbar/> : <HomeNavbar/>}
             <Outlet/>
-            <Footer/>
+            <Footer></Footer>
         </div>
     );
 };
