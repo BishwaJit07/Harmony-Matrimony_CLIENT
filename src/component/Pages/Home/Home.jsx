@@ -8,6 +8,7 @@ import HappyStory from './HomeCompnent/HappyStory/HappyStory';
 import { Helmet } from "react-helmet";
 import HomeBanner from "./HomeCompnent/HomeBanner/HomeBanner";
 import MessageUsFb from "../../FacebookMessage/MessageUsFb";
+import WhyChooseUs2 from "./HomeCompnent/WhyChooseUs2/WhyChooseUs2";
 
 const Home = () => {
 
@@ -21,8 +22,9 @@ const Home = () => {
 
       {/* <HeroSection /> */}
       <HomeBanner />
-      <div className="w-[80%] mx-auto">
+      <div className=" mx-auto">
         <SearchFunction></SearchFunction>
+        <WhyChooseUs2 />
         <BestRecommendation />
         <Gallary />
         <About />
