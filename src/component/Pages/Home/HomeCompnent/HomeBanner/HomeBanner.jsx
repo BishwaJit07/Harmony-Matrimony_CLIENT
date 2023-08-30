@@ -8,20 +8,17 @@ import img3 from '../../../../../assets/home/newHomeBannerImg/5.jpg'
 import img4 from '../../../../../assets/home/newHomeBannerImg/7.jpg'
 import img5 from '../../../../../assets/home/newHomeBannerImg/8.jpg'
 import img6 from '../../../../../assets/home/newHomeBannerImg/9.jpg';
-
-
-
-
 import SearchFunction from "../../SearchFunction/SearchFunction";
 
 
 const HomeBanner = () => {
   
   return (
-    <div className='bg-gradient-to-l from-primary-50 py-12 relative'>
-      <div className="space-y-5 ml-8 mb-8">
-        <p className='text-[52px] font-alice'>Find Your <span className="text-primary-500">Life Partner</span> With Us</p>
-        <p className='text-[22px] font-lato'>End the struggle of finding a bride or groom. Discover your perfect <br /> match from the comfort of home. Your ultimate <br /> destination to find your ideal pertner</p>
+    <div className='bg-gradient-to-l from-primary-50 '>
+      <div className="md:flex gap-5 justify-around w-[80%] xl:w-[100%] mx-auto py-10 md:py-0">
+      <div className="space-y-5  mb-8 md:mt-[100px] ">
+        <p className='lg:text-[50px] text-3xl font-alice'>Find Your <span className="text-primary-500">Life Partner</span> With Us</p>
+        <p className='text-sm lg:text-[16px] font-lato text-gray-500 leading-7'>End the struggle of finding a bride or groom. Discover your <br className="hidden md:flex"/> perfect match from the comfort of home. Your ultimate <br className="hidden md:flex"/> destination to find your ideal pertner</p>
         <div className="flex items-center gap-4 mt-6">
           <button className='bg-primary-500 rounded-full text-white px-10 py-2'>Explore</button>
           <button className='flex justify-center items-center gap-2'>
@@ -33,9 +30,11 @@ const HomeBanner = () => {
           </button>
         </div>
       </div>
-
       {/* image marquee section */}
-      <div className="relative sm:hidden md:block">
+      <SearchFunction/>
+      </div>
+      
+      <div className="sm:hidden md:block relative -mt-20 z-10 hidden lg:flex">
         <Marquee speed={20}>
           <img className='scale-90 h-[220px] rounded-t-md shadow' src={img} alt="" srcSet="" />
           <img className='scale-90 h-[220px] rounded-t-md shadow' src={ img2 } alt="" srcSet="" />
@@ -46,11 +45,6 @@ const HomeBanner = () => {
         </Marquee>
         <div className="bg-gradient-to-l from-primary-50 absolute inset-0 z-10"></div>
       </div>
-
-      {/* form section */}
-
-      <SearchFunction/>
-      
     </div>
   );
 };

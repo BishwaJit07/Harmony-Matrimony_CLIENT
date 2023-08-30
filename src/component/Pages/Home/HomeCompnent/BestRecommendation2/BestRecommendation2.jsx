@@ -10,7 +10,7 @@ import girl4 from '../../../../../assets/home/recommendation/girl4.png'
 const BestRecommendation2 = () => {
   
   return (
-    <div className="py-[50px]">
+    <div className="py-[120px] w-[80%] mx-auto">
       <div className="max-w-7xl mx-auto">
         <p className="text-[#272932] text-[40px] text-left font-alice ">Best Recommendation for you</p>
       </div>

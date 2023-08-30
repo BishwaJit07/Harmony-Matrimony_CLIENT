@@ -1,6 +1,5 @@
 
 import { Link, useRouteError } from 'react-router-dom';
-import { FcHome } from "react-icons/fc";
 import { Helmet } from 'react-helmet';
 import errorImg from "../../assets/other/error page.png"
 import { BiSolidHomeHeart } from 'react-icons/bi';
