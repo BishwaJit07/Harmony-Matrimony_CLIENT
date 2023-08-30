@@ -21,7 +21,7 @@ const BestRecommendation = () => {
 
 
   return (
-    <div className=" w-full  ">
+    <div className=" w-full  mt-[90px]">
       {/* content-section */}
       <div className="mb-8">
         

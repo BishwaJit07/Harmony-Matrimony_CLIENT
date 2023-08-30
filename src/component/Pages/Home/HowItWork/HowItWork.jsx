@@ -4,7 +4,7 @@ import imgThree from "../../../../assets/How/3rd.png";
 import "./style.css";
 const HowItWork = () => {
   return (
-    <div className="timeline max-w-screen-xl mx-auto font-alice h-[100%]">
+    <div className="timeline max-w-screen-xl mx-auto font-alice h-[100%] mt-[80px]">
       <h1 className="text-[38px] font-normal text-center mb-[32px] ">
         How It Work
       </h1>
@@ -16,7 +16,7 @@ const HowItWork = () => {
       {/* cards */}
       <div className="cards max-w-md mx-auto">
         <div className="cards_body">
-          <img src={imgone} alt="" className="mb-10" />
+          <img src={imgone} alt="" className="mb-32" />
         </div>
       </div>
       {/* cards-2 */}
