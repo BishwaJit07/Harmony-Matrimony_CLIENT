@@ -38,6 +38,7 @@ import Post from "../component/Pages/MyProfle/postFunction/Post";
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
+import Profile2 from "../component/Pages/MyProfle/Profile2/Profile2";
 
 
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
     element: <Main />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: '/profile',
+        element: <Profile2 />
+      },
       {
         path: "/",
         element: <Home />,
