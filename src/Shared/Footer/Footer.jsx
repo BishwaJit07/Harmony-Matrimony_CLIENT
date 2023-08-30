@@ -9,12 +9,15 @@ import {
 import { MdOutlineLocationCity, MdOutlineMail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import FooterBotom from "./FooterBotom";
+import logo from '../../assets/logo/logo2.png'
 const Footer = () => {
   return (
     <div>
       <footer className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full  font-alice py-10 px-20 bg-[#222328] text-white mx-auto ">
         <div className="mr-10">
-          <span className="footer-title">Services</span>
+          <span className="footer-title">
+            <img src={logo} alt="" className="w-40 mb-5 text-white" />
+          </span>
           <p className=" max-w-xs text-[#C3CAD5]">
             Discover your ideal partner through our trusted matrimonial website.
             We bring people together, fostering genuine connections based on

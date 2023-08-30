@@ -1,18 +1,20 @@
-import React from 'react';
 import { RiDeleteBinLine } from "react-icons/ri";
 import {motion} from 'framer-motion'
 
-const MUTr = ({user}) => {
-  console.log(user)
+const MUTr = ({user, index}) => {
+  console.log(index)
   return (
       <motion.tr
        className="bg-white   hover:bg-gray-50 "
-       initial={{opacity: 0, scale: 0, }}
-       whileInView={{opacity: 1, scale: 1,}}
-       whileHover={{scaleX: 1.005,}}
-      //  transition={{duration: .3}}
+
+      // remake
+      transition={{delay: 0.1 * index}}
+      initial={{opacity: 0, y: 20}}
+      animate={{opacity: 1, y: 0}}
+      exit={{opacity: 0, y: 20}}
+      
       >
-        <th scope="row" className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+        <th scope="row" className="flex items-center px-6 py-4 whitespace-nowrap ">
           <img className="w-10 h-10 rounded-full" src={user.img} alt="Jese image" />
           <div className="pl-3">
             <div className="text-base font-semibold">{user.name}</div>
@@ -20,17 +22,13 @@ const MUTr = ({user}) => {
           </div>
         </th>
         <td className="px-6 py-4">
-          {user.status ? user.status : <p>Position not found</p>}
-        </td>
-        <td className="px-6 py-4">
           <div className="flex items-center">
-            <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Online
-          </div>
+            <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Online </div>
         </td>
         <td className="px-6 py-4">
           <div className="">
-          <span className="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Make Admin</span>
-          <span className="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Remove Admin</span>
+          <span className="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">Make Admin</span>
+          <span className="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Remove Admin</span>
           </div>
         </td>
         <td className=''>

@@ -5,11 +5,11 @@ import "./style.css";
 
 const HowItWork = () => {
   return (
-    <div className="timeline max-w-screen-xl mx-auto font-alice h-[100%]">
+    <div className="timeline max-w-screen-xl mx-auto font-alice h-[100%] mt-[80px]">
       <h1 className="text-[38px] font-normal text-center mb-[32px] ">
         How It Work
       </h1>
-      <p className="text-[18px] mb-[60px] font-normal text-center  max-w-[685px] mx-auto leading-[27px]">
+      <p className="text-[18px]  font-normal text-center  max-w-[685px] mx-auto leading-[27px]">
         matrimony is process is simple. Create a profile with your
         preferences. Our AI generates personalized matches. Engage with
         potential partners your way. Build connections that matter. Your
@@ -18,7 +18,7 @@ const HowItWork = () => {
       {/* cards */}
       <div data-aos="fade-right" data-aos-duration="2000" className="cards max-w-md mx-auto ">
         <div className="cards_body">
-          <img src={imgone} alt="" className="mb-10" />
+          <img src={imgone} alt="" className="mb-32" />
         </div>
       </div>
       {/* cards-2 */}

@@ -21,7 +21,7 @@ const BestRecommendation = () => {
 
 
   return (
-    <div className=" w-full  ">
+    <div className=" w-full  mt-[90px]">
       {/* content-section */}
       <div className="mb-8">
         
@@ -59,7 +59,7 @@ const BestRecommendation = () => {
               <div className="rounded-sm z-auto">
                 <div className="">
                   <img
-                    src={item?.img}
+                    src={item?.profileImage}
                     alt=""
                     className="rounded-xl  object-cover w-full h-[300px]"
                   />
@@ -75,7 +75,7 @@ const BestRecommendation = () => {
         }
     
         <div className="-mt-100">
-        <SwiperNavButtons ></SwiperNavButtons>
+          <SwiperNavButtons ></SwiperNavButtons>
         </div>
         </Swiper>
       </div>

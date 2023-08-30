@@ -11,7 +11,7 @@ const MangeUsersX = () => {
     )
   }
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg px-6">
+    <div className="relative overflow-x-auto shadow rounded-2xl px-6 w-[90%] mx-auto py-6 my-10  ">
       {/* Input field */}
       {/* <div className="flex items-center justify-between py-4 bg-white w-full">
         <label htmlFor="table-search" className="sr-only">Search</label>
@@ -25,17 +25,14 @@ const MangeUsersX = () => {
         </div>
       </div> */}
 
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-hidden">
+      <table className="w-full text-sm text-left text-gray-500 overflow-hidden">
 
         {/* This is table HEAD */}
         
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
           <tr>
             <th scope="col" className="px-6 py-3">
               Name
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Position
             </th>
             <th scope="col" className="px-6 py-3">
               Status
@@ -52,7 +49,7 @@ const MangeUsersX = () => {
         {/* This is table body, all users goes here */}
         
         <tbody className="">
-          {users.map(user => <MUTr key={user._id} user={user}/>)}
+          {users.map((user, index) => <MUTr key={user._id} user={user} index={index}/>)}
         </tbody>
       </table>
 
