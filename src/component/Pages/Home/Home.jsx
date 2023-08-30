@@ -27,13 +27,13 @@ const Home = () => {
         <meta charSet="utf-8" />
         <title>Soulmate | Home</title>
       </Helmet>
-
-
+      <HomeBanner />
+      <WhyChooseUs2 />
       <div className="w-[80%] mx-auto">
-         <HomeBanner />
+         
         <HowItWork></HowItWork>
      
-      <WhyChooseUs2 />
+     
         <BestRecommendation />
         <BestRecommendation2 />
         <Gallary />

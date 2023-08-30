@@ -38,11 +38,8 @@ import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
-import Post from "../component/Pages/MyProfle/postFunction/Post";
-import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
-import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
-import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 
+import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 
