@@ -40,7 +40,6 @@ import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
-import Post from "../component/Pages/MyProfle/postFunction/Post";
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
@@ -82,7 +81,7 @@ const router = createBrowserRouter([
         path: "/termCondition",
         element: <TermCondition></TermCondition>,
       },
-  
+
 
       {
 
@@ -231,14 +230,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: "authoritysignin",
-        element: <AuthoritySignIn />
-      },
-      {
-        path: "authoritysignup",
-        element: <AuthoritySignUp />
-      },
-      {
         path: "manageUser",
         element: <MangeUsersX></MangeUsersX>
       },
@@ -256,16 +247,23 @@ const router = createBrowserRouter([
 
         path: "addService",
         element: <AddService />,
-      }]}
+      },
 
-  
-       
-      
-        
+    ]
+  },
+  {
+    path: "/",
+    children: [
+      {
+        path: "authoritysignin",
+        element: <AuthoritySignIn />
+      },
+      {
+        path: "authoritysignup",
+        element: <AuthoritySignUp />
+      },
+    ]
 
-      
-    
-  
-
+  }
 ]);
 export default router;
