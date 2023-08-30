@@ -28,6 +28,9 @@
     font-family: 'Pacifico', cursive;
 }
 
+.swiper-wrapper{
+    @apply py-8 px-4
+}
 
 .navStyle a.active {
     background-color: blue;
