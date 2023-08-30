@@ -2,7 +2,6 @@
 
 import BestRecommendation from "./HomeCompnent/BestRecommendation/BestRecommendation";
 
-import About from "./HomeCompnent/About";
 
 
 
@@ -35,18 +34,19 @@ const Home = () => {
  
 
       {/* <HeroSection /> */}
-  
+      <HomeBanner></HomeBanner>
+      <HowItWork/>
+      <WhyChooseUs2></WhyChooseUs2>
+      <BestRecommendation2 />
 
       <div className="w-[80%] mx-auto">
         
             
-         <HowItWork/>
          
           <Review/>
         {/* <SearchFunction></SearchFunction> */}
         {/* <BestRecommendation /> */}
 
-        <BestRecommendation2 />
         <Gallary />
         <HappyStory />
         <MessageUsFb />
