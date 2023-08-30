@@ -10,7 +10,7 @@ import Post from "./postFunction/Post";
 const MyProfile = () => {
 
   const [userInfo] = useMyData();
-  const { img, name, country, religion, physical_attributes, mobile, email, gender, about, age, profile_complete } = userInfo
+  const { profileImage, name, country, religion, physical_attributes, mobile, email, gender, about, age, profile_complete } = userInfo
 
   const accountFor = [
     { id: 1, name: 'MySelf' },
@@ -196,7 +196,7 @@ const MyProfile = () => {
         <div className=" ml-4">
           <img
             className="round border border-teal-400 rounded-full p-2 text w-20 h-20 md:w-32 md:h-32 mx-auto object-fill"
-            src={img}
+            src={profileImage}
             alt="user"
           />
         </div>
