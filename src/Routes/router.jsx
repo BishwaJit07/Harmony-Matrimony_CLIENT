@@ -39,8 +39,6 @@ import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 
-import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
-import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 
 
 const router = createBrowserRouter([

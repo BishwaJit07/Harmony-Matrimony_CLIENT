@@ -28,7 +28,7 @@ const Home = () => {
 
 
      
-        <Review></Review>
+     
 
       {/* <HeroSection /> */}
   
@@ -36,8 +36,9 @@ const Home = () => {
       <div className="w-[80%] mx-auto">
         
             <HomeBanner />
-         <HowItWork></HowItWork>
+         <HowItWork/>
           <WhyChooseUs2 />
+          <Review/>
         {/* <SearchFunction></SearchFunction> */}
         {/* <BestRecommendation /> */}
         <BestRecommendation2 />
