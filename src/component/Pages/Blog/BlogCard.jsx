@@ -29,10 +29,10 @@ const BlogCard = ({ data, react, setReact }) => {
             className="w-full h-80 object-cover "
           />
         </figure>
-        <div className="bg-black h-1/2 text-white bg-opacity-25 opacity-0 hover:opacity-100 rounded-2xl absolute inset-4 inset-y-30 mb-72">
+        <div className="bg-black text-white bg-opacity-25 opacity-0 hover:opacity-100 rounded-2xl absolute inset-4 inset-y-30 mb-72">
           <div className=" flex justify-center mt-36">
-           <Link to={`/blogDetails/${data._id}`}><button id="text-shadow" className="text-2xl">View Details </button></Link>
-            <AiOutlineArrowRight className="mt-1 text-2xl"/>
+           <Link to={`/blogDetails/${data._id}`}><button className="">View Details </button></Link>
+            <AiOutlineArrowRight className="mt-1"/>
           </div>
         </div>
         <div className="card-body">
