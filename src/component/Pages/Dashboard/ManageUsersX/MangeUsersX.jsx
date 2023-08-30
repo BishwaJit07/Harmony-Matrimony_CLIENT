@@ -25,17 +25,14 @@ const MangeUsersX = () => {
         </div>
       </div> */}
 
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 overflow-hidden">
+      <table className="w-full text-sm text-left text-gray-500 overflow-hidden">
 
         {/* This is table HEAD */}
         
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
           <tr>
             <th scope="col" className="px-6 py-3">
               Name
-            </th>
-            <th scope="col" className="px-6 py-3">
-              Position
             </th>
             <th scope="col" className="px-6 py-3">
               Status

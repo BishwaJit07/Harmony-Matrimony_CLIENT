@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useContext } from "react";
 import logo from "../assets/logo/White logo.png";
-
+import noProfile from "../assets/other/blank.png"
+import useMyData from "../Hooks/useMyData";
 const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext);
-
+  const [userInfo] = useMyData();
   const navItem = <>
     <li><Link to='/'>Home</Link></li>
 
@@ -74,10 +75,9 @@ const Navbar = () => {
             {navItem}
           </ul>
         </div>
-        <div className="navbar-end">
-          {user ? (
+        {user ? (
             <div className="flex gap-2 items-center">
-              <div className="navbar-end me-3">
+              <div className="hidden md:flex navbar-end me-3">
                 <button
                   onClick={handleLogOut}
                   className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs "
@@ -88,7 +88,7 @@ const Navbar = () => {
                 <Link to="/myProfile">
               <div className="avatar online">
                 <div className="w-11 rounded-full">
-                  <img src={user.photoURL} />
+                {userInfo?.profileImage ? <img className="rounded-full w-10 mr-3" src={userInfo?.profileImage} />  : <img src={noProfile} alt="Shoes" className="rounded-full w-10 mr-3"/>}
                 </div>
               </div>
                 </Link>
@@ -104,7 +104,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </div>
+    
   );
 };
 

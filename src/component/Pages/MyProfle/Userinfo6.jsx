@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SweetMemories = () => {
+const Userinfo6 = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const SweetMemories = () => {
     );
 };
 
-export default SweetMemories;
+export default Userinfo6;
