@@ -9,6 +9,7 @@ import girl4 from '../../../../../assets/home/recommendation/girl4.png'
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { SwiperNavButtons } from "../BestRecommendation/SwiperNavButton";
 
 const BestRecommendation2 = () => {
   
@@ -23,7 +24,7 @@ const BestRecommendation2 = () => {
     <div className="py-[120px] w-[80%] mx-auto">
       <div className="max-w-7xl mx-auto">
         <p className="text-[#272932] text-[40px] text-left font-alice ">Best Recommendation for you</p>
-      </div>
+      
       <Swiper
         spaceBetween={30}
         slidesPerView={4}
@@ -64,8 +65,11 @@ const BestRecommendation2 = () => {
          )
         ) 
         }
-        
+          <div className="-mt-100">
+            <SwiperNavButtons></SwiperNavButtons>
+          </div>
       </Swiper>
+      </div>
     </div>
   );
 };
