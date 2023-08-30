@@ -39,6 +39,10 @@ import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 
+import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
+import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -78,6 +82,7 @@ const router = createBrowserRouter([
         element: <TermCondition></TermCondition>,
       },
       {
+
         path: "/authoritysignin",
         element: <AuthoritySignIn/>
       },
@@ -86,6 +91,7 @@ const router = createBrowserRouter([
         element: <AuthoritySignUp/>
       },
       {
+
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
         children: [
@@ -120,7 +126,9 @@ const router = createBrowserRouter([
       {
         path: "/paymentOne",
         element: <PaymentCard></PaymentCard>,
+
       },
+
 
       {
         path: "/payment/success/:tranId",
@@ -130,7 +138,9 @@ const router = createBrowserRouter([
         path: "/payment/fail/:tranId",
         element: <PaymentFail></PaymentFail>,
       },
+
       
+
 
       {
         path: "/happy",
@@ -140,6 +150,7 @@ const router = createBrowserRouter([
         path: "/plans",
         element: <Plans></Plans>,
       },
+
 
       {
         path: "/contact-us",
@@ -195,7 +206,9 @@ const router = createBrowserRouter([
           {
             path: "/userinfo1",
             element: <UserInfo1></UserInfo1>,
+
           },
+  
           {
             path: "/userinfo2",
             element: <Userinfo2 />,
@@ -205,6 +218,7 @@ const router = createBrowserRouter([
             element: <Userinfo3 />,
           },
           {
+
             path: "/userinfo4",
             element: <Userinfo4 />,
           },

@@ -8,6 +8,7 @@ import HappyStory from './HomeCompnent/HappyStory/HappyStory';
 import { Helmet } from "react-helmet";
 import HomeBanner from "./HomeCompnent/HomeBanner/HomeBanner";
 import MessageUsFb from "../../FacebookMessage/MessageUsFb";
+import Review from "./Review/Review";
 
 import HowItWork from "./HowItWork/HowItWork";
 
@@ -25,8 +26,13 @@ const Home = () => {
         <title>Soulmate | Home</title>
       </Helmet>
 
+
+     
+        <Review></Review>
+
       {/* <HeroSection /> */}
   
+
       <div className="w-[80%] mx-auto">
         
             <HomeBanner />
