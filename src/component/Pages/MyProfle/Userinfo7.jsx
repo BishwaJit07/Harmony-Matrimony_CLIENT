@@ -37,7 +37,7 @@ const Userinfo7 = () => {
                 .then((imgResponse) => {
                     if (imgResponse.success) {
                         const imgUrl = imgResponse.data.display_url;
-                        const userinfo = { verificationImage: imgUrl, id: userInfo._id, profile_complete: 80 , email: userInfo.email , name: userInfo.name}
+                        const userinfo = { verificationImage: imgUrl, id: userInfo._id, profile_complete: 100 , email: userInfo.email , name: userInfo.name}
                         fetch('https://soulmates-server-two.vercel.app/update7', {
                             method: "PUT",
                             headers: {

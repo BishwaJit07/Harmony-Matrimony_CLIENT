@@ -27,14 +27,12 @@ const SignUp = () => {
   };
 
 
-
   const onSubmit = (data) => {
     setError("")
     if (confirmPassword !== data.password) {
       setError("Passwords do not match");
       return;
     }
-
 
     createUser(data.email, data.password)
       .then((result) => {
@@ -47,7 +45,7 @@ const SignUp = () => {
               mobile: data.mobile,
               email: data.email,
               profile_complete: 10,
-              profileVisit: 20,
+              profileVisit: 50,
             };
             fetch("https://soulmates-server-two.vercel.app/alluser", {
               method: "POST",
@@ -70,20 +68,22 @@ const SignUp = () => {
                   navigate("/myProfile");
                 }
               });
-
+          })
+      })
       .catch((error) =>
         setError(error.message),
       );
 
   }
+      
 
   return (
-    <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
-      {/* Title */}
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Soulmate | Sign Up</title>
-      </Helmet>
+      <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
+        {/* Title */}
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Soulmate | Sign Up</title>
+        </Helmet>
         <figure className="lg:w-[50%] ">
           <img className="xl:object-cover hidden lg:flex lg:-ml-24 lg:h-[750px]  " src={img} alt="" />
         </figure>
@@ -173,7 +173,7 @@ const SignUp = () => {
           </form>
         </div>
       </div>
-      );
-};
+    );
+  };
 
-      export default SignUp;
+  export default SignUp;
