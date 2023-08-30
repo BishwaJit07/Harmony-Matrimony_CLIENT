@@ -1,6 +1,6 @@
 
 import About from "./HomeCompnent/About";
-import BestRecommendation from "./HomeCompnent/BestRecommendation/BestRecommendation";
+
 
 import Gallary from "./HomeCompnent/gellary/Gallary";
 
@@ -33,7 +33,7 @@ const Home = () => {
          <HowItWork></HowItWork>
           <WhyChooseUs2 />
         {/* <SearchFunction></SearchFunction> */}
-        <BestRecommendation />
+        {/* <BestRecommendation /> */}
         <BestRecommendation2 />
         <Gallary />
         <About />
