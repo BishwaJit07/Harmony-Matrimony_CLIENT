@@ -36,6 +36,8 @@ import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
 import Post from "../component/Pages/MyProfle/postFunction/Post";
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
+import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
+import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +76,14 @@ const router = createBrowserRouter([
       {
         path: "/termCondition",
         element: <TermCondition></TermCondition>,
+      },
+      {
+        path: "/authoritysignin",
+        element: <AuthoritySignIn/>
+      },
+      {
+        path: "/authoritysignup",
+        element: <AuthoritySignUp/>
       },
       {
         path: "/dashboard",
