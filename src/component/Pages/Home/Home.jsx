@@ -12,6 +12,7 @@ import HowItWork from "./HowItWork/HowItWork";
 
 
 
+
 const Home = () => {
 
   return (
