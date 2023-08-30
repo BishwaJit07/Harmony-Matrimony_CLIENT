@@ -1,18 +1,31 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../../../assets/logo/logo3.png'
-
+import useMyData from '../../../../../Hooks/useMyData';
+import noProfile from "../../../../../assets/other/blank.png"
+import { useContext } from 'react';
+import { AuthContext } from '../../../../../Provider/AuthProvider';
 const NavBar2 = () => {
   // if you need to add new links in navbar, add it in li element
+  const [userInfo] = useMyData();
+  const { user, logOut } = useContext(AuthContext);
   const NavItems = () => {
     return (
       <>
         <li><Link to='/'>Home</Link></li>
+        <li><Link to='/allUser'>Explore</Link></li>
         <li><Link to='/about'>About us</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/plans'>Plans</Link></li>
       </>
     );
   }
+
+  
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className='max-w-7xl mx-auto'>
@@ -52,9 +65,35 @@ const NavBar2 = () => {
           </ul>
         </div>
         <div className="justify-end ml-auto">
-          <button className='bg-primary-500 rounded-full text-white px-10 py-2  flex justify-center items-center '>Join Now</button>
+      {user ? (
+            <div className="flex gap-2 items-center">
+              <div className="hidden md:flex navbar-end me-3">
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-sm text-red-600 rounded-s-full rounded-b-full text-xs "
+                >
+                  Logout
+                </button>
+              </div>
+                <Link to="/myProfile">
+              <div className="avatar online">
+                <div className="w-11 rounded-full">
+                {userInfo?.profileImage ? <img className="rounded-full w-10 mr-3" src={userInfo?.profileImage} />  : <img src={noProfile} alt="Shoes" className="rounded-full w-10 mr-3"/>}
+                </div>
+              </div>
+                </Link>
+            </div>
+          ) : (
+            <div className="">
+              <Link to="/signup">
+              <button className='bg-primary-500 rounded-full text-white px-10 py-2   justify-center items-center hidden md:flex'>Join Now</button>
+              </Link>
+            </div>
+          )}
+          
         </div>
       </div>
+      
       
     </div>
   );

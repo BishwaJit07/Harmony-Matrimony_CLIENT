@@ -4,7 +4,7 @@ import imgThree from "../../../../assets/How/3rd.png";
 import "./style.css";
 const HowItWork = () => {
   return (
-    <div className="timeline max-w-screen-xl mx-auto font-alice h-[100%]">
+    <div className="timeline max-w-screen-xl mx-auto font-alice h-[100%] mt-[80px]">
       <h1 className="text-[38px] font-normal text-center mb-[32px] ">
         How It Work
       </h1>

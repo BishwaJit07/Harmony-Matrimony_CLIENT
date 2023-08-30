@@ -84,8 +84,9 @@ const MyProfile = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="container  gap-5  grid grid-cols-2 md:grid-cols-3">
                   {accountFor.map((value) =>
-                      <div className="cursor-pointer" key={value.id}>
-                        <input type="radio" className="peer sr-only" name="profileFor" onChange={() => setSelectedOption({ Profile_For: value.name })} />
+                      <div key={value.id}>
+                        <label className="cursor-pointer">
+                        <input type="radio" className="peer sr-only" name="profileFor" onChange={() => setSelectedOption({ Profile_For: value.name })}  />
                         <div className=" max-w-xl rounded-md bg-gray-100 p-5 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
                           <div className="flex flex-col ">
                             <div className="flex  gap-2 items-center">
@@ -96,9 +97,12 @@ const MyProfile = () => {
                             </div>
                           </div>
                         </div>
+                        </label>
                       </div> 
-                    )}0
+                    )}
+
                   </div>
+                  <div className="flex justify-center mt-10"><button disabled={!selectedOption} className="bg-[#34af78] py-2 rounded-lg text-white btn" type="submit">Submit</button></div>
                 </form>
               </div>
             </div>
@@ -179,7 +183,7 @@ const MyProfile = () => {
                   <p className="text-lg font-medium">Update Your Profile please</p>
                   <div className="flex justify-center mt-4"><div className="radial-progress bg-[#51ac83] text-primary-content border-4 border-[#51ac83] text-center" style={{ "--value": 90 }}>90%</div></div>
                   <div className="flex justify-center mt-10">
-                    <Link to="/userinfo5"> <button className="bg-[#34af78] py-2 rounded-lg text-white btn" type="submit">Continue<BsArrowRightCircle className="text-lg font-semibold" /></button></Link>
+                    <Link to="/userinfo7"> <button className="bg-[#34af78] py-2 rounded-lg text-white btn" type="submit">Continue<BsArrowRightCircle className="text-lg font-semibold" /></button></Link>
                   </div>
                 </div>
               </div>
