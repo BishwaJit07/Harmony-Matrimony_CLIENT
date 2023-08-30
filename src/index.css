@@ -28,9 +28,6 @@
     font-family: 'Pacifico', cursive;
 }
 
-.swiper-wrapper{
-    @apply py-8 px-4
-}
 
 .navStyle a.active {
     background-color: blue;
@@ -72,12 +69,6 @@
 .font-alice{
     font-family: 'Alice', serif;
 }
-
-
-#text-shadow {
-    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 0px #fff, 0 0 0px #97a5ff, 0 0 20px #97a5ff, 0 0 5px #97a5ff, 0 0 50px #97a5ff, 0 0 70px #97a5ff;;
-
 .font-lato{
     font-family: 'Lato', serif;
-
 }

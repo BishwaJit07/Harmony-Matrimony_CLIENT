@@ -35,81 +35,86 @@ const BestRecommendation2 = () => {
             spaceBetween: 50,
           },
         }}
-        className="py-6"
       >
         <SwiperSlide className="group" >
           <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
             <img className="w-full object-cover" src={girl} alt="" />
-            <div className="bg-slate-950 text-[#F0F2F5] absolute bottom-0 rounded bg-opacity-50 rounded-t-2xl h-0 py-0 px-4 group-hover:py-4 duration-300 w-full group-hover:h-[135px] rounded-b-2xl">
-              <p className="text-[22px] font-alice mb-1 ">Cameron Williamson</p>
-              <p className="font-lato text-[16px] ">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <div className="bg-red-200 absolute bottom-0 rounded bg-opacity-60 rounded-t-2xl h-0 py-0 px-4 group-hover:py-4 duration-300 w-full group-hover:h-[140px] rounded-b-2xl">
+              <p className="text-[22px] font-alice mb-1 text-[#3E4A5B]">Cameron Williamson</p>
+              <p className="font-lato text-[16px] text-[#536279]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
           </div>
         </SwiperSlide>
 
         <SwiperSlide className="group" >
           <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-            <img className="w-full object-cover" src={girl2} alt="" />
-            <div className="bg-slate-950 text-[#F0F2F5] absolute bottom-0 rounded bg-opacity-50 rounded-t-2xl h-0 py-0 px-4 group-hover:py-4 duration-300 w-full group-hover:h-[135px] rounded-b-2xl">
-              <p className="text-[22px] font-alice mb-1 ">Cameron Williamson</p>
-              <p className="font-lato text-[16px] ">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="group" >
-          <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-            <img className="w-full object-cover" src={girl3} alt="" />
-            <div className="bg-slate-950 text-[#F0F2F5] absolute bottom-0 rounded bg-opacity-50 rounded-t-2xl h-0 py-0 px-4 group-hover:py-4 duration-300 w-full group-hover:h-[135px] rounded-b-2xl">
-              <p className="text-[22px] font-alice mb-1 ">Cameron Williamson</p>
-              <p className="font-lato text-[16px] ">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-          </div>
-        </SwiperSlide><SwiperSlide className="group" >
-          <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-            <img className="w-full object-cover" src={girl4} alt="" />
-            <div className="bg-slate-950 text-[#F0F2F5] absolute bottom-0 rounded bg-opacity-50 rounded-t-2xl h-0 py-0 px-4 group-hover:py-4 duration-300 w-full group-hover:h-[135px] rounded-b-2xl">
-              <p className="text-[22px] font-alice mb-1 ">Cameron Williamson</p>
-              <p className="font-lato text-[16px] ">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="group" >
-          <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-            <img className="w-full object-cover" src={girl} alt="" />
-            <div className="bg-slate-950 text-[#F0F2F5] absolute bottom-0 rounded bg-opacity-50 rounded-t-2xl h-0 py-0 px-4 group-hover:py-4 duration-300 w-full group-hover:h-[135px] rounded-b-2xl">
-              <p className="text-[22px] font-alice mb-1 ">Cameron Williamson</p>
-              <p className="font-lato text-[16px] ">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <img  className="w-full object-cover"  src={girl2} alt="" />
+            <div className="bg-red-200 absolute bottom-0 rounded bg-opacity-60 rounded-t-2xl h-0 py-0 px-4 duration-300 w-full group-hover:h-[140px] rounded-b-2xl group-hover:py-4 ">
+              <p className="text-[22px] font-alice mb-1 text-[#3E4A5B]">Cameron Williamson</p>
+              <p className="font-lato text-[16px] text-[#536279]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
           </div>
         </SwiperSlide>
 
         <SwiperSlide className="group" >
           <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-            <img className="w-full object-cover" src={girl2} alt="" />
-            <div className="bg-slate-950 text-[#F0F2F5] absolute bottom-0 rounded bg-opacity-50 rounded-t-2xl h-0 py-0 px-4 group-hover:py-4 duration-300 w-full group-hover:h-[135px] rounded-b-2xl">
-              <p className="text-[22px] font-alice mb-1 ">Cameron Williamson</p>
-              <p className="font-lato text-[16px] ">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <img  className="w-full object-cover"  src={girl3} alt="" />
+            <div className="bg-red-200 absolute bottom-0 rounded bg-opacity-60 rounded-t-2xl h-0 py-0 px-4 duration-300 w-full group-hover:h-[140px] rounded-b-2xl group-hover:py-4 ">
+              <p className="text-[22px] font-alice mb-1 text-[#3E4A5B]">Cameron Williamson</p>
+              <p className="font-lato text-[16px] text-[#536279]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
           </div>
         </SwiperSlide>
+
         <SwiperSlide className="group" >
           <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-            <img className="w-full object-cover" src={girl3} alt="" />
-            <div className="bg-slate-950 text-[#F0F2F5] absolute bottom-0 rounded bg-opacity-50 rounded-t-2xl h-0 py-0 px-4 group-hover:py-4 duration-300 w-full group-hover:h-[135px] rounded-b-2xl">
-              <p className="text-[22px] font-alice mb-1 ">Cameron Williamson</p>
-              <p className="font-lato text-[16px] ">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-          </div>
-        </SwiperSlide><SwiperSlide className="group" >
-          <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-            <img className="w-full object-cover" src={girl4} alt="" />
-            <div className="bg-slate-950 text-[#F0F2F5] absolute bottom-0 rounded bg-opacity-50 rounded-t-2xl h-0 py-0 px-4 group-hover:py-4 duration-300 w-full group-hover:h-[135px] rounded-b-2xl">
-              <p className="text-[22px] font-alice mb-1 ">Cameron Williamson</p>
-              <p className="font-lato text-[16px] ">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <img  className="w-full object-cover"  src={girl4} alt="" />
+            <div className="bg-red-200 absolute bottom-0 rounded bg-opacity-60 rounded-t-2xl h-0 py-0 px-4 duration-300 w-full group-hover:h-[140px] rounded-b-2xl group-hover:py-4 ">
+              <p className="text-[22px] font-alice mb-1 text-[#3E4A5B]">Cameron Williamson</p>
+              <p className="font-lato text-[16px] text-[#536279]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
           </div>
         </SwiperSlide>
-        
+
+        <SwiperSlide className="group" >
+          <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+            <img  className="w-full object-cover"  src={girl} alt="" />
+            <div className="bg-red-200 absolute bottom-0 rounded bg-opacity-60 rounded-t-2xl h-0 py-0 px-4 duration-300 w-full group-hover:h-[140px] rounded-b-2xl group-hover:py-4 ">
+              <p className="text-[22px] font-alice mb-1 text-[#3E4A5B]">Cameron Williamson</p>
+              <p className="font-lato text-[16px] text-[#536279]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide className="group" >
+          <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+            <img  className="w-full object-cover"  src={girl2} alt="" />
+            <div className="bg-red-200 absolute bottom-0 rounded bg-opacity-60 rounded-t-2xl h-0 py-0 px-4 duration-300 w-full group-hover:h-[140px] rounded-b-2xl group-hover:py-4 ">
+              <p className="text-[22px] font-alice mb-1 text-[#3E4A5B]">Cameron Williamson</p>
+              <p className="font-lato text-[16px] text-[#536279]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide className="group" >
+          <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+            <img  className="w-full object-cover"  src={girl3} alt="" />
+            <div className="bg-red-200 absolute bottom-0 rounded bg-opacity-60 rounded-t-2xl h-0 py-0 px-4 duration-300 w-full group-hover:h-[140px] rounded-b-2xl group-hover:py-4 ">
+              <p className="text-[22px] font-alice mb-1 text-[#3E4A5B]">Cameron Williamson</p>
+              <p className="font-lato text-[16px] text-[#536279]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide className="group" >
+          <div className=" relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+            <img  className="w-full object-cover"  src={girl4} alt="" />
+            <div className="bg-red-200 absolute bottom-0 rounded bg-opacity-60 rounded-t-2xl h-0 py-0 px-4 duration-300 w-full group-hover:h-[140px] rounded-b-2xl group-hover:py-4 ">
+              <p className="text-[22px] font-alice mb-1 text-[#3E4A5B]">Cameron Williamson</p>
+              <p className="font-lato text-[16px] text-[#536279]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </div>
   );
