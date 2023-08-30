@@ -33,14 +33,14 @@ const Review = () => {
     },[])
    console.log(reviews)
     return (
-        <div className='flex justify-between px-16 m-10 relative'>
+        <div className='lg:flex flex-none justify-between lg:px-16 lg:m-10 relative'>
             {/* div for text */}
-            <div className='w-1/3'>
-                <h3 className='font-serif  leading-10   text-left text-4xl'>Countless individuals have Discovered their life partners Through SoulMate!</h3>
+            <div className='lg:w-1/3 w-1/2 m-3 lg:m-0'>
+                <h3 className='font-serif  lg:leading-10 leading-2   text-left lg:text-4xl text-2xl'>Countless individuals have Discovered their life partners Through SoulMate!</h3>
             </div>
 
             {/* div for swiper */}
-            <div className='w-2/3 ms-28'>
+            <div className='lg:w-2/3 w-full lg:ms-28'>
                 <Swiper
                     navigation={true} modules={[EffectCards, Navigation]}
                     effect={'cards'}
@@ -48,17 +48,17 @@ const Review = () => {
                     className="mySwiper-review"
                 >
                    {
-                    reviews?.map(review =>  <SwiperSlide key={review._id} className='w-[600px] swiper-slide-review border border-gray-200 bg-slate-100'>
+                    reviews?.map(review =>  <SwiperSlide key={review._id} className='lg:w-[600px] w-full swiper-slide-review border border-gray-200 bg-slate-100'>
                     <div className="flex p-5 text-black">
-                        <div className='mx-5'>
-                            <p className='text-lg whitespace-pre-line pt-5'>{review.review} <span className='text-red-600'>See More</span></p>
+                        <div className='lg:mx-5 mx-2'>
+                            <p className='lg:text-lg text-sm whitespace-pre-line pt-5'>{review.review} <span className='text-red-600'>See More</span></p>
                             <div className='mt-10' >
                                 <h3 className='text-xxl font-serif italic'>{review.coupleName}</h3>
                                 <p className='text-sm'>{review.location}</p>
                             </div>
                         </div>
                         <div>
-                            <img className='h-full w-[900px] object-cover' src={review.imageURL} alt="" />
+                            <img className='h-full lg:w-[900px] w-3/4 object-cover' src={review.imageURL} alt="" />
                         </div>
                     </div>
                 </SwiperSlide>)
