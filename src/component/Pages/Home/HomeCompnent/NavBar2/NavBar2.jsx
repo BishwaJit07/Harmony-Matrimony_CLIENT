@@ -4,6 +4,9 @@ import useMyData from '../../../../../Hooks/useMyData';
 import noProfile from "../../../../../assets/other/blank.png"
 import { useContext } from 'react';
 import { AuthContext } from '../../../../../Provider/AuthProvider';
+import Headroom from 'react-headroom'
+import './NavBar2.css'
+
 const NavBar2 = () => {
   // if you need to add new links in navbar, add it in li element
   const [userInfo] = useMyData();
@@ -28,8 +31,10 @@ const NavBar2 = () => {
   };
 
   return (
-    <div className='max-w-7xl mx-auto'>
-      <div className="navbar ">
+    
+    <Headroom style={{ backgroundColor: "white", zIndex: 50, boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px" }}>
+      <div className='max-w-7xl mx-auto '>
+        <div className="navbar ">
         <div className="justify-start">
 
           {/* drawer is here */}
@@ -92,10 +97,9 @@ const NavBar2 = () => {
           )}
           
         </div>
+        </div>
       </div>
-      
-      
-    </div>
+    </Headroom>
   );
 };
 
