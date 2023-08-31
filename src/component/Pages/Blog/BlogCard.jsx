@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { AiOutlineHeart, AiOutlineCalendar , AiOutlineArrowRight} from 'react-icons/ai'
+import { AiOutlineHeart, AiFillHeart, AiOutlineCalendar , AiOutlineArrowRight} from 'react-icons/ai'
+import { useState } from "react";
 
 
 
 const BlogCard = ({ data, react, setReact }) => {
-
+const [love, setLove] = useState(false);
   const handleReact = id => {
     console.log(id);
     fetch(`https://soulmates-server-two.vercel.app/blogs/${id}`, {
@@ -50,7 +51,7 @@ const BlogCard = ({ data, react, setReact }) => {
           </div>
 
           <p className="text-xs lg:text-sm xl:text-base py-3 text text-[#728483] text-clip text ">{data?.details < 200 ? <>{data.details}</> :
-            <>{data?.details.slice(0, 150)}... </>} <button><Link to={`/blogDetails/${data._id}`} className="text-red-600">Read more</Link></button> </p>
+            <>{data?.details.slice(0, 150)}... </>} <button><Link to={`/blogDetails/${data._id}`} className="text-red-600 font-semibold">Read more</Link></button> </p>
         </div>
       </div>
     </>
