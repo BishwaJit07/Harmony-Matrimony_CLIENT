@@ -7,6 +7,7 @@ import Review from "./Review/Review";
 import HowItWork from "./HowItWork/HowItWork";
 import BestRecommendation2 from "./HomeCompnent/BestRecommendation2/BestRecommendation2";
 import HomeBanner from "./HomeCompnent/HomeBanner/HomeBanner";
+import SweetMemories from "./HomeCompnent/SweetMemorise/SweetMemories";
 
 
 const Home = () => {
@@ -27,7 +28,7 @@ const Home = () => {
       <div className="w-[80%] mx-auto">
       
       
-        <Gallary />
+       <SweetMemories/>
         <HappyStory />
         <Review />
        

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@ionic/react": "^7.3.2",
     "@stripe/react-stripe-js": "^2.1.2",
     "@stripe/stripe-js": "^2.1.0",
     "@tanstack/react-query": "^4.32.6",
@@ -20,6 +21,7 @@
     "country-state-city": "^3.2.0",
     "firebase": "^10.1.0",
     "framer-motion": "^10.16.1",
+    "ionicons": "^7.1.2",
     "jsonwebtoken": "^9.0.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -38,7 +40,7 @@
     "react-vertical-timeline-component": "^3.6.0",
     "sort-by": "^0.0.2",
     "sweetalert2": "^11.6.13",
-    "swiper": "^10.1.0"
+    "swiper": "^10.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
