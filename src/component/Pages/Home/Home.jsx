@@ -4,11 +4,10 @@ import HappyStory from "./HomeCompnent/HappyStory/HappyStory";
 import { Helmet } from "react-helmet";
 import MessageUsFb from "../../FacebookMessage/MessageUsFb";
 import Review from "./Review/Review";
-
 import HowItWork from "./HowItWork/HowItWork";
-import HeroSection from "./HomeCompnent/HeroSection";
 import BestRecommendation2 from "./HomeCompnent/BestRecommendation2/BestRecommendation2";
 import SearchFunction from "./SearchFunction/SearchFunction";
+import HeroSection from "./HomeCompnent/HeroSection";
 
 const Home = () => {
   return (
@@ -18,7 +17,7 @@ const Home = () => {
         <title>Soulmate | Home</title>
       </Helmet>
 
-      <HeroSection />
+     <HeroSection/>
 
       
 
