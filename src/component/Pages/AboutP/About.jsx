@@ -241,7 +241,7 @@ const About = () => {
           <div className="h-[100px]"></div>
           <div className=" bg-gray-400 rounded absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
             <p className="text-xl font-bold text-[#e34545] group-hover:text-[#ffc107]">{item.name}</p>
-            <p className="text-sm text-red-400 group-hover:text-white">{item.team_role}</p>
+            <p className="text-sm  group-hover:text-white">{item.team_role}</p>
           </div>
 
           {/* socials */}
