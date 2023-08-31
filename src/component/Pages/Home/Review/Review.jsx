@@ -43,7 +43,7 @@ const Review = () => {
             <div className=' lg:ms-28 w-full  md:w-[50%] '>
                 <div className='text-center text-2xl font-bold font-alice'><h2 className='md:hidden'>Happy Story</h2></div>
                 <Swiper
-                    navigation={true} modules={[EffectCards, Navigation]}
+                    modules={[EffectCards, Navigation]}
                     effect={'cards'}
                     grabCursor={true}
                     className="mySwiper-review"

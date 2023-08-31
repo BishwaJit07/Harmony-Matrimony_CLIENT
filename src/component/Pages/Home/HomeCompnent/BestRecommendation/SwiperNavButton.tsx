@@ -7,7 +7,7 @@ export const SwiperNavButtons = () => {
 
   return (
     <div className="swiper-nav-btns text-center  ">
-      <div className='flex justify-end gap-4'>
+      <div className='flex justify- gap-4'>
       <button onClick={() => swiper.slidePrev()}><BsArrowLeft className='text-black'></BsArrowLeft></button>
       <button onClick={() => swiper.slideNext()}><BsArrowRight className='text-black'></BsArrowRight></button>
       </div>

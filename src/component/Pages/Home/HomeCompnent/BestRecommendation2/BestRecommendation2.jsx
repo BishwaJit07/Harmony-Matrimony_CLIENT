@@ -1,14 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 
-
-import girl from '../../../../../assets/home/recommendation/girl.png'
-import girl2 from '../../../../../assets/home/recommendation/girl2.png'
-import girl3 from '../../../../../assets/home/recommendation/girl3.png'
-import girl4 from '../../../../../assets/home/recommendation/girl4.png'
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { SwiperNavButtons } from "../BestRecommendation/SwiperNavButton";
 
 const BestRecommendation2 = () => {
   
@@ -68,9 +64,12 @@ const BestRecommendation2 = () => {
          )
         ) 
         }
-        
+          <div className="-mt-100">
+            <SwiperNavButtons></SwiperNavButtons>
+          </div>
       </Swiper>
-    </div>
+      </div>
+    
   );
 };
 
