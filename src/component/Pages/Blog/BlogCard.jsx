@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const BlogCard = ({ data, react, setReact }) => {
 const [love, setLove] = useState(false);
+
   const handleReact = id => {
     console.log(id);
     fetch(`https://soulmates-server-two.vercel.app/blogs/${id}`, {
@@ -41,7 +42,9 @@ const [love, setLove] = useState(false);
 
           <div className="flex justify-between">
             <div className="flex text-xl text-red-600">
-              <button onClick={() => handleReact(data?._id)} className="text-2xl"><AiOutlineHeart /></button>
+              {
+                love ? <button  className="text-2xl"><AiFillHeart onClick={() => setLove(!love)} /></button> : <button onClick={() => handleReact(data?._id)} className="text-2xl"><AiOutlineHeart onClick={() => setLove(!love)} /></button>
+              }
               <p className="font-medium">{data?.react}</p>
             </div>
             <div className="flex">
