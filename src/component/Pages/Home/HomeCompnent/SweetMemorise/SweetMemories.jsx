@@ -1,10 +1,10 @@
 
 import { Swiper, SwiperSlide, } from 'swiper/react';
-import './SweetMemories.css'
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import "./sweetMemoies.css"
 
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 

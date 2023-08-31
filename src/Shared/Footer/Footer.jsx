@@ -1,14 +1,9 @@
-import {
-  FaTwitter,
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaArrowRight,
-  FaPhoneAlt,
-} from "react-icons/fa";
+import { FaTwitter, FaArrowRight, FaPhoneAlt, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
 import { MdOutlineLocationCity, MdOutlineMail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import FooterBotom from "./FooterBotom";
+import line from "../../assets/other/Group 1171277762 (1).png"
 import logo from '../../assets/logo/logo2.png'
 const Footer = () => {
   return (
@@ -18,124 +13,131 @@ const Footer = () => {
           <span className="footer-title">
             <img src={logo} alt="" className="w-40 mb-5 text-white" />
           </span>
-          <p className=" max-w-xs text-[#C3CAD5]">
+          <p className=" max-w-xs text-[#C3CAD5] font-lato">
             Discover your ideal partner through our trusted matrimonial website.
             We bring people together, fostering genuine connections based on
             compatibility and shared life goals. Start your journey to a joyful
             and fulfilling relationship with us.
           </p>
-          <p className="footer-title mt-5 text-[#FFFFFF] opacity-[100%]">
+          <p className="mt-5 mb-2 text-[#FFFFFF] opacity-[100%] font-alice">
             Follow Us
           </p>
           <div className="flex space-x-4 mb-5">
             <a href="#">
-              <FaFacebook className="text-2xl" />
+              <FaFacebookF className="text-4xl bg-slate-600 p-2 rounded-full" />
             </a>
             <a href="#">
-              <FaLinkedin className="text-2xl" />
+              <FaLinkedinIn className="text-4xl bg-slate-600 p-2 rounded-full" />
             </a>
             <a href="">
-              <FaInstagram className="text-2xl" />
+              <AiFillInstagram className="text-4xl bg-slate-600 p-2 rounded-full" />
             </a>
             <a href="#">
-              <FaTwitter className="text-2xl" />
+              <FaTwitter className="text-4xl bg-slate-600 p-2 rounded-full" />
             </a>
           </div>
         </div>
 
         <div className="mr-10">
-          <span className="footer-title text-[30px] leading-[45px] opacity-[100%]">
+          <span className="font-alice text-[30px] leading-[45px] opacity-[100%]">
             Quick Link
           </span>
-          <Link
-            to="#"
-            className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
-          >
-            <FaArrowRight /> About us
-          </Link>
-          <Link
-            to="#"
-            className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
-          >
-            <FaArrowRight /> Explore
-          </Link>
-          <Link
-            to="#"
-            className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
-          >
-            <FaArrowRight /> Blog
-          </Link>
-          <Link
-            to="#"
-            className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
-          >
-            <FaArrowRight /> Contact Us
-          </Link>
-          <Link
-            to="#"
-            className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
-          >
-            <FaArrowRight /> Plans
-          </Link>
-          <Link
-            to="#"
-            className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
-          >
-            <FaArrowRight /> Privacy Policy
-          </Link>
+          <img src={line} alt="" />
+          <div className="mt-[30px] flex flex-col gap-4">
+            <Link
+              to="#"
+              className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
+            >
+              <FaArrowRight /> About us
+            </Link>
+            <Link
+              to="#"
+              className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
+            >
+              <FaArrowRight /> Explore
+            </Link>
+            <Link
+              to="#"
+              className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
+            >
+              <FaArrowRight /> Blog
+            </Link>
+            <Link
+              to="#"
+              className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
+            >
+              <FaArrowRight /> Contact Us
+            </Link>
+            <Link
+              to="#"
+              className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
+            >
+              <FaArrowRight /> Plans
+            </Link>
+            <Link
+              to="#"
+              className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
+            >
+              <FaArrowRight /> Privacy Policy
+            </Link>
+          </div>
         </div>
 
-        <div className="mr-10">
-          <span className="footer-title text-[30px] leading-[45px] opacity-[100%]">
+        <div className="">
+          <span className="font-alice text-[30px] leading-[45px] opacity-[100%]">
             Contact Details
           </span>
-          <a href="" className="link link-hover text-[#C3CAD5] text-[16px]">
-            <p className="text-[22px] mb-3">Phone Number</p>
-            <div className="flex items-center gap-2 text-base ">
-              <FaPhoneAlt></FaPhoneAlt>
-              <span>+123 456 789</span>
+          <img src={line} alt="" />
+          <div className="mt-[30px]">
+            <div className="text-[#C3CAD5] text-[16px] mb-3">
+              <p className="text-[22px]  font-alice mb-1">Phone Number</p>
+              <div className="flex items-center gap-2 text-base ">
+                <FaPhoneAlt className="text-3xl bg-slate-600 p-2 rounded-full"></FaPhoneAlt>
+                <span>+123 456 789</span>
+              </div>
             </div>
-          </a>
-          <a href="" className="link link-hover text-[#C3CAD5] text-[16px]">
-            <p className="text-[22px] mb-3">Email</p>
-            <div className="flex items-center gap-2 text-base ">
-              <MdOutlineMail></MdOutlineMail>
-              <span>xyz@gmail.com</span>
+            <div className="text-[#C3CAD5] text-[16px] mb-3">
+              <p className="text-[22px] font-alice mb-1">Email</p>
+              <div className="flex items-center gap-2 text-base ">
+                <MdOutlineMail  className="text-3xl bg-slate-600 p-2 rounded-full"></MdOutlineMail>
+                <span>xyz@gmail.com</span>
+              </div>
             </div>
-          </a>
-          <a href="" className="link link-hover text-[#C3CAD5] text-[16px]">
-            <p className="text-[22px] mb-3">Office Location</p>
-            <div className="flex items-center gap-2 text-base ">
-              <MdOutlineLocationCity></MdOutlineLocationCity>
-              <span>Dhaka, Dhaka, Bangladesh</span>
+            <div className="text-[#C3CAD5] text-[16px] mb-3">
+              <p className="text-[22px] font-alice mb-1">Office Location</p>
+              <div className="flex items-center gap-2 text-base ">
+                <MdOutlineLocationCity  className="text-3xl bg-slate-600 p-2 rounded-full"></MdOutlineLocationCity>
+                <span>Dhaka, Dhaka, Bangladesh</span>
+              </div>
             </div>
-          </a>
+          </div>
         </div>
 
         <div>
-          <span className="footer-title text-[30px] leading-[45px] opacity-[100%]">
+          <span className="text-[30px] leading-[45px] opacity-[100%] font-alice">
             Newsletter
           </span>
-          <div className="form-control max-w-prose">
-            <p className="text-[16px] text-[#C3CAD5]">
+          <img src={line} alt="" />
+          <div className="form-control max-w-prose mt-[30px]">
+            <p className="text-[16px] text-[#C3CAD5] font-lato">
               Sign Up to get updates & news about us . Get Latest Deals from
               Walker is Inbox to our mail address.
             </p>
             <label className="label">
-              <span className="label-text text-[#C3CAD5]"> Email</span>
+              <span className="label-text text-[#C3CAD5] font-alice mt-2 text-lg"> Email</span>
             </label>
             <div className="relative">
               <input
                 type="text"
-                placeholder="username@site.com"
-                className="input input-bordered w-full pr-16 border border-[#cf9063]"
+                placeholder="Enter Your Email"
+                className="input input-bordered w-full pr-16 border border-[#cf9063] rounded-full bg-[#222328] text-white"
               />
-              <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
+              <button className="absolute top-1 right-1 rounded-full -none px-10 bg-red-600 hover:bg-red-800   py-2">
                 sent
               </button>
             </div>
           </div>
-          <button className=" mt-5 btn bg-[#cf9063] text-white hover:bg-[#8f5f3d] w-full">
+          <button className=" mt-5  p-3 rounded-full  bg-red-600 text-white hover:bg-red-800 w-full ">
             Subscribe
           </button>
         </div>
