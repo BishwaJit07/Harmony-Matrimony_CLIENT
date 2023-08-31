@@ -13,9 +13,10 @@ import { EffectCards, Navigation } from 'swiper/modules';
 
 
 import { RiDoubleQuotesL, RiDoubleQuotesR } from 'react-icons/ri';
-import { SwiperNavButtons } from '../HomeCompnent/BestRecommendation/SwiperNavButton';
+
 import { useEffect, useState } from 'react';
 import { calcLength } from 'framer-motion';
+import { SwiperNavButtons } from './SwiperNavButton';
 
 const Review = () => {
     const [reviews, setReview] = useState([]);
@@ -67,7 +68,7 @@ const Review = () => {
                         </SwiperSlide>)
                     }
 
-                    <div className=' absolute -left-[670px] top-72'>
+                    <div className=' absolute xl:-left-[600px] top-72'>
                         <SwiperNavButtons></SwiperNavButtons>
                     </div>
                     <h3 className='fixed top-2 -left-14 text-6xl text-gray-400 hidden md:flex'><RiDoubleQuotesL /></h3>
