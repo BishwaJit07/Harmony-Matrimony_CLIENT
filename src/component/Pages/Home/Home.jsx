@@ -6,9 +6,10 @@ import MessageUsFb from "../../FacebookMessage/MessageUsFb";
 import Review from "./Review/Review";
 
 import HowItWork from "./HowItWork/HowItWork";
-import HeroSection from "./HomeCompnent/HeroSection";
+
 import BestRecommendation2 from "./HomeCompnent/BestRecommendation2/BestRecommendation2";
-import SearchFunction from "./SearchFunction/SearchFunction";
+
+import HomeBanner from "./HomeCompnent/HomeBanner/HomeBanner";
 
 const Home = () => {
   return (
@@ -18,15 +19,15 @@ const Home = () => {
         <title>Soulmate | Home</title>
       </Helmet>
 
-      <HeroSection />
-
       
 
+      <HomeBanner/>
+      <HowItWork />
       <div className="w-[80%] mx-auto">
       
-        <SearchFunction></SearchFunction>
+       
         <BestRecommendation2 />
-        <HowItWork />
+     
         <Gallary />
         <HappyStory />
         <Review />
