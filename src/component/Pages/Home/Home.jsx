@@ -1,14 +1,14 @@
-import Gallary from "./HomeCompnent/gellary/Gallary";
 
+import Gallary from "./HomeCompnent/gellary/Gallary";
 import HappyStory from "./HomeCompnent/HappyStory/HappyStory";
 import { Helmet } from "react-helmet";
 import MessageUsFb from "../../FacebookMessage/MessageUsFb";
 import Review from "./Review/Review";
-
 import HowItWork from "./HowItWork/HowItWork";
-import HeroSection from "./HomeCompnent/HeroSection";
 import BestRecommendation2 from "./HomeCompnent/BestRecommendation2/BestRecommendation2";
-import SearchFunction from "./SearchFunction/SearchFunction";
+import HomeBanner from "./HomeCompnent/HomeBanner/HomeBanner";
+import SweetMemories from "./HomeCompnent/SweetMemorise/SweetMemories";
+
 
 const Home = () => {
   return (
@@ -17,19 +17,21 @@ const Home = () => {
         <meta charSet="utf-8" />
         <title>Soulmate | Home</title>
       </Helmet>
-
-      <HeroSection />
+ 
 
       
 
+      <HomeBanner/>
+      <HowItWork />
+      <BestRecommendation2 />
+     
       <div className="w-[80%] mx-auto">
       
-        <SearchFunction></SearchFunction>
-        <BestRecommendation2 />
-        <HowItWork />
-        <Gallary />
+      
+       <SweetMemories/>
         <HappyStory />
         <Review />
+       
         <MessageUsFb />
       </div>
     </div>
