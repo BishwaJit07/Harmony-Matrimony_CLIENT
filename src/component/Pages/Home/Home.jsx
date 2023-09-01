@@ -1,7 +1,5 @@
 
 
-import BestRecommendation from "./HomeCompnent/BestRecommendation/BestRecommendation";
-
 import Gallary from "./HomeCompnent/gellary/Gallary";
 
 import HappyStory from './HomeCompnent/HappyStory/HappyStory';
@@ -41,10 +39,10 @@ const Home = () => {
         {/* <SearchFunction></SearchFunction> */}
         {/* <BestRecommendation /> */}
 
-        <Review/>
+
         <Gallary />
-        <SweetMemories/>
-        <HappyStory />
+        {/* <SweetMemories/> */}
+        <Review/>
         <MessageUsFb />
 
       </div>

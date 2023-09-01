@@ -19,28 +19,22 @@ import Service from "../component/Pages/Service/Service";
 import ServiceCard from "../component/Pages/Service/ServiceCard";
 import Contact from "../component/Pages/Contact/Contact";
 import BlogDetails from "../component/Pages/Blog/BlogDetails";
-
 import TermCondition from "../component/Pages/SignUp/TermCondition";
-
 import MyProfile from "../component/Pages/MyProfle/MyProfile";
-import AuthForm from "../component/Pages/AuthFrom/AuthForm";
 import SearchFunction from "../component/Pages/SignUp/SearchFunction";
 import UserInfo1 from "../component/Pages/MyProfle/UserInfo1";
 import Userinfo2 from "../component/Pages/MyProfle/Userinfo2";
 import Userinfo3 from "../component/Pages/MyProfle/Userinfo3";
 import Userinfo4 from "../component/Pages/MyProfle/Userinfo4";
 import Userinfo5 from "../component/Pages/MyProfle/Userinfo5";
-
 import Userinfo6 from "../component/Pages/MyProfle/Userinfo6";
 import Userinfo7 from "../component/Pages/MyProfle/Userinfo7";
-
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
 import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
 import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
-
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
@@ -176,10 +170,7 @@ const router = createBrowserRouter([
         path: '/myProfile',
         element: <MyProfile></MyProfile>
       },
-      {
-        path: '/authFrom',
-        element: <AuthForm></AuthForm>
-      },
+     
       {
         path: '/signup',
         element: <SignUp />

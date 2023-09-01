@@ -6,7 +6,6 @@ import "swiper/css/pagination";
 
 
 import { Pagination, Navigation, A11y } from "swiper/modules";
-import { SwiperNavButtons } from "../BestRecommendation/SwiperNavButton";
 import { Link } from "react-router-dom";
 import UseHappyStoty from "../../../../../Hooks/UseHappyStoty";
 
@@ -78,9 +77,7 @@ const HappyStory = () => {
           </div>
 
 
-          <div className="-mt-100">
-            <SwiperNavButtons></SwiperNavButtons>
-          </div>
+         
         </Swiper>
 
       </div>
