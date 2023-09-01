@@ -31,7 +31,7 @@ const BookService = () => {
 
 
     return (
-        <div>
+        <div >
            <div className="bg-gradient-to-r from-[#6ed3a6] to-[#EBFFF6]">
             <h1 className="text-5xl font-bold text-center py-20 mb-20  ">Booked Service</h1>
            </div>

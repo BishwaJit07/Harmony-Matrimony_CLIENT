@@ -45,12 +45,12 @@ const Blog = () => {
         <title>Soulmate | Blog</title>
       </Helmet>
 
-      <div className="secondary h-[200px] bg-[url('https://i.ibb.co/txC9WyP/Photo.jpg')]">
-        <h1 className="text-center pt-16 text-5xl font-semibold text-[#FF725E] ">Blog & Articles</h1>
+      <div className="secondary h-12 lg:h-[200px] bg-[url('https://i.ibb.co/txC9WyP/Photo.jpg')]">
+        <h1 className="text-center lg:pt-16 pt-0 lg:text-5xl text-lg font-semibold text-[#FF725E] ">Blog & Articles</h1>
 
       </div>
       <div className="flex justify-center gap-16 ">
-        <div className="lg:w-2/3 mx-5 w-full lg:ml-28 mt-10">
+        <div className="lg:w-2/3 lg:mx-5 mx-2 w-full lg:ml-28 mt-10">
           <h1 className="text-4xl font-semibold mb-8 font-serif text-center">ALL BLOG</h1>
           <div className="grid xl:grid-cols-2 gap-5">
             {blogData.map((data) => (

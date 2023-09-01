@@ -17,10 +17,10 @@ const HomeBanner = () => {
     <div className='bg-gradient-to-l from-primary-50 '>
       <div className="md:flex gap-5 justify-around w-[80%] xl:w-[100%] mx-auto py-10 md:py-0">
       <div className="space-y-5  mb-8 md:mt-[100px] ">
-        <p className='lg:text-[50px] text-3xl font-alice'>Find Your <span className="text-primary-500">Life Partner</span> With Us</p>
-        <p className='text-sm lg:text-[16px] font-lato text-gray-500 leading-7'>End the struggle of finding a bride or groom. Discover your <br className="hidden md:flex"/> perfect match from the comfort of home. Your ultimate <br className="hidden md:flex"/> destination to find your ideal pertner</p>
-        <div className="flex items-center gap-4 mt-6">
-          <button className='bg-primary-500 rounded-full text-white px-10 py-2'>Explore</button>
+        <p className='lg:text-[56px] text-3xl font-alice'>Find Your <span className="text-primary-500">Life Partner</span> With Us</p>
+        <p className='text-sm lg:text-[22px] font-lato text-gray-500 leading-9 '>End the struggle of finding a bride or groom. Discover your <br className="hidden md:flex"/> perfect match from the comfort of home. Your ultimate <br className="hidden md:flex"/> destination to find your ideal pertner</p>
+        <div className="flex items-center gap-4 mt-7">
+          <button className='bg-primary-500 rounded-full text-white px-10 py-2 '>Explore</button>
           <button className='flex justify-center items-center gap-2'>
             <span className="relative flex  h-8 w-8 justify-center items-center">
               <span className="animate-ping absolute inline-flex h-[80%] w-[80%] rounded-full bg-red-400 opacity-75 duration-1000"></span>

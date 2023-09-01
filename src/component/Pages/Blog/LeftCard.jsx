@@ -21,11 +21,11 @@ const LeftCard = () => {
       <div className="h-[600px] overflow-hidden overflow-y-auto hide-scrollbar">
         {
           popular?.map(pData => <>
-            <div className="border-2 flex p-2 mb-3" key={pData._id}>
+            <div className="border-2 p-2 mb-3 grid grid-cols-3" key={pData._id}>
               <div className="">
                 <img className="h-32 w-[300px] object-cover object-center" src={pData.image} alt="" />
               </div>
-              <div className="p-2">
+              <div className="p-2 ">
                 <h2 className="text-lg font-serif font-normal">{pData.title}</h2>
                 <div className="flex">
                   <button className="text-lg mb-2 "><AiOutlineCalendar /></button>
