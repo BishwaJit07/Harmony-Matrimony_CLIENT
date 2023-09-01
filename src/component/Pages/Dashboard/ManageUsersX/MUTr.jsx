@@ -1,8 +1,7 @@
 import { RiDeleteBinLine } from "react-icons/ri";
 import {motion} from 'framer-motion'
 
-const MUTr = ({user, index}) => {
-  console.log(index)
+const MUTr = ({user, index, handleMakeAdmin, handleMakeSupport, handleDelete}) => {
   return (
       <motion.tr
        className="bg-white   hover:bg-gray-50 "
@@ -27,12 +26,12 @@ const MUTr = ({user, index}) => {
         </td>
         <td className="px-6 py-4">
           <div className="">
-          <span className="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">Make Admin</span>
-          <span className="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Remove Admin</span>
+          <button onClick={() =>handleMakeAdmin(user._id)} className="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">Make Admin</button>
+          <button onClick={() =>handleMakeSupport(user._id)}  className="bg-red-100 text-rose-500 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Make Supporter</button>
           </div>
         </td>
         <td className=''>
-          <RiDeleteBinLine className='text-xl ml-8 cursor-pointer'/>
+         <button onClick={() =>handleDelete(user._id)} className='text-xl text-white bg-red-500 p-2 rounded-full ml-8 cursor-pointer'><RiDeleteBinLine/></button>
         </td>
       </motion.tr>
   );
