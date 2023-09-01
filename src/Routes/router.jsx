@@ -40,6 +40,7 @@ import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 import Profile2 from "../component/Pages/MyProfle/Profile2/Profile2";
 import ChatRoom from "../ChatApp/ChatRoom/ChatRoom";
+import UserProfile from "../component/Pages/UserProfile/UserProfile";
 
 
 
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
     element: <Main />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: '/userProfile',
+        element: <UserProfile />
+      },
       {
         path: '/profile/:id',
         element: <Profile2 />

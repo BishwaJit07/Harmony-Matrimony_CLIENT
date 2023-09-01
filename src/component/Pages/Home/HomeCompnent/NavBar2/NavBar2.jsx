@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../../../assets/logo/logo3.png'
 import useMyData from '../../../../../Hooks/useMyData';
 import noProfile from "../../../../../assets/other/blank.png"
@@ -14,11 +14,11 @@ const NavBar2 = () => {
   const NavItems = () => {
     return (
       <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/allUser'>Explore</Link></li>
-        <li><Link to='/about'>About us</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/plans'>Plans</Link></li>
+        <li><NavLink to="/" className={({ isActive }) => (isActive && 'bg-primary-300')}>Home</NavLink></li>
+        <li><NavLink to="/allUser" className={({ isActive }) => (isActive && 'bg-primary-300')}>Explore</NavLink></li>
+        <li><NavLink to="/about" className={({ isActive }) => (isActive && 'bg-primary-300')}>About us</NavLink></li>
+        <li><NavLink to="/blog" className={({ isActive }) => (isActive && 'bg-primary-300')}>Blog</NavLink></li>
+        <li><NavLink to="/plans" className={({ isActive }) => (isActive && 'bg-primary-300')}>Plans</NavLink></li>
       </>
     );
   }
