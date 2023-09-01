@@ -38,7 +38,7 @@ const AuthoritySignUp = () => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      updateUserProfile(data.name)
+      updateUserProfile(data.name,data.imgurl)
         .then(() => {
           const saveUser = {
             name: data.name.toUpperCase(),

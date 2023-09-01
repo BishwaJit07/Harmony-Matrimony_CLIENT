@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
-import { AiOutlineHeart, AiOutlineCalendar , AiOutlineArrowRight} from 'react-icons/ai'
+
 import {motion, AnimatePresence} from 'framer-motion'
+
+import { AiOutlineHeart, AiFillHeart, AiOutlineCalendar , AiOutlineArrowRight} from 'react-icons/ai'
+import { useState } from "react";
+
+
 
 
 const BlogCard = ({ data, react, setReact }) => {
+const [love, setLove] = useState(false);
 
   const handleReact = id => {
     console.log(id);
@@ -45,7 +51,9 @@ const BlogCard = ({ data, react, setReact }) => {
 
           <div className="flex justify-between">
             <div className="flex text-xl text-red-600">
-              <button onClick={() => handleReact(data?._id)} className="text-2xl"><AiOutlineHeart /></button>
+              {
+                love ? <button  className="text-2xl"><AiFillHeart onClick={() => setLove(!love)} /></button> : <button onClick={() => handleReact(data?._id)} className="text-2xl"><AiOutlineHeart onClick={() => setLove(!love)} /></button>
+              }
               <p className="font-medium">{data?.react}</p>
             </div>
             <div className="flex">
@@ -55,7 +63,7 @@ const BlogCard = ({ data, react, setReact }) => {
           </div>
 
           <p className="text-xs lg:text-sm xl:text-base py-3 text text-[#728483] text-clip text ">{data?.details < 200 ? <>{data.details}</> :
-            <>{data?.details.slice(0, 150)}... </>} <button><Link to={`/blogDetails/${data._id}`} className="text-red-600">Read more</Link></button> </p>
+            <>{data?.details.slice(0, 150)}... </>} <button><Link to={`/blogDetails/${data._id}`} className="text-red-600 font-semibold">Read more</Link></button> </p>
         </div>
       </div>
       </AnimatePresence>
