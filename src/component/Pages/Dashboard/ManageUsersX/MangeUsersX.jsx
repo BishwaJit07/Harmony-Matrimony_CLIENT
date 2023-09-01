@@ -1,16 +1,95 @@
-import useAllUsers from "../../../../hooks/useAllUsers";
+import { useContext, useEffect, useState } from "react";
 import MUTr from "./MUTr";
+import { CiLight } from "react-icons/ci";
+import { AuthContext } from "../../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const MangeUsersX = () => {
-  const [users, loading] = useAllUsers()
-  if(loading){
-    return(
+  const {user} = useContext(AuthContext);
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch('https://soulmates-server-two.vercel.app/authority')
+      .then(res => res.json())
+      .then(data => {
+        setUsers(data)
+        setLoading(false)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }, [users])
+
+
+  if (loading) {
+    return (
       <div className="flex justify-center h-screen items-center ">
         <span className="loading loading-bars loading-lg scale-150"></span>
       </div>
     )
   }
-  return (
+  const handleMakeAdmin = id =>{
+    console.log(id)
+    fetch(`https://soulmates-server-two.vercel.app/makeAdmin/${id}`, {
+            method:"PATCH"
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount > 0){
+                Swal.fire({
+                    title: `He is an admin now!`,
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+            }
+        })
+  }
+  const handleMakeSupport = id =>{
+    fetch(`https://soulmates-server-two.vercel.app/makeSupport/${id}`, {
+      method:"PATCH"
+  })
+  .then(res => res.json())
+  .then(data => {
+      console.log(data);
+      if(data.modifiedCount > 0){
+          Swal.fire({
+              title: `He is an Supporter now!`,
+              showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+              }
+          });
+      }
+  })
+  }
+  const handleDelete = id =>{
+    fetch(`https://soulmates-server-two.vercel.app/makeDelete/${id}`, {
+      method:"DELETE"
+  })
+  .then(res => res.json())
+  .then(data => {
+      console.log(data);
+      if(data.deletedCount > 0){
+          Swal.fire({
+              title: `User Deleted!`,
+              showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+              }
+          });
+      }
+  })
+  }
+   return (
     <div className="relative overflow-x-auto  rounded-2xl px-6 w-[90%] mx-auto py-6 my-10  ">
       {/* Input field */}
       {/* <div className="flex items-center justify-between py-4 bg-white w-full">
@@ -28,7 +107,7 @@ const MangeUsersX = () => {
       <table className="w-full text-sm text-left text-gray-500 overflow-hidden">
 
         {/* This is table HEAD */}
-        
+
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
           <tr>
             <th scope="col" className="px-6 py-3">
@@ -47,17 +126,16 @@ const MangeUsersX = () => {
         </thead>
 
         {/* This is table body, all users goes here */}
-        
+
         <tbody className="">
-          {users.map((user, index) => <MUTr key={user._id} user={user} index={index}/>)}
+          {users.map((user, index) => <MUTr key={user._id} user={user} index={index}  handleMakeAdmin={()=>handleMakeAdmin(user._id)} handleMakeSupport={()=>handleMakeSupport(user._id)} handleDelete={()=>handleDelete(user._id)}/>)}
         </tbody>
       </table>
 
-      
+
 
     </div>
 
   );
 };
-
 export default MangeUsersX;

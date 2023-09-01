@@ -8,9 +8,10 @@ const LatestBlog = () => {
     const [latest, setLatest] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch('https://soulmates-server-two.vercel.app/blogsLatest')
+        fetch('https://harmony-matrimony-server.vercel.app/blogsLatest')
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                setLatest(data);
                setLoading(false)
             })
@@ -18,7 +19,6 @@ const LatestBlog = () => {
                 console.log(error);
             })
     }, [])
-    console.log(latest);
     return (
         <div className='mt-10'>
             <h1 className="text-3xl font-serif font-medium my-4">Latest Blogs</h1>
@@ -33,9 +33,9 @@ const LatestBlog = () => {
                                 <h2 className="text-lg font-serif font-normal">{latestData.title}</h2>
                                 <div className="flex">
                                     <button className="text-lg mb-2 "><AiOutlineCalendar /></button>
-                                    <p className="mb-2 text-sm">{latestData?.date}</p>
+                                    <p className="mb-2 text-sm text-slate-600">{latestData?.date}</p>
                                 </div>
-                                <div className="flex ms-0 lg:ms-40 text-red-600">
+                                <div className="flex ms-0 lg:ms-32 text-red-600">
                                     <Link to={`/blogDetails/${latestData._id}`}><p >View</p></Link>
                                     <AiOutlineArrowRight className="mt-1" />
                                 </div>
