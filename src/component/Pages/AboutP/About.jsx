@@ -241,8 +241,8 @@ const About = () => {
             <img className="w-full object-cover group-hover:scale-110  duration-700" src={item.img} alt="" />
               <div className="h-[100px]"></div>
               <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
-                <p className="text-xl  font-bold text-[#5A4F24] group-hover:text-[#ffc107]">Ashley Jen</p>
-                <p className="text-sm group-hover:text-white">Marketing Manager</p>
+                <p className="text-xl  font-bold text-[#5A4F24] group-hover:text-[#ffc107]">{item.name}</p>
+                <p className="text-sm group-hover:text-white">{item.team_role}</p>
               </div>
             
 
