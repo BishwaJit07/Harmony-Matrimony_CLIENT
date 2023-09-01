@@ -63,7 +63,7 @@ const BestRecommendation = () => {
                     alt=""
                     className="rounded-xl  object-cover w-full h-[300px]"
                   />
-                  <p className="bg-[#FF725E] text-white absolute w-full bottom-0  p-2 text-xl font-semibold rounded "><span className="text-lg font-medium b"></span><Link to={`/patnerProfile/${item?._id}`}>{item?.name}</Link></p>
+                  <p className="bg-[#FF725E] text-white absolute w-full bottom-0  p-2 text-xl font-semibold rounded "><span className="text-lg font-medium b"></span><Link to={`/profile/${item?._id}`}>{item?.name}</Link></p>
                   
                 </div>
               </div>
