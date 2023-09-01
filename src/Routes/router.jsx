@@ -40,10 +40,12 @@ import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
+
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 import Profile2 from "../component/Pages/MyProfle/Profile2/Profile2";
+import ChatRoom from "../ChatApp/ChatRoom/ChatRoom";
 
 
 
@@ -54,7 +56,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/profile',
+        path: '/profile/:id',
         element: <Profile2 />
       },
       {
@@ -92,6 +94,12 @@ const router = createBrowserRouter([
 
         path: "/service",
         element: <Service></Service>,
+      },
+
+      {
+
+        path: "/chat",
+        element:<ChatRoom/>,
       },
       {
         path: "hotel/:id",

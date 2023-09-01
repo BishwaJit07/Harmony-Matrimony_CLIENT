@@ -12,10 +12,11 @@ const UserCard = ({ filteredUser, length }) => {
     name,
     country,
     religion,
-    physical_attributes,
+    education,
+    weight,
     gender,
     _id,
-    about,
+    aboutMe,
   } = filteredUser;
 
   const handleClick = () => {
@@ -40,8 +41,8 @@ const UserCard = ({ filteredUser, length }) => {
   };
 
   return (
-    <div>
-      <div className=" bg-[#FF725E] bg-opacity-5  rounded-lg shadow-2xl text-gray-700 p-7  mx-auto text-center">
+    <div>  <Link to={`/profile/${_id}`} onClick={handleClick}>
+      <div className=" bg-[#FF725E] bg-opacity-5  rounded-lg shadow-2xl text-gray-700 p-7  mx-auto text-center  h-[99%]">
         <div className="mx-auto w-[99%]">
           <img
             className="round border border-teal-400 rounded-full p-2 text w-40 h-40 mx-auto object-fill"
@@ -50,23 +51,21 @@ const UserCard = ({ filteredUser, length }) => {
           />
         </div>
         <h3 className="my-2 text-xl font-semibold text-[#ec5553] ">
-          <Link to={`/patnerProfile/${_id}`} onClick={handleClick}>
+        
             {name}
-          </Link>
+          
         </h3>
         <h6 className="mb-1 text-sm  uppercase font-medium">{country}</h6>
         <p className="text-sm leading-relaxed w-[80%] mx-auto">
-          {about < 50 ? <>{about}</> : <>{about?.slice(0, 50)}... </>}
+          {aboutMe < 50 ? <>{aboutMe}</> : <>{aboutMe?.slice(0, 50)}... </>}
         </p>
         {/* <p className="text-xs lg:text-sm xl:text-base py-3 text text-[#728483] text-clip text ">{data.details < 200 ? <>{data.details }</> :
                         <>{data?.details.slice(0, 200)}... </>} </p> */}
         <div className="buttons mt-3 space-x-3">
-          <button className="primary-btn bg-[#62b08d] p-2 text-white rounded-md">
-            Message
+          <button className="primary-btn bg-[#62b08d] hover:bg-red-500 p-2 text-white rounded-md">
+            View Profile
           </button>
-          <button className="primary-btn bg-[#62b08d] p-2 text-white rounded-md ghost-btn">
-            Following
-          </button>
+          
         </div>
         <div className=" text-left p-3 mt-6">
           <h6 className="mb-2 text-xs tracking-wide uppercase">Myself</h6>
@@ -78,15 +77,16 @@ const UserCard = ({ filteredUser, length }) => {
               {gender}
             </li>
             <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
-              {physical_attributes?.height}
+              {education}
             </li>
             <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
-              {physical_attributes?.weight}
+              {weight}
             </li>
           </ul>
         </div>
         {length === 0 ? <Loading></Loading> : <></>}
       </div>
+      </Link>
     </div>
   );
 };
