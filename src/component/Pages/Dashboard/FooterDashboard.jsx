@@ -1,0 +1,12 @@
+const FooterDashboard = () => {
+    return (
+        <footer className="footer footer-center p-10 bg-blue-900 text-white">
+            <div>
+                <p>Empowering You Every Step of the Way - Explore Our Admin <br /> and Support Dashboards for Unparalleled Control and Assistance</p>
+                <p>Copyright © 2023 - All right reserved</p>
+            </div>
+        </footer>
+    );
+};
+
+export default FooterDashboard;

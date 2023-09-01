@@ -40,11 +40,12 @@ import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
 import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
-import Post from "../component/Pages/MyProfle/postFunction/Post";
+
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 import Profile2 from "../component/Pages/MyProfle/Profile2/Profile2";
+import ChatRoom from "../ChatApp/ChatRoom/ChatRoom";
 import UserProfile from "../component/Pages/UserProfile/UserProfile";
 
 
@@ -60,7 +61,7 @@ const router = createBrowserRouter([
         element: <UserProfile />
       },
       {
-        path: '/profile',
+        path: '/profile/:id',
         element: <Profile2 />
       },
       {
@@ -92,12 +93,18 @@ const router = createBrowserRouter([
         path: "/termCondition",
         element: <TermCondition></TermCondition>,
       },
-  
+
 
       {
 
         path: "/service",
         element: <Service></Service>,
+      },
+
+      {
+
+        path: "/chat",
+        element:<ChatRoom/>,
       },
       {
         path: "hotel/:id",
@@ -241,14 +248,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: "authoritysignin",
-        element: <AuthoritySignIn />
-      },
-      {
-        path: "authoritysignup",
-        element: <AuthoritySignUp />
-      },
-      {
         path: "manageUser",
         element: <MangeUsersX></MangeUsersX>
       },
@@ -266,16 +265,23 @@ const router = createBrowserRouter([
 
         path: "addService",
         element: <AddService />,
-      }]}
+      },
 
-  
-       
-      
-        
+    ]
+  },
+  {
+    path: "/",
+    children: [
+      {
+        path: "authoritysignin",
+        element: <AuthoritySignIn />
+      },
+      {
+        path: "authoritysignup",
+        element: <AuthoritySignUp />
+      },
+    ]
 
-      
-    
-  
-
+  }
 ]);
 export default router;
