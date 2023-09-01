@@ -46,6 +46,7 @@ const BestRecommendation2 = () => {
           },
         }}
 
+
         className="py-6"
       >
 
@@ -72,6 +73,7 @@ const BestRecommendation2 = () => {
       </div>
     
   );
+
 
 };
 
