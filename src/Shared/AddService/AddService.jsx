@@ -1,6 +1,8 @@
-import Heading from '../Heading';
 import Swal from 'sweetalert2';
 import imgService from "../../assets/admin/Banner (2).png"
+import photoService from "../../assets/Dashboard/aa-01.png"
+import HotelService from "../../assets/Dashboard/hotel-01.png"
+import cateringService from "../../assets/Dashboard/caterring_service-.png"
 const AddService = () => {
 
   const handleService = e => {
@@ -52,16 +54,54 @@ const AddService = () => {
   }
 
   return (
-    <div className='h-[100vh] overflow-hidden w-full relative '>
-     <div className='w-[90%] h-[200px] mx-auto relative flex  items-center'>
-      <img src={imgService} alt="" className='w-full h-full absolute top-0 left-0 object-cover rounded-xl' />
-    {/* Text */}
-    <div className="text-center p-8 relative z-10  ">
-      <p className='lg:text-[50px] text-3xl font-lato text-white text-left'>Add Services</p>
-      <p className='text-sm lg:text-[16px] font-lato text-gray-200 leading-7 text-left mt-4'>End the struggle of finding a bride or groom. Discover your </p>
-    </div>
-  </div>
+    <div className='overflow-hidden  relative '>
+      <div className='w-[94%] h-[200px] mx-auto relative flex  items-center'>
+        <img src={imgService} alt="" className='w-full h-full absolute top-0 left-0 object-cover rounded-xl' />
+        {/* Text */}
+        <div className="text-center p-8 relative z-10  ">
+          <p className='lg:text-[50px] text-3xl font-lato text-white text-left'>Add Services</p>
+          <p className='text-sm lg:text-[16px] font-lato text-gray-400 leading-7 text-left mt-4'>Empower Your Platform with an Abundant Tapestry of Services <br /> Where Every Addition Enriches User Experience</p>
+        </div>
+      </div>
+      <div className='mt-20 mb-5 w-[90%]'>
+      <h2 className='text-3xl font-alice ml-12'>Add Services</h2>
+      </div>
+      <div className='flex justify-around gap-10 mx-auto    w-[94%]'>
+      <div className="flex gap-3  rounded-xl bg-base-100 shadow-xl">
+        <figure><img src={photoService} alt="Album"  className=' object-cover h-full rounded-s-xl '/></figure>
+        <div className="flex flex-col justify-center ">
+          <h2 className="card-title p-2 font-lato">Photo Service</h2>
+          <p className='p-2 text-sm text-gray-500'>Empower Your Portfolio Admin Panel for Adding Photo Services</p>
+          <div className="card-actions justify-end p-4 ">
+            <button className="btn bg-blue-100 w-full mt-auto rounded-full relative -bottom-8">Create Now</button>
+          </div>
+        </div>
+      </div>
+      <div className="flex gap-3  rounded-xl bg-base-100 shadow-xl">
+        <figure><img src={HotelService} alt="Album"  className=' object-cover h-full rounded-s-xl '/></figure>
+        <div className="flex flex-col justify-center ">
+          <h2 className="card-title p-2 font-lato">Hotel Booking</h2>
+          <p className='p-2 text-sm text-gray-500'>Embark on Unforgettable Journeys with Our Effortless Hotel Booking Services</p>
+          <div className="card-actions justify-end p-4 ">
+            <button className="btn bg-blue-100 w-full mt-auto rounded-full relative -bottom-8">Create Now</button>
+          </div>
+        </div>
+      </div>
+      <div className="flex gap-3  rounded-xl bg-base-100 shadow-xl">
+        <figure><img src={cateringService} alt="Album"  className=' object-cover h-full rounded-s-xl '/></figure>
+        <div className="flex flex-col justify-center ">
+          <h2 className="card-title p-2 font-lato">Catering Service</h2>
+          <p className='p-2 text-sm text-gray-500'>Empower Your Portfolio Admin Panel for Adding Photo Services</p>
+          <div className="card-actions justify-end p-4 ">
+            <button className="btn bg-blue-100 w-full mt-auto rounded-full relative -bottom-8">Create Now</button>
+          </div>
+        </div>
+      </div>
+      
+     
+     
 
+      </div>
     </div >
   );
 };

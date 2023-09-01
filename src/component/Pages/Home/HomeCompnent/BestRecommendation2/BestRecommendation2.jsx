@@ -1,34 +1,29 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 
-
-import girl from '../../../../../assets/home/recommendation/girl.png'
-import girl2 from '../../../../../assets/home/recommendation/girl2.png'
-import girl3 from '../../../../../assets/home/recommendation/girl3.png'
-import girl4 from '../../../../../assets/home/recommendation/girl4.png'
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { SwiperNavButtons } from "../BestRecommendation/SwiperNavButton";
 
 const BestRecommendation2 = () => {
   
    const [datas, setDatas] = useState([]);
-  useEffect(() => {
-    fetch("https://soulmates-server-two.vercel.app/allUser")
-      .then((res) => res.json())
-      .then((data) => setDatas(data));
-  }, []);
+   
+   useEffect(() => {
+     fetch("https://soulmates-server-two.vercel.app/allUser")
+       .then((res) => res.json())
+       .then((data) => setDatas(data));
+   }, []);
 
-  return (
-    <div className="py-[120px] w-[80%] mx-auto">
-      <div className="max-w-7xl mx-auto">
-        <p className="text-[#272932] text-[40px] text-left font-alice ">Best Recommendation for you</p>
-      
-      <Swiper
-        spaceBetween={30}
-        slidesPerView={4}
-        breakpoints={{
+   return (
+     <div className="py-[120px] w-[80%] mx-auto ">
+         <p className="text-[#272932] lg:text-[40px] text-center text-[20px] lg:text-left font-alice xl:ml-16 -mb-16 ">Best Recommendation for you</p>
+       <div className="max-w-7xl mx-auto ">
+       </div>
+       <Swiper
+         spaceBetween={30}
+         slidesPerView={4}
+         breakpoints={{
           240: {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -38,10 +33,14 @@ const BestRecommendation2 = () => {
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 40,
           },
           1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+          1280: {
             slidesPerView: 4,
             spaceBetween: 50,
           },
@@ -73,7 +72,5 @@ const BestRecommendation2 = () => {
     </div>
   );
 };
-
-
 
 export default BestRecommendation2;

@@ -88,7 +88,7 @@ const router = createBrowserRouter([
         path: "/termCondition",
         element: <TermCondition></TermCondition>,
       },
-  
+
 
       {
 
@@ -243,14 +243,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: "authoritysignin",
-        element: <AuthoritySignIn />
-      },
-      {
-        path: "authoritysignup",
-        element: <AuthoritySignUp />
-      },
-      {
         path: "manageUser",
         element: <MangeUsersX></MangeUsersX>
       },
@@ -268,16 +260,23 @@ const router = createBrowserRouter([
 
         path: "addService",
         element: <AddService />,
-      }]}
+      },
 
-  
-       
-      
-        
+    ]
+  },
+  {
+    path: "/",
+    children: [
+      {
+        path: "authoritysignin",
+        element: <AuthoritySignIn />
+      },
+      {
+        path: "authoritysignup",
+        element: <AuthoritySignUp />
+      },
+    ]
 
-      
-    
-  
-
+  }
 ]);
 export default router;
