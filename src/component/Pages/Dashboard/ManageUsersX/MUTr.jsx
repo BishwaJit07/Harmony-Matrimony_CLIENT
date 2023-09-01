@@ -14,7 +14,7 @@ const MUTr = ({user, index, handleMakeAdmin, handleMakeSupport, handleDelete}) =
       
       >
         <th scope="row" className="flex items-center px-6 py-4 whitespace-nowrap ">
-          <img className="w-10 h-10 rounded-full" src={user.img} alt="Jese image" />
+          <img className="w-10 h-10 rounded-full" src={user?.profileImage} alt="Jese image" />
           <div className="pl-3">
             <div className="text-base font-semibold">{user.name}</div>
             <div className="font-normal text-gray-500">{user.email}</div>

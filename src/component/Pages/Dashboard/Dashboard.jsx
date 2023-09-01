@@ -89,12 +89,12 @@ const Dashboard = () => {
                     {Menus.map((Menu, index) => (
                         <li key={index} className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white  text-sm items-center gap-x-4 ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"} `}>
                             <NavLink to={Menu.link}>
-                                <div className="flex items-center gap-5">
+                                <button className="flex items-center gap-5 cursor-pointer">
                                     {Menu.icon}
                                     <span className={`${!open && "hidden"} origin-left duration-200`}>
                                         {Menu.title}
                                     </span>
-                                </div>
+                                </button>
                             </NavLink>
                         </li>
                     ))}
@@ -102,8 +102,8 @@ const Dashboard = () => {
             </div>
             <div className="flex-1 bg-slate-200 flex-col flex-grow">
                 <DashboardNav></DashboardNav>
-                <div className="p-7 h-[78%]"><Outlet></Outlet></div>
-                <FooterDashboard ></FooterDashboard>
+                <div className=""><Outlet></Outlet></div>
+                <FooterDashboard></FooterDashboard>
             </div>
 
         </div>

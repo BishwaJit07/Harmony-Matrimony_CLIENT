@@ -3,7 +3,8 @@ import MUTr from "./MUTr";
 import { CiLight } from "react-icons/ci";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-
+import "../../../../style.css"
+import FooterDashboard from "../FooterDashboard";
 const MangeUsersX = () => {
   const {user} = useContext(AuthContext);
   const [users, setUsers] = useState([]);
@@ -131,9 +132,6 @@ const MangeUsersX = () => {
           {users.map((user, index) => <MUTr key={user._id} user={user} index={index}  handleMakeAdmin={()=>handleMakeAdmin(user._id)} handleMakeSupport={()=>handleMakeSupport(user._id)} handleDelete={()=>handleDelete(user._id)}/>)}
         </tbody>
       </table>
-
-
-
     </div>
 
   );
