@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../../../assets/logo/logo3.png'
 import useMyData from '../../../../../Hooks/useMyData';
 import noProfile from "../../../../../assets/other/blank.png"
@@ -14,11 +14,11 @@ const NavBar2 = () => {
   const NavItems = () => {
     return (
       <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/allUser'>Explore</Link></li>
-        <li><Link to='/about'>About us</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/plans'>Plans</Link></li>
+        <li className=' font-semibold'><NavLink to="/" className={({ isActive }) => (isActive && 'bg-primary-400 text-white')}>Home</NavLink></li>
+        <li className=' font-semibold'><NavLink to="/allUser" className={({ isActive }) => (isActive && 'bg-primary-400 text-white')}>Explore</NavLink></li>
+        <li className=' font-semibold'><NavLink to="/about" className={({ isActive }) => (isActive && 'bg-primary-400 text-white')}>About us</NavLink></li>
+        <li className=' font-semibold'><NavLink to="/blog" className={({ isActive }) => (isActive && 'bg-primary-400 text-white')}>Blog</NavLink></li>
+        <li className=' font-semibold'><NavLink to="/plans" className={({ isActive }) => (isActive && 'bg-primary-400 text-white')}>Plans</NavLink></li>
       </>
     );
   }
