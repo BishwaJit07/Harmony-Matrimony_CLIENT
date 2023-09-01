@@ -69,7 +69,7 @@ const BestRecommendation2 = () => {
           </div>
       </Swiper>
       </div>
-    </div>
+
   );
 };
 
