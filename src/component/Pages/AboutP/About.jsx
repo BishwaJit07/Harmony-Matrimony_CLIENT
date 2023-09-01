@@ -8,8 +8,6 @@ import ring from '../../../assets/about-photos/rings.png'
 import img1 from '../../../assets/about-photos/1.jpg'
 import img2 from '../../../assets/about-photos/2.jpg'
 import img4 from '../../../assets/about-photos/4.jpg'
-import girl from '../../../assets/about-photos/girl.jpg'
-import shantoVai from '../../../assets/about-photos/shanto vai.jpg'
 import Heading from "../../../Shared/Heading";
 import { Helmet } from "react-helmet";
 import Contact from "../Contact/Contact";

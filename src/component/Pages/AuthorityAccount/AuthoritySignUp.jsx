@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useContext, useState } from "react";
 
-import img from "../../../assets/logo/adminLogin.png";
+import img from "../../../assets/admin/admin.png";
 import logo from "../../../assets/logo/logo.png/";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -12,7 +12,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const AuthoritySignUp = () => {
 
-    const navigate = useNavigate("/");
+  const navigate = useNavigate("/");
   const [Error, setError] = useState("");
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
@@ -28,7 +28,7 @@ const AuthoritySignUp = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-  
+
   const onSubmit = (data) => {
     if (confirmPassword !== data.password) {
       setError("Passwords do not match");
@@ -38,13 +38,13 @@ const AuthoritySignUp = () => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      updateUserProfile(data.name,data.imgurl)
+      updateUserProfile(data.name, data.imgurl)
         .then(() => {
           const saveUser = {
             name: data.name.toUpperCase(),
             mobile: data.mobile,
             email: data.email,
-            profileImage:data.imgurl,
+            profileImage: data.imgurl,
             role: null,
           };
           console.log(saveUser);
@@ -75,8 +75,8 @@ const AuthoritySignUp = () => {
         .catch((error) => setError(error.message));
     });
   };
-    return (
-        <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
+  return (
+    <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
       {/* Title */}
       <Helmet>
         <meta charSet="utf-8" />
@@ -85,7 +85,7 @@ const AuthoritySignUp = () => {
 
       <figure className="lg:w-[50%] ">
         <img
-          className="xl:object-cover hidden lg:flex lg:-ml-24 lg:h-[750px]  "
+          className="p-10 hidden lg:flex"
           src={img}
           alt=""
         />
@@ -227,13 +227,13 @@ const AuthoritySignUp = () => {
               <br />
             </p>
           </div>
-          <button className="btn bg-[#FF725E] text-white  md:w-[25%] rounded-full mx-auto hover:text-black">
+          <button className="btn bg-[#080373] text-white  md:w-[25%] rounded-full mx-auto hover:text-black">
             SignUp
           </button>
         </form>
       </div>
     </div>
-    );
+  );
 };
 
 export default AuthoritySignUp;
