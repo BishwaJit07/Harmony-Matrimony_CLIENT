@@ -11,9 +11,22 @@ import { useState } from "react";
 const BlogCard = ({ data, react, setReact }) => {
 const [love, setLove] = useState(false);
 
-  const handleReact = id => {
+  const handleReactInc = id => {
     console.log(id);
     fetch(`https://soulmates-server-two.vercel.app/blogs/${id}`, {
+      method: "PATCH",
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          setReact(!react)
+        }
+      })
+  }
+  const handleReactDec = id => {
+    console.log(id);
+    fetch(`https://harmony-matrimony-server.vercel.app/blogss/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())
@@ -52,7 +65,7 @@ const [love, setLove] = useState(false);
           <div className="flex justify-between">
             <div className="flex text-xl text-red-600">
               {
-                love ? <button  className="text-2xl"><AiFillHeart onClick={() => setLove(!love)} /></button> : <button onClick={() => handleReact(data?._id)} className="text-2xl"><AiOutlineHeart onClick={() => setLove(!love)} /></button>
+                love ? <button onClick={() => handleReactDec(data?._id)}  className="text-2xl"><AiFillHeart onClick={() => setLove(!love)} /></button> : <button onClick={() => handleReactInc(data?._id)} className="text-2xl"><AiOutlineHeart onClick={() => setLove(!love)} /></button>
               }
               <p className="font-medium">{data?.react}</p>
             </div>

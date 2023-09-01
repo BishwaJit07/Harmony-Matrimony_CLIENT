@@ -33,9 +33,9 @@ const LeftCard = () => {
                 <h2 className="text-lg font-serif font-normal">{pData.title}</h2>
                 <div className="flex">
                   <button className="text-lg mb-2 "><AiOutlineCalendar /></button>
-                  <p className="mb-2 text-sm">{pData?.date}</p>
+                  <p className="mb-2 text-sm text-slate-600">{pData?.date}</p>
                 </div>
-                <div className="flex ms-0 lg:ms-40 text-red-600">
+                <div className="flex ms-0 lg:ms-32 text-red-600">
                   <Link to={`/blogDetails/${pData._id}`}><p >View</p></Link>
                   <AiOutlineArrowRight className="mt-1" />
                 </div>

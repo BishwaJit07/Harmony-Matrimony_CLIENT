@@ -45,6 +45,7 @@ const BestRecommendation2 = () => {
             spaceBetween: 50,
           },
         }}
+
         className="py-6"
       >
 
@@ -71,6 +72,7 @@ const BestRecommendation2 = () => {
       </div>
     
   );
+
 };
 
 export default BestRecommendation2;
