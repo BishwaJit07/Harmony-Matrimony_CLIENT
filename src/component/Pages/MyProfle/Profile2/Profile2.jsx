@@ -257,7 +257,7 @@ const BorderBottom = () => {
 const Title = ({title}) => {
   return <p className="font-alice text-[25px] mt-6 mb-4">{title}:</p>
 }
-const Info = ({title, value}) => {
+export const Info = ({title, value}) => {
   return (
     <div className="flex items-center text-[#3E4A5B] text-[18px] mb-2">
       <BsArrowRightShort className="text-lg"/>
