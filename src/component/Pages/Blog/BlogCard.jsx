@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { AiOutlineHeart, AiOutlineCalendar , AiOutlineArrowRight} from 'react-icons/ai'
-
+import {motion, AnimatePresence} from 'framer-motion'
 
 
 const BlogCard = ({ data, react, setReact }) => {
@@ -20,7 +20,12 @@ const BlogCard = ({ data, react, setReact }) => {
   }
 
   return (
-    <>
+    <motion.div 
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      layout
+    >
+      <AnimatePresence>
       <div className="card card-compact w-full bg-base-200 shadow-xl mb-10 relative ">
         <figure>
           <img
@@ -53,7 +58,8 @@ const BlogCard = ({ data, react, setReact }) => {
             <>{data?.details.slice(0, 150)}... </>} <button><Link to={`/blogDetails/${data._id}`} className="text-red-600">Read more</Link></button> </p>
         </div>
       </div>
-    </>
+      </AnimatePresence>
+    </motion.div>
   );
 };
 
