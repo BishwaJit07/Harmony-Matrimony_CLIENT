@@ -13,16 +13,7 @@ import { useState } from "react";
 
 
 const HomeBanner = () => {
-  const [modal, setModal] = useState(false);
-  const [videoLoading, setVideoLoading] = useState(true);
 
-  const openModal = () => {
-    setModal(!modal);
-  };
-
-  const spinner = () => {
-    setVideoLoading(!videoLoading);
-  };
   return (
     <div className='bg-gradient-to-l from-primary-50 '>
       <div className="md:flex gap-5 justify-around w-[80%] xl:w-[100%] mx-auto py-10 md:py-0">
