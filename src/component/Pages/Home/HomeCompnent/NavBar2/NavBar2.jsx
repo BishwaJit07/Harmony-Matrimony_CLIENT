@@ -14,11 +14,11 @@ const NavBar2 = () => {
   const NavItems = () => {
     return (
       <>
-        <li><NavLink to="/" className={({ isActive }) => (isActive && 'bg-primary-300')}>Home</NavLink></li>
-        <li><NavLink to="/allUser" className={({ isActive }) => (isActive && 'bg-primary-300')}>Explore</NavLink></li>
-        <li><NavLink to="/about" className={({ isActive }) => (isActive && 'bg-primary-300')}>About us</NavLink></li>
-        <li><NavLink to="/blog" className={({ isActive }) => (isActive && 'bg-primary-300')}>Blog</NavLink></li>
-        <li><NavLink to="/plans" className={({ isActive }) => (isActive && 'bg-primary-300')}>Plans</NavLink></li>
+        <li className=' font-semibold'><NavLink to="/" className={({ isActive }) => (isActive && 'bg-primary-400 text-white')}>Home</NavLink></li>
+        <li className=' font-semibold'><NavLink to="/allUser" className={({ isActive }) => (isActive && 'bg-primary-400 text-white')}>Explore</NavLink></li>
+        <li className=' font-semibold'><NavLink to="/about" className={({ isActive }) => (isActive && 'bg-primary-400 text-white')}>About us</NavLink></li>
+        <li className=' font-semibold'><NavLink to="/blog" className={({ isActive }) => (isActive && 'bg-primary-400 text-white')}>Blog</NavLink></li>
+        <li className=' font-semibold'><NavLink to="/plans" className={({ isActive }) => (isActive && 'bg-primary-400 text-white')}>Plans</NavLink></li>
       </>
     );
   }
