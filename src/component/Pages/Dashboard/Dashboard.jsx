@@ -71,9 +71,10 @@ const Dashboard = () => {
     const [open, setOpen] = useState(true);
     const Menus = [
         { title: "Dashboard", icon: <BiHome></BiHome>, link: "/dashboard" },
-        { title: "User", icon: <BiUser></BiUser>, link: "/dashboard/manageUser" },
+        { title: "Manage User", icon: <BiUser></BiUser>, link: "/dashboard/manageUser" },
         { title: "Add Service", icon: <BiHome></BiHome>, link: "/dashboard/addService" },
         { title: "Book Service", icon: <BiUser></BiUser>, link: "/dashboard/bookService" },
+        { title: "All User", icon: <BiUser></BiUser>, link: "/dashboard/allUser" },
 
     ];
 
