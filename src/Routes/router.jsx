@@ -247,13 +247,10 @@ const router = createBrowserRouter([
         element: <AllUserD></AllUserD>,
       },
       {
-
         path: "bookService",
         element: <BookService></BookService>,
-
       },
       {
-
         path: "addService",
         element: <AddService />,
       },
