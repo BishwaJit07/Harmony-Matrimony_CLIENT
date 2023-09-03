@@ -10,9 +10,12 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const AuthoritySignUp = () => {
+const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
 
+const AuthoritySignUp = () => {
   const navigate = useNavigate("/");
+  const [authority, setAuthority] = useState('');
+  console.log(authority);
   const [Error, setError] = useState("");
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
@@ -28,53 +31,69 @@ const AuthoritySignUp = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+  const image_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Hosting_Token}`;
 
   const onSubmit = (data) => {
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
+
     if (confirmPassword !== data.password) {
       setError("Passwords do not match");
       return;
     }
 
-    createUser(data.email, data.password).then((result) => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-      updateUserProfile(data.name, data.imgurl)
-        .then(() => {
-          const saveUser = {
-            name: data.name.toUpperCase(),
-            mobile: data.mobile,
-            email: data.email,
-            profileImage: data.imgurl,
-            role: null,
-          };
-          console.log(saveUser);
-          fetch("https://soulmates-server-two.vercel.app/authority", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(saveUser),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.insertedId) {
-                reset();
-                // localStorage.removeItem("step1");
-                // localStorage.removeItem("step2");
-                Swal.fire({
-                  position: "top-end",
-                  icon: "success",
-                  title: "User created successfully.",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate("/dashboard");
-              }
-            });
-        })
-        .catch((error) => setError(error.message));
-    });
+    fetch(image_hosting_url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgResponse) => {
+        if (imgResponse.success) {
+          const imgUrl = imgResponse.data.display_url;
+          createUser(data.email, data.password).then((result) => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            updateUserProfile(data.name, imgUrl)
+              .then(() => {
+                const saveUser = {
+                  name: data.name.toUpperCase(),
+                  mobile: data.mobile,
+                  email: data.email,
+                  profileImage: imgUrl,
+                  role: authority,
+                  status: "pending"
+                };
+                console.log(saveUser);
+                fetch("https://soulmates-server-two.vercel.app/authority", {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(saveUser),
+                })
+                  .then((res) => res.json())
+                  .then((data) => {
+                    if (data.insertedId) {
+                      reset();
+                      // localStorage.removeItem("step1");
+                      // localStorage.removeItem("step2");
+                      Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "User created successfully.",
+                        showConfirmButton: false,
+                        timer: 1500,
+                      });
+                      navigate("/dashboard");
+                    }
+                  });
+              })
+              .catch((error) => setError(error.message));
+          });
+        }
+      });
   };
+
   return (
     <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
       {/* Title */}
@@ -84,11 +103,7 @@ const AuthoritySignUp = () => {
       </Helmet>
 
       <figure className="lg:w-[50%] ">
-        <img
-          className="p-10 hidden lg:flex"
-          src={img}
-          alt=""
-        />
+        <img className="p-10 hidden lg:flex" src={img} alt="" />
       </figure>
       <div className="card-body">
         <div className="text-center mb-5">
@@ -97,6 +112,51 @@ const AuthoritySignUp = () => {
         <p className="text-center text-[#a2a2a2] lg:text-xl text-lg">
           Welcome to SoulMate | Authority
         </p>
+        {/* authority button start*/}
+        <div className="flex justify-center">
+          <div className="flex gap-5 mt-3">
+            <label className="cursor-pointer">
+              <input
+                type="radio"
+                className="peer sr-only"
+                name="authority"
+                onChange={() => setAuthority("admin")}
+              />
+              <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+                <div className="flex flex-col ">
+                  <div className="flex  gap-1 items-center justify-center px-2">
+                    <p>
+                      <span value="Gender" className="sm:text-lg ">
+                        Admin
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </label>
+          </div>
+          <div className="flex gap-5 mt-3">
+            <label className="cursor-pointer">
+              <input
+                type="radio"
+                className="peer sr-only"
+                name="authority"
+                onChange={() => setAuthority("support")}
+              />
+              <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+                <div className="flex flex-col ">
+                  <div className="flex  gap-1 items-center justify-center px-2">
+                    <p>
+                      <span className="sm:text-lg ">Support</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+        {/* authority button end*/}
+
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-6 mt-5 w-[100%] mx-auto md:mx-0 mb-24 justify-center "
@@ -125,8 +185,8 @@ const AuthoritySignUp = () => {
             <div className="relative z-0 mt-2">
               <input
                 name="imgurl"
-                {...register("imgurl", { required: true })}
-                type="text"
+                {...register("image", { required: true })}
+                type="file"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2  dark:border-gray-500 focus:outline-none focus:ring-0  peer"
                 placeholder=""
               />
