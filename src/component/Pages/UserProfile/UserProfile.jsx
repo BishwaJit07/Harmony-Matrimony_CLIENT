@@ -8,16 +8,25 @@ import img5 from '../../../assets/home/recommendation/girl4.png'
 import edit from '../../../assets/other/edit.svg'
 import share from '../../../assets/other/share.svg'
 import { Info } from '../MyProfle/Profile2/Profile2';
-import age from '../../../assets/other/age.svg'
-import height from '../../../assets/other/height.svg'
-import job from '../../../assets/other/job.svg'
-import city from '../../../assets/other/city.svg'
+import ages from '../../../assets/other/age.svg'
+import heights from '../../../assets/other/height.svg'
+import jobs from '../../../assets/other/job.svg'
+import citys from '../../../assets/other/city.svg'
 import { AiOutlineMail } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import file from '../../../assets/other/file.png'
+import useMyData from "../../../Hooks/useMyData";
+
+
+
 
 
 const UserProfile = () => {
+  const [userInfo] = useMyData();
+  
+  const { profileImage, name,email} = userInfo;
+  console.log(userInfo);
+
   return (
     <div className="max-w-7xl mx-auto mt-4">
 
@@ -29,15 +38,15 @@ const UserProfile = () => {
           <div className="mb-4 border border-[#C3CAD5] rounded-2xl overflow-hidden">
             <div className="relative">
               <img className='w-full h-[180px] object-cover' src={banner} alt="" />
-              <img className='absolute top-[50%] left-5 h-[150px] w-[150px] object-cover object-top rounded-full border-[3px] border-l-0 border-primary-400' src={pic} alt="" />
+              <img className='absolute top-[50%] left-5 h-[150px] w-[150px] object-cover object-top rounded-full border-[3px] border-l-0 border-primary-400' src={profileImage}alt="" />
             </div>
             <div className="flex gap-6 p-2">
               <div className="h-[150px] w-[150px] "></div> {/* spacer */}
               <div className="w-full mx-4">
                 <div className="flex justify-between ">
                   <div className="">
-                    <p className="font-alice text-[30px] lg:text-[30px]  text-[#272932]">Cameron Williamson</p>
-                    <p>example@name.com</p>
+                    <p className="font-alice text-[30px] lg:text-[30px]  text-[#272932]">{name}</p>
+                    <p>{email}</p>
                   </div>
                   <div className="flex gap-2 items-end">
                     <button className="bg-primary-300 px-[15px] py-[10px] rounded-full"><img className="" src={share} alt="" /></button>
@@ -85,12 +94,15 @@ const UserProfile = () => {
 export default UserProfile;
 
 const EditBtn = ({text}) => {
+
   return (
     <button className="bg-[#3E4A5B] text-[#F0F2F5] px-[15px] py-[10px] rounded-full flex gap-1 items-center"><img className="" src={edit} alt="" />{text}</button>
   )
 }
 
 const BoxBorderContent = ({title, content}) => {
+
+
   return (
     <div className="mb-5 border border-[#C3CAD5] rounded-2xl overflow-hidden">
       <div className="flex justify-between items-center px-5 py-3">
@@ -113,35 +125,38 @@ const HBox = ({ value }) => {
 
 // status
 const Status = () => {
+  const [userInfo] = useMyData();
+  
+  const {  age, height,jobSector ,city } = userInfo;
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
 
       <div className="p-3  rounded-2xl bg-[#F0F2F5]">
-        <img className="h-[35px] w-[35px] mb-3 mx-auto" src={age} alt="" />
+        <img className="h-[35px] w-[35px] mb-3 mx-auto" src={ages} alt="" />
         <div className="text-center text-[18px]">
           <p>AGE:</p>
-          <p>24</p>
+          <p>{age}</p>
         </div>
       </div>
       <div className="p-3 bg-[#F0F2F5] rounded-2xl">
-        <img className="h-[35px] w-[35px] mb-3 mx-auto" src={height} alt="" />
+        <img className="h-[35px] w-[35px] mb-3 mx-auto" src={heights} alt="" />
         <div className="text-center text-[18px]">
           <p>HEIGHT:</p>
-          <p>24</p>
+          <p>{height}</p>
         </div>
       </div>
       <div className="p-3 bg-[#F0F2F5] rounded-2xl">
-        <img className="h-[35px] w-[35px] mb-3 mx-auto" src={city} alt="" />
+        <img className="h-[35px] w-[35px] mb-3 mx-auto" src={citys} alt="" />
         <div className="text-center text-[18px]">
           <p>CITY:</p>
-          <p>24</p>
+          <p>{city}</p>
         </div>
       </div>
       <div className="p-3 bg-[#F0F2F5] rounded-2xl">
-        <img className="h-[35px] w-[35px] mb-3 mx-auto" src={job} alt="" />
+        <img className="h-[35px] w-[35px] mb-3 mx-auto" src={jobs} alt="" />
         <div className="text-center text-[18px]">
           <p>JOB:</p>
-          <p>24</p>
+          <p>{jobSector}</p>
         </div>
       </div>
     </div>
@@ -149,59 +164,72 @@ const Status = () => {
 }
 
 const AboutMe = () => {
+  const [userInfo] = useMyData();
+  
+  const {aboutMe } = userInfo;
   return (
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-      <br />
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum</p>
+    <p>{aboutMe}</p>
   )
 }
 
 const PersonalInfo = () => {
+  const [userInfo] = useMyData();
+  
+  const {  religion,  gender, height,jobSector ,marital_status ,profile , state , weight, education,qualifications , work ,yearlyIncome,drinkHabit,foodHabit} = userInfo;
+  console.log(userInfo);
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2">
-      <div className="">
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-      </div>
-      <div className="">
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-        <Info title='Name' value="Dua Lipa" />
-      </div>
+     <div className="">
+                <Info title="Gender" value={gender} />
+                <Info title="Height" value={height} />
+                <Info
+                  title="Marital Status
+"
+                  value={marital_status}
+                />
+                <Info title="Profile" value={profile} />
+                <Info title="Religion" value={religion} />
+                <Info title="State" value={state} />
+                <Info title="Weight" value={weight} />
+              </div>
+              <div className="">
+                <Info title="Education" value={education} />
+                <Info title="JobSector" value={jobSector} />
+                <Info title="Qualifications" value={qualifications} />
+                <Info title="Work" value={work} />
+                <Info title="Yearly Income" value={yearlyIncome} />
+                <Info title="Drink Habbit" value={drinkHabit} />
+                <Info title="Food Habbit" value={foodHabit} />
+              </div>
     </div>
   )
 }
 
 // contact info 
 const ContactInfo = () => {
+  const [userInfo] = useMyData();
+  
+  const { country,   mobile,email,city , state } = userInfo;
+  console.log(userInfo);
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2 ">
         <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
           <BsTelephone className="text-2xl" />
         </div>
-        <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Phone Number:</span>(704) 555-0127</p>
+        <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Phone Number:</span>{mobile}</p>
       </div>
       <div className="flex items-center gap-2">
         <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
           <AiOutlineMail className="text-2xl" />
         </div>
-        <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Email:</span>example@name.com</p>
+        <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Email:</span>{email}</p>
       </div>
       <div className="flex items-center gap-2">
         <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
           <CiLocationOn className="text-2xl" />
         </div>
-        <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Location:</span>Nirala abashikh alaka, Rd-05, khulna</p>
+        <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Location:</span>{state} {city} {country}</p>
       </div>
     </div>
   )
@@ -209,15 +237,15 @@ const ContactInfo = () => {
 
 // hobbies
 const Hobbies = () => {
+  const [userInfo] = useMyData();
+  
+  const {interests} = userInfo;
+  console.log(userInfo);
   return (
     <div className="flex gap-3 flex-wrap">
-      <HBox value="Gaming" />
-      <HBox value="Gaming" />
-      <HBox value="Gaming" />
-      <HBox value="Gaming" />
-      <HBox value="Gaming" />
-      <HBox value="Gaming" />
-      <HBox value="Gaming" />
+          {interests?.map((interest, index) => (
+        <HBox key={index} value={interest} />
+      ))}
     </div>
   )
 }
