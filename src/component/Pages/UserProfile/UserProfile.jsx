@@ -24,7 +24,7 @@ import useMyData from "../../../Hooks/useMyData";
 const UserProfile = () => {
   const [userInfo] = useMyData();
   
-  const { profileImage, name} = userInfo;
+  const { profileImage, name,email} = userInfo;
   console.log(userInfo);
 
   return (
@@ -46,7 +46,7 @@ const UserProfile = () => {
                 <div className="flex justify-between ">
                   <div className="">
                     <p className="font-alice text-[30px] lg:text-[30px]  text-[#272932]">{name}</p>
-                    <p>example@name.com</p>
+                    <p>{email}</p>
                   </div>
                   <div className="flex gap-2 items-end">
                     <button className="bg-primary-300 px-[15px] py-[10px] rounded-full"><img className="" src={share} alt="" /></button>
