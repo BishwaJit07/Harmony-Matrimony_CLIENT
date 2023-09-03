@@ -10,12 +10,11 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-
 const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
 
 const AuthoritySignUp = () => {
   const navigate = useNavigate("/");
-  const [authority, setAuthority] = useState({});
+  const [authority, setAuthority] = useState('');
   console.log(authority);
   const [Error, setError] = useState("");
   const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -36,8 +35,8 @@ const AuthoritySignUp = () => {
 
   const onSubmit = (data) => {
     const formData = new FormData();
-    formData.append('image', data.image[0])
-    
+    formData.append("image", data.image[0]);
+
     if (confirmPassword !== data.password) {
       setError("Passwords do not match");
       return;
@@ -45,11 +44,11 @@ const AuthoritySignUp = () => {
 
     fetch(image_hosting_url, {
       method: "POST",
-      body: formData
-  })
-  .then(res => res.json())
-  .then(imgResponse => {
-      if (imgResponse.success) {
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgResponse) => {
+        if (imgResponse.success) {
           const imgUrl = imgResponse.data.display_url;
           createUser(data.email, data.password).then((result) => {
             const loggedUser = result.user;
@@ -62,6 +61,7 @@ const AuthoritySignUp = () => {
                   email: data.email,
                   profileImage: imgUrl,
                   role: authority,
+                  status: "pending"
                 };
                 console.log(saveUser);
                 fetch("https://soulmates-server-two.vercel.app/authority", {
@@ -90,33 +90,10 @@ const AuthoritySignUp = () => {
               })
               .catch((error) => setError(error.message));
           });
-
-      }
-  })
+        }
+      });
   };
-  const authorityBtn = <>
-  <div className="flex gap-5 mt-3">
-          <label className="cursor-pointer">
-            <input
-              type="radio"
-              className="peer sr-only"
-              name="authority"
-              onChange={() => setAuthority({ authority : admin })}
-            />
-            <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
-              <div className="flex flex-col ">
-                <div className="flex  gap-1 items-center justify-center px-2">
-                  <p>
-                    <span value="Gender" className="sm:text-lg ">
-                     Admin
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </label>
-        </div>
-  </>
+
   return (
     <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
       {/* Title */}
@@ -136,47 +113,47 @@ const AuthoritySignUp = () => {
           Welcome to SoulMate | Authority
         </p>
         {/* authority button start*/}
-        <div className="flex gap-5 mt-3">
-          <label className="cursor-pointer">
-            <input
-              type="radio"
-              className="peer sr-only"
-              name="authority"
-              onChange={() => setAuthority({ authority : 'admin' })}
-            />
-            <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
-              <div className="flex flex-col ">
-                <div className="flex  gap-1 items-center justify-center px-2">
-                  <p>
-                    <span value="Gender" className="sm:text-lg ">
-                     Admin
-                    </span>
-                  </p>
+        <div className="flex justify-center">
+          <div className="flex gap-5 mt-3">
+            <label className="cursor-pointer">
+              <input
+                type="radio"
+                className="peer sr-only"
+                name="authority"
+                onChange={() => setAuthority("admin")}
+              />
+              <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+                <div className="flex flex-col ">
+                  <div className="flex  gap-1 items-center justify-center px-2">
+                    <p>
+                      <span value="Gender" className="sm:text-lg ">
+                        Admin
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </label>
-        </div>
-        <div className="flex gap-5 mt-3">
-          <label className="cursor-pointer">
-            <input
-              type="radio"
-              className="peer sr-only"
-              name="authority"
-              onChange={() => setAuthority({ authority : 'support' })}
-            />
-            <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
-              <div className="flex flex-col ">
-                <div className="flex  gap-1 items-center justify-center px-2">
-                  <p>
-                    <span className="sm:text-lg ">
-                     Support
-                    </span>
-                  </p>
+            </label>
+          </div>
+          <div className="flex gap-5 mt-3">
+            <label className="cursor-pointer">
+              <input
+                type="radio"
+                className="peer sr-only"
+                name="authority"
+                onChange={() => setAuthority("support")}
+              />
+              <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+                <div className="flex flex-col ">
+                  <div className="flex  gap-1 items-center justify-center px-2">
+                    <p>
+                      <span className="sm:text-lg ">Support</span>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </label>
+            </label>
+          </div>
         </div>
         {/* authority button end*/}
 
