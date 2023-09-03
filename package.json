@@ -26,6 +26,7 @@
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-awesome-reveal": "^4.2.5",
     "react-dom": "^18.2.0",
     "react-facebook": "^9.0.12",
@@ -41,6 +42,7 @@
     "react-router-dom": "^6.14.2",
     "react-stickynode": "^4.1.0",
     "react-vertical-timeline-component": "^3.6.0",
+    "recharts": "^2.8.0",
     "sort-by": "^0.0.2",
     "sweetalert2": "^11.6.13",
     "swiper": "^10.2.0"
