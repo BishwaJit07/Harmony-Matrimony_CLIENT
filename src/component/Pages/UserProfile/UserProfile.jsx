@@ -22,19 +22,19 @@ const UserProfile = () => {
     <div className="max-w-7xl mx-auto mt-4">
 
       {/* grid section */}
-      <div className="flex gap-4 font-lato text-[#3E4A5B]">
+      <div className="flex flex-col md:flex-row gap-4 font-lato text-[#3E4A5B]">
         {/* user info section */}
-        <div className="w-[60%] ">
+        <div className="md:w-[60%] ">
             {/* banner and profile img */}
           <div className="mb-4 border border-[#C3CAD5] rounded-2xl overflow-hidden">
             <div className="relative">
               <img className='w-full h-[180px] object-cover' src={banner} alt="" />
               <img className='absolute top-[50%] left-5 h-[150px] w-[150px] object-cover object-top rounded-full border-[3px] border-l-0 border-primary-400' src={pic} alt="" />
             </div>
-            <div className="flex gap-6 p-2">
-              <div className="h-[150px] w-[150px] "></div> {/* spacer */}
+            <div className="flex flex-col md:flex-row gap-6 p-2">
+              <div className="h-[30px] md:h-[150px] w-[150px] md:block"></div> {/* spacer */}
               <div className="w-full mx-4">
-                <div className="flex justify-between ">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between ">
                   <div className="">
                     <p className="font-alice text-[30px] lg:text-[30px]  text-[#272932]">Cameron Williamson</p>
                     <p>example@name.com</p>
@@ -45,7 +45,7 @@ const UserProfile = () => {
                   </div>
                 </div>
                 {/* follow section */}
-                <div className="flex justify-between mt-5">
+                <div className="flex justify-between mt-5 mr-8 md:mr-0">
                   <div className="text-[18px] text-center">
                     <p className="font-bold">100</p>
                     <p>Sent Interested</p>
@@ -54,7 +54,7 @@ const UserProfile = () => {
                     <p className="font-bold">400</p>
                     <p>Followers</p>
                   </div>
-                  <div className="text-[18px] text-center">
+                  <div className="text-[18px] text-center ">
                     <p className="font-bold">2500</p>
                     <p>Following</p>
                   </div>
@@ -71,7 +71,7 @@ const UserProfile = () => {
         </div>
 
         {/* other section */}
-        <div className=" w-[40%]">
+        <div className=" md:w-[40%]">
           <BoxBorderContent title="Hobbies" content={<Hobbies />}/>
           <BoxBorderContent title="Social Media" content={<SocialMedia />}/>
           <Plan />
