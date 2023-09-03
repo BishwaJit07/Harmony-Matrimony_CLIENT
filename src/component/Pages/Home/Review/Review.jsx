@@ -54,7 +54,7 @@ const Review = () => {
                             <div className=' w-full border border-gray-200 bg-slate-100 '>
                                 <div  className="lg:flex flex-col-reverse xl:flex-row p-5 text-black ">
                                     <div className='lg:mx-5 mx-2'>
-                                        <p className='text-sm pt-5 font-medium'>{review.review} <span className='text-red-600'>See More</span></p>
+                                        <p className='text-sm pt-5 font-medium '>{review.review} <span className='text-red-600'>See More</span></p>
                                         <div className='lg:mt-10' >
                                             <h3 className='text-xxl font-serif italic'>{review.coupleName}</h3>
                                             <p className='text-sm'>{review.location}</p>
@@ -68,7 +68,7 @@ const Review = () => {
                         </SwiperSlide>)
                     }
 
-                    <div className=' absolute xl:-left-[600px] top-72'>
+                    <div className=' absolute  xl:-left-[510px] top-[300px]'>
                         <SwiperNavButtons></SwiperNavButtons>
                     </div>
                     <h3 className='fixed top-2 -left-14 text-6xl text-gray-400 hidden md:flex'><RiDoubleQuotesL /></h3>

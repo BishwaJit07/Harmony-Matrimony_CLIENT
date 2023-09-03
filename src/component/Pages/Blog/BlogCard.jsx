@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
+
+import {motion, AnimatePresence} from 'framer-motion'
+
 import { AiOutlineHeart, AiFillHeart, AiOutlineCalendar , AiOutlineArrowRight} from 'react-icons/ai'
 import { useState } from "react";
 
 
 
+
 const BlogCard = ({ data, react, setReact }) => {
 const [love, setLove] = useState(false);
-  const handleReact = id => {
+
+  const handleReactInc = id => {
     console.log(id);
     fetch(`https://soulmates-server-two.vercel.app/blogs/${id}`, {
       method: "PATCH",
@@ -19,9 +24,27 @@ const [love, setLove] = useState(false);
         }
       })
   }
+  const handleReactDec = id => {
+    console.log(id);
+    fetch(`https://harmony-matrimony-server.vercel.app/blogss/${id}`, {
+      method: "PATCH",
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          setReact(!react)
+        }
+      })
+  }
 
   return (
-    <>
+    <motion.div 
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      layout
+    >
+      <AnimatePresence>
       <div className="card card-compact w-full bg-base-200 shadow-xl mb-10 relative ">
         <figure>
           <img
@@ -41,7 +64,9 @@ const [love, setLove] = useState(false);
 
           <div className="flex justify-between">
             <div className="flex text-xl text-red-600">
-              <button onClick={() => handleReact(data?._id)} className="text-2xl"><AiOutlineHeart /></button>
+              {
+                love ? <button onClick={() => handleReactDec(data?._id)}  className="text-2xl"><AiFillHeart onClick={() => setLove(!love)} /></button> : <button onClick={() => handleReactInc(data?._id)} className="text-2xl"><AiOutlineHeart onClick={() => setLove(!love)} /></button>
+              }
               <p className="font-medium">{data?.react}</p>
             </div>
             <div className="flex">
@@ -54,7 +79,8 @@ const [love, setLove] = useState(false);
             <>{data?.details.slice(0, 150)}... </>} <button><Link to={`/blogDetails/${data._id}`} className="text-red-600 font-semibold">Read more</Link></button> </p>
         </div>
       </div>
-    </>
+      </AnimatePresence>
+    </motion.div>
   );
 };
 

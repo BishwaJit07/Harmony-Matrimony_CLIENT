@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 import LeftCard from "./LeftCard";
-// import LatestBlog from "./LatestBlog";
+import LatestBlog from "./LatestBlog";
 import Loading from "../../../Shared/Loading";
 import { Helmet } from "react-helmet";
 const Blog = () => {
@@ -46,11 +46,13 @@ const Blog = () => {
       </Helmet>
 
       <div className="secondary h-12 lg:h-[200px] bg-[url('https://i.ibb.co/txC9WyP/Photo.jpg')]">
-        <h1 className="text-center lg:pt-16 pt-0 lg:text-5xl text-lg font-semibold text-[#FF725E] ">Blog & Articles</h1>
+
+        <h1 className="text-center lg:pt-16 pt-0 lg:text-5xl text-lg font-semibold text-red-600 ">Blog & Articles</h1>
 
       </div>
-      <div className="flex justify-center gap-16 ">
-        <div className="lg:w-2/3 lg:mx-5 mx-2 w-full lg:ml-28 mt-10">
+      <div className="flex flex-col-reverse lg:flex-row justify-center gap-16 ">
+        <div className="lg:w-2/3  lg:mx-5 mx-2 w-full lg:ml-28 mt-10">
+
           <h1 className="text-4xl font-semibold mb-8 font-serif text-center">ALL BLOG</h1>
           <div className="grid xl:grid-cols-2 gap-5">
             {blogData.map((data) => (
@@ -58,7 +60,7 @@ const Blog = () => {
             ))}
           </div>
         </div>
-        <div className="w-1/3 hidden lg:block lg:mr-28  mt-10">
+        <div className="w-full lg:w-1/3 lg:mr-28  mt-10">
 
           <div className="tags-section mb-5">
             <div className="border-b-2 border-red-700 py-2">
@@ -75,7 +77,7 @@ const Blog = () => {
             </div>
           </div>
             <LeftCard></LeftCard>
-            {/* <LatestBlog></LatestBlog> */}
+            <LatestBlog></LatestBlog>
         </div>
       </div>
     </div>

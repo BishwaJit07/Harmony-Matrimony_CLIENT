@@ -1,0 +1,8 @@
+
+  .footer {
+    position: sticky;
+    bottom: 0;
+    background-color: #080373; /* Change this to your desired background color */
+    color: white;
+    text-align: center;
+  }

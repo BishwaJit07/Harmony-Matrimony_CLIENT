@@ -12,24 +12,205 @@ import follow from '../../../../assets/other/follow.svg'
 import message from '../../../../assets/other/message.svg'
 import share from '../../../../assets/other/share.svg'
 import bookmark from '../../../../assets/other/bookmark.svg'
-import age from '../../../../assets/other/age.svg'
-import height from '../../../../assets/other/height.svg'
+import ages from '../../../../assets/other/age.svg'
+import heights from '../../../../assets/other/height.svg'
 import job from '../../../../assets/other/job.svg'
-import city from '../../../../assets/other/city.svg'
+import citys from '../../../../assets/other/city.svg'
 import facebook from '../../../../assets/other/facebook.svg'
 import linkedin from '../../../../assets/other/linkedin.svg'
 import insta from '../../../../assets/other/insta.svg'
 import twitter from '../../../../assets/other/twitter.svg'
+import { useEffect, useState } from "react";
+
+import { useParams } from 'react-router-dom';
 
 const Profile2 = () => {
+
+  const params = useParams();
+  const [user, setUser] = useState([]);
+  useEffect(() => {
+      fetch(`https://soulmates-server-two.vercel.app/specificUser/${params.id}`)
+          .then(res => res.json())
+          .then(data => setUser(data));
+  }, [])
+  const { profileImage, name, country, religion,  mobile,email, gender, age, height,jobSector ,city ,aboutMe ,marital_status ,profile , state , weight, education,qualifications , work ,yearlyIncome,drinkHabit,foodHabit} = user
+
+
+ 
+
+  console.log(user);
+  
+
   return (
     <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-lato">
-        {/* photo section */}
-        <div className="">
+      
+        
+        {/* info section */}
+        <div className="bg-[#F0F2F5] p-5 rounded-2xl">
+
+          {/* img and name section */}
+          <div className="flex gap-4 items-start flex-col lg:flex-row">
+            {/* profile rounded img */}
+            <div className="w-full lg:w-auto">
+              <img className="h-[200px] w-[200px] mx-auto lg:h-[100px] lg:w-[100px] object-top object-cover rounded-full" src={profileImage} alt="" />
+            </div>
+            {/* name and info */}
+            <div className="w-[80%]">
+              <p className="font-alice text-[30px] lg:text-[35px] ">{name}</p>
+              <p className="flex text-[16px] lg:text-[18px] font-lato items-start lg:items-center gap-2 lg:gap-1"><span><img className=" h-[20px] w-[20px] lg:h-6 lg:w-6 " src={location} alt="" /></span> {city}  {country}</p>
+              <div className="flex flex-col lg:flex-row w-full justify-between mt-4 gap-2 lg:">
+                <div className="flex gap-4 ">
+                  <button className='text-[15px] px-4 bg-primary-500 rounded-full text-white py-[10px] flex justify-center items-center gap-1'><span><img className="hidden lg:block" src={follow} alt="" /></span> Sent Interested</button>
+                  <button className='text-[15px] px-4 bg-secondary-500 rounded-full text-white py-[10px]  flex justify-center items-center gap-1'><span><img className="hidden lg:block" src={message} alt="" /></span>Message</button>
+                </div>
+                <div className="flex gap-4">
+                  <button className="bg-[#A4B0C1] px-[15px] py-[10px] rounded-full"><img className=""  src={share} alt="" /></button>
+                  <button className="bg-[#A4B0C1] px-[15px] py-[10px] rounded-full"><img className="" src={bookmark} alt="" /></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* status */}
+          <div className="">
+            <Title title="Status"/>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+
+              <div className="p-3 bg-white rounded-2xl">
+                <img className="h-[35px] w-[35px] mb-3 mx-auto" src={ages} alt="" />
+                <div className="text-center text-[18px]">
+                  <p>AGE:</p>
+                  <p>{age}</p>
+                </div>
+              </div>
+              <div className="p-3 bg-white rounded-2xl">
+                <img className="h-[35px] w-[35px] mb-3 mx-auto" src={heights} alt="" />
+                <div className="text-center text-[18px]">
+                  <p>HEIGHT:</p>
+                  <p>{height}</p>
+                </div>
+              </div>
+              <div className="p-3 bg-white rounded-2xl">
+                <img className="h-[35px] w-[35px] mb-3 mx-auto" src={citys} alt="" />
+                <div className="text-center text-[18px]">
+                  <p>CITY:</p>
+                  <p>{city}</p>
+                </div>
+              </div>
+              <div className="p-3 bg-white rounded-2xl">
+                <img className="h-[35px] w-[35px] mb-3 mx-auto" src={job} alt="" />
+                <div className="text-center text-[18px]">
+                  <p>JOB:</p>
+                  <p>{jobSector}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <BorderBottom />
+          {/* About me */}
+          <div className="">
+            <Title title='About me'/>
+            <p className="text-[#3E4A5B]">
+              {aboutMe}
+            </p>
+          </div>
+
+          <BorderBottom />
+          {/* Personal Info */}
+          <div className="">
+            <Title title="Personal Info"/>
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              <div className="">
+                <Info title='Gender' value={gender}/>
+                <Info title='Height' value={height} />
+                <Info title='Marital Status
+' value={marital_status
+} />
+                <Info title='Profile' value={profile} />
+                <Info title='Religion' value={religion} />
+                <Info title='State' value={state} />
+                <Info title='Weight' value={weight} />
+              </div>
+              <div className="">
+                <Info title='Education' value={education} />
+                <Info title='JobSector' value={jobSector} />
+                <Info title='Qualifications' value={qualifications} />
+                <Info title='Work' value={work} />
+                <Info title='Yearly Income' value={yearlyIncome} />
+                <Info title='Drink Habbit' value={drinkHabit} />
+                <Info title='Food Habbit' value={foodHabit} />
+              </div>
+            </div>
+          </div>
+
+          <BorderBottom />
+          {/* Contact Info */}
+          <div className="">
+            <Title title='Contact Info'/>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 ">
+                <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
+                  <BsTelephone className="text-2xl"/>
+                </div>
+                <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Phone Number:</span>{mobile}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
+                  <AiOutlineMail className="text-2xl" />
+                </div>
+                <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Email:</span>{email}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
+                  <CiLocationOn className="text-2xl" />
+                </div>
+                <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Location:</span>{city},{country}</p>
+              </div>
+            </div>
+          </div>
+
+          <BorderBottom />
+          <Title title='Hobbies'/>
+          {/* Hobbies Section */}
+          <div className="flex gap-3 flex-wrap">
+            <HBox value="Gaming" />
+            <HBox value="Gaming" />
+            <HBox value="Gaming" />
+            <HBox value="Gaming" />
+            <HBox value="Gaming" />
+            <HBox value="Gaming" />
+            <HBox value="Gaming" />
+          </div>
+
+          <BorderBottom />
+          <Title title='Social Media'/>
+          <div className="flex gap-2">
+            <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
+              <img src={facebook} className="text-2xl" />
+            </div>
+            <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
+              <img src={linkedin} className="text-2xl" />
+            </div>
+            <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
+              <img src={insta} className="text-2xl" />
+            </div>
+            <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
+              <img src={twitter} className="text-2xl" />
+            </div>
+          </div>
+          
+          {/* info div */}
+        </div>
+
+  {/* photo section */}
+  <div className="">
           {/* photo gallery */}
           <div className="flex flex-col md:flex-row gap-2">
-            <img className='mx-4 md:mx-0 h-[590px] rounded-2xl object-cover' src={img} alt="" />
+            <img className='mx-4 md:mx-0 h-[590px] rounded-2xl object-cover' src={profileImage} alt="" />
 
             {/* small imgs */}
             <div className="flex flex-row md:flex-col gap-1 md:gap-4 px-1">
@@ -85,165 +266,6 @@ const Profile2 = () => {
           </div>
         </div>
         
-        {/* info section */}
-        <div className="bg-[#F0F2F5] p-5 rounded-2xl">
-
-          {/* img and name section */}
-          <div className="flex gap-4 items-start flex-col lg:flex-row">
-            {/* profile rounded img */}
-            <div className="w-full lg:w-auto">
-              <img className="h-[200px] w-[200px] mx-auto lg:h-[100px] lg:w-[100px] object-top object-cover rounded-full" src={img} alt="" />
-            </div>
-            {/* name and info */}
-            <div className="w-[80%]">
-              <p className="font-alice text-[30px] lg:text-[35px] ">Cameron Williamson</p>
-              <p className="flex text-[16px] lg:text-[18px] font-lato items-start lg:items-center gap-2 lg:gap-1"><span><img className=" h-[20px] w-[20px] lg:h-6 lg:w-6 " src={location} alt="" /></span> Nirala abashikh alaka, Rd-05, khulna</p>
-              <div className="flex flex-col lg:flex-row w-full justify-between mt-4 gap-2 lg:">
-                <div className="flex gap-4 ">
-                  <button className='text-[15px] px-4 bg-primary-500 rounded-full text-white py-[10px] flex justify-center items-center gap-1'><span><img className="hidden lg:block" src={follow} alt="" /></span> Sent Interested</button>
-                  <button className='text-[15px] px-4 bg-secondary-500 rounded-full text-white py-[10px]  flex justify-center items-center gap-1'><span><img className="hidden lg:block" src={message} alt="" /></span>Message</button>
-                </div>
-                <div className="flex gap-4">
-                  <button className="bg-[#A4B0C1] px-[15px] py-[10px] rounded-full"><img className=""  src={share} alt="" /></button>
-                  <button className="bg-[#A4B0C1] px-[15px] py-[10px] rounded-full"><img className="" src={bookmark} alt="" /></button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* status */}
-          <div className="">
-            <Title title="Status"/>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-
-              <div className="p-3 bg-white rounded-2xl">
-                <img className="h-[35px] w-[35px] mb-3 mx-auto" src={age} alt="" />
-                <div className="text-center text-[18px]">
-                  <p>AGE:</p>
-                  <p>24</p>
-                </div>
-              </div>
-              <div className="p-3 bg-white rounded-2xl">
-                <img className="h-[35px] w-[35px] mb-3 mx-auto" src={height} alt="" />
-                <div className="text-center text-[18px]">
-                  <p>HEIGHT:</p>
-                  <p>24</p>
-                </div>
-              </div>
-              <div className="p-3 bg-white rounded-2xl">
-                <img className="h-[35px] w-[35px] mb-3 mx-auto" src={city} alt="" />
-                <div className="text-center text-[18px]">
-                  <p>CITY:</p>
-                  <p>24</p>
-                </div>
-              </div>
-              <div className="p-3 bg-white rounded-2xl">
-                <img className="h-[35px] w-[35px] mb-3 mx-auto" src={job} alt="" />
-                <div className="text-center text-[18px]">
-                  <p>JOB:</p>
-                  <p>24</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <BorderBottom />
-          {/* About me */}
-          <div className="">
-            <Title title='About me'/>
-            <p className="text-[#3E4A5B]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-              <div className="my-4"></div>
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum </p>
-          </div>
-
-          <BorderBottom />
-          {/* Personal Info */}
-          <div className="">
-            <Title title="Personal Info"/>
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="">
-                <Info title='Name' value="Dua Lipa"/>
-                <Info title='Name' value="Dua Lipa" />
-                <Info title='Name' value="Dua Lipa" />
-                <Info title='Name' value="Dua Lipa" />
-                <Info title='Name' value="Dua Lipa" />
-                <Info title='Name' value="Dua Lipa" />
-                <Info title='Name' value="Dua Lipa" />
-              </div>
-              <div className="">
-                <Info title='Name' value="Dua Lipa" />
-                <Info title='Name' value="Dua Lipa" />
-                <Info title='Name' value="Dua Lipa" />
-                <Info title='Name' value="Dua Lipa" />
-                <Info title='Name' value="Dua Lipa" />
-                <Info title='Name' value="Dua Lipa" />
-                <Info title='Name' value="Dua Lipa" />
-              </div>
-            </div>
-          </div>
-
-          <BorderBottom />
-          {/* Contact Info */}
-          <div className="">
-            <Title title='Contact Info'/>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 ">
-                <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-                  <BsTelephone className="text-2xl"/>
-                </div>
-                <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Phone Number:</span>(704) 555-0127</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-                  <AiOutlineMail className="text-2xl" />
-                </div>
-                <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Email:</span>example@name.com</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-                  <CiLocationOn className="text-2xl" />
-                </div>
-                <p className="text-[#3E4A5B] text-[18px]"> <span className="text-[#8695AC] mr-1">Location:</span>Nirala abashikh alaka, Rd-05, khulna</p>
-              </div>
-            </div>
-          </div>
-
-          <BorderBottom />
-          <Title title='Hobbies'/>
-          {/* Hobbies Section */}
-          <div className="flex gap-3 flex-wrap">
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
-          </div>
-
-          <BorderBottom />
-          <Title title='Social Media'/>
-          <div className="flex gap-2">
-            <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-              <img src={facebook} className="text-2xl" />
-            </div>
-            <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-              <img src={linkedin} className="text-2xl" />
-            </div>
-            <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-              <img src={insta} className="text-2xl" />
-            </div>
-            <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-              <img src={twitter} className="text-2xl" />
-            </div>
-          </div>
-          
-          {/* info div */}
-        </div>
-
-        
       </div>
     </div>
   );
@@ -257,7 +279,7 @@ const BorderBottom = () => {
 const Title = ({title}) => {
   return <p className="font-alice text-[25px] mt-6 mb-4">{title}:</p>
 }
-const Info = ({title, value}) => {
+export const Info = ({title, value}) => {
   return (
     <div className="flex items-center text-[#3E4A5B] text-[18px] mb-2">
       <BsArrowRightShort className="text-lg"/>

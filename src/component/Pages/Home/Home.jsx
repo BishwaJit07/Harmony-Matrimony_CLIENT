@@ -38,10 +38,10 @@ const Home = () => {
         {/* <SearchFunction></SearchFunction> */}
         {/* <BestRecommendation /> */}
 
-        <Review/>
+
         <Gallary />
-        <SweetMemories/>
-        <HappyStory />
+        {/* <SweetMemories/> */}
+        <Review/>
         <MessageUsFb />
 
       </div>

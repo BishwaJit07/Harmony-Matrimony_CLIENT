@@ -49,7 +49,7 @@ const BestRecommendation2 = () => {
        >
          {datas.map((item) => (
            <SwiperSlide key={item._id} className="group relative">
-             <Link to={`/patnerProfile/${item?._id}`}>
+             <Link to={`/profile/${item?._id}`}>
                {/* SwiperSlide content */}
                <div className="relative rounded-2xl overflow-hidden hover:scale-105 duration-300 hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)] mt-10">
                  <img className="rounded-xl object-cover w-[300px] h-[300px]" src={item?.profileImage} alt="" />
