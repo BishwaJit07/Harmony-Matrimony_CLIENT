@@ -39,8 +39,12 @@ import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 import Profile2 from "../component/Pages/MyProfle/Profile2/Profile2";
+
+import AdminHome from "../component/Pages/Dashboard/AdminHome/AdminHome";
+
 import ChatRoom from "../ChatApp/ChatRoom/ChatRoom";
 import UserProfile from "../component/Pages/UserProfile/UserProfile";
+
 
 
 
@@ -51,12 +55,14 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+
         path: '/userProfile',
         element: <UserProfile />
       },
       {
         path: '/profile/:id',
         element: <Profile2 />
+
       },
       {
         path: "/",
@@ -79,18 +85,19 @@ const router = createBrowserRouter([
         element: <AddBlog></AddBlog>,
       },
       {
-        path: '/blogDetails/:id',
+        path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`)
+        loader: ({ params }) =>
+          fetch(
+            `https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`
+          ),
       },
       {
         path: "/termCondition",
         element: <TermCondition></TermCondition>,
       },
 
-
       {
-
         path: "/service",
         element: <Service></Service>,
       },
@@ -109,37 +116,26 @@ const router = createBrowserRouter([
       {
         path: "/paymentOne",
 
-
-        element: <PaymentCard></PaymentCard>
-
+        element: <PaymentCard></PaymentCard>,
       },
-
-
 
       {
         path: "/payment/success/:tranId",
-        element: <PaymentSuccess></PaymentSuccess>
+        element: <PaymentSuccess></PaymentSuccess>,
       },
       {
         path: "/payment/fail/:tranId",
 
-
-        element: <PaymentFail></PaymentFail>
-
-
+        element: <PaymentFail></PaymentFail>,
       },
       {
         path: "/happy",
         element: <Happy />,
       },
       {
-        path: '/plans',
-        element: <Plans></Plans>
-
-
+        path: "/plans",
+        element: <Plans></Plans>,
       },
-
-
 
       {
         path: "/contact-us",
@@ -154,7 +150,6 @@ const router = createBrowserRouter([
         element: <AllUser></AllUser>,
       },
       {
-
         path: "/patnerProfile/:id",
         element: <PatnerProfile></PatnerProfile>,
       },
@@ -171,19 +166,22 @@ const router = createBrowserRouter([
         element: <SingleBlogs />,
       },
       {
-
-        path: '/myProfile',
-        element: <MyProfile></MyProfile>
+        path: "/myProfile",
+        element: <MyProfile></MyProfile>,
       },
-     
+
       {
-        path: '/signup',
-        element: <SignUp />
+        path: "/authFrom",
+        element: <AuthForm></AuthForm>,
+      },
+
+      {
+        path: "/signup",
+        element: <SignUp />,
       },
       {
-        path: '/select',
-        element: <SearchFunction></SearchFunction>
-
+        path: "/select",
+        element: <SearchFunction></SearchFunction>,
       },
       {
         path: "/service",
@@ -193,44 +191,42 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-          fetch(
-            `https://soulmates-server-two.vercel.app/service/${params.id}`
-          ),
+          fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
       },
-    ]
+    ],
   },
 
   {
     path: "/",
     children: [
       {
-        path: '/userinfo1',
-        element: <UserInfo1></UserInfo1>
+        path: "/userinfo1",
+        element: <UserInfo1></UserInfo1>,
       },
       {
-        path: '/userinfo2',
-        element: <Userinfo2 />
+        path: "/userinfo2",
+        element: <Userinfo2 />,
       },
       {
-        path: '/userinfo3',
-        element: <Userinfo3 />
+        path: "/userinfo3",
+        element: <Userinfo3 />,
       },
       {
-        path: '/userinfo4',
-        element: <Userinfo4 />
+        path: "/userinfo4",
+        element: <Userinfo4 />,
       },
       {
-        path: '/userinfo5',
-        element: <Userinfo5 />
+        path: "/userinfo5",
+        element: <Userinfo5 />,
       },
       {
-        path: '/userinfo6',
-        element: <Userinfo6 />
+        path: "/userinfo6",
+        element: <Userinfo6 />,
       },
       {
-        path: '/userinfo7',
-        element: <Userinfo7 />
-      }
+        path: "/userinfo7",
+        element: <Userinfo7 />,
+      },
     ],
   },
   {
@@ -239,8 +235,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
+        path: "adminUser",
+        element: <AdminHome></AdminHome>,
+      },
+      {
         path: "manageUser",
-        element: <MangeUsersX></MangeUsersX>
+        element: <MangeUsersX></MangeUsersX>,
       },
       {
         path: "allUser",
@@ -254,22 +254,20 @@ const router = createBrowserRouter([
         path: "addService",
         element: <AddService />,
       },
-
-    ]
+    ],
   },
   {
     path: "/",
     children: [
       {
         path: "authoritysignin",
-        element: <AuthoritySignIn />
+        element: <AuthoritySignIn />,
       },
       {
         path: "authoritysignup",
-        element: <AuthoritySignUp />
+        element: <AuthoritySignUp />,
       },
-    ]
-
-  }
+    ],
+  },
 ]);
 export default router;
