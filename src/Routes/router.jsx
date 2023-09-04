@@ -170,10 +170,7 @@ const router = createBrowserRouter([
         element: <MyProfile></MyProfile>,
       },
 
-      {
-        path: "/authFrom",
-        element: <AuthForm></AuthForm>,
-      },
+      
 
       {
         path: "/signup",
