@@ -13,7 +13,7 @@ const [love, setLove] = useState(false);
 
   const handleReactInc = id => {
     console.log(id);
-    fetch(`https://soulmates-server-two.vercel.app/blogs/${id}`, {
+    fetch(`https://harmony-matrimony-server.vercel.app/blogs/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())

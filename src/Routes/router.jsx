@@ -87,10 +87,9 @@ const router = createBrowserRouter([
       {
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) =>
-          fetch(
-            `https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`
-          ),
+
+        loader: ({ params }) => fetch(`https://harmony-matrimony-server.vercel.app/blogsDetails/${params.id}`)
+
       },
       {
         path: "/termCondition",
@@ -111,7 +110,7 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-          fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
+          fetch(`https://harmony-matrimony-server.vercel.app/service/${params.id}`),
       },
       {
         path: "/paymentOne",
@@ -188,7 +187,9 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
+
           fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
+
       },
     ],
   },

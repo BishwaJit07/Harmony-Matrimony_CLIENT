@@ -13,11 +13,13 @@ const MangeUsersX = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+
     fetch("https://harmony-matrimony-server.vercel.app/authority")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
         setLoading(false);
+
       })
       .catch((error) => {
         console.log(error);
@@ -29,6 +31,7 @@ const MangeUsersX = () => {
       <div className="flex justify-center h-screen items-center ">
         <span className="loading loading-bars loading-lg scale-150"></span>
       </div>
+
     );
   }
   const handleMakeApprove = (id) => {
@@ -39,6 +42,7 @@ const MangeUsersX = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
+
           Swal.fire({
             title: `He is approved now!`,
             showClass: {
@@ -48,6 +52,7 @@ const MangeUsersX = () => {
               popup: "animate__animated animate__fadeOutUp",
             },
           });
+=
         }
       });
   };
@@ -60,6 +65,7 @@ const MangeUsersX = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
+
           Swal.fire({
             title: `He is Denied now!`,
             showClass: {
