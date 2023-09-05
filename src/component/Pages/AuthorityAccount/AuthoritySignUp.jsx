@@ -48,7 +48,7 @@ const AuthoritySignUp = () => {
             role: null,
           };
           console.log(saveUser);
-          fetch("https://soulmates-server-two.vercel.app/authority", {
+          fetch("https://harmony-matrimony-server.vercel.app/authority", {
             method: "POST",
             headers: {
               "content-type": "application/json",

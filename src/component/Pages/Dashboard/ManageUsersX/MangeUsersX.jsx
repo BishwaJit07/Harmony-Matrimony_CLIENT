@@ -10,7 +10,7 @@ const MangeUsersX = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch('https://soulmates-server-two.vercel.app/authority')
+    fetch('https://harmony-matrimony-server.vercel.app/authority')
       .then(res => res.json())
       .then(data => {
         setUsers(data)
@@ -31,7 +31,7 @@ const MangeUsersX = () => {
   }
   const handleMakeAdmin = id =>{
     console.log(id)
-    fetch(`https://soulmates-server-two.vercel.app/makeAdmin/${id}`, {
+    fetch(`https://harmony-matrimony-server.vercel.app/makeAdmin/${id}`, {
             method:"PATCH"
         })
         .then(res => res.json())
@@ -51,7 +51,7 @@ const MangeUsersX = () => {
         })
   }
   const handleMakeSupport = id =>{
-    fetch(`https://soulmates-server-two.vercel.app/makeSupport/${id}`, {
+    fetch(`https://harmony-matrimony-server.vercel.app/makeSupport/${id}`, {
       method:"PATCH"
   })
   .then(res => res.json())
@@ -71,7 +71,7 @@ const MangeUsersX = () => {
   })
   }
   const handleDelete = id =>{
-    fetch(`https://soulmates-server-two.vercel.app/makeDelete/${id}`, {
+    fetch(`https://harmony-matrimony-server.vercel.app/makeDelete/${id}`, {
       method:"DELETE"
   })
   .then(res => res.json())

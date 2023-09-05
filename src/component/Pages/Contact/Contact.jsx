@@ -12,7 +12,7 @@ const Contact = () => {
     const message = form.message.value
     const contactData = {name, subject, email, status: 'pending', message}
 
-    fetch('https://soulmates-server-two.vercel.app/contact', {
+    fetch('https://harmony-matrimony-server.vercel.app/contact', {
         method: "POST",
         headers: {
           "content-type": "application/json"

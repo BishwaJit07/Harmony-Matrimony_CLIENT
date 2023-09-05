@@ -43,7 +43,8 @@
     "react-vertical-timeline-component": "^3.6.0",
     "sort-by": "^0.0.2",
     "sweetalert2": "^11.6.13",
-    "swiper": "^10.2.0"
+    "swiper": "^10.2.0",
+    "tailwind-scrollbar": "^3.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
