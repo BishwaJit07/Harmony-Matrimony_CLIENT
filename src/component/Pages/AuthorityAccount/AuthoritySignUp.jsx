@@ -121,6 +121,7 @@ const AuthoritySignUp = () => {
                 className="peer sr-only"
                 name="authority"
                 onChange={() => setAuthority("admin")}
+                required
               />
               <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
                 <div className="flex flex-col ">
@@ -142,6 +143,7 @@ const AuthoritySignUp = () => {
                 className="peer sr-only"
                 name="authority"
                 onChange={() => setAuthority("support")}
+                required
               />
               <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
                 <div className="flex flex-col ">

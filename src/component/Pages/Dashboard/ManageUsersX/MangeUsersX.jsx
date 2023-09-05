@@ -1,16 +1,19 @@
 import { useContext, useEffect, useState } from "react";
-import MUTr from "./MUTr";
+import Pending from "./Pending";
 import { CiLight } from "react-icons/ci";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import "../../../../style.css";
 import FooterDashboard from "../FooterDashboard";
+import './ManageUser.css'
+import Approve from "./Approve";
+import Denied from "./Denied";
 const MangeUsersX = () => {
   const { user } = useContext(AuthContext);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://soulmates-server-two.vercel.app/authority")
+    fetch("https://harmony-matrimony-server.vercel.app/authority")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -29,7 +32,7 @@ const MangeUsersX = () => {
     );
   }
   const handleMakeApprove = (id) => {
-    fetch(`http://localhost:5000/makeApprove/${id}`, {
+    fetch(`https://harmony-matrimony-server.vercel.app/makeApprove/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -50,7 +53,7 @@ const MangeUsersX = () => {
   };
   const handleMakeDenied = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/makeDenied/${id}`, {
+    fetch(`https://harmony-matrimony-server.vercel.app/makeDenied/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -73,7 +76,7 @@ const MangeUsersX = () => {
   const approvedUsers = users.filter(user => user.status === 'approved');
   const deniedUsers = users.filter(user => user.status === 'denied');
   return (
-    <div className="relative overflow-x-auto  rounded-2xl px-6 w-[90%] mx-auto py-6 my-10  ">
+    <div className="relative overflow-x-auto  rounded-2xl px-6 w-[75%] mx-auto py-6 my-10 cards ">
       {/* Input field */}
       {/* <div className="flex items-center justify-between py-4 bg-white w-full">
         <label htmlFor="table-search" className="sr-only">Search</label>
@@ -87,28 +90,31 @@ const MangeUsersX = () => {
         </div>
       </div> */}
       {/* pending table */}
-      <table className="w-full text-sm text-left text-gray-500 overflow-hidden">
+      <h1 className="text-black text-4xl my-8 text-center font-serif">Pending Users</h1>
+      <table className="table w-full text-sm text-left text-gray-500 overflow-hidden card">
         {/* This is table HEAD */}
 
         <thead className="text-sm text-gray-700 uppercase bg-gray-50 ">
-          <tr>
-            <th scope="col" className="px-6 py-3">
+          <tr className="">
+            <th></th>
+            <th></th>
+            <th scope="col" className="">
               Name
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="">
              Pending
             </th>
-            <th scope="col" className="px-20 py-3">
+            <th scope="col" className=" ">
               Action
             </th>
           </tr>
         </thead>
 
-        {/* This is table body, all users goes here */}
+        {/* This is table body, pending users goes here */}
 
         <tbody className="">
           {pendingUsers.map((user, index) => (
-            <MUTr
+            <Pending
               key={user._id}
               user={user}
               index={index}
@@ -120,28 +126,31 @@ const MangeUsersX = () => {
       </table>
 
       {/* Approved Table */}
-      <table className="w-full text-sm text-left text-gray-500 overflow-hidden mt-5">
+      <h1 className="text-black text-4xl my-8 text-center font-serif">Approve Users</h1>
+      <table className="table w-full text-sm text-left text-gray-500 overflow-hidden card mt-5">
         {/* This is table HEAD */}
 
         <thead className="text-sm text-gray-700 uppercase bg-gray-50 ">
-          <tr>
-            <th scope="col" className="px-6 py-3">
+          <tr className="">
+            <th></th>
+            <th></th>
+            <th scope="col" className="">
               Name
             </th>
-            <th scope="col" className="px-6 py-3">
-              Approved
+            <th scope="col" className="">
+             Approve
             </th>
-            <th scope="col" className="px-20 py-3">
+            <th scope="col" className=" ">
               Action
             </th>
           </tr>
         </thead>
 
-        {/* This is table body, all users goes here */}
+        {/* This is table body, pending users goes here */}
 
         <tbody className="">
           {approvedUsers.map((user, index) => (
-            <MUTr
+            <Approve
               key={user._id}
               user={user}
               index={index}
@@ -152,28 +161,31 @@ const MangeUsersX = () => {
       </table>
 
       {/* Denied User Table */}
-      <table className="w-full text-sm text-left text-gray-500 overflow-hidden mt-5">
+      <h1 className="text-black text-4xl my-8 text-center font-serif">Denied Users</h1>
+      <table className="table w-full text-sm text-left text-gray-500 overflow-hidden card mt-5">
         {/* This is table HEAD */}
 
         <thead className="text-sm text-gray-700 uppercase bg-gray-50 ">
-          <tr>
-            <th scope="col" className="px-6 py-3">
+          <tr className="">
+            <th></th>
+            <th></th>
+            <th scope="col" className="">
               Name
             </th>
-            <th scope="col" className="px-6 py-3">
-              Denied
+            <th scope="col" className="">
+             Denied
             </th>
-            <th scope="col" className="px-20 py-3">
+            <th scope="col" className=" ">
               Action
             </th>
           </tr>
         </thead>
 
-        {/* This is table body, all users goes here */}
+        {/* This is table body, pending users goes here */}
 
         <tbody className="">
-          {deniedUsers?.map((user, index) => (
-            <MUTr
+          {deniedUsers.map((user, index) => (
+            <Denied
               key={user._id}
               user={user}
               index={index}
