@@ -33,7 +33,7 @@ const Profile2 = () => {
           .then(res => res.json())
           .then(data => setUser(data));
   }, [])
-  const { profileImage, name, country, religion,  mobile,email, gender, age, height,jobSector ,city ,aboutMe ,marital_status ,profile , state , weight, education,qualifications , work ,yearlyIncome,drinkHabit,foodHabit} = user
+  const { profileImage, name, country, religion,  mobile,email, gender, age, height,jobSector ,city ,aboutMe ,marital_status ,profile , state , weight, education,qualifications , work ,yearlyIncome,drinkHabit,foodHabit,interests} = user
 
 
  
@@ -238,13 +238,9 @@ const Profile2 = () => {
           <Title title='Hobbies'/>
           {/* Hobbies Section */}
           <div className="flex gap-3 flex-wrap">
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
-            <HBox value="Gaming" />
+          {interests?.map((interest, index) => (
+        <HBox key={index} value={interest} />
+      ))}
           </div>
 
           <BorderBottom />

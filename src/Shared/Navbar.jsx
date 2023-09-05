@@ -85,7 +85,7 @@ const Navbar = () => {
                   Logout
                 </button>
               </div>
-                <Link to="/myProfile">
+                <Link to="https://soulmates-server-two.vercel.app">
               <div className="avatar online">
                 <div className="w-11 rounded-full">
                 {userInfo?.profileImage ? <img className="rounded-full w-10 mr-3" src={userInfo?.profileImage} />  : <img src={noProfile} alt="Shoes" className="rounded-full w-10 mr-3"/>}

@@ -165,13 +165,13 @@ const router = createBrowserRouter([
         path: "/blogs/:id",
         element: <SingleBlogs />,
       },
+
       {
         path: "/myProfile",
         element: <MyProfile></MyProfile>,
       },
 
       
-
       {
         path: "/signup",
         element: <SignUp />,
