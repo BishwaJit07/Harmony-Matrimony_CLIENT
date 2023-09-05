@@ -10,7 +10,7 @@ const useMyData = () => {
         queryKey: ['userInfo'],
         enabled: !loading,
         queryFn: async () => {
-            const res = await axiosSecure(`/userInfo?email=${user.email}`);
+            const res = await axiosSecure(`/userInfo?email=${user?.email}`);
             return res.data;
         }
     })
