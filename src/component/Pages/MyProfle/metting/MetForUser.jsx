@@ -7,7 +7,7 @@ const MetForUser = () => {
   const [userInfo] = useMyData();
   const { refetch: refetchPending, data: pendingInfo = [] } = useCustomQuery(
     ["req", userInfo._id],
-    `http://localhost:5000/getReqPending/${userInfo._id}`
+    `https://harmony-matrimony-server.vercel.app/getReqPending/${userInfo._id}`
   );
 
   const showPending = pendingInfo.slice(0, 3);
@@ -33,4 +33,3 @@ const MetForUser = () => {
 };
 
 export default MetForUser;
- 

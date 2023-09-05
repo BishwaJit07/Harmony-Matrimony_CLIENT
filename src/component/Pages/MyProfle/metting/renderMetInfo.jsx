@@ -7,7 +7,10 @@ const renderMetInfo = (infoData, actionType, refetch) => {
       status: "accept",
     };
     axios
-      .put(`http://localhost:5000/acceptMet/${delId}`, delMEt)
+      .put(
+        `https://harmony-matrimony-server.vercel.app/acceptMet/${delId}`,
+        delMEt
+      )
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           refetch();
@@ -20,7 +23,10 @@ const renderMetInfo = (infoData, actionType, refetch) => {
       status: "reject",
     };
     axios
-      .put(`http://localhost:5000/deleteMet/${delId}`, delMEt)
+      .put(
+        `https://harmony-matrimony-server.vercel.app/deleteMet/${delId}`,
+        delMEt
+      )
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           refetch();
