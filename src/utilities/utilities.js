@@ -1,3 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
 export function calculateAge(birthdate) {
   const birthYear = birthdate.getFullYear();
   const birthMonth = birthdate.getMonth();
@@ -27,4 +30,26 @@ export function formatDate(date) {
   const month = parts[0];
   const year = parts[2];
   return `${day} ${month} ${year}`;
+}
+
+export function formatMetDate(date) {
+  const inputDate = new Date(date);
+  const options = {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  };
+  const parts = inputDate.toLocaleString("en-US", options).split(", ");
+  const combined = parts[2] + " at " + parts[0] + ", " + parts[1];
+  return combined;
+}
+
+export function useCustomQuery(key, endpoint) {
+  return useQuery(key, async () => {
+    const response = await axios.get(endpoint);
+    return response.data;
+  });
 }

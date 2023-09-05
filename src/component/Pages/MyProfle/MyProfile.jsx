@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import useMyData from "../../../Hooks/useMyData";
-import { TbUserEdit } from "react-icons/tb";
 import { BsArrowRightCircle, BsFillCheckCircleFill } from "react-icons/bs";
 import { BiSolidUserCircle } from "react-icons/bi";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import Post from "./postFunction/Post";
 import UserProfile from "../UserProfile/UserProfile";
 
 const MyProfile = () => {
