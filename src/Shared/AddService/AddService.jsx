@@ -38,7 +38,7 @@ const AddService = () => {
     }
     console.log(data)
 
-    fetch('https://soulmates-server-two.vercel.app/service', {
+    fetch('https://harmony-matrimony-server.vercel.app/service', {
       method: "POST",
       headers: {
         "content-type": "application/json"
