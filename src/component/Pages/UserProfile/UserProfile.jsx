@@ -32,36 +32,36 @@ const UserProfile = () => {
   const { profileImage, name, email, _id } = userInfo;
 
   const handleDelete = (id) => {
-    // Swal.fire({
-    //   title: 'Are you sure?',
-    //   text: "You won't be able to revert this!",
-    //   icon: 'warning',
-    //   showCancelButton: true,
-    //   confirmButtonColor: '#3085d6',
-    //   cancelButtonColor: '#d33',
-    //   confirmButtonText: 'Yes, delete it!'
-    // }).then((result) => {
-    //   if (result.isConfirmed) {
-    //     fetch(`http://localhost:5000/deleteUser/${id}`, {
-    //       method :"DELETE"
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //       if(data.deletedCount > 0){
-    //         Swal.fire({
-    //           title: `User Deleted`,
-    //           showClass: {
-    //             popup: "animate__animated animate__fadeInDown",
-    //           },
-    //           hideClass: {
-    //             popup: "animate__animated animate__fadeOutUp",
-    //           },
-    //         });
-    //       }
-    //     })
-    //     .catch(error => console.log(error))
-    //   }
-    // })
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/deleteUser/${id}`, {
+          method :"DELETE"
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.deletedCount > 0){
+            Swal.fire({
+              title: `User Deleted`,
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+          }
+        })
+        .catch(error => console.log(error))
+      }
+    })
     
   };
 
