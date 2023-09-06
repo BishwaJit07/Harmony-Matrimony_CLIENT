@@ -41,7 +41,7 @@ const Home = () => {
         <Gallary />
         {/* <SweetMemories/> */}
         <Review/>
-        <MessageUsFb />
+    
 
       </div>
     </div>
