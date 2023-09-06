@@ -41,6 +41,7 @@ import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp
 import Profile2 from "../component/Pages/MyProfle/Profile2/Profile2";
 import ChatRoom from "../ChatApp/ChatRoom/ChatRoom";
 import UserProfile from "../component/Pages/UserProfile/UserProfile";
+import UserDetails from "../component/Pages/Dashboard/UserDetails/UserDetails";
 
 
 
@@ -250,6 +251,10 @@ const router = createBrowserRouter([
         path: "addService",
         element: <AddService />,
       },
+      {
+        path:"userDetails",
+        element:<UserDetails></UserDetails>
+      }
 
     ]
   },
