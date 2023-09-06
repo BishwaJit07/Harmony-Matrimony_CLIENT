@@ -1,5 +1,8 @@
 import { BsTelephone } from "react-icons/bs";
 import banner from "../../../assets/userProfile/userBanner.png";
+
+import pic from "../../../assets/profile/profile2.jpg";
+
 import img2 from "../../../assets/home/recommendation/girl.png";
 import img3 from "../../../assets/home/recommendation/girl2.png";
 import img4 from "../../../assets/home/recommendation/girl3.png";
@@ -11,16 +14,57 @@ import ages from "../../../assets/other/age.svg";
 import heights from "../../../assets/other/height.svg";
 import jobs from "../../../assets/other/job.svg";
 import citys from "../../../assets/other/city.svg";
-import { AiOutlineMail } from "react-icons/ai";
+
+import MetForUser from "../MyProfle/metting/MetForUser";
+
+import { AiOutlineMail, AiOutlineDelete } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import file from "../../../assets/other/file.png";
 import useMyData from "../../../Hooks/useMyData";
-import MetForUser from "../MyProfle/metting/MetForUser";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const UserProfile = () => {
+  const navigate = useNavigate();
   const [userInfo] = useMyData();
 
-  const { profileImage, name, email } = userInfo;
+
+  const { profileImage, name, email, _id } = userInfo;
+
+  const handleDelete = (id) => {
+    // Swal.fire({
+    //   title: 'Are you sure?',
+    //   text: "You won't be able to revert this!",
+    //   icon: 'warning',
+    //   showCancelButton: true,
+    //   confirmButtonColor: '#3085d6',
+    //   cancelButtonColor: '#d33',
+    //   confirmButtonText: 'Yes, delete it!'
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     fetch(`http://localhost:5000/deleteUser/${id}`, {
+    //       method :"DELETE"
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //       if(data.deletedCount > 0){
+    //         Swal.fire({
+    //           title: `User Deleted`,
+    //           showClass: {
+    //             popup: "animate__animated animate__fadeInDown",
+    //           },
+    //           hideClass: {
+    //             popup: "animate__animated animate__fadeOutUp",
+    //           },
+    //         });
+    //       }
+    //     })
+    //     .catch(error => console.log(error))
+    //   }
+    // })
+    
+  };
+
 
   return (
     <div className="max-w-7xl mx-auto mt-4">
@@ -58,6 +102,15 @@ const UserProfile = () => {
                       <img className="" src={share} alt="" />
                     </button>
                     <EditBtn text="Edit Profile" />
+
+                    <button
+                    onClick={() => handleDelete(_id)}
+                      className="bg-primary-300 px-[12px] py-[10px] rounded-full tooltip"
+                      data-tip="Delete Profile"
+                    >
+                      <AiOutlineDelete  className="text-white text-2xl" />
+                    </button>
+
                   </div>
                 </div>
                 {/* follow section */}
@@ -88,7 +141,9 @@ const UserProfile = () => {
 
         {/* other section */}
         <div className=" md:w-[40%]">
+
           <MetForUser />
+
           <BoxBorderContent title="Hobbies" content={<Hobbies />} />
           <BoxBorderContent title="Social Media" content={<SocialMedia />} />
           <Plan />
@@ -197,7 +252,9 @@ const PersonalInfo = () => {
     drinkHabit,
     foodHabit,
   } = userInfo;
+
   console.log(userInfo);
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2">
       <div className="">
@@ -231,7 +288,7 @@ const ContactInfo = () => {
   const [userInfo] = useMyData();
 
   const { country, mobile, email, city, state } = userInfo;
-  console.log(userInfo);
+
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-2 ">
@@ -273,7 +330,7 @@ const Hobbies = () => {
   const [userInfo] = useMyData();
 
   const { interests } = userInfo;
-  console.log(userInfo);
+
   return (
     <div className="flex gap-3 flex-wrap">
       {interests?.map((interest, index) => (

@@ -27,6 +27,7 @@ const Profile2 = () => {
   const params = useParams();
   const [user, setUser] = useState([]);
   useEffect(() => {
+
     fetch(`https://soulmates-server-two.vercel.app/specificUser/${params.id}`)
       .then((res) => res.json())
       .then((data) => setUser(data));
@@ -56,6 +57,7 @@ const Profile2 = () => {
     foodHabit,
     interests,
   } = user;
+
 
   console.log(user);
 
