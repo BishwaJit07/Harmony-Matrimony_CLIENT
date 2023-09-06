@@ -26,7 +26,7 @@ const [love, setLove] = useState(false);
   }
   const handleReactDec = id => {
     console.log(id);
-    fetch(`https://harmony-matrimony-server.vercel.app/blogss/${id}`, {
+    fetch(`https://soulmates-server-two.vercel.app/blogss/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())

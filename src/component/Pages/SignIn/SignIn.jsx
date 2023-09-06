@@ -6,10 +6,12 @@ import Swal from 'sweetalert2';
 import SocialLogin from '../../../Shared/SocialLogin';
 import logo from "../../../assets/logo/logo.png"
 import { Helmet } from 'react-helmet';
+import { useState } from 'react';
 
 
 const SignIn = () => {
   const { signIn } = useContext(AuthContext);
+  const [Error, setError] = useState("");
   const navigate = useNavigate()
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -30,9 +32,9 @@ const SignIn = () => {
           navigate('/myProfile');
         }
       })
-    // .catch(error => {
-    //   console.log(error);
-    // })
+    .catch((error) =>
+      setError(error.message),
+    );
 
   }
   return (
@@ -44,7 +46,9 @@ const SignIn = () => {
         <title>Soulmate | Sign In</title>
       </Helmet>
 
-      <figure className='w-[50%]'><img className='object-cover -ml-24 h-[750px] ' src={img} alt="" /></figure>
+      <figure className="lg:w-[50%] ">
+          <img className="xl:object-cover hidden lg:flex lg:-ml-24 lg:h-[750px]  " src={img} alt="" />
+        </figure>
       <div className="card-body">
         <div className='text-center mb-5'>
           <img className='w-52 mx-auto mt-10' src={logo} alt="" />
@@ -76,10 +80,8 @@ const SignIn = () => {
          
         </form>
 
-        <div className='text-center text-[#a2a2a2] flex justify-center items-center gap-4 '> <hr className='w-full ml-8 ' /><span>or</span><hr className='w-full mr-8' /> </div>
-        <div className="flex justify-center items-center gap-4">
-          <SocialLogin></SocialLogin>
-        </div>
+        
+        {Error && <p className="text-red-600 text-center">{Error}</p>}
         <p className='text-center text-[#a2a2a2] '>New to soulmate? <Link className='red-text' to="/signup">Create an account</Link></p>
       </div>
       

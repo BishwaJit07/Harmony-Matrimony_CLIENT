@@ -45,37 +45,37 @@ const Footer = () => {
           <img src={line} alt="" />
           <div className="mt-[30px] flex flex-col gap-4">
             <Link
-              to="#"
+              to="/about"
               className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
             >
               <FaArrowRight /> About us
             </Link>
             <Link
-              to="#"
+              to="/allUser"
               className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
             >
               <FaArrowRight /> Explore
             </Link>
             <Link
-              to="#"
+              to="/blog"
               className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
             >
               <FaArrowRight /> Blog
             </Link>
             <Link
-              to="#"
+              to="/about"
               className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
             >
               <FaArrowRight /> Contact Us
             </Link>
             <Link
-              to="#"
+              to="/plans"
               className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
             >
               <FaArrowRight /> Plans
             </Link>
             <Link
-              to="#"
+              to="/termCondition"
               className="link link-hover flex items-center gap-2 text-[#C3CAD5] text-[16px]"
             >
               <FaArrowRight /> Privacy Policy

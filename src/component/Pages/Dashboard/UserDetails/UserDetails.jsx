@@ -93,7 +93,7 @@ const UserDetails = () => {
           <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5">
             <div className="stat flex items-center justify-between">
               <div className="stat-title">Total CoupleDate</div>
-              <div className="stat-value stat-value text-2xl font-semibold">{datas?datas.coupleDate:0}</div>
+              <div className="stat-value text-2xl font-semibold">{datas?datas.coupleDate:0}</div>
               {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
             </div>
           </div>
