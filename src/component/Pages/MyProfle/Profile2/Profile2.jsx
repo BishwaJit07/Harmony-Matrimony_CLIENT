@@ -29,7 +29,7 @@ const Profile2 = () => {
   const params = useParams();
   const [user, setUser] = useState([]);
   useEffect(() => {
-      fetch(`https://harmony-matrimony-server.vercel.app/specificUser/${params.id}`)
+      fetch(`https://soulmates-server-two.vercel.app/specificUser/${params.id}`)
           .then(res => res.json())
           .then(data => setUser(data));
   }, [])
@@ -43,8 +43,69 @@ const Profile2 = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-lato">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-lato mt-4">
       
+        {/* photo section */}
+        <div className="">
+          <div className="sticky top-4"> {/* sticky the photo */}
+            {/* photo gallery */}
+            <div className="flex flex-col md:flex-row gap-2">
+              <img className='mx-4 md:mx-0 h-[590px] rounded-2xl object-cover' src={profileImage} alt="" />
+
+              {/* small imgs */}
+              <div className="flex flex-row md:flex-col gap-1 md:gap-4 px-1">
+                {/* single small img */}
+                <div className="relative group cursor-pointer">
+                  <img className='w-[145px] h-[133px] rounded-2xl object-cover ' src={img2} alt="" />
+                  <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* single small img */}
+                <div className="relative group cursor-pointer">
+                  <img className='w-[145px] h-[133px] rounded-2xl object-cover ' src={img3} alt="" />
+                  <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* single small img */}
+                <div className="relative group cursor-pointer">
+                  <img className='w-[145px] h-[133px] rounded-2xl object-cover ' src={img4} alt="" />
+                  <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* single small img */}
+                <div className="relative group cursor-pointer">
+                  <img className='w-[145px] h-[133px] rounded-2xl object-cover ' src={img5} alt="" />
+                  <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+              {/* small imgs end */}
+            </div>
+            {/* button */}
+            <div className="flex justify-between gap-3 px-2 py-4">
+              <button className='text-[17px] font-bold w-full bg-secondary-500 rounded-full text-white py-4  flex justify-center items-center '>Message</button>
+              <button className='text-[17px] font-bold w-full bg-primary-500 rounded-full text-white py-4  flex justify-center items-center '>Sent Interested</button>
+            </div>
+          </div>
+        </div>
         
         {/* info section */}
         <div className="bg-[#F0F2F5] p-5 rounded-2xl">
@@ -202,65 +263,7 @@ const Profile2 = () => {
           {/* info div */}
         </div>
 
-  {/* photo section */}
-  <div className="">
-          {/* photo gallery */}
-          <div className="flex flex-col md:flex-row gap-2">
-            <img className='mx-4 md:mx-0 h-[590px] rounded-2xl object-cover' src={profileImage} alt="" />
-
-            {/* small imgs */}
-            <div className="flex flex-row md:flex-col gap-1 md:gap-4 px-1">
-              {/* single small img */}
-              <div className="relative group cursor-pointer">
-                <img className='w-[145px] h-[133px] rounded-2xl object-cover ' src={img2} alt="" />
-                <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50"/>
-                  </div>
-                </div>
-              </div>
-
-              {/* single small img */}
-              <div className="relative group cursor-pointer">
-                <img className='w-[145px] h-[133px] rounded-2xl object-cover ' src={img3} alt="" />
-                <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
-                  </div>
-                </div>
-              </div>
-
-              {/* single small img */}
-              <div className="relative group cursor-pointer">
-                <img className='w-[145px] h-[133px] rounded-2xl object-cover ' src={img4} alt="" />
-                <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
-                  </div>
-                </div>
-              </div>
-
-              {/* single small img */}
-              <div className="relative group cursor-pointer">
-                <img className='w-[145px] h-[133px] rounded-2xl object-cover ' src={img5} alt="" />
-                <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
-                  </div>
-                </div>
-              </div>
-
-              
-
-            </div>
-            {/* small imgs end */}
-          </div>
-          {/* button */}
-          <div className="flex justify-between gap-3 px-2 py-4">
-            <button className='text-[17px] font-bold w-full bg-secondary-500 rounded-full text-white py-4  flex justify-center items-center '>Message</button>
-            <button className='text-[17px] font-bold w-full bg-primary-500 rounded-full text-white py-4  flex justify-center items-center '>Sent Interested</button>
-          </div>
-        </div>
+  
         
       </div>
     </div>

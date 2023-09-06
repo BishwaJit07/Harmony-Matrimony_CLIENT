@@ -18,7 +18,7 @@ const PaymentForm = () => {
   }
 
   useEffect( () => {
-    fetch('https://harmony-matrimony-server.vercel.app/create-payment-intent', {
+    fetch('https://soulmates-server-two.vercel.app/create-payment-intent', {
       method: "POST",
       headers: {
         "content-type": "application/json"
@@ -90,7 +90,7 @@ const PaymentForm = () => {
         status: "pending"
       }
 
-      fetch('https://harmony-matrimony-server.vercel.app/save-payments', {
+      fetch('https://soulmates-server-two.vercel.app/save-payments', {
         method: "POST",
         headers: {
           "content-type": "application/json"

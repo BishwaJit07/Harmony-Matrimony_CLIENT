@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { TbHeartPlus } from "react-icons/tb";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,14 +12,14 @@ import { Link } from "react-router-dom";
 const Service = () => {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch("https://harmony-matrimony-server.vercel.app/service/catering")
+    fetch("https://soulmates-server-two.vercel.app/service/catering")
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, []);
 
   const [pdata, setpDatas] = useState([]);
   useEffect(() => {
-    fetch("https://harmony-matrimony-server.vercel.app/service/photography")
+    fetch("https://soulmates-server-two.vercel.app/service/photography")
       .then((res) => res.json())
       .then((data) => setpDatas(data));
   }, []);
@@ -30,6 +31,18 @@ const Service = () => {
   return (
    <>
     <div className=" max-w-screen-xl mt-20 mx-auto ">
+      {/* new card */}
+        <div className="bg-[#F0F2F5]  text-[#536279] text-base w-[300px] rounded-lg overflow-hidden relative group">
+          <img className="w-[300px] h-[200px] object-cover" src="https://i.ibb.co/xG3C8FS/6.jpg" alt="" />
+          <TbHeartPlus className="p-2 bg-white text-4xl rounded-xl absolute top-2 right-2 hidden group-hover:block cursor-pointer " />
+          <div className="p-3 space-y-2 cursor-progress">
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Name:</span> Vegan Elegance Catering</p>
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Price:</span> 300$</p>
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Description: </span> Experience gourmet vegan cuisine that's elegant, flavorful, and ethically conscious.</p>
+          </div>
+        </div>   
+
+          
       {/* content-section */}
       <div className="mb-8">
         <h2 className="text-3xl font-semibold ">
