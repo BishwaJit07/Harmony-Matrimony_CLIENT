@@ -42,6 +42,7 @@ const AuthoritySignUp = () => {
       return;
     }
 
+
     fetch(image_hosting_url, {
       method: "POST",
       body: formData,
@@ -92,6 +93,7 @@ const AuthoritySignUp = () => {
           });
         }
       });
+
   };
 
   return (

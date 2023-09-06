@@ -17,6 +17,7 @@ const UserCard = ({ filteredUser, length }) => {
     gender,
     _id,
     aboutMe,
+    height
   } = filteredUser;
 
   const handleClick = () => {
@@ -81,6 +82,9 @@ const UserCard = ({ filteredUser, length }) => {
             </li>
             <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
               {weight}
+            </li>
+            <li className="inline-block border border-[#FF725E] rounded-md text-xs font-medium px-3 py-1 m-1">
+              {height}
             </li>
           </ul>
         </div>

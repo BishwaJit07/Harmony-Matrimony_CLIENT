@@ -280,8 +280,6 @@ const About = () => {
       </div>
 
       <Contact />
-
-      <MessageUsFb />
     </div>
   );
 };
