@@ -6,3 +6,15 @@
     color: white;
     text-align: center;
   }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #4BE5E7;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #EDF2F7;
+  }

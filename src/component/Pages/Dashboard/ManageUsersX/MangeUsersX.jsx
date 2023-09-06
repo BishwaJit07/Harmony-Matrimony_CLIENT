@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import Pending from "./Pending";
-import { CiLight } from "react-icons/ci";
+
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import "../../../../style.css";
-import FooterDashboard from "../FooterDashboard";
+
 import "./ManageUser.css";
 import Approve from "./Approve";
 import Denied from "./Denied";
@@ -21,6 +21,7 @@ const MangeUsersX = () => {
       .then((data) => {
         setUsers(data);
         setLoading(false);
+
       })
       .catch((error) => {
         console.log(error);
@@ -32,16 +33,18 @@ const MangeUsersX = () => {
       <div className="flex justify-center h-screen items-center ">
         <span className="loading loading-bars loading-lg scale-150"></span>
       </div>
+
     );
   }
   const handleMakeApprove = (id) => {
-    fetch(`https://harmony-matrimony-server.vercel.app/makeApprove/${id}`, {
+    fetch(`https://soulmates-server-two.vercel.app/makeApprove/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
+
           Swal.fire({
             title: `He is approved now!`,
             showClass: {
@@ -51,18 +54,20 @@ const MangeUsersX = () => {
               popup: "animate__animated animate__fadeOutUp",
             },
           });
+
         }
       });
   };
   const handleMakeDenied = (id) => {
     console.log(id);
-    fetch(`https://harmony-matrimony-server.vercel.app/makeDenied/${id}`, {
+    fetch(`https://soulmates-server-two.vercel.app/makeDenied/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
+
           Swal.fire({
             title: `He is Denied now!`,
             showClass: {
