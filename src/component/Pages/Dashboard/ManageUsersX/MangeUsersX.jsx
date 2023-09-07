@@ -14,13 +14,13 @@ import Denied from "./Denied";
 import { useRef } from "react";
 const MangeUsersX = () => {
   const searchRef = useRef(null);
-  const { user } = useContext(AuthContext);
+ const { user } = useContext(AuthContext);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setsearch] = useState('')
   useEffect(() => {
 
-    fetch(`http://localhost:5000/authority?search=${search}`)
+    fetch(`https://soulmates-server-two.vercel.app/authority?search=${search}`)
 
       .then((res) => res.json())
       .then((data) => {
@@ -96,12 +96,12 @@ const MangeUsersX = () => {
     <div className="relative overflow-x-auto  rounded-2xl px-6 w-[75%] mx-auto py-6 my-10 cards ">
       {/* Input field */}
 
-      <div class="InputContainer">
+      <div className="InputContainer">
         <input
           ref={searchRef}
           placeholder="Search By Name.."
           id="input"
-          class="input"
+          className="input"
           name="text"
           type="text"
         />
