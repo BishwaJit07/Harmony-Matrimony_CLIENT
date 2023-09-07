@@ -6,7 +6,6 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const useMyData = () => {
     const { user, loading } = useContext(AuthContext);
-
     const [axiosSecure] = useAxiosSecure();
     const { data: userInfo = [], refetch } = useQuery({
         queryKey: ['userInfo'],
