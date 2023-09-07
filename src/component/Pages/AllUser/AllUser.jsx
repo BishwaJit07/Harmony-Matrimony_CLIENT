@@ -19,6 +19,7 @@ import { Range } from "react-range";
 import { Listbox, Transition } from "@headlessui/react";
 import { HiCheck, HiChevronUpDown } from "react-icons/hi2";
 import { Country, State } from 'country-state-city';
+import SingleUserCard from "./SingleUserCard";
 const AllUser = () => {
   const { register, handleSubmit } = useForm();
   const location = useLocation();
@@ -40,12 +41,13 @@ const AllUser = () => {
   const [weight, setWeight] = useState(null);
   const [job, setJob] = useState(null);
 
+  console.log(state, selectedCountry)
   const handleAgeChange = (newAgeRange) => {
     setAgeRange(newAgeRange);
   };
   const [open, setOpen] = useState(true);
   useEffect(() => {
-    fetch("https://soulmates-server-two.vercel.app/allUser")
+    fetch("https://harmony-matrimony-server.vercel.app/allUser")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -65,7 +67,7 @@ const AllUser = () => {
   // useEffect(() => {
   //   axios
   //     .get(
-  //       `https://soulmates-server-two.vercel.app/userPlan?email=${user?.email}`
+  //       `https://harmony-matrimony-server.vercel.app/userPlan?email=${user?.email}`
   //     )
   //     .then((response) => {
   //       if (response.data.profileVisit > 0) {
@@ -81,8 +83,7 @@ const AllUser = () => {
 
   useEffect(() => {
     let filteredData = users;
-    if (searchData !== null) 
-    {
+    if (searchData !== null) {
       filteredData = users.filter((user) => {
         return (
           (!searchData.gender || user.gender === searchData.gender) &&
@@ -95,8 +96,7 @@ const AllUser = () => {
       });
       setFilteredUsers(filteredData);
     }
-    if( maritalStatus  || religionStatus ||  ageRange ||  selectedCountry || state || height  || weight || job ) 
-    {
+    if (maritalStatus || religionStatus || ageRange || selectedCountry || state || height || weight || job) {
 
       if (maritalStatus !== null) {
         filteredData = filteredData.filter((user) => user.marital_status === maritalStatus);
@@ -133,7 +133,7 @@ const AllUser = () => {
       setFilteredUsers(filteredData);
     }
 
-  }, [users, maritalStatus, religionStatus, ageRange, selectedCountry, state, height, weight, job,searchData]);
+  }, [users, maritalStatus, religionStatus, ageRange, selectedCountry, state, height, weight, job, searchData]);
 
   function parseHeightString(heightString) {
     const parts = heightString.split(' ');
@@ -153,8 +153,6 @@ const AllUser = () => {
 
 
 
-
-
   return (
 
     <div className="">
@@ -164,11 +162,11 @@ const AllUser = () => {
         <title>Soulmate | Explore</title>
       </Helmet>
       <div className=' flex  items-center '>
-        <img src={topImage} alt="" className='relative top-0 left-0 ' />
+        <img src={topImage} alt="" />
         {/* Text */}
         <div className="text-center ml-[70px] absolute z-10 hidden md:block ">
-          <p className='text-left lg:text-[38px] font-alice text-[20px]'>Find Your Partner</p>
-          <p className='text-sm xl:text-[18px] font-lato text-[#3E4A5B] leading-7 text-left mt-2 lg:mt-4'>Embark on a Journey to Find Your Life Partner  Explore <br /> Connect  and Build a Lifetime of Happiness with Us</p>
+          <p className='text-left lg:text-[28px] font-alice text-[18px]'>Find Your Partner</p>
+          <p className='text-sm xl:text-[14px] font-lato text-[#3E4A5B] leading-7 text-left mt-2 lg:mt-4'>Embark on a Journey to Find Your Life Partner  Explore <br /> Connect  and Build a Lifetime of Happiness with Us</p>
           <div className='relative -bottom-1 lg:-bottom-2 xl:-bottom-8 text-left text-[14px]  gap-2 hidden md:flex'>
             <Link to="/" className="flex items-center gap-1"><BiSolidHome /> Home</Link>
             <p>/</p>
@@ -177,8 +175,8 @@ const AllUser = () => {
         </div>
       </div>
       {/* Filter */}
-      <div className="flex select-none bg-[#F0F2F5] h-[610px]">
-        <div className={` ${open ? "md:w-[445px]" : "w-8"}  absolute md:relative py-8  overflow-y- overflow-x-hidden bg-[#F0F2F5] `}>
+      <div className="flex select-none   ">
+        <div className={` ${open ? "md:w-[445px]" : "w-8"}  absolute md:relative py-8  bg-[#F0F2F5] `}>
           <img src={sliderbtn} className={`absolute cursor-pointer -right-0 -mt-6 w-10 border-dark-purple border-2 rounded-full z-50 md:hidden   ${!open && "rotate-180"}`} onClick={() => setOpen(!open)} />
           <div className={`${!open && "hidden"} `}>
             <div className="">
@@ -350,9 +348,9 @@ const AllUser = () => {
                     leaveTo="opacity-0"
                   >
                     <Listbox.Options className="z-30 absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                      {countryData.map((country) => (
+                      {countryData.map((country, index) => (
                         <Listbox.Option
-                          key={country.id}
+                          key={index}
                           className={({ active }) =>
                             `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
                             }`
@@ -399,9 +397,9 @@ const AllUser = () => {
                     leaveTo="opacity-0"
                   >
                     <Listbox.Options className="z-20 absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                      {stateData.map((value) => (
+                      {stateData.map((value, index) => (
                         <Listbox.Option
-                          key={value.id}
+                          key={index}
                           className={({ active }) =>
                             `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
                             }`
@@ -431,7 +429,7 @@ const AllUser = () => {
                 </Listbox></> : <></>}
               </div>
             </div>
-            <div className="flex flex-col  mt-8  w-[80%] mx-auto">
+            <div className="flex flex-col  mt-8  w-[80%] mx-auto ">
               <label className="text-black text-[18px] font-alice  text-left " htmlFor="emailAddress">Body Measurements</label>
               <div className="flex gap-5 ">
                 <Listbox value={setheight} onChange={setheight}  >
@@ -483,7 +481,7 @@ const AllUser = () => {
                 </Listbox>
                 <Listbox value={setWeight} onChange={setWeight}>
 
-                  <Listbox.Button className="w-1/2 relative  cursor-default rounded-lg bg-white py-2 pl-2 mt-2 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm ">
+                  <Listbox.Button className="w-1/2 relative  cursor-default rounded-lg  bg-white py-2 pl-2 mt-2 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm ">
                     <span className="block truncate text-sm text-[#536279]">{weight ? weight?.name : "Select weight"}</span>
                     <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center ">
                       <HiChevronUpDown
@@ -532,10 +530,10 @@ const AllUser = () => {
             </div>
           </div>
         </div>
-        <div className="grid lg:grid-cols-2 xl:grid-cols-4 mx-auto  gap-10   w-[100%]  bg-white p-10 overflow-y-auto ">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-4 mx-auto  gap-10   w-[100%]  bg-white p-10 overflow-y-auto h-max-screen ">
           {
             filteredUsers.map((filteredUser) => (
-              <UserCard key={filteredUser._id} filteredUser={filteredUser} />
+              <SingleUserCard key={filteredUser._id} filteredUser={filteredUser} />
             ))
           }
         </div>
