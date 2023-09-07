@@ -54,37 +54,36 @@ const AddBlog = () => {
 
     }
     return (
-        <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/dLdXyq8/top-view-beautiful-valentine-s-day-concept.jpg)' }}>
-            <div className="hero-overlay bg-opacity-60"></div>
-            <div className=''>
-                <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="">
+<div className="w-1/2 flex mx-auto my-4 rounded-3xl bg-white">
+  <form onSubmit={handleSubmit(onSubmit)} className="p-8">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white text-lg font-medium">Blog Title</span>
+                            <span className="label-text text-lg font-medium">Blog Ttile</span>
                         </label>
-                        <input type="text"  {...register("title", { required: true })} placeholder="Title" className="input input-bordered w-full" />
+                        <input type="text"  {...register("title", { required: true })} placeholder="Ttile" className=" textarea w-full border-black border" />
                         {errors.title && <span className="text-red-600">Title is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-white text-lg font-medium">Blog Description</span>
+                            <span className="label-text  text-lg font-medium">Blog Description</span>
                         </label>
-                        <input type="text"  {...register("description", { required: true })} placeholder="Description" className=" textarea w-full" />
+                        <input type="text"  {...register("description", { required: true })} placeholder="Description" className=" textarea w-full border-black border" />
                         {errors.description && <span className="text-red-600">Description is required</span>}
                     </div>
                     <div className="flex gap-2">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-white text-lg font-medium">Blog Type</span>
+                                <span className="label-text text-lg ">Blog Category</span>
                             </label>
-                            <input type="text"  {...register("type", { required: true })} placeholder="Blog Type" className="input input-bordered file-input  w-full max-w-xs" />
+                            <input type="text"  {...register("type", { required: true })} placeholder="Blog Type" className="input w-full max-w-xs border-black border" />
                             {errors.type && <span className="text-red-600">Type is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-white text-lg font-medium">Publish Date</span>
+                                <span className="label-text text-lg ">Publish Date</span>
                             </label>
-                            <input type="date"  {...register("date", { required: true })} placeholder="Publish Date" className="input input-bordered file-input  w-full max-w-xs" />
+                            <input type="date"  {...register("date", { required: true })} placeholder="Publish Date" className="input  file-input border-black border  w-full max-w-xs" />
                             {errors.date && <span className="text-red-600">Date is required</span>}
                         </div>
                     </div>
@@ -92,12 +91,13 @@ const AddBlog = () => {
                         <label className="label">
                             <span className="label-text text-white text-lg font-medium">Blog Image</span>
                         </label>
-                        <input type="file"  {...register("image", { required: true })} placeholder="image" className="input input-bordered file-input  w-full max-w-xs" />
+                        <input type="file"  {...register("image", { required: true })} placeholder="image" className="input  file-input border-black border w-full max-w-xs" />
                         {errors.image && <span className="text-red-600">Image is required</span>}
                     </div>
-                    <input className="btn btn-outline btn-red w-full mt-2" type="submit" value='Add ' />
-                </form>
-            </div>
+                    <input className="btn bg-blue-500 text-white rounded-3xl w-1/2 ms-36 mt-8" type="submit" value='Done' />
+
+  </form>
+</div>
         </div>
     );
 };
