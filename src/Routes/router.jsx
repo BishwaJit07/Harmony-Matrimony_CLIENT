@@ -44,6 +44,7 @@ import AdminHome from "../component/Pages/Dashboard/AdminHome/AdminHome";
 
 import ChatRoom from "../ChatApp/ChatRoom/ChatRoom";
 import UserProfile from "../component/Pages/UserProfile/UserProfile";
+import VerifyUser from "../component/Pages/Dashboard/VerifyUser/VerifyUser";
 
 
 
@@ -79,10 +80,6 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
-      },
-      {
-        path: "/addBlog",
-        element: <AddBlog></AddBlog>,
       },
       {
         path: "/blogDetails/:id",
@@ -251,6 +248,14 @@ const router = createBrowserRouter([
       {
         path: "addService",
         element: <AddService />,
+      },
+      {
+        path: "verifyUser",
+        element: <VerifyUser />,
+      },
+      {
+        path: "addBlog",
+        element: <AddBlog></AddBlog>,
       },
     ],
   },

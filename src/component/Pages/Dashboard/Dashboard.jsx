@@ -12,8 +12,10 @@ const Dashboard = () => {
         { title: "Dashboard", icon: <BiHome></BiHome>, link: "/dashboard/adminUser" },
         { title: "Manage User", icon: <BiUser></BiUser>, link: "/dashboard/manageUser" },
         { title: "Add Service", icon: <BiHome></BiHome>, link: "/dashboard/addService" },
+        { title: "Add Blog", icon: <BiHome></BiHome>, link: "/dashboard/addBlog" },
         { title: "Book Service", icon: <BiUser></BiUser>, link: "/dashboard/bookService" },
         { title: "All User", icon: <BiUser></BiUser>, link: "/dashboard/allUser" },
+        { title: "Verify User", icon: <BiUser></BiUser>, link: "/dashboard/verifyUser" },
 
     ];
 
