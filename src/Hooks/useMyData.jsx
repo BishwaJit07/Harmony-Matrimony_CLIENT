@@ -2,11 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from './useAxiosSecure';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
-import { useNavigate } from 'react-router';
+
 
 const useMyData = () => {
     const { user, loading } = useContext(AuthContext);
-    const navigate = useNavigate(); 
+   
     const [axiosSecure] = useAxiosSecure();
     const { data: userInfo = [], refetch } = useQuery({
         queryKey: ['userInfo'],
@@ -24,7 +24,7 @@ const useMyData = () => {
 
     useEffect(() => {
         if (!user?.email) {
-            navigate('/signin');
+            // navigate('/signin');
         }
     }, [user?.email]);
 
