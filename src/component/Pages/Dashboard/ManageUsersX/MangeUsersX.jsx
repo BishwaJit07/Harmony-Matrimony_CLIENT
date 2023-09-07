@@ -5,6 +5,10 @@ import { AuthContext } from "../../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import "../../../../style.css";
 
+
+import './ManageUser.css'
+
+
 import "./ManageUser.css";
 import Approve from "./Approve";
 import Denied from "./Denied";
@@ -16,7 +20,12 @@ const MangeUsersX = () => {
   const [loading, setLoading] = useState(true);
   const [search, setsearch] = useState('')
   useEffect(() => {
+<<<<<<<<< Temporary merge branch 1
     fetch(`http://localhost:5000/authority?search=${search}`)
+=========
+
+    fetch("https://soulmates-server-two.vercel.app/authority")
+>>>>>>>>> Temporary merge branch 2
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -90,6 +99,7 @@ const MangeUsersX = () => {
   return (
     <div className="relative overflow-x-auto  rounded-2xl px-6 w-[75%] mx-auto py-6 my-10 cards ">
       {/* Input field */}
+
       <div class="InputContainer">
         <input
           ref={searchRef}
@@ -100,6 +110,7 @@ const MangeUsersX = () => {
           type="text"
         />
         <button onClick={handleSearch} className="btn rounded-3xl btn-sm">Search</button>
+
       </div>
       {/* pending table */}
       <h1 className="text-black text-4xl my-8 text-center font-serif">
