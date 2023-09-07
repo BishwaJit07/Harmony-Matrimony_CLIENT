@@ -19,6 +19,7 @@ import { Range } from "react-range";
 import { Listbox, Transition } from "@headlessui/react";
 import { HiCheck, HiChevronUpDown } from "react-icons/hi2";
 import { Country, State } from 'country-state-city';
+import SingleUserCard from "./SingleUserCard";
 const AllUser = () => {
   const { register, handleSubmit } = useForm();
   const location = useLocation();
@@ -535,10 +536,10 @@ const AllUser = () => {
             </div>
           </div>
         </div>
-        <div className="grid lg:grid-cols-2 xl:grid-cols-4 mx-auto  gap-10   w-[100%]  bg-white p-10 overflow-y-auto ">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 mx-auto  gap-10   w-[100%]  bg-white p-10 overflow-y-auto ">
           {
             filteredUsers.map((filteredUser) => (
-              <UserCard key={filteredUser._id} filteredUser={filteredUser} />
+              <SingleUserCard key={filteredUser._id} filteredUser={filteredUser} />
             ))
           }
         </div>
