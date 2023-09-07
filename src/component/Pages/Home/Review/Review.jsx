@@ -32,7 +32,7 @@ const Review = () => {
                 console.log(error)
             })
     }, [])
-    console.log(reviews)
+
     return (
         <div className='flex  justify-between items-center lg:px-16 lg:m-10 relative'>
             {/* div for text */}

@@ -3,8 +3,10 @@ import useAxiosSecure from './useAxiosSecure';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 
+
 const useMyData = () => {
     const { user, loading } = useContext(AuthContext);
+
     const [axiosSecure] = useAxiosSecure();
     const { data: userInfo = [], refetch } = useQuery({
         queryKey: ['userInfo'],
@@ -30,4 +32,3 @@ const useMyData = () => {
 };
 
 export default useMyData;
-

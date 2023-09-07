@@ -81,9 +81,10 @@ const AllUser = () => {
   }, [selectedCountry]);
 
   useEffect(() => {
-    if (searchData) {
-
-      const filtered = users.filter((user) => {
+    let filteredData = users;
+    if (searchData !== null) 
+    {
+      filteredData = users.filter((user) => {
         return (
           (!searchData.gender || user.gender === searchData.gender) &&
           (!searchData.minAge || user.age >= searchData.minAge) &&
@@ -93,51 +94,47 @@ const AllUser = () => {
           (!searchData.language || user.language === searchData.language)
         );
       });
-      setFilteredUsers(filtered);
-    } else {
-      // If searchData is not available, show all users
-      setFilteredUsers(users);
+      setFilteredUsers(filteredData);
     }
-  }, [searchData, users, userInfo]);
+    if( maritalStatus  || religionStatus ||  ageRange ||  selectedCountry || state || height  || weight || job ) 
+    {
 
-  useEffect(() => {
-    let filteredData = users;
+      if (maritalStatus !== null) {
+        filteredData = filteredData.filter((user) => user.marital_status === maritalStatus);
+      }
+      if (religionStatus !== null) {
+        filteredData = filteredData.filter((user) => user.religion === religionStatus);
+      }
+      if (ageRange !== null) {
+        filteredData = filteredData.filter((user) => user.age >= ageRange[0] && user.age <= ageRange[1]);
+      }
+      if (selectedCountry !== null) {
+        filteredData = filteredData.filter((user) => user.country === selectedCountry?.name);
+      }
+      if (state !== null) {
+        filteredData = filteredData.filter((user) => user.state === state?.name);
+      }
+      if (state !== null) {
+        filteredData = filteredData.filter((user) => user.state === state?.name);
+      }
+      if (weight !== null) {
+        filteredData = filteredData.filter((user) => user.weight === weight?.name);
+      }
+      if (height !== null) {
+        const selectedHeight = parseHeightString(height?.name)
+        filteredData = filteredData.filter((user) => {
+          const userHeightInches = parseHeightString(user.height);
+          return userHeightInches >= selectedHeight
+        });
+      }
+      if (job !== null) {
+        filteredData = filteredData.filter((user) => user.work === job);
+      }
 
-    if (maritalStatus !== null) {
-      filteredData = filteredData.filter((user) => user.marital_status === maritalStatus);
-    }
-    if (religionStatus !== null) {
-      filteredData = filteredData.filter((user) => user.religion === religionStatus);
-    }
-    if (ageRange !== null) {
-      filteredData = filteredData.filter((user) => user.age >= ageRange[0] && user.age <= ageRange[1]);
-    }
-    if (selectedCountry !== null) {
-      filteredData = filteredData.filter((user) => user.country === selectedCountry?.name);
-    }
-    if (state !== null) {
-      filteredData = filteredData.filter((user) => user.state === state?.name);
-    }
-    if (state !== null) {
-      filteredData = filteredData.filter((user) => user.state === state?.name);
-    }
-    if (weight !== null) {
-      filteredData = filteredData.filter((user) => user.weight === weight?.name);
-    }
-    if (height !== null) {
-      const selectedHeight = parseHeightString(height?.name)
-      filteredData = filteredData.filter((user) => {
-        const userHeightInches = parseHeightString(user.height);
-        return userHeightInches >= selectedHeight
-      });
-    }
-    if (job !== null) {
-      filteredData = filteredData.filter((user) => user.work === job);
+      setFilteredUsers(filteredData);
     }
 
-
-    setFilteredUsers(filteredData);
-  }, [users, maritalStatus, religionStatus, ageRange, selectedCountry, state, height, weight, job]);
+  }, [users, maritalStatus, religionStatus, ageRange, selectedCountry, state, height, weight, job,searchData]);
 
   function parseHeightString(heightString) {
     const parts = heightString.split(' ');
@@ -157,8 +154,6 @@ const AllUser = () => {
 
 
 
-
-
   return (
 
     <div className="">
@@ -171,9 +166,9 @@ const AllUser = () => {
         <img src={topImage} alt="" className='relative top-0 left-0 ' />
         {/* Text */}
         <div className="text-center ml-[70px] absolute z-10 hidden md:block ">
-          <p className='text-left text-[38px] font-alice'>Find Your Partner</p>
-          <p className='text-sm lg:text-[18px] font-lato text-[#3E4A5B] leading-7 text-left lg:mt-4'>Embark on a Journey to Find Your Life Partner  Explore <br /> Connect  and Build a Lifetime of Happiness with Us</p>
-          <div className='relative -bottom-12 text-left text-[14px]  gap-2 hidden xl:flex'>
+          <p className='text-left lg:text-[38px] font-alice text-[20px]'>Find Your Partner</p>
+          <p className='text-sm xl:text-[18px] font-lato text-[#3E4A5B] leading-7 text-left mt-2 lg:mt-4'>Embark on a Journey to Find Your Life Partner  Explore <br /> Connect  and Build a Lifetime of Happiness with Us</p>
+          <div className='relative -bottom-1 lg:-bottom-2 xl:-bottom-8 text-left text-[14px]  gap-2 hidden md:flex'>
             <Link to="/" className="flex items-center gap-1"><BiSolidHome /> Home</Link>
             <p>/</p>
             <Link to="/allUser" className="flex items-center gap-1"><PiBinocularsFill />Explore</Link>
