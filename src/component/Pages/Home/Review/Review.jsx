@@ -22,7 +22,7 @@ const Review = () => {
     const [reviews, setReview] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch('https://harmony-matrimony-server.vercel.app/reviews')
+        fetch('https://soulmates-server-two.vercel.app/reviews')
             .then(res => res.json())
             .then(data => {
                 setLoading(false);
@@ -32,7 +32,7 @@ const Review = () => {
                 console.log(error)
             })
     }, [])
-    console.log(reviews)
+
     return (
         <div className='flex  justify-between items-center lg:px-16 lg:m-10 relative'>
             {/* div for text */}

@@ -1,21 +1,34 @@
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from './useAxiosSecure';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import { useNavigate } from 'react-router';
 
 const useMyData = () => {
     const { user, loading } = useContext(AuthContext);
+    const navigate = useNavigate(); 
     const [axiosSecure] = useAxiosSecure();
     const { data: userInfo = [], refetch } = useQuery({
         queryKey: ['userInfo'],
-        enabled: !loading,
+        enabled: !loading && !!user?.email, 
         queryFn: async () => {
-            const res = await axiosSecure(`/userInfo?email=${user?.email}`);
+            if (!user?.email) {
+                
+                return null; 
+            }
+
+            const res = await axiosSecure(`/userInfo?email=${user.email}`);
             return res.data;
         }
-    })
-    return [userInfo, refetch]
+    });
+
+    useEffect(() => {
+        if (!user?.email) {
+            navigate('/signin');
+        }
+    }, [user?.email]);
+
+    return [userInfo, refetch];
 };
 
 export default useMyData;
-

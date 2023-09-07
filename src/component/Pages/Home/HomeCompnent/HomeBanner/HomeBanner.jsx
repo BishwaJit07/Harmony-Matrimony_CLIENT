@@ -37,7 +37,7 @@ const HomeBanner = () => {
           </div>
         </div>
         {/* image marquee section */}
-        <SearchFunction />
+        <SearchFunction  data-aos="fade-right" data-aos-duration="2000" />
       </div>
 
       <div className="sm:hidden md:block relative -mt-32  z-10 hidden lg:flex">

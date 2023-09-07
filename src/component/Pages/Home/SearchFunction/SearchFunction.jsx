@@ -37,7 +37,7 @@ const SearchFunction = () => {
   };
  
   return (
-    <div className=" bg-white md:w-[436px] z-20 rounded-xl mt-[100px] pb-8">
+    <div className=" bg-white md:w-[436px] z-20 rounded-xl mt-[100px] pb-8"  data-aos="fade-left" data-aos-duration="2000">
 
       <div className="w-[90%] mx-auto">
         <div className="flex items-center justify-between">

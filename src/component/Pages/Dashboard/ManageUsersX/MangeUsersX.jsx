@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import Pending from "./Pending";
 
+
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import "../../../../style.css";
-
 
 import './ManageUser.css'
 import Approve from "./Approve";
@@ -15,7 +15,7 @@ const MangeUsersX = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
 
-    fetch("https://harmony-matrimony-server.vercel.app/authority")
+    fetch("https://soulmates-server-two.vercel.app/authority")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -36,7 +36,7 @@ const MangeUsersX = () => {
     );
   }
   const handleMakeApprove = (id) => {
-    fetch(`https://harmony-matrimony-server.vercel.app/makeApprove/${id}`, {
+    fetch(`https://soulmates-server-two.vercel.app/makeApprove/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -59,7 +59,7 @@ const MangeUsersX = () => {
   };
   const handleMakeDenied = (id) => {
     console.log(id);
-    fetch(`https://harmony-matrimony-server.vercel.app/makeDenied/${id}`, {
+    fetch(`https://soulmates-server-two.vercel.app/makeDenied/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
