@@ -4,16 +4,32 @@ import 'swiper/css';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { SwiperNavButtons } from "../BestRecommendation/SwiperNavButton";
+import useMyData from "../../../../../Hooks/useMyData";
 
 const BestRecommendation2 = () => {
   
    const [datas, setDatas] = useState([]);
+   const [userInfo] = useMyData();
    
    useEffect(() => {
      fetch("https://soulmates-server-two.vercel.app/allUser")
        .then((res) => res.json())
-       .then((data) => setDatas(data));
+       .then((data) => {
+         if (userInfo?.gender === "Male") {
+          const filteredData = data.filter((user) => user.gender === "Female");
+          setDatas(filteredData);
+        }
+        else if (userInfo?.gender === "Female") {
+          const filteredData = data.filter((user) => user.gender === "Male");
+          setDatas(filteredData);
+        }
+        else {
+          setDatas(data);
+        }
+       });
    }, []);
+
+   
 
    return (
      <div className="py-[120px] w-[80%] mx-auto ">
