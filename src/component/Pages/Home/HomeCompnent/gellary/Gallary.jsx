@@ -3,13 +3,7 @@ import "./gellary.css";
 const Gallary = () => {
   return (
     <div className="mt-20 mb-32">
-      <h1 className="text-[#FF725E] font-bold border-b-2 border-[#FF725E] w-fit mx-auto p-2">
-        Photo Gallary
-      </h1>
-        <div className="">
-          <img src='https://i.ibb.co/swBsp3p/flower.png' alt="" className="lg:w-[15%] w-[60%] md:w-[40%] mx-auto -mt-2 mb-10"/>
-        </div>
-
+      <div><h2  className="text-[#272932] lg:text-[40px]  text-[20px] text-left font-alice  ml-10 mb-10">Photo Gallery</h2></div>
       <div className="galContent grid grid-cols-3 md:grid-cols-7 grid-rows-1 md:grid-rows-3 gap-2 relative max-h-[calc(150vh-50px)] md:max-h-[calc(100vh-350px)]">
         <div>
           <img

@@ -1,7 +1,7 @@
 import { BsTelephone } from "react-icons/bs";
 import banner from "../../../assets/userProfile/userBanner.png";
 
-import pic from "../../../assets/profile/profile2.jpg";
+
 
 import img2 from "../../../assets/home/recommendation/girl.png";
 import img3 from "../../../assets/home/recommendation/girl2.png";
@@ -22,10 +22,9 @@ import { CiLocationOn } from "react-icons/ci";
 import file from "../../../assets/other/file.png";
 import useMyData from "../../../Hooks/useMyData";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router";
 
 const UserProfile = () => {
-  const navigate = useNavigate();
+
   const [userInfo] = useMyData();
 
 
@@ -42,7 +41,7 @@ const UserProfile = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/deleteUser/${id}`, {
+        fetch(`https://soulmates-server-two.vercel.app/deleteUser/${id}`, {
           method :"DELETE"
         })
         .then(res => res.json())

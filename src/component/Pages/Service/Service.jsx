@@ -10,18 +10,19 @@ import {Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
 import { Link } from "react-router-dom";
 
 const Service = () => {
-  const [datas, setDatas] = useState([]);
+  const [catering, setCatering] = useState([]);
+  const [photography, setPhotography] = useState([]);
+  const [hotel, setHotel] = useState([]);
   useEffect(() => {
     fetch("https://soulmates-server-two.vercel.app/service/catering")
       .then((res) => res.json())
-      .then((data) => setDatas(data));
+      .then((data) => setCatering(data));
   }, []);
 
-  const [pdata, setpDatas] = useState([]);
   useEffect(() => {
     fetch("https://soulmates-server-two.vercel.app/service/photography")
       .then((res) => res.json())
-      .then((data) => setpDatas(data));
+      .then((data) => setPhotography(data));
   }, []);
 
  
@@ -31,16 +32,7 @@ const Service = () => {
   return (
    <>
     <div className=" max-w-screen-xl mt-20 mx-auto ">
-      {/* new card */}
-        <div className="bg-[#F0F2F5]  text-[#536279] text-base w-[300px] rounded-lg overflow-hidden relative group">
-          <img className="w-[300px] h-[200px] object-cover" src="https://i.ibb.co/xG3C8FS/6.jpg" alt="" />
-          <TbHeartPlus className="p-2 bg-white text-4xl rounded-xl absolute top-2 right-2 hidden group-hover:block cursor-pointer " />
-          <div className="p-3 space-y-2 cursor-progress">
-            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Name:</span> Vegan Elegance Catering</p>
-            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Price:</span> 300$</p>
-            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Description: </span> Experience gourmet vegan cuisine that's elegant, flavorful, and ethically conscious.</p>
-          </div>
-        </div>   
+     
 
           
       {/* content-section */}
@@ -49,6 +41,7 @@ const Service = () => {
           Hotel Booking service <span className="red-text">for you</span>{" "}
         </h2>
       </div>
+      
       {/* slider Section */}
       <div>
         <Swiper
@@ -81,24 +74,19 @@ const Service = () => {
           modules={[Navigation, Pagination, A11y,Autoplay]}
           className="mySwiper"
         >
-          {datas.map((item) => (
+            {catering.map((item) => (
             <SwiperSlide key={item._id}>
               <Link to={`/hotel/${item._id}`}>
-                <div className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl">
-                  <img
-                    src={item?.image}
-                    alt="Hotel cover"
-                    className="object-cover w-full h-56 md:h-64 xl:h-80"
-                  />
-
-                  <div className="bg-black  px-6 py-4 bg-opacity-75 opacity-0 hover:opacity-100 text-gray-300 absolute inset-0 transition-opacity duration-200 flex flex-col">
-                    <p className="font-semibold">{item.name}</p>
-                    <br />
-                    <p>{item.description.substring(0, 100)}...</p>
-                    <br />
-                    <p className="mt-auto">Price: {item.price}</p>
-                  </div>
-                </div>
+                {/* new card */}
+        <div className="bg-[#F0F2F5]  text-[#536279] text-base w-[300px] rounded-lg overflow-hidden relative group mx-8">
+          <img className="w-[300px] h-[200px] object-cover" src={item?.image} alt="" />
+          <TbHeartPlus className="p-2 bg-white text-4xl rounded-xl absolute top-2 right-2 hidden group-hover:block cursor-pointer " />
+          <div className="p-3 space-y-2 cursor-progress">
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Name:</span> {item.name}</p>
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Price:</span> {item.price}</p>
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Description: </span> <span>{item.description.substring(0, 100)}...</span></p>
+          </div>
+        </div>   
               </Link>
             </SwiperSlide>
           ))}
@@ -150,24 +138,19 @@ const Service = () => {
           modules={[Navigation, Pagination, A11y,Autoplay]}
           className="mySwiper"
         >
-          {pdata.map((item) => (
+              {photography.map((item) => (
             <SwiperSlide key={item._id}>
               <Link to={`/hotel/${item._id}`}>
-                <div className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl">
-                  <img
-                    src={item?.image}
-                    alt="Hotel cover"
-                    className="object-cover w-full h-56 md:h-64 xl:h-80"
-                  />
-
-                  <div className="bg-black px-6 py-4 bg-opacity-75 opacity-0 hover:opacity-100 text-gray-300 absolute inset-0 transition-opacity duration-200 flex flex-col">
-                    <p>{item.name}</p>
-                    <br />
-                    <p>{item.description.substring(0, 100)}...</p>
-                    <br />
-                    <p className="mt-auto">Price: {item.price}</p>
-                  </div>
-                </div>
+                 {/* new card */}
+ <div className="bg-[#F0F2F5]  text-[#536279] text-base w-[300px] rounded-lg overflow-hidden relative group mx-8">
+          <img className="w-[300px] h-[200px] object-cover" src={item?.image} alt="" />
+          <TbHeartPlus className="p-2 bg-white text-4xl rounded-xl absolute top-2 right-2 hidden group-hover:block cursor-pointer " />
+          <div className="p-3 space-y-2 cursor-progress">
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Name:</span> {item.name}</p>
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Price:</span> {item.price}</p>
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Description: </span> <span>{item.description.substring(0, 100)}...</span></p>
+          </div>
+        </div>   
               </Link>
             </SwiperSlide>
           ))}
