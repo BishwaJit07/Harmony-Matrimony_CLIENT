@@ -20,12 +20,10 @@ const Home = () => {
 
   return (
     <div className="">
-
       <Helmet>
         <meta charSet="utf-8" />
         <title>Soulmate | Home</title>
       </Helmet>
-
       <HomeBanner></HomeBanner>
       <HowItWork/>
       <WhyChooseUs2></WhyChooseUs2>
@@ -42,7 +40,7 @@ const Home = () => {
         <Gallary />
         {/* <SweetMemories/> */}
         <Review/>
-        <MessageUsFb />
+    
 
       </div>
     </div>
