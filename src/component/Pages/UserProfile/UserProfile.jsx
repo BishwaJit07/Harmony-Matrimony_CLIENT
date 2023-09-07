@@ -1,7 +1,7 @@
 import { BsTelephone } from "react-icons/bs";
 import banner from "../../../assets/userProfile/userBanner.png";
 
-import pic from "../../../assets/profile/profile2.jpg";
+
 
 import img2 from "../../../assets/home/recommendation/girl.png";
 import img3 from "../../../assets/home/recommendation/girl2.png";
@@ -22,46 +22,45 @@ import { CiLocationOn } from "react-icons/ci";
 import file from "../../../assets/other/file.png";
 import useMyData from "../../../Hooks/useMyData";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router";
 
 const UserProfile = () => {
-  const navigate = useNavigate();
+
   const [userInfo] = useMyData();
 
 
   const { profileImage, name, email, _id } = userInfo;
 
   const handleDelete = (id) => {
-    // Swal.fire({
-    //   title: 'Are you sure?',
-    //   text: "You won't be able to revert this!",
-    //   icon: 'warning',
-    //   showCancelButton: true,
-    //   confirmButtonColor: '#3085d6',
-    //   cancelButtonColor: '#d33',
-    //   confirmButtonText: 'Yes, delete it!'
-    // }).then((result) => {
-    //   if (result.isConfirmed) {
-    //     fetch(`http://localhost:5000/deleteUser/${id}`, {
-    //       method :"DELETE"
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //       if(data.deletedCount > 0){
-    //         Swal.fire({
-    //           title: `User Deleted`,
-    //           showClass: {
-    //             popup: "animate__animated animate__fadeInDown",
-    //           },
-    //           hideClass: {
-    //             popup: "animate__animated animate__fadeOutUp",
-    //           },
-    //         });
-    //       }
-    //     })
-    //     .catch(error => console.log(error))
-    //   }
-    // })
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://soulmates-server-two.vercel.app/deleteUser/${id}`, {
+          method :"DELETE"
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.deletedCount > 0){
+            Swal.fire({
+              title: `User Deleted`,
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+            });
+          }
+        })
+        .catch(error => console.log(error))
+      }
+    })
     
   };
 

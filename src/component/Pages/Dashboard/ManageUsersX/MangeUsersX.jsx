@@ -1,20 +1,27 @@
 import { useContext, useEffect, useState } from "react";
 import Pending from "./Pending";
 
+
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import "../../../../style.css";
 
+
 import './ManageUser.css'
+
 import Approve from "./Approve";
 import Denied from "./Denied";
+import { useRef } from "react";
 const MangeUsersX = () => {
-  const { user } = useContext(AuthContext);
+  const searchRef = useRef(null);
+ const { user } = useContext(AuthContext);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setsearch] = useState('')
   useEffect(() => {
 
-    fetch("https://soulmates-server-two.vercel.app/authority")
+    fetch(`https://soulmates-server-two.vercel.app/authority?search=${search}`)
+
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -24,7 +31,7 @@ const MangeUsersX = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [users]);
+  }, [users, search]);
 
   if (loading) {
     return (
@@ -78,17 +85,33 @@ const MangeUsersX = () => {
         }
       });
   };
-  const pendingUsers = users.filter(user => user.status === 'pending');
-  const approvedUsers = users.filter(user => user.status === 'approved');
-  const deniedUsers = users.filter(user => user.status === 'denied');
+  const pendingUsers = users.filter((user) => user.status === "pending");
+  const approvedUsers = users.filter((user) => user.status === "approved");
+  const deniedUsers = users.filter((user) => user.status === "denied");
+
+  const handleSearch = () => {
+    setsearch(searchRef.current.value)
+  };
   return (
     <div className="relative overflow-x-auto  rounded-2xl px-6 w-[75%] mx-auto py-6 my-10 cards ">
       {/* Input field */}
+
       <div className="InputContainer">
-        <input placeholder="Search By Name.." id="input" className="input" name="text" type="text"/>
+        <input
+          ref={searchRef}
+          placeholder="Search By Name.."
+          id="input"
+          className="input"
+          name="text"
+          type="text"
+        />
+        <button onClick={handleSearch} className="btn rounded-3xl btn-sm">Search</button>
+
       </div>
       {/* pending table */}
-      <h1 className="text-black text-4xl my-8 text-center font-serif">Pending Users</h1>
+      <h1 className="text-black text-4xl my-8 text-center font-serif">
+        Pending Users
+      </h1>
       <table className="table w-full text-sm text-left text-gray-500 overflow-hidden card">
         {/* This is table HEAD */}
 
@@ -100,7 +123,7 @@ const MangeUsersX = () => {
               Name
             </th>
             <th scope="col" className="">
-             Pending
+              Pending
             </th>
             <th scope="col" className=" ">
               Action
@@ -124,7 +147,9 @@ const MangeUsersX = () => {
       </table>
 
       {/* Approved Table */}
-      <h1 className="text-black text-4xl my-8 text-center font-serif">Approve Users</h1>
+      <h1 className="text-black text-4xl my-8 text-center font-serif">
+        Approve Users
+      </h1>
       <table className="table w-full text-sm text-left text-gray-500 overflow-hidden card mt-5">
         {/* This is table HEAD */}
 
@@ -136,7 +161,7 @@ const MangeUsersX = () => {
               Name
             </th>
             <th scope="col" className="">
-             Approve
+              Approve
             </th>
             <th scope="col" className=" ">
               Action
@@ -159,7 +184,9 @@ const MangeUsersX = () => {
       </table>
 
       {/* Denied User Table */}
-      <h1 className="text-black text-4xl my-8 text-center font-serif">Denied Users</h1>
+      <h1 className="text-black text-4xl my-8 text-center font-serif">
+        Denied Users
+      </h1>
       <table className="table w-full text-sm text-left text-gray-500 overflow-hidden card mt-5">
         {/* This is table HEAD */}
 
@@ -171,7 +198,7 @@ const MangeUsersX = () => {
               Name
             </th>
             <th scope="col" className="">
-             Denied
+              Denied
             </th>
             <th scope="col" className=" ">
               Action

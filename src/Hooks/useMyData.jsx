@@ -3,16 +3,17 @@ import useAxiosSecure from './useAxiosSecure';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 
+
 const useMyData = () => {
     const { user, loading } = useContext(AuthContext);
     const [axiosSecure] = useAxiosSecure();
     const { data: userInfo = [], refetch } = useQuery({
         queryKey: ['userInfo'],
-        enabled: !loading && !!user?.email, 
+        enabled: !loading && !!user?.email,
         queryFn: async () => {
             if (!user?.email) {
-                
-                return null; 
+
+                return null;
             }
 
             const res = await axiosSecure(`/userInfo?email=${user.email}`);

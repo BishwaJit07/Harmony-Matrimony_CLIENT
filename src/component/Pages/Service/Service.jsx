@@ -10,18 +10,19 @@ import {Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
 import { Link } from "react-router-dom";
 
 const Service = () => {
-  const [datas, setDatas] = useState([]);
+  const [catering, setCatering] = useState([]);
+  const [photography, setPhotography] = useState([]);
+  const [hotel, setHotel] = useState([]);
   useEffect(() => {
     fetch("https://soulmates-server-two.vercel.app/service/catering")
       .then((res) => res.json())
-      .then((data) => setDatas(data));
+      .then((data) => setCatering(data));
   }, []);
 
-  const [pdata, setpDatas] = useState([]);
   useEffect(() => {
     fetch("https://soulmates-server-two.vercel.app/service/photography")
       .then((res) => res.json())
-      .then((data) => setpDatas(data));
+      .then((data) => setPhotography(data));
   }, []);
 
  
@@ -49,6 +50,7 @@ const Service = () => {
           Hotel Booking service <span className="red-text">for you</span>{" "}
         </h2>
       </div>
+      
       {/* slider Section */}
       <div>
         <Swiper
@@ -81,7 +83,7 @@ const Service = () => {
           modules={[Navigation, Pagination, A11y,Autoplay]}
           className="mySwiper"
         >
-          {datas.map((item) => (
+            {catering.map((item) => (
             <SwiperSlide key={item._id}>
               <Link to={`/hotel/${item._id}`}>
                 <div className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl">
@@ -150,7 +152,7 @@ const Service = () => {
           modules={[Navigation, Pagination, A11y,Autoplay]}
           className="mySwiper"
         >
-          {pdata.map((item) => (
+              {photography.map((item) => (
             <SwiperSlide key={item._id}>
               <Link to={`/hotel/${item._id}`}>
                 <div className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl">
