@@ -30,9 +30,9 @@ import Userinfo5 from "../component/Pages/MyProfle/Userinfo5";
 import Userinfo6 from "../component/Pages/MyProfle/Userinfo6";
 import Userinfo7 from "../component/Pages/MyProfle/Userinfo7";
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
-import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
-import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
-import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
+import PaymentCard from "../payments/SSLcommerz/PaymentCard";
+import PaymentSuccess from "../payments/SSLcommerz/PaymentSuccess";
+import PaymentFail from "../payments/SSLcommerz/PaymentFail";
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
@@ -46,6 +46,7 @@ import ChatRoom from "../ChatApp/ChatRoom/ChatRoom";
 import UserProfile from "../component/Pages/UserProfile/UserProfile";
 import VerifyUser from "../component/Pages/Dashboard/VerifyUser/VerifyUser";
 import UserDetails from "../component/Pages/Dashboard/UserDetails/UserDetails";
+import AddBlog2 from "../component/Pages/Blog/AddBlog2";
 
 
 
@@ -257,7 +258,7 @@ const router = createBrowserRouter([
       },
       {
         path: "addBlog",
-        element: <AddBlog></AddBlog>,
+        element: <AddBlog2 />
       },
       {
         path:"userDetails",
