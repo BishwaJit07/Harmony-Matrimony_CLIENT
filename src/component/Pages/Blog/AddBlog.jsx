@@ -28,7 +28,7 @@ const AddBlog = () => {
                     const newBlogs = { title, details: description, type, image: imgUrl, react: 0 };
                     console.log(newBlogs);
 
-                    fetch('https://soulmates-server-two.vercel.app/blogs/post', {
+                    fetch('https://soulmates-server-two.vercel.app/blogs', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"
