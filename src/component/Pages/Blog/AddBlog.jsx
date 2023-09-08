@@ -16,9 +16,12 @@ const AddBlog = () => {
         const formData = new FormData();
         formData.append('image', data.image[0])
 
+        console.log(data)
+        console.log(formData)
+
         fetch(image_hosting_url, {
             method: "POST",
-            body: formData
+            // body: formData
         })
             .then(res => res.json())
             .then(imgResponse => {

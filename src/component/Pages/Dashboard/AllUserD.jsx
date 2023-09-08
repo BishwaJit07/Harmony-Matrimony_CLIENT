@@ -1,4 +1,4 @@
-import useAllUsers from "../../../Hooks/useAllUsers";
+import useAllUsers from "../../../hooks/useAllUsers";
 
 const AllUserD = () => {
   const [users] = useAllUsers();
