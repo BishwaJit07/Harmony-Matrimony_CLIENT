@@ -46,6 +46,7 @@ import ChatRoom from "../ChatApp/ChatRoom/ChatRoom";
 import UserProfile from "../component/Pages/UserProfile/UserProfile";
 import VerifyUser from "../component/Pages/Dashboard/VerifyUser/VerifyUser";
 import UserDetails from "../component/Pages/Dashboard/UserDetails/UserDetails";
+import AddBlog2 from "../component/Pages/Blog/AddBlog2";
 
 
 
@@ -257,7 +258,7 @@ const router = createBrowserRouter([
       },
       {
         path: "addBlog",
-        element: <AddBlog></AddBlog>,
+        element: <AddBlog2 />
       },
       {
         path:"userDetails",
