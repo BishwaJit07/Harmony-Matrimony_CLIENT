@@ -58,7 +58,9 @@ const AddBlog2 = () => {
         <div className="">
           <label htmlFor="first_name" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Add Blog images</label>
           <div className="flex items-center justify-center w-full">
+
             <label htmlFor="dropzone-file" className="py-10 flex flex-col items-center justify-center w-full border-4 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
+
               <div className="flex flex-col items-center justify-center pt-5 pb-6">
                 <svg className='w-8 h-8 mb-4 text-gray-500 ' viewBox="0 0 34 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect x="3.44336" width="29.4" height="26.4444" rx="3" fill="#E8EFFF" />
