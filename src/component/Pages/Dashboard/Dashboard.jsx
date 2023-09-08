@@ -5,10 +5,11 @@ import { Outlet } from "react-router";
 import { NavLink } from "react-router-dom";
 import DashboardNav from "./Shared/DashboardNav";
 import FooterDashboard from "./FooterDashboard";
+import { FaUserTie } from "react-icons/fa";
 const Dashboard = () => {
     const [open, setOpen] = useState(true);
     const Menus = [
-        { title: "Dashboard", icon: <BiHome></BiHome>, link: "/dashboard" },
+       
         { title: "Dashboard", icon: <BiHome></BiHome>, link: "/dashboard/adminUser" },
         { title: "Manage User", icon: <BiUser></BiUser>, link: "/dashboard/manageUser" },
         { title: "Add Service", icon: <BiHome></BiHome>, link: "/dashboard/addService" },
@@ -16,6 +17,8 @@ const Dashboard = () => {
         { title: "Book Service", icon: <BiUser></BiUser>, link: "/dashboard/bookService" },
         { title: "All User", icon: <BiUser></BiUser>, link: "/dashboard/allUser" },
         { title: "Verify User", icon: <BiUser></BiUser>, link: "/dashboard/verifyUser" },
+        {title: "User Support", icon: <FaUserTie></FaUserTie>, link: "/dashboard/userDetails"}
+
 
     ];
 

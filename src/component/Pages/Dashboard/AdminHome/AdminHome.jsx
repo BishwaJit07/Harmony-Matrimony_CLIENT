@@ -64,8 +64,8 @@ const AdminHome = () => {
   
 
   return (
-    <>
-    <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  w-full mx-auto gap-5">
+    <div className="py-10 w-[90%] mx-auto ">
+    <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5  ">
       <div className="stats shadow">
         <div className="stat">
           <div className="stat-figure text-secondary">
@@ -228,7 +228,7 @@ const AdminHome = () => {
       
     </div>
 {/* Chart */}
-    <div style={{ width: '100%', height: 400 }} className="mt-10 shadow">
+    <div style={{ width: '100%', height: 400 }} className="mt-10 shadow mb-30 pb-10 mb-10">
       <div className="flex justify-between px-4 py-2">
         <div>
           <h1 className="font-bold text-xl mb-2">Monthly Revenue</h1>
@@ -257,7 +257,7 @@ const AdminHome = () => {
           </AreaChart>
         </ResponsiveContainer>
       </div>
-    </>
+    </div>
   );
 };
 
