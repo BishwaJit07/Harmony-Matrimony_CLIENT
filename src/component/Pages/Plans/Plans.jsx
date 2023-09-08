@@ -32,11 +32,9 @@ const Plans = () => {
         </div>
       </div>
 
-      {/* 
+      {/* card section */}
 
-card section */}
-
-      <div className="bg-white w-[80%] mx-auto lg:h-[calc(100vh-100px)] xl:h-[calc(100vh-500px)]">
+      <div className="bg-white w-[80%] mx-auto ">
         <div className="lg:grid grid-cols-3 gap-10  mx-auto justify-items-center   max-w-screen-lg ">
           {/* card-1 */}
           <div className="lg:-mt-16  mb-10 lg:mb-0  mx-auto mt-10 max-w-sm">
