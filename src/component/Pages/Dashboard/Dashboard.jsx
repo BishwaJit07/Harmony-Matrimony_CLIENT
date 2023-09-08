@@ -47,7 +47,7 @@ const Dashboard = () => {
             </div>
             <div className="flex-1 bg-slate-200 flex-col flex-grow">
                 <DashboardNav></DashboardNav>
-                <div className="ml-20"><Outlet></Outlet></div>
+                <div className=""><Outlet></Outlet></div>
                 <FooterDashboard></FooterDashboard>
             </div>
 
