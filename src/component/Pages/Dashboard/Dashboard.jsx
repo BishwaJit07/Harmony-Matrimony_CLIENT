@@ -9,7 +9,7 @@ import { FaUserTie } from "react-icons/fa";
 const Dashboard = () => {
     const [open, setOpen] = useState(true);
     const Menus = [
-        { title: "Dashboard", icon: <BiHome></BiHome>, link: "/dashboard" },
+       
         { title: "Dashboard", icon: <BiHome></BiHome>, link: "/dashboard/adminUser" },
         { title: "Manage User", icon: <BiUser></BiUser>, link: "/dashboard/manageUser" },
         { title: "Add Service", icon: <BiHome></BiHome>, link: "/dashboard/addService" },

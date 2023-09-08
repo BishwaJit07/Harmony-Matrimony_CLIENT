@@ -9,6 +9,7 @@ import img4 from '../../../../../assets/home/newHomeBannerImg/7.jpg'
 import img5 from '../../../../../assets/home/newHomeBannerImg/8.jpg'
 import img6 from '../../../../../assets/home/newHomeBannerImg/9.jpg';
 import SearchFunction from "../../SearchFunction/SearchFunction";
+import { Link } from "react-router-dom";
 
 
 const HomeBanner = () => {
@@ -20,7 +21,7 @@ const HomeBanner = () => {
           <p className='lg:text-[56px] text-3xl font-alice leading-normal'>Find Your <span className="text-primary-500">Life Partner</span> With Us</p>
           <p className='text-sm lg:text-[22px] font-lato text-gray-500 leading-9 '>End the struggle of finding a bride or groom. Discover your <br className="hidden md:flex" /> perfect match from the comfort of home. Your ultimate <br className="hidden md:flex" /> destination to find your ideal pertner</p>
           <div className="flex items-center gap-8 ">
-            <button className='bg-primary-500 rounded-full text-white px-16 py-2 mt-4 md:text-[22px]'>Explore </button>
+            <Link to='/allUser' className='bg-primary-500 rounded-full text-white px-16 py-2 mt-4 md:text-[22px]'>Explore </Link>
             <button onClick={() => window.my_modal_3.showModal()} className='flex justify-center items-center gap-2 mt-4 text-[22px]'>
               <span className="relative flex  justify-center items-center">
                 <span className="animate-ping absolute inline-flex h-[80%] w-[80%] rounded-full bg-red-400 opacity-75 duration-1000 md:text-[22xp]"></span>

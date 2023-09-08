@@ -57,7 +57,7 @@ const SingleUserCard = ({ filteredUser }) => {
     <div className='hover:shadow-xl duration-100 border border-[#E1E5EA] rounded-2xl pt-3 pl-3 pr-3 font-lato'>
       {/* img and location */}
       <div className="relative rounded-2xl overflow-hidden">
-        <img className='h-[230px] w-full object-cover object-top ' src={profileImage} alt="" />
+        <img className='h-[430px] w-full object-cover object-top ' src={profileImage} alt="" />
         <div className="flex items-center bg-[#272932a6] text-white gap-2 rounded-tr-2xl py-1 px-2 absolute left-0 bottom-0">
           <CiLocationOn className='text-xl '/>
           <p>{country}</p>
