@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Pending from "./Pending";
 
+
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import "../../../../style.css";
@@ -8,24 +9,19 @@ import "../../../../style.css";
 
 import './ManageUser.css'
 
-
-import "./ManageUser.css";
 import Approve from "./Approve";
 import Denied from "./Denied";
 import { useRef } from "react";
 const MangeUsersX = () => {
   const searchRef = useRef(null);
-  const { user } = useContext(AuthContext);
+ const { user } = useContext(AuthContext);
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setsearch] = useState('')
   useEffect(() => {
-<<<<<<<<< Temporary merge branch 1
-    fetch(`http://localhost:5000/authority?search=${search}`)
-=========
 
-    fetch("https://soulmates-server-two.vercel.app/authority")
->>>>>>>>> Temporary merge branch 2
+    fetch(`https://soulmates-server-two.vercel.app/authority?search=${search}`)
+
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -100,12 +96,12 @@ const MangeUsersX = () => {
     <div className="relative overflow-x-auto  rounded-2xl px-6 w-[75%] mx-auto py-6 my-10 cards ">
       {/* Input field */}
 
-      <div class="InputContainer">
+      <div className="InputContainer">
         <input
           ref={searchRef}
           placeholder="Search By Name.."
           id="input"
-          class="input"
+          className="input"
           name="text"
           type="text"
         />
