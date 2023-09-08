@@ -23,7 +23,7 @@ const Dashboard = () => {
     ];
 
     return (
-        <div className="flex">
+        <div className="flex select-none">
             <div className={` ${open ? "w-72" : "w-20 "}  h-screen p-5  pt-8 relative duration-300 `}>
                 <img src={sliderbtn} className={`absolute cursor-pointer -right-3 top-[90px] w-7 border-dark-purple border-2 rounded-full  ${!open && "rotate-180"}`} onClick={() => setOpen(!open)}/>
                 <div className="flex gap-x-4 items-center ">
