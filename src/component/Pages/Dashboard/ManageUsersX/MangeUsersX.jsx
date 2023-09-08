@@ -9,6 +9,8 @@ import "../../../../style.css";
 
 import './ManageUser.css'
 
+
+import "./ManageUser.css";
 import Approve from "./Approve";
 import Denied from "./Denied";
 import { useRef } from "react";
@@ -19,9 +21,7 @@ const MangeUsersX = () => {
   const [loading, setLoading] = useState(true);
   const [search, setsearch] = useState('')
   useEffect(() => {
-
     fetch(`https://soulmates-server-two.vercel.app/authority?search=${search}`)
-
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
