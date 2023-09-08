@@ -7,8 +7,8 @@ import line from "../../assets/other/Group 1171277762 (1).png"
 import logo from '../../assets/logo/logo2.png'
 const Footer = () => {
   return (
-    <div>
-      <footer className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full  font-alice py-10 px-20 bg-[#222328] text-white mx-auto ">
+    <div className="bg-[#222328] select-none ">
+      <footer className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4  font-alice py-10  w-[80%] text-white mx-auto ">
         <div className="mr-10">
           <span className="footer-title">
             <img src={logo} alt="" className="w-40 mb-5 text-white" />
@@ -83,8 +83,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="">
-          <span className="font-alice text-[30px] leading-[45px] opacity-[100%]">
+        <div className="select-text">
+          <span className="font-alice text-[30px] leading-[45px] opacity-[100%] ">
             Contact Details
           </span>
           <img src={line} alt="" />
@@ -124,13 +124,13 @@ const Footer = () => {
               Walker is Inbox to our mail address.
             </p>
             <label className="label">
-              <span className="label-text text-[#C3CAD5] font-alice mt-2 text-lg"> Email</span>
+              <span className="label-text text-[#C3CAD5] font-alice mt-4 text-[18px]"> Email</span>
             </label>
             <div className="relative">
               <input
                 type="text"
                 placeholder="Enter Your Email"
-                className="input input-bordered w-full pr-16 border border-[#cf9063] rounded-full bg-[#222328] text-white"
+                className="input-bordered w-full pr-16 px-4 py-[11px] border border-[#cf9063] rounded-full bg-[#222328] text-white"
               />
               <button className="absolute top-1 right-1 rounded-full -none px-10 bg-red-600 hover:bg-red-800   py-2">
                 sent
