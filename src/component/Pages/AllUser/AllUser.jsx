@@ -167,7 +167,7 @@ const AllUser = () => {
         <div className="text-center ml-[70px] absolute z-10 hidden md:block ">
           <p className='text-left lg:text-[28px] font-alice text-[18px]'>Find Your Partner</p>
           <p className='text-sm xl:text-[14px] font-lato text-[#3E4A5B] leading-7 text-left mt-2 lg:mt-4'>Embark on a Journey to Find Your Life Partner  Explore <br /> Connect  and Build a Lifetime of Happiness with Us</p>
-          <div className='relative -bottom-1 lg:-bottom-2 xl:-bottom-8 text-left text-[14px]  gap-2 hidden md:flex'>
+          <div className='relative pt-4 text-left text-[14px]  gap-2 hidden md:flex'>
             <Link to="/" className="flex items-center gap-1"><BiSolidHome /> Home</Link>
             <p>/</p>
             <Link to="/allUser" className="flex items-center gap-1"><PiBinocularsFill />Explore</Link>
