@@ -6,7 +6,7 @@ import {motion} from 'framer-motion'
 const Approve = ({user, index,handleMakeDenied}) => {
     return (
         <motion.tr
-        className="bg-red-200   hover:bg-gray-50 "
+        className="hover:bg-red-200   bg-gray-50 "
  
        // remake
        transition={{delay: 0.1 * index}}
