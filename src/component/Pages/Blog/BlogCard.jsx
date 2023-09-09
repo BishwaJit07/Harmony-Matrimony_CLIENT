@@ -44,8 +44,8 @@ const [love, setLove] = useState(false);
       animate={{opacity: 1}}
       layout
     >
-      <AnimatePresence>
-      <div className="card card-compact w-full bg-base-200 shadow-xl mb-10 relative ">
+      <AnimatePresence >
+      <div className="card h-full card-compact w-full bg-base-200 shadow-xl mb-10 relative ">
         <figure>
           <img
             src={data?.image}
