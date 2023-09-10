@@ -6,6 +6,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../../../Provider/AuthProvider';
 import Headroom from 'react-headroom'
 import './NavBar2.css'
+import { DarkMode } from '../../../../../Shared/DarkMode/DarkMode.Jsx';
 
 const NavBar2 = () => {
   // if you need to add new links in navbar, add it in li element
@@ -24,8 +25,8 @@ const NavBar2 = () => {
 
   return (
 
-    <Headroom style={{ backgroundColor: "white", zIndex: 50, boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px" }}>
-      <div className="navbar bg-base-100 w-[80%] mx-auto select-none">
+    <Headroom style={{ backgroundColor: "white", zIndex: 50, boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px" }} >
+      <div className="navbar bg-base-100 w-[80%] mx-auto select-none ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,14 +38,16 @@ const NavBar2 = () => {
           </div>
           <Link to="/" className='hidden md:flex'><img className='scale-75' src={logo} alt="" /></Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1">
                 <NavItems></NavItems>
           </ul>
         </div>
         <div className="navbar-end ml-auto">
-            {user ? (
+        <DarkMode /> 
+            {user ? ( 
               <DropdownProfile userInfo={userInfo} logOut={handleLogOut}/>
+             
             ) : (
               <div className="">
                 <Link to="/signup">
@@ -61,7 +64,7 @@ const NavBar2 = () => {
 
 const NavItems = () => {
   return (
-    <>
+    < >
       <li className=' font-semibold text-base '><NavLink to="/" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>Home</NavLink></li>
       <li className=' font-semibold text-base'><NavLink to="/allUser" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>Explore</NavLink></li>
       <li className=' font-semibold text-base'><NavLink to="/about" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>About us</NavLink></li>

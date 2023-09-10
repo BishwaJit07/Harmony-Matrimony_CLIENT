@@ -62,7 +62,7 @@ const Profile2 = () => {
   console.log(user);
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-lato mt-4">
         {/* photo section */}
         <div className="">
@@ -149,7 +149,7 @@ const Profile2 = () => {
         </div>
 
         {/* info section */}
-        <div className="bg-[#F0F2F5] p-5 rounded-2xl">
+        <div className="bg-[#F0F2F5] p-5 rounded-2xl dark:bg-gray-300">
           {/* img and name section */}
           <div className="flex gap-4 items-start flex-col lg:flex-row">
             {/* profile rounded img */}
@@ -362,7 +362,7 @@ const Title = ({ title }) => {
 };
 export const Info = ({ title, value }) => {
   return (
-    <div className="flex items-center text-[#3E4A5B] text-[18px] mb-2">
+    <div className="flex items-center text-[#3E4A5B] text-[18px] mb-2 ">
       <BsArrowRightShort className="text-lg" />
       <p className="">
         <span className="text-[#8695AC] mr-1">{title}:</span>
@@ -373,7 +373,7 @@ export const Info = ({ title, value }) => {
 };
 const HBox = ({ value }) => {
   return (
-    <div className="bg-white py-3 px-4 rounded-full text-[#536279] text-base">
+    <div className="bg-white py-3 px-4 rounded-full text-[#536279] text-base ">
       {value}
     </div>
   );

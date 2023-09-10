@@ -32,8 +32,8 @@ const LatestBlog = () => {
                             <div className="p-2">
                                 <h2 className="text-lg font-serif font-normal">{latestData.title}</h2>
                                 <div className="flex">
-                                    <button className="text-lg mb-2 "><AiOutlineCalendar /></button>
-                                    <p className="mb-2 text-sm text-slate-600">{latestData?.date}</p>
+                                    <button className="text-lg mb-2 dark:text-gray-100"><AiOutlineCalendar /></button>
+                                    <p className="mb-2 text-sm text-slate-600 dark:text-gray-300">{latestData?.date}</p>
                                 </div>
                                 <div className="flex ms-0 lg:ms-32 text-red-600">
                                     <Link to={`/blogDetails/${latestData._id}`}><p >View</p></Link>

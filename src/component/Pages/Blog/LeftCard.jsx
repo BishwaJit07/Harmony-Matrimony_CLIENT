@@ -32,8 +32,8 @@ const LeftCard = () => {
 
                 <h2 className="text-lg font-serif font-normal">{pData.title}</h2>
                 <div className="flex">
-                  <button className="text-lg mb-2 "><AiOutlineCalendar /></button>
-                  <p className="mb-2 text-sm text-slate-600">{pData?.date}</p>
+                  <button className="text-lg mb-2 dark:text-gray-100"><AiOutlineCalendar /></button>
+                  <p className="mb-2 text-sm text-slate-600 dark:text-gray-300">{pData?.date}</p>
                 </div>
                 <div className="flex ms-0 lg:ms-32 text-red-600">
                   <Link to={`/blogDetails/${pData._id}`}><p >View</p></Link>
