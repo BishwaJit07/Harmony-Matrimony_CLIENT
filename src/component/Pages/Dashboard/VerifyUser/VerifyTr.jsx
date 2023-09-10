@@ -4,7 +4,7 @@ import {RxCross1} from "react-icons/rx";
 import {motion} from 'framer-motion'
 import GLightbox from 'glightbox';
 
-const VerifyTr = ({index, user}) => {
+const VerifyTr = ({index, user, handleVerify,  handleVerifyCancle}) => {
     return (
         <motion.tr
        className="bg-white   hover:bg-gray-50 "
@@ -26,8 +26,8 @@ const VerifyTr = ({index, user}) => {
         <td> <div className="text-black ">{user?.name}</div></td>
         <td className="px-6 py-4">
          <div className="">
-          <button onClick={()=>handleMakeApprove(user._id)} className='text-xl text-white bg-green-500 p-2 rounded-full ml-8 cursor-pointer'><AiOutlineCheck/></button>
-          <button onClick={()=>handleMakeDenied(user._id)} className='text-xl text-white bg-red-500 p-2 rounded-full ml-8 cursor-pointer'><RxCross1/></button>
+          <button onClick={()=>handleVerify(user.email)} className='text-xl text-white bg-green-500 p-2 rounded-full ml-8 cursor-pointer'><AiOutlineCheck/></button>
+          <button onClick={()=>handleVerifyCancle(user.email)} className='text-xl text-white bg-red-500 p-2 rounded-full ml-8 cursor-pointer'><RxCross1/></button>
           </div> 
        
         </td>
