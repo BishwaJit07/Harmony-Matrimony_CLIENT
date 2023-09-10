@@ -27,5 +27,6 @@ export default {
     },
   },
   plugins: [require("daisyui","tailwind-scrollbar")],
+  darkMode: 'class',
 };
 

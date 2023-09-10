@@ -18,7 +18,7 @@ const SingleUserCard = ({ filteredUser }) => {
     _id,
     aboutMe,
     height,
-    jobSector,
+    work,
     age,
     marital_status
   } = filteredUser;
@@ -46,7 +46,7 @@ const SingleUserCard = ({ filteredUser }) => {
   // filter string and slice it
   const getString = (text) => {
     if(typeof text == 'string'){
-      return text.slice(0, 150) + '...'
+      return text.slice(0, 50) + '...'
     }
     else{
       return 'No data found!!!'
@@ -54,45 +54,45 @@ const SingleUserCard = ({ filteredUser }) => {
   }
   
   return (
-    <div className='hover:shadow-xl duration-100 border border-[#E1E5EA] rounded-2xl pt-3 pl-3 pr-3 font-lato'>
+    <div className='hover:shadow-xl duration-100 border border-[#E1E5EA] rounded-2xl pt-3 pl-3 pr-3 font-lato z-0 dark:text-white dark:bg-gray-500'>
       {/* img and location */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <img className='h-[430px] w-full object-cover object-top ' src={profileImage} alt="" />
+      <div className="relative rounded-2xl overflow-hidden ">
+        <img className='md:h-[430px] w-full object-cover object-top ' src={profileImage} alt="" />
         <div className="flex items-center bg-[#272932a6] text-white gap-2 rounded-tr-2xl py-1 px-2 absolute left-0 bottom-0">
           <CiLocationOn className='text-xl '/>
-          <p>{country}</p>
+          <p >{country}</p>
         </div>
       </div>
       <div className="py-2 flex justify-between items-center">
         <div className="">
-          <p className='text-[22px] font-alice text-[#272932]'>{name}</p>
-          <p className='text-[#595E73]'>Married status: {marital_status}</p>
+          <p className='text-[22px] font-alice text-[#272932] dark:text-white '>{name}</p>
+          <p className='text-[#595E73] text-sm md:text-base  dark:text-white'>Status: {marital_status}</p>
         </div>
-        <p className='bg-[#F0F2F5] border border-primary-200 rounded-full py-3 px-[32px] text-base font-normal text-[#595E73]'>{religion}</p>
+        <p className='bg-[#F0F2F5] border border-primary-200 rounded-full md:py-3 py-1 md:px-[32px] px-2 md:text-base text-sm font-normal text-[#595E73] '>{religion}</p>
       </div>
       {/* description */}
-      <p className='text-[#8695AC] py-3'>{getString(aboutMe)}</p>
+      <p className='text-[#8695AC] py-3  dark:text-white'>{getString(aboutMe)}</p>
       {/* info */}
-      <div className="flex justify-between">
-        <div className="text-center px-10 py-2">
-          <p className='text-[#8695AC]'>Age</p>
-          <p className='text-[#3E4A5B]'>{age}</p>
+      <div className="flex justify-between ">
+        <div className="text-center md:px-10 md:py-2 ">
+          <p className='text-[#8695AC]  dark:text-white'>Age</p>
+          <p className='text-[#3E4A5B]  dark:text-white'>{age}</p>
         </div>
         <div className="border "></div>
-        <div className="text-center px-10 py-2">
-          <p className='text-[#8695AC]'>Height</p>
-          <p className='text-[#3E4A5B]'>{height}</p>
+        <div className="text-center md:px-10 md:py-2 ">
+          <p className='text-[#8695AC]  dark:text-white '>Height</p>
+          <p className='text-[#3E4A5B]  dark:text-white'>{height}</p>
         </div>
         <div className="border "></div>
-        <div className="text-center px-10 py-2">
-          <p className='text-[#8695AC]'>Job</p>
-          <p className='text-[#3E4A5B]'>{jobSector}</p>
+        <div className="text-center md:px-10 md:py-2">
+          <p className='text-[#8695AC]  dark:text-white'>Job</p>
+          <p className='text-[#3E4A5B]  dark:text-white'>{work}</p>
         </div>
       </div>
       {/* button section */}
       <div className="flex gap-5 py-5">
-        <button className="bg-[#A4B0C1] w-[82px]  px-[15px] py-[13px] rounded-full flex items-center justify-center"><img className="" src={share} alt="" /></button>
-        <Link to={`/profile/${_id}`} onClick={handleClick} className='text-[20px] font-bold w-full bg-primary-500 rounded-full text-white py-[13px]  flex justify-center items-center '>View Profile</Link>
+        <button className="bg-[#A4B0C1] md:w-[82px] w-[40px] h-[40px] md:h-[55px] md:px-[15px] md:py-[13px] rounded-full flex items-center justify-center "><img className="" src={share} alt="" /></button>
+        <Link to={`/profile/${_id}`} onClick={handleClick} className='md:text-[20px]  text-sm font-bold w-full bg-primary-500 rounded-full text-white py-[13px]  flex justify-center items-center '>View Profile</Link>
       </div>
     </div>
   );
