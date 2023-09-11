@@ -2,7 +2,7 @@ import "../../../style.css"
 
 const FooterDashboard = () => {
   return (
-    <footer className="footer footer-center p-10 bg-blue-950 text-white">
+    <footer className="footer footer-center p-6 bg-blue-950 text-white">
       <div>
         <p>
           Empowering You Every Step of the Way - Explore Our Admin <br /> and

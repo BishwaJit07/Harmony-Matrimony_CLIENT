@@ -190,7 +190,7 @@ const MangeUsersX = () => {
         <thead className="text-sm text-gray-700 uppercase bg-gray-50 ">
           <tr className="">
             <th></th>
-            <th></th>
+            <th>Photo</th>
             <th scope="col" className="">
               Name
             </th>
