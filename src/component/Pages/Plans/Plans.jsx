@@ -13,6 +13,7 @@ import pattern from '../../../assets/plan/pattern.svg'
 import home from '../../../assets/plan/home.svg'
 import scop from '../../../assets/plan/scop.svg'
 
+
 const Plans = () => {
   const gold = {
     plan: "gold",
@@ -34,7 +35,7 @@ const Plans = () => {
         <meta charSet="utf-8" />
         <title>Soulmate | Services</title>
       </Helmet>
-      
+
       {/* banner */}
       <div className="w-full h-[350px] bg-[#fdeaea] overflow-hidden relative" >
         <div className=" flex h-full ">
@@ -52,8 +53,6 @@ const Plans = () => {
             <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/plan'>Plan</Link></p>
           </div>
           <img className="h-full" src={couple} alt="" />
-        </div>
-      </div>
 
       <div className="max-w-[680px]  mx-auto mt-12 mb-8">
         <p className="text-[42px] font-alice text-[#272932] text-center">We’ve Got The <span className="text-[#0F7173]">Perfect Plan</span>  That is Finding for <span className="text-[#0F7173]">Your Need</span> </p>
