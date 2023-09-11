@@ -6,7 +6,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../../../Provider/AuthProvider';
 import Headroom from 'react-headroom'
 import './NavBar2.css'
-import { DarkMode } from '../../../../../Shared/DarkMode/DarkMode.Jsx';
+import { DarkMode } from '../../../../../Shared/DarkMode/DarkMode';
 
 const NavBar2 = () => {
   // if you need to add new links in navbar, add it in li element
