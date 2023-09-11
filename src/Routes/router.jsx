@@ -8,7 +8,7 @@ import Plans from "../component/Pages/Plans/Plans";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import Dashboard from "../component/Pages/Dashboard/Dashboard";
 import AllUserD from "../component/Pages/Dashboard/AllUserD";
-import Happy from "../Shared/Happy/Happy";
+import Happy2 from "../Shared/Happy/Happy2";
 import AllUser from "../component/Pages/AllUser/AllUser";
 import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
@@ -129,7 +129,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/happy",
-        element: <Happy />,
+        element: <Happy2 />,
       },
       {
         path: "/plans",
