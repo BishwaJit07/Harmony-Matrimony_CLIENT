@@ -37,7 +37,7 @@ const Review = () => {
         <div className='flex  justify-between items-center lg:px-16 lg:m-10 relative'>
             {/* div for text */}
             <div className='hidden md:flex m-3 lg:m-0  mx-auto w-[50%]'>
-                <h3 className='font-serif  lg:leading-10 leading-2   text-left lg:text-4xl text-2xl'>Countless individuals have Discovered their life partners Through SoulMate!</h3>
+                <h3 className='font-serif  lg:leading-10 leading-2   text-left lg:text-4xl text-2xl dark:text-white'>Countless individuals have Discovered their life partners Through SoulMate!</h3>
             </div>
 
             {/* div for swiper */}
@@ -68,7 +68,7 @@ const Review = () => {
                         </SwiperSlide>)
                     }
 
-                    <div className=' absolute  xl:-left-[510px] top-[300px]'>
+                    <div className=' absolute  xl:-left-[510px] top-[300px] '>
                         <SwiperNavButtons></SwiperNavButtons>
                     </div>
                     <h3 className='fixed top-2 -left-14 text-6xl text-gray-400 hidden md:flex'><RiDoubleQuotesL /></h3>

@@ -52,6 +52,7 @@ const AddBlog2 = () => {
         }
       })
   }
+
   return (
     <div className=' max-w-7xl mx-auto'>
       <form onSubmit={handleSubmit(onSubmit)} className='space-y-6 px-10 bg-white my-10 py-10 w-[700px] mx-auto rounded-[30px]' action="">

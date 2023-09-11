@@ -33,7 +33,7 @@ const BestRecommendation2 = () => {
 
    return (
      <div className="py-[120px] w-[80%] mx-auto ">
-         <p className="text-[#272932] lg:text-[40px] text-center text-[20px] lg:text-left font-alice xl:ml-16 -mb-16 ">Best Recommendation for you</p>
+         <p className="text-[#272932] lg:text-[40px] text-center text-[20px] lg:text-left font-alice xl:ml-16 -mb-16 dark:text-white">Best Recommendation for you</p>
        <div className="max-w-7xl mx-auto ">
        </div>
        <Swiper
