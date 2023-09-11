@@ -37,7 +37,7 @@ const Service = () => {
           
       {/* content-section */}
       <div className="mb-8">
-        <h2 className="text-3xl font-semibold ">
+        <h2 className="text-3xl font-semibold dark:text-white ">
           Hotel Booking service <span className="red-text">for you</span>{" "}
         </h2>
       </div>
@@ -62,13 +62,14 @@ const Service = () => {
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 40,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 50,
             },
+           
           }}
           
           modules={[Navigation, Pagination, A11y,Autoplay]}
@@ -102,7 +103,7 @@ const Service = () => {
     <div className=" max-w-screen-xl mt-20 mx-auto ">
       {/* content-section */}
       <div className="mb-8">
-        <h2 className="text-3xl font-semibold ">
+        <h2 className="text-3xl font-semibold dark:text-white ">
          Media Booking service <span className="red-text">for you</span>{" "}
         </h2>
       </div>
@@ -126,11 +127,11 @@ const Service = () => {
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 40,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 50,
             },
           }}

@@ -18,7 +18,7 @@ import Heading from "../../../Shared/Heading";
 
 import { Helmet } from "react-helmet";
 import Contact from "../Contact/Contact";
-import MessageUsFb from "../../FacebookMessage/MessageUsFb";
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -41,11 +41,11 @@ const About = () => {
       </Helmet>
 
       {/* about header */}
-      <div className="relative mb-20">
+      <div className="relative mb-20 ">
         {/* about text */}
         <div className="h-[300px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
           <div className="text-center space-y-5 pt-10">
-            <p className=" text-xl text-[#EBFFF6]">#1 Wedding Website</p>
+            <p className=" text-xl text-[#EBFFF6] ">#1 Wedding Website</p>
             <p className="text-7xl font-extrabold bg-clip-text text-transparent text-white">About us</p>
             <p className="text-white text-lg">Most Trusted and premium Matrimony Service in the World.</p>
           </div>
@@ -83,23 +83,23 @@ const About = () => {
           <img className='w-[80%] h-[300px] object-cover rounded-se-[100px] rounded-br-[15px] rounded-bl-[100px] border-white border-t-[15px] border-l-[15px] absolute top-[46%] left-[16%]' src={img2} alt="two couples picture" />
           <div className="w-[200px] h-[200px] border-[7px] border-[#ffe2f0] rounded-2xl absolute top-[68%] left-[68%] -z-10"></div>
         </div>
-        <div className=" space-y-6 font-semibold px-8">
-          <div className="">
+        <div className=" space-y-6 font-semibold px-8 dark:text-white">
+          <div className="dark:text-white">
             <p className='text-[58px] font-bold'>Welcome to</p>
-            <p className='text-[35px] font-bold text-[#ec1d02] '>Wedding matrimony</p>
+            <p className='text-[35px] font-bold text-[#ec1d02] dark:text-pink-500'>Wedding matrimony</p>
           </div>
-          <p>Best wedding matrimony It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+          <p className="dark:text-white">Best wedding matrimony It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
           <p>Click here to Start you matrimony service now.</p>
           <hr />
           <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable.</p>
-          <div className="md:flex gap-10 space-y-6 md:space-y-0">
+          <div className="md:flex gap-10 space-y-6 md:space-y-0 ">
             <div className="flex items-center gap-3">
               <div className="w-[50px] h-[50px] bg-black flex justify-center items-center rounded-full border-gray-300 border-[7px]">
                 <BsTelephoneFill className="text-white  text-[18px] " />
               </div>
               <div className="">
-                <p className="text-[#7a7a7a]">Enquiry</p>
-                <p className="text-[18px] font-semibold text-black">+01 2242 3366</p>
+                <p className="text-[#7a7a7a]dark:text-white">Enquiry</p>
+                <p className="text-[18px] font-semibold text-black dark:text-white">+01 2242 3366</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -107,8 +107,8 @@ const About = () => {
                 <AiOutlineMail className="text-white  text-[18px] " />
               </div>
               <div className="">
-                <p className="text-[#7a7a7a]">Get Support</p>
-                <p className="text-[18px] font-semibold text-black">info@example.com</p>
+                <p className="text-[#7a7a7a] dark:text-white">Get Support</p>
+                <p className="text-[18px] font-semibold text-black dark:text-white">info@example.com</p>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ const About = () => {
       </div>
 
       {/* counting section */}
-      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mt-32 mb-10 px-2 max-w-7xl mx-auto ">
+      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mt-32 mb-10 px-2 max-w-7xl mx-auto dark:text-orange-300 ">
         <div className="border p-5 flex flex-col lg:flex-row items-center lg:items-start gap-2 w-full md:border-l-0">
           <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
             <AiOutlineHeart className="text-[20px]" />
@@ -234,7 +234,7 @@ const About = () => {
       </div>
 
       <div className=" mt-32">
-        <h2 className="text-center font-alice text-4xl font-bold mb-6">Meet Our Team</h2>
+        <h2 className="text-center font-alice text-4xl font-bold mb-6 dark:text-white">Meet Our Team</h2>
       </div>
 
       {/* team section */}
@@ -246,8 +246,8 @@ const About = () => {
             <img className="w-full object-cover group-hover:scale-110  duration-700" src={item.img} alt="" />
               <div className="h-[100px]"></div>
               <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
-                <p className="text-xl  font-bold text-[#5A4F24] group-hover:text-[#ffc107]">{item.name}</p>
-                <p className="text-sm group-hover:text-white">{item.team_role}</p>
+                <p className="text-xl  font-bold text-[#5A4F24] group-hover:text-[#ffc107] dark:text-yellow-400">{item.name}</p>
+                <p className="text-sm group-hover:text-white dark:text-gray-200">{item.team_role}</p>
               </div>
             
 

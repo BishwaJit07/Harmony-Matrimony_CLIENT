@@ -85,3 +85,8 @@
 .react-datepicker__input-container input{
     @apply text-[18px] font-medium font-lato rounded-full py-5 pl-7 pr-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
 }
+
+/* for leaflet map */
+.leaflet-pane{
+    @apply z-10
+}

@@ -50,10 +50,10 @@ const Blog = () => {
         <h1 className="text-center lg:pt-16 pt-0 lg:text-5xl text-lg font-semibold text-red-600 ">Blog & Articles</h1>
 
       </div>
-      <div className="flex flex-col-reverse lg:flex-row justify-center gap-16 ">
+      <div className="flex flex-col-reverse lg:flex-row justify-center gap-16 dark:text-gray-200 ">
         <div className="lg:w-2/3  lg:mx-5 mx-2 w-full lg:ml-28 mt-10">
 
-          <h1 className="text-4xl font-semibold mb-8 font-serif text-center">ALL BLOG</h1>
+          <h1 className="text-4xl font-semibold mb-8 font-serif text-center ">ALL BLOG</h1>
           <div className="grid xl:grid-cols-2 gap-5">
             {blogData.map((data) => (
               <BlogCard key={data._id} data={data} setReact={setReact} react={react}></BlogCard>

@@ -1,48 +1,49 @@
-import  {  useState } from 'react';
+import  {  useContext, useState } from 'react';
 import { useForm } from "react-hook-form"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 
-const AddBlog2 = () => {
+const Happy2 = () => {
   const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
   const image_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Hosting_Token}`;
   const navigate = useNavigate();
   const {register, handleSubmit} = useForm()
   const [startDate, setStartDate] = useState(new Date());
-
-  const onSubmit = (blogData) => {
+const { user } = useContext(AuthContext);
+  const onSubmit = (reviewData) => {
     const formData = new FormData();
-    formData.append('image', blogData.image[0])
-    console.log(blogData)
+    formData.append('image', reviewData.image[0])
+    console.log(reviewData)
 
     axios.post(image_hosting_url, formData)
       .then(res => {
-        const finalData = { title: blogData.title, details: blogData.details, type: blogData.type, image: res.data.data.url, react: 0, date: startDate}
+        const finalData = { coupleName: reviewData.user + " and " + reviewData.patner, review: reviewData.details,  imageURL: res.data.data.url, location:reviewData.location,date: startDate}
         console.log({res, finalData})
         if(res.data.success){
-          axios.post('https://soulmates-server-two.vercel.app/blogs', finalData)
+          axios.post('https://soulmates-server-two.vercel.app/reviews', finalData)
             .then(res => {
               console.log(res)
               if (res.data.insertedId){
                 Swal.fire({
                   position: 'center',
                   icon: 'success',
-                  title: 'Blog Added',
+                  title: 'Your HappyStory Added',
                   showConfirmButton: false,
                   timer: 1500
                 })
-                navigate('/blog')
+                navigate('/')
               }
               else{
                 Swal.fire({
                   position: 'center',
                   icon: 'error',
-                  title: 'Failed to added blog',
+                  title: 'Failed to added Your Story',
                   showConfirmButton: false,
                   timer: 1500
                 })
@@ -58,8 +59,16 @@ const AddBlog2 = () => {
       <form onSubmit={handleSubmit(onSubmit)} className='space-y-6 px-10 bg-white my-10 py-10 w-[700px] mx-auto rounded-[30px]' action="">
         {/* input field */}
         <div>
-          <label htmlFor="blog_title" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Blog Tittle</label>
-          <input {...register('title', {required: true})} type="text" id="blog_title" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full "placeholder="Type Blog title" />
+          <label htmlFor="patnerName" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Your Name</label>
+          <input {...register('user', {required: true})} defaultValue={user?.name}  type="text" id="patnerName" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full "placeholder="Your Patner" />
+        </div>
+        <div>
+          <label htmlFor="patnerName" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Patner Name</label>
+          <input {...register('patner', {required: true})} type="text" id="patnerName" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full "placeholder="Your Patner" />
+        </div>
+        <div>
+          <label htmlFor="Location" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Location</label>
+          <input {...register('location', {required: true})} type="text" id="LocationName" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full "placeholder="Wasington,Dc" />
         </div>
 
         {/* input field */}
@@ -68,31 +77,11 @@ const AddBlog2 = () => {
           <textarea {...register('details', {required: true})} id="description" rows="4" className="rounded-[15px] block py-5 pl-7 w-full text-[18px] font-medium font-lato text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
         </div>
         
-        <div className="flex gap-8">
-          {/* input field */}
-          <div className='w-full'>
-            <label htmlFor="blog_category" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Blog Category</label>
-            {/* <input type="text" id="first_name" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" /> */}
-            <select {...register('type', {required: true})} id="blog_category" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 pr-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full ">
-              <option selected>Choose a category</option>
-              <option value="advice">Advice</option>
-              <option value="engagement">Engagement</option>
-              <option value="dates">Dates</option>
-              <option value="wedding">Wedding</option>
-              <option value="photography">Photography</option>
-            </select>
-          </div>
-          {/* input field */}
-          <div className='w-full'>
-            <label htmlFor="first_name" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Publish Date</label>
-            {/* <input type="text" id="first_name" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" /> */}
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-          </div>
-        </div>
+       
 
         {/* file Input */}
         <div className="">
-          <label htmlFor="first_name" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Add Blog images</label>
+          <label htmlFor="first_name" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Add Your images</label>
           <div className="flex items-center justify-center w-full">
 
             <label htmlFor="dropzone-file" className="py-10 flex flex-col items-center justify-center w-full border-4 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
@@ -153,4 +142,4 @@ const AddBlog2 = () => {
   );
 };
 
-export default AddBlog2;
+export default Happy2;
