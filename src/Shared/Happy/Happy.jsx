@@ -16,7 +16,7 @@ const Happy = () => {
     const data = {  img, name, about_marriage }
     console.log(data)
 
-    fetch('https://soulmates-server-two.vercel.app/allCouple', {
+    fetch('https://soulmates-server-two.vercel.app/reviews', {
       method: "POST",
       headers: {
         "content-type" : "application/json"
