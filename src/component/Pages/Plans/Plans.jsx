@@ -9,6 +9,10 @@ import plant from '../../../assets/plan/organic-plant.svg'
 import bg from '../../../assets/plan/bg.svg'
 import bg1 from '../../../assets/plan/1bg.svg'
 import bg3 from '../../../assets/plan/3bg.svg'
+import pattern from '../../../assets/plan/pattern.svg'
+import home from '../../../assets/plan/home.svg'
+import scop from '../../../assets/plan/scop.svg'
+
 
 const Plans = () => {
   const gold = {
@@ -23,6 +27,7 @@ const Plans = () => {
   };
   const platinumData = btoa(JSON.stringify(platinum));
 
+  
   return (
     <div className="">
       {/* Title */}
@@ -30,16 +35,29 @@ const Plans = () => {
         <meta charSet="utf-8" />
         <title>Soulmate | Services</title>
       </Helmet>
-      {/* <div className="h-[200px] md:h-[400px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
-        <div className="text-center space-y-5 pt-10">
-          <p className="text-3xl md:text-7xl font-extrabold bg-clip-text text-transparent text-white">
-            PRICING
-          </p>
-          <p className="text-white text-lg">
-            Get Started <br /> Pick your Plan Now
-          </p>
+
+      {/* banner */}
+      <div className="w-full h-[350px] bg-[#fdeaea] overflow-hidden relative" >
+        <div className=" flex h-full ">
+          <img className="h-full" src={pattern} alt="" />
+          <img className="h-full" src={pattern} alt="" />
+          <img className="h-full" src={pattern} alt="" />
+          <img className="h-full" src={pattern} alt="" />
+          <img className="h-full" src={pattern} alt="" />
+          <img className="h-full" src={pattern} alt="" />
         </div>
-      </div> */}
+        <div className="max-w-7xl mx-auto flex justify-between h-full items-center absolute inset-0">
+          <div className="">
+            <p className="font-alice text-[28px] text-[#272932]">Find Your Partner</p>
+            <p className="text-[#3E4A5B]">Lorem ipsum dolor sit amet consectetur <br /> adipisicing elit. Unde, tempore?</p>
+            <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/plan'>Plan</Link></p>
+          </div>
+          <img className="h-full" src={couple} alt="" />
+
+      <div className="max-w-[680px]  mx-auto mt-12 mb-8">
+        <p className="text-[42px] font-alice text-[#272932] text-center">We’ve Got The <span className="text-[#0F7173]">Perfect Plan</span>  That is Finding for <span className="text-[#0F7173]">Your Need</span> </p>
+        <p className="text-[#3E4A5B] font-lato text-center px-8 my-[18px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+      </div>
 
       {/* card section */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto font-lato py-8 gap-7">

@@ -54,14 +54,14 @@ const Review = () => {
                             <div className=' w-full border border-gray-200 bg-slate-100 '>
                                 <div  className="lg:flex flex-col-reverse xl:flex-row p-5 text-black ">
                                     <div className='lg:mx-5 mx-2'>
-                                        <p className='text-sm pt-5 font-medium '>{review.review} <span className='text-red-600'>See More</span></p>
+                                        <p className='text-sm pt-5 font-medium '>{review.review.slice(0, 150)} <span className='text-red-600'>See More</span></p>
                                         <div className='lg:mt-10' >
                                             <h3 className='text-xxl font-serif italic'>{review.coupleName}</h3>
                                             <p className='text-sm'>{review.location}</p>
                                         </div>
                                     </div>
                                     <div>
-                                        <img className='lg:w-[600px] object-cover border-8 border-white' src={review.imageURL} alt="" />
+                                        <img className='lg:w-[600px] h-auto object-cover border-8 border-white' src={review.imageURL} alt="" />
                                     </div>
                                 </div>
                             </div>
