@@ -58,7 +58,7 @@ const HappyStory = () => {
           happyStories.map((happyStory) => (
             <SwiperSlide key={happyStory._id}>
               <div className="card xl:mx-4 my-8  xl:h-[600px]  bg-opacity-80 round-t-[30%] md:rounded-t-[30%] lg:rounded-t-full rounded-b-3xl shadow-xl border-t-white ">
-              <figure><img className="object-fill h-[200px] md:h-[300px] xl:h-[400px]" src={happyStory.img} alt="Shoes" /></figure>
+              <figure><img className="object-fill h-[200px] md:h-[300px] xl:h-[400px]" src={happyStory.img} alt="ShoeCouples" /></figure>
               <div className="card-body  ">
                 <h2 className="card-title text-2xl lg:text-4xl font-normal justify-center">{happyStory.name}</h2>
                 <p className="text-xs lg:text-sm xl:text-base py-3 text text-[#728483] text-clip text ">{happyStory.about_marriage < 100 ? <>{happyStory.about_marriage}</> :
