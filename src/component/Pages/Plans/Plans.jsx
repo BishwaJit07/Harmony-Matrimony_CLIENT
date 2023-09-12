@@ -48,13 +48,14 @@ const Plans = () => {
           <img className="h-full" src={pattern} alt="" />
         </div>
         <div className="max-w-7xl mx-auto flex justify-between h-full items-center absolute inset-0">
-          <div className="ms-4 text-center">
+          <div className="ms-4 text-left">
             <p className="font-alice text-[28px] text-[#272932]">
 "Unlock Love's Potential with Premium Plans!"</p>
             <p className="text-[#3E4A5B]">Upgrade to Find Your Forever, <br /> Exclusive Benefits Await </p>
             <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/plan'>Plan</Link></p>
           </div>
-          <img className="h-full" src={couple} alt="" />
+          <img className="h-96
+           hidden md:block lg:block " src={couple} alt="" />
           </div>
       
 
