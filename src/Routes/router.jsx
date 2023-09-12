@@ -47,6 +47,8 @@ import UserProfile from "../component/Pages/UserProfile/UserProfile";
 import VerifyUser from "../component/Pages/Dashboard/VerifyUser/VerifyUser";
 import UserDetails from "../component/Pages/Dashboard/UserDetails/UserDetails";
 import AddBlog2 from "../component/Pages/Blog/AddBlog2";
+import PaymentPage from "../payments/PaymentPage/PaymentPage";
+import SSl from "../payments/SSLcommerz/SSl";
 
 
 
@@ -142,7 +144,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <StripePayment />,
+        element: <PaymentPage />,
+        children: [
+          {
+            path: '/payment/stripe',
+            element: <StripePayment />
+          },
+          {
+            path: '/payment/sslCommerz',
+            element: <SSl />
+          }
+        ]
       },
       {
         path: "/alluser",
