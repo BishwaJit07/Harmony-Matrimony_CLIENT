@@ -1,8 +1,6 @@
 import { BsTelephone } from "react-icons/bs";
 import banner from "../../../assets/userProfile/userBanner.png";
 
-
-
 import img2 from "../../../assets/home/recommendation/girl.png";
 import img3 from "../../../assets/home/recommendation/girl2.png";
 import img4 from "../../../assets/home/recommendation/girl3.png";
@@ -22,48 +20,45 @@ import { CiLocationOn } from "react-icons/ci";
 import file from "../../../assets/other/file.png";
 import useMyData from "../../../Hooks/useMyData";
 import Swal from "sweetalert2";
+import Follow from "../MyProfle/follow/Follow";
 
 const UserProfile = () => {
-
   const [userInfo] = useMyData();
 
-
-  const { profileImage, name, email, _id } = userInfo;
+  const { profileImage, name, email, _id, profileVisit } = userInfo;
 
   const handleDelete = (id) => {
     Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`https://soulmates-server-two.vercel.app/deleteUser/${id}`, {
-          method :"DELETE"
+          method: "DELETE",
         })
-        .then(res => res.json())
-        .then(data => {
-          if(data.deletedCount > 0){
-            Swal.fire({
-              title: `User Deleted`,
-              showClass: {
-                popup: "animate__animated animate__fadeInDown",
-              },
-              hideClass: {
-                popup: "animate__animated animate__fadeOutUp",
-              },
-            });
-          }
-        })
-        .catch(error => console.log(error))
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: `User Deleted`,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+              });
+            }
+          })
+          .catch((error) => console.log(error));
       }
-    })
-    
+    });
   };
-
 
   return (
     <div className="max-w-7xl mx-auto mt-4 dark:bg-gray-300 rounded-xl">
@@ -103,13 +98,12 @@ const UserProfile = () => {
                     <EditBtn text="Edit Profile" />
 
                     <button
-                    onClick={() => handleDelete(_id)}
+                      onClick={() => handleDelete(_id)}
                       className="bg-primary-300 px-[12px] py-[10px] rounded-full tooltip"
                       data-tip="Delete Profile"
                     >
-                      <AiOutlineDelete  className="text-white text-2xl" />
+                      <AiOutlineDelete className="text-white text-2xl" />
                     </button>
-
                   </div>
                 </div>
                 {/* follow section */}
@@ -126,6 +120,12 @@ const UserProfile = () => {
                     <p className="font-bold">2500</p>
                     <p>Following</p>
                   </div>
+                  <div className="text-[18px] text-center ">
+                    <p className="font-bold">
+                      {profileVisit < 0 ? 0 : profileVisit}
+                    </p>
+                    <p>Visit remaining</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -140,9 +140,8 @@ const UserProfile = () => {
 
         {/* other section */}
         <div className=" md:w-[40%]">
-
           <MetForUser />
-
+          <Follow />
           <BoxBorderContent title="Hobbies" content={<Hobbies />} />
           <BoxBorderContent title="Social Media" content={<SocialMedia />} />
           <Plan />
