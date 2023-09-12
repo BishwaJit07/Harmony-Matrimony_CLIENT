@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Pending from "./Pending";
 
-
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import "../../../../style.css";
@@ -9,8 +8,6 @@ import "../../../../style.css";
 
 import './ManageUser.css'
 
-
-import "./ManageUser.css";
 import Approve from "./Approve";
 import Denied from "./Denied";
 import { useRef } from "react";

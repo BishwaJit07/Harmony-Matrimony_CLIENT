@@ -111,7 +111,6 @@ const Plans = () => {
       </div>
    
     </div>
-    
   );
 };
 
