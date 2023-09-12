@@ -106,11 +106,11 @@ const PaymentForm = () => {
   
   return (
     <div className='w-full'>
-      <form className='stripefrom mx-auto my-4 m-0 flex flex-col  class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 ' onSubmit={handleSubmit}>
+      <form className=' mx-auto my-4 m-0 flex flex-col  w-full p-4 bg-white border border-gray-200 rounded-2xl shadow sm:p-6 ' onSubmit={handleSubmit}>
         <h5 className="mb-3 text-base font-semibold text-gray-900 md:text-xl ">
           Stripe Payment
         </h5>
-        <img src="https://i.ibb.co/82q3yYg/card.png" alt="" className='mb-10'/>
+        <img src="https://i.ibb.co/82q3yYg/card.png" alt="" className='mb-10 h-[250px] '/>
         <CardElement
           options={{
             style: {
