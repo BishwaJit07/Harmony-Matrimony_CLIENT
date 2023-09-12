@@ -34,13 +34,20 @@ const Contact = () => {
   return (
     <div className=" max-w-7xl mx-auto mb-8">
       <div className="text-center mb-12">
-        <p className="text-[48px] font-alice text-[#272932]">Contact us</p>
-        <p className="text-[18px] font-lato text-[#3E4A5B]">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab voluptas facilis, explicabo odio necessitatibus labore <br /> nemo magni! Obcaecati, perspiciatis molestiae.</p>
+        <p className="text-[48px] font-alice text-[#272932] dark:text-white">Contact us</p>
+  
+        
+
+        <p className="text-[18px] font-lato text-[#3E4A5B] dark:text-gray-200">We're here to help you on your journey towards finding a lifelong partner. At <span className="text-red-500 ">'Soulmate Matrimony'</span> , we value your feedback, questions, and suggestions. </p>
+     
+
+
+        
       </div>
       
       {/* form section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <form onSubmit={handleSubmit(onSubmit)} className='space-y-6 bg-white  mx-auto rounded-[30px] border-[#AFB2B5] border p-12 w-full' action="">
+        <form onSubmit={handleSubmit(onSubmit)} className='space-y-6 bg-white  mx-auto rounded-[30px] border-[#AFB2B5] border p-12 w-full dark:bg-gray-400' action="" >
           <p className='font-alice text-4xl'>Let’s Connect</p>
           {/* input field */}
           <div>
@@ -87,9 +94,9 @@ const Contact = () => {
               <BsTelephone className="text-2xl" />
             </div>
             <p className="text-[#3E4A5B] text-[18px]">
-              <span className=" mr-1 text-[26px] font-alice">Phone Number:</span>
-              <p>Office: +123 456 789</p>
-              <p>Support: +123 456 789</p>
+              <span className=" mr-1 text-[26px] font-alice dark:text-gray-200 c">Phone Number:</span>
+              <p className="dark:text-gray-200">Office: +123 456 789</p>
+              <p className="dark:text-gray-200">Support: +123 456 789</p>
             </p>
           </div>
           <div className="flex items-start gap-2">
@@ -97,9 +104,9 @@ const Contact = () => {
               <AiOutlineMail className="text-2xl" />
             </div>
             <p className="text-[#3E4A5B] text-[18px]">
-              <span className=" mr-1 text-[26px] font-alice">Email:</span>
-              <p>example@name.com</p>
-              <p>xyz@gmail.com</p>
+              <span className=" mr-1 text-[26px] font-alice dark:text-gray-200">Email:</span>
+              <p className="dark:text-gray-200">example@name.com</p>
+              <p className="dark:text-gray-200">xyz@gmail.com</p>
             </p>
           </div>
           <div className="flex items-start gap-2">
@@ -107,8 +114,8 @@ const Contact = () => {
               <CiLocationOn className="text-2xl" />
             </div>
             <p className="text-[#3E4A5B] text-[18px]">
-              <span className=" mr-1 text-[26px] font-alice">Location:</span>
-              <p>No 2, 3rd A Cross, Kanakadasa <br />
+              <span className=" mr-1 text-[26px] font-alice dark:text-gray-200">Location:</span>
+              <p className="dark:text-gray-200">No 2, 3rd A Cross, Kanakadasa <br />
                 Layout, Bangalore, India</p>
             </p>
           </div>

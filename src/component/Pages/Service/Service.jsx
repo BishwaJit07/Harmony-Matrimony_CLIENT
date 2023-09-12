@@ -37,7 +37,7 @@ const Service = () => {
           
       {/* content-section */}
       <div className="mb-8">
-        <h2 className="text-3xl font-semibold ">
+        <h2 className="text-3xl font-semibold dark:text-white ">
           Hotel Booking service <span className="red-text">for you</span>{" "}
         </h2>
       </div>
@@ -103,7 +103,7 @@ const Service = () => {
     <div className=" max-w-screen-xl mt-20 mx-auto ">
       {/* content-section */}
       <div className="mb-8">
-        <h2 className="text-3xl font-semibold ">
+        <h2 className="text-3xl font-semibold dark:text-white ">
          Media Booking service <span className="red-text">for you</span>{" "}
         </h2>
       </div>
