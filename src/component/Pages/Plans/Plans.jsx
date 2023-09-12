@@ -60,12 +60,12 @@ const Plans = () => {
       </div>
 
       {/* card section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto font-lato py-8 gap-7">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto font-lato py-8 gap-7  ">
         {/* card */}
-        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden">
+        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden dark:bg-gray-600">
           <Header bg={bg1} title='Lovebirds' titleImg={plant} price='10' profileCount='10'/>
           <div className="px-5 pt-6">
-            <p className="text-[24px] font-alice mb-[18px]">Lite Incudes:</p>
+            <p className="text-[24px] font-alice mb-[18px] dark:text-white">Lite Incudes:</p>
             <Content isCross={true} text='2 Premium Profiles view /mo'/>
             <Content text='Free user profile can view' />
             <Content isCross={true} text='5 Premium Profiles view /mo' />
@@ -76,10 +76,10 @@ const Plans = () => {
         </div>
 
         {/* card */}
-        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden">
+        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden dark:bg-gray-600">
           <Header bg={bg} isPopular={true} title='Premium' titleImg={monitor} price='49' profileCount='30' />
           <div className="px-5 pt-6">
-            <p className="text-[24px] font-alice mb-[18px]">Lite Incudes:</p>
+            <p className="text-[24px] font-alice mb-[18px] dark:text-white">Lite Incudes:</p>
             <Content text='6 Premium Profiles view /mo' />
             <Content text='Free user profile can view' />
             <Content text='5 Premium Profiles view /mo' />
@@ -90,10 +90,10 @@ const Plans = () => {
         </div>
 
         {/* card */}
-        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden">
+        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden dark:bg-gray-600">
           <Header bg={bg3} title='Ultimate ' titleImg={loyal} price='99' profileCount='70' />
           <div className="px-5 pt-6">
-            <p className="text-[24px] font-alice mb-[18px]">Lite Incudes:</p>
+            <p className="text-[24px] font-alice mb-[18px] dark:text-white">Lite Incudes:</p>
             <Content text='2 Premium Profiles view /mo' />
             <Content text='Free user profile can view' />
             <Content text='5 Premium Profiles view /mo' />
@@ -103,6 +103,8 @@ const Plans = () => {
           <LinkBtn />
         </div>
       </div>
+    </div>
+    </div>
     </div>
   );
 };
@@ -118,14 +120,14 @@ const Header = ({isPopular, title, titleImg,  price, profileCount, bg}) => {
         <div className="flex justify-between ">
           <div className="flex items-center gap-2">
             <img className="w-9 h-9" src={titleImg} alt="" />
-            <p className="text-[36px] font-alice">{title}</p>
+            <p className="text-[36px] font-alice dark:text-white">{title}</p>
           </div>
-          <p className={isPopular ? 'text-[#272932] py-[13px] px-[22px] border rounded-full font-lato border-[#0F7173]' : 'text-[#272932] py-[13px] px-[22px] border rounded-full font-lato border-[#0F7173] hidden'}>POPULAR</p>
+          <p className={isPopular ? 'text-[#272932] dark:text-white py-[13px] px-[22px] border rounded-full font-lato border-[#0F7173]' : 'text-[#272932] py-[13px] px-[22px] border rounded-full font-lato border-[#0F7173] hidden '}>POPULAR</p>
         </div>
-        <p className="text-[#3E4A5B] font-lato text-[22px]">Perfect to get Started</p>
+        <p className="text-[#3E4A5B] font-lato text-[22px] dark:text-white">Perfect to get Started</p>
         <div className="flex items-end gap-2">
-          <p className="text-[78px] font-alice text-[#272932]"><span className="text-[#A9ACBC]">$</span>{price}</p>
-          <p className="text-[#3E4A5B] mb-7">{profileCount} profile/month</p>
+          <p className="text-[78px] font-alice text-[#272932] dark:text-pink-500"><span className="text-[#A9ACBC]">$</span>{price}</p>
+          <p className="text-[#3E4A5B] mb-7 dark:text-white">{profileCount} profile/month</p>
         </div>
       </div>
       <hr />
@@ -135,9 +137,9 @@ const Header = ({isPopular, title, titleImg,  price, profileCount, bg}) => {
 
 const Content = ({isCross, text}) => {
   return(
-    <div className="flex items-center gap-2 mb-4">
+    <div className="flex items-center gap-2 mb-4 ">
       <img className="h-[22px] w-[22px]" src={isCross ? cross : tick } alt="" />
-      <p className="text-[18px] font-lato text-[#3E4A5B]">{text}</p>
+      <p className="text-[18px] font-lato text-[#3E4A5B] dark:text-white">{text}</p>
     </div>
   )
 }
