@@ -36,6 +36,7 @@ const Plans = () => {
         <title>Soulmate | Services</title>
       </Helmet>
 
+
       {/* banner */}
       <div className="w-full h-[350px] bg-[#fdeaea] overflow-hidden relative" >
         <div className=" flex h-full ">
@@ -47,25 +48,30 @@ const Plans = () => {
           <img className="h-full" src={pattern} alt="" />
         </div>
         <div className="max-w-7xl mx-auto flex justify-between h-full items-center absolute inset-0">
-          <div className="">
-            <p className="font-alice text-[28px] text-[#272932]">Find Your Partner</p>
-            <p className="text-[#3E4A5B]">Lorem ipsum dolor sit amet consectetur <br /> adipisicing elit. Unde, tempore?</p>
+          <div className="ms-4 text-left">
+            <p className="font-alice text-[28px] text-[#272932]">
+"Unlock Love's Potential with Premium Plans!"</p>
+            <p className="text-[#3E4A5B]">Upgrade to Find Your Forever, <br /> Exclusive Benefits Await </p>
             <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/plan'>Plan</Link></p>
           </div>
-          <img className="h-full" src={couple} alt="" />
+          <img className="h-96
+           hidden md:block lg:block " src={couple} alt="" />
+          </div>
+      
 
-      <div className="max-w-[680px]  mx-auto mt-12 mb-8">
-        <p className="text-[42px] font-alice text-[#272932] text-center">We’ve Got The <span className="text-[#0F7173]">Perfect Plan</span>  That is Finding for <span className="text-[#0F7173]">Your Need</span> </p>
-        <p className="text-[#3E4A5B] font-lato text-center px-8 my-[18px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+</div>
+<div className="max-w-[680px]  mx-auto mt-12 mb-8">
+        <p className="text-[42px] font-alice text-[#272932] text-center dark:text-white">We’ve Got The <span className="text-[#0F7173]">Perfect Plan</span>  That is Finding for <span className="text-[#0F7173]">Your Need</span> </p>
+        <p className="text-[#3E4A5B] font-lato text-center px-8 my-[18px] dark:text-gray-200 text-xl">
+"Discover the path to lasting love with our premium subscription plans. Unleash a world of exclusive benefits and enhance your journey towards finding your soulmate." </p>
       </div>
-
       {/* card section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto font-lato py-8 gap-7">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto font-lato py-8 gap-7  ">
         {/* card */}
-        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden">
+        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden dark:bg-gray-600">
           <Header bg={bg1} title='Lovebirds' titleImg={plant} price='10' profileCount='10'/>
           <div className="px-5 pt-6">
-            <p className="text-[24px] font-alice mb-[18px]">Lite Incudes:</p>
+            <p className="text-[24px] font-alice mb-[18px] dark:text-white">Lite Incudes:</p>
             <Content isCross={true} text='2 Premium Profiles view /mo'/>
             <Content text='Free user profile can view' />
             <Content isCross={true} text='5 Premium Profiles view /mo' />
@@ -76,10 +82,10 @@ const Plans = () => {
         </div>
 
         {/* card */}
-        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden">
+        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden dark:bg-gray-600">
           <Header bg={bg} isPopular={true} title='Premium' titleImg={monitor} price='49' profileCount='30' />
           <div className="px-5 pt-6">
-            <p className="text-[24px] font-alice mb-[18px]">Lite Incudes:</p>
+            <p className="text-[24px] font-alice mb-[18px] dark:text-white">Lite Incudes:</p>
             <Content text='6 Premium Profiles view /mo' />
             <Content text='Free user profile can view' />
             <Content text='5 Premium Profiles view /mo' />
@@ -90,10 +96,10 @@ const Plans = () => {
         </div>
 
         {/* card */}
-        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden">
+        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden dark:bg-gray-600">
           <Header bg={bg3} title='Ultimate ' titleImg={loyal} price='99' profileCount='70' />
           <div className="px-5 pt-6">
-            <p className="text-[24px] font-alice mb-[18px]">Lite Incudes:</p>
+            <p className="text-[24px] font-alice mb-[18px] dark:text-white">Lite Incudes:</p>
             <Content text='2 Premium Profiles view /mo' />
             <Content text='Free user profile can view' />
             <Content text='5 Premium Profiles view /mo' />
@@ -103,7 +109,9 @@ const Plans = () => {
           <LinkBtn />
         </div>
       </div>
+   
     </div>
+    
   );
 };
 
@@ -118,14 +126,14 @@ const Header = ({isPopular, title, titleImg,  price, profileCount, bg}) => {
         <div className="flex justify-between ">
           <div className="flex items-center gap-2">
             <img className="w-9 h-9" src={titleImg} alt="" />
-            <p className="text-[36px] font-alice">{title}</p>
+            <p className="text-[36px] font-alice dark:text-white">{title}</p>
           </div>
-          <p className={isPopular ? 'text-[#272932] py-[13px] px-[22px] border rounded-full font-lato border-[#0F7173]' : 'text-[#272932] py-[13px] px-[22px] border rounded-full font-lato border-[#0F7173] hidden'}>POPULAR</p>
+          <p className={isPopular ? 'text-[#272932] dark:text-white py-[13px] px-[22px] border rounded-full font-lato border-[#0F7173]' : 'text-[#272932] py-[13px] px-[22px] border rounded-full font-lato border-[#0F7173] hidden '}>POPULAR</p>
         </div>
-        <p className="text-[#3E4A5B] font-lato text-[22px]">Perfect to get Started</p>
+        <p className="text-[#3E4A5B] font-lato text-[22px] dark:text-white">Perfect to get Started</p>
         <div className="flex items-end gap-2">
-          <p className="text-[78px] font-alice text-[#272932]"><span className="text-[#A9ACBC]">$</span>{price}</p>
-          <p className="text-[#3E4A5B] mb-7">{profileCount} profile/month</p>
+          <p className="text-[78px] font-alice text-[#272932] dark:text-pink-500"><span className="text-[#A9ACBC]">$</span>{price}</p>
+          <p className="text-[#3E4A5B] mb-7 dark:text-white">{profileCount} profile/month</p>
         </div>
       </div>
       <hr />
@@ -135,9 +143,9 @@ const Header = ({isPopular, title, titleImg,  price, profileCount, bg}) => {
 
 const Content = ({isCross, text}) => {
   return(
-    <div className="flex items-center gap-2 mb-4">
+    <div className="flex items-center gap-2 mb-4 ">
       <img className="h-[22px] w-[22px]" src={isCross ? cross : tick } alt="" />
-      <p className="text-[18px] font-lato text-[#3E4A5B]">{text}</p>
+      <p className="text-[18px] font-lato text-[#3E4A5B] dark:text-white">{text}</p>
     </div>
   )
 }
