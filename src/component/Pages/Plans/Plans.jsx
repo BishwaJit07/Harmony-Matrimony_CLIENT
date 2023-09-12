@@ -36,6 +36,7 @@ const Plans = () => {
         <title>Soulmate | Services</title>
       </Helmet>
 
+
       {/* banner */}
       <div className="w-full h-[350px] bg-[#fdeaea] overflow-hidden relative" >
         <div className=" flex h-full ">
@@ -53,12 +54,14 @@ const Plans = () => {
             <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/plan'>Plan</Link></p>
           </div>
           <img className="h-full" src={couple} alt="" />
+          </div>
+      
 
-      <div className="max-w-[680px]  mx-auto mt-12 mb-8">
-        <p className="text-[42px] font-alice text-[#272932] text-center">We’ve Got The <span className="text-[#0F7173]">Perfect Plan</span>  That is Finding for <span className="text-[#0F7173]">Your Need</span> </p>
-        <p className="text-[#3E4A5B] font-lato text-center px-8 my-[18px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+</div>
+<div className="max-w-[680px]  mx-auto mt-12 mb-8">
+        <p className="text-[42px] font-alice text-[#272932] text-center dark:text-white">We’ve Got The <span className="text-[#0F7173]">Perfect Plan</span>  That is Finding for <span className="text-[#0F7173]">Your Need</span> </p>
+        <p className="text-[#3E4A5B] font-lato text-center px-8 my-[18px] dark:text-gray-200">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
       </div>
-
       {/* card section */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto font-lato py-8 gap-7  ">
         {/* card */}
@@ -103,9 +106,9 @@ const Plans = () => {
           <LinkBtn />
         </div>
       </div>
+   
     </div>
-    </div>
-    </div>
+    
   );
 };
 
