@@ -14,7 +14,7 @@ const VerifyUser = () => {
         })
     },[verify])
     const handleVerify = email =>{
-     fetch(`http://localhost:5000/userVerify/${email}`, {
+     fetch(`https://soulmates-server-two.vercel.app/userVerify/${email}`, {
       method : "PATCH"
      })
      .then(res => res.json())
