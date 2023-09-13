@@ -7,7 +7,6 @@ const Approve = ({user, index,handleMakeDenied}) => {
     return (
         <motion.tr
         className="bg-white   hover:bg-gray-50 "
- 
        // remake
        transition={{delay: 0.1 * index}}
        initial={{opacity: 0, y: 20}}

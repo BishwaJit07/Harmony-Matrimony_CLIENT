@@ -5,7 +5,8 @@ const VerifyUser = () => {
     const [verify, setverify] = useState([]);
     const [loading, setLoading] = useState(true)
     useEffect(() =>{
-        fetch('http://localhost:5000/verifyUser')
+        fetch('Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/verifyUser')
         .then(res => res.json())
         .then(data =>{
            setverify(data)

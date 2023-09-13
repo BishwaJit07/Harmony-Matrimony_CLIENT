@@ -37,7 +37,7 @@ const SearchFunction = () => {
   };
  
   return (
-    <div className=" bg-white md:w-[436px] z-20 rounded-xl mt-[100px] pb-8"  data-aos="fade-left" data-aos-duration="2000">
+    <div className=" bg-white md:w-[436px] z-20 rounded-xl mt-[100px] pb-8 dark:bg-gray-400"  data-aos="fade-left" data-aos-duration="2000">
 
       <div className="w-[90%] mx-auto">
         <div className="flex items-center justify-between">
@@ -48,7 +48,7 @@ const SearchFunction = () => {
       <hr />
 
       <div>
-        <form onSubmit={handleSubmit(onSubmit)} className="w-[90%] mx-auto space-y-4 mt-4" action="">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-[90%] mx-auto space-y-4 mt-4 " action="">
 
           <span className=" text-[18px] text-[#2A313C] font-medium ">I am Looking for a </span>
           <div className="flex items-center justify-center h-full w-full">

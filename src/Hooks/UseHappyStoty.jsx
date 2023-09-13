@@ -5,7 +5,8 @@ const UseHappyStoty = () => {
 
     // fetch happyStories data
     useEffect(() => {
-      fetch('https://soulmates-server-two.vercel.app/allCouple')
+      fetch('Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/allCouple')
         .then(res => res.json())
         .then(data => setHappyStories(data))
     }, [])

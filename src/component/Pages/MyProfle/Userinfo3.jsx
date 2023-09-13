@@ -18,7 +18,8 @@ const Userinfo3 = () => {
     const [drinkHabit, setDrinkHabit] = useState({});
     const onSubmit = () => {
         const userinfo = { religionValue: religiousValue?.religiousValue, foodHabit: foodHabit?.FoodOptions, smokingHabit: smokingHabit?.smokingHabit, drinkHabit: drinkHabit?.drinkHabit , profile_complete:60 , id: userInfo._id}
-        fetch('https://soulmates-server-two.vercel.app/update3', {
+        fetch('Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/update3', {
             method: "PUT",
             headers: {
               "content-type" : "application/json"

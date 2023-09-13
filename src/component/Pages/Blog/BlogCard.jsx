@@ -13,7 +13,8 @@ const [love, setLove] = useState(false);
 
   const handleReactInc = id => {
     console.log(id);
-    fetch(`https://soulmates-server-two.vercel.app/blogs/${id}`, {
+    fetch(`Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/blogs/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())
@@ -26,7 +27,8 @@ const [love, setLove] = useState(false);
   }
   const handleReactDec = id => {
     console.log(id);
-    fetch(`https://soulmates-server-two.vercel.app/blogss/${id}`, {
+    fetch(`Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/blogss/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())
@@ -44,8 +46,8 @@ const [love, setLove] = useState(false);
       animate={{opacity: 1}}
       layout
     >
-      <AnimatePresence>
-      <div className="card card-compact w-full bg-base-200 shadow-xl mb-10 relative ">
+      <AnimatePresence >
+      <div className="card h-full card-compact w-full bg-base-200 shadow-xl mb-10 relative dark:bg-gray-500">
         <figure>
           <img
             src={data?.image}
@@ -63,7 +65,7 @@ const [love, setLove] = useState(false);
           <h2 className="card-title font-serif">{data?.title}</h2>
 
           <div className="flex justify-between">
-            <div className="flex text-xl text-red-600">
+            <div className="flex text-xl text-red-600 ">
               {
                 love ? <button onClick={() => handleReactDec(data?._id)}  className="text-2xl"><AiFillHeart onClick={() => setLove(!love)} /></button> : <button onClick={() => handleReactInc(data?._id)} className="text-2xl"><AiOutlineHeart onClick={() => setLove(!love)} /></button>
               }
@@ -75,7 +77,7 @@ const [love, setLove] = useState(false);
             </div>
           </div>
 
-          <p className="text-xs lg:text-sm xl:text-base py-3 text text-[#728483] text-clip text ">{data?.details < 200 ? <>{data.details}</> :
+          <p className="text-xs lg:text-sm xl:text-base py-3 text text-[#728483] text-clip text dark:text-gray-100">{data?.details < 200 ? <>{data.details}</> :
             <>{data?.details.slice(0, 150)}... </>} <button><Link to={`/blogDetails/${data._id}`} className="text-red-600 font-semibold">Read more</Link></button> </p>
         </div>
       </div>

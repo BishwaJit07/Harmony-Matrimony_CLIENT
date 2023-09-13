@@ -12,7 +12,8 @@ const BestRecommendation2 = () => {
    const [userInfo] = useMyData();
    
    useEffect(() => {
-     fetch("https://soulmates-server-two.vercel.app/allUser")
+     fetch("Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/allUser")
        .then((res) => res.json())
        .then((data) => {
          if (userInfo?.gender === "Male") {
@@ -33,7 +34,7 @@ const BestRecommendation2 = () => {
 
    return (
      <div className="py-[120px] w-[80%] mx-auto ">
-         <p className="text-[#272932] lg:text-[40px] text-center text-[20px] lg:text-left font-alice xl:ml-16 -mb-16 ">Best Recommendation for you</p>
+         <p className="text-[#272932] lg:text-[40px] text-center text-[20px] lg:text-left font-alice xl:ml-16 -mb-16 dark:text-white">Best Recommendation for you</p>
        <div className="max-w-7xl mx-auto ">
        </div>
        <Swiper

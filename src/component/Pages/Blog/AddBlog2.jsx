@@ -2,36 +2,71 @@ import  {  useState } from 'react';
 import { useForm } from "react-hook-form"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const AddBlog2 = () => {
   const Image_Hosting_Token = import.meta.env.VITE_Image_Upload_Token;
   const image_hosting_url = `https://api.imgbb.com/1/upload?key=${Image_Hosting_Token}`;
-
+  const navigate = useNavigate();
   const {register, handleSubmit} = useForm()
   const [startDate, setStartDate] = useState(new Date());
 
   const onSubmit = (blogData) => {
-    const newData = {...blogData, startDate}
-    console.log(newData)
+    const formData = new FormData();
+    formData.append('image', blogData.image[0])
+    console.log(blogData)
 
+    axios.post(image_hosting_url, formData)
+      .then(res => {
+        const finalData = { title: blogData.title, details: blogData.details, type: blogData.type, image: res.data.data.url, react: 0, date: startDate}
+        console.log({res, finalData})
+        if(res.data.success){
+          axios.post('Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/blogs', finalData)
+            .then(res => {
+              console.log(res)
+              if (res.data.insertedId){
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Blog Added',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+                navigate('/blog')
+              }
+              else{
+                Swal.fire({
+                  position: 'center',
+                  icon: 'error',
+                  title: 'Failed to added blog',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+              }
+            })
+            .catch(err => console.log(err))
+        }
+      })
   }
-  
-  
+
   return (
     <div className=' max-w-7xl mx-auto'>
       <form onSubmit={handleSubmit(onSubmit)} className='space-y-6 px-10 bg-white my-10 py-10 w-[700px] mx-auto rounded-[30px]' action="">
         {/* input field */}
         <div>
           <label htmlFor="blog_title" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Blog Tittle</label>
-          <input {...register('title')} type="text" id="blog_title" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full "placeholder="John" />
+          <input {...register('title', {required: true})} type="text" id="blog_title" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full "placeholder="Type Blog title" />
         </div>
 
         {/* input field */}
         <div className="">
           <label htmlFor="description" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Description</label>
-          <textarea {...register('description')} id="description" rows="4" className="rounded-[15px] block py-5 pl-7 w-full text-[18px] font-medium font-lato text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+          <textarea {...register('details', {required: true})} id="description" rows="4" className="rounded-[15px] block py-5 pl-7 w-full text-[18px] font-medium font-lato text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
         </div>
         
         <div className="flex gap-8">
@@ -39,12 +74,13 @@ const AddBlog2 = () => {
           <div className='w-full'>
             <label htmlFor="blog_category" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Blog Category</label>
             {/* <input type="text" id="first_name" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" /> */}
-            <select {...register('type')} id="blog_category" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 pr-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full ">
+            <select {...register('type', {required: true})} id="blog_category" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 pr-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full ">
               <option selected>Choose a category</option>
-              <option value="US">United States</option>
-              <option value="CA">Canada</option>
-              <option value="FR">France</option>
-              <option value="DE">Germany</option>
+              <option value="advice">Advice</option>
+              <option value="engagement">Engagement</option>
+              <option value="dates">Dates</option>
+              <option value="wedding">Wedding</option>
+              <option value="photography">Photography</option>
             </select>
           </div>
           {/* input field */}
@@ -106,7 +142,7 @@ const AddBlog2 = () => {
                 <p className="mb-2 text-[18px] text-gray-500  font-medium font-alice">Drag and Drop an image or <span className='text-blue-500 font-bold'>Browse</span></p>
                 <p className="text-[14px] text-gray-500  font-lato">File must be JPG or PNG and Up to 25MB</p>
               </div>
-              <input {...register('image')} id="dropzone-file" type="file" className="hidden" />
+              <input {...register('image', {required: true})} id="dropzone-file" type="file" className="hidden" />
             </label>
           </div> 
         </div>

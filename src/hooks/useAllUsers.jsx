@@ -4,7 +4,8 @@ const useAllUsers = () => {
     const { isLoading, data} = useQuery(
         { queryKey: ['allUser' ], 
         queryFn: async () =>{
-            const res = await fetch(`https://soulmates-server-two.vercel.app/allUser`)
+            const res = await fetch(`Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/allUser`)
             return res.json();
         },
      })

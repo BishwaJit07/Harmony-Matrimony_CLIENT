@@ -1,5 +1,18 @@
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import couple from '../../../assets/plan/couple2.png'
+import tick from '../../../assets/plan/tick.svg'
+import cross from '../../../assets/plan/cross.svg'
+import loyal from '../../../assets/plan/vip-royal.svg'
+import monitor from '../../../assets/plan/monitor-flash.svg'
+import plant from '../../../assets/plan/organic-plant.svg'
+import bg from '../../../assets/plan/bg.svg'
+import bg1 from '../../../assets/plan/1bg.svg'
+import bg3 from '../../../assets/plan/3bg.svg'
+import pattern from '../../../assets/plan/pattern.svg'
+import home from '../../../assets/plan/home.svg'
+import scop from '../../../assets/plan/scop.svg'
+
 
 const Plans = () => {
   const gold = {
@@ -14,322 +27,133 @@ const Plans = () => {
   };
   const platinumData = btoa(JSON.stringify(platinum));
 
+
   return (
-    <div className="font-plans">
+    <div className="">
       {/* Title */}
       <Helmet>
         <meta charSet="utf-8" />
         <title>Soulmate | Services</title>
       </Helmet>
-      <div className="h-[200px] md:h-[400px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
-        <div className="text-center space-y-5 pt-10">
-          <p className="text-3xl md:text-7xl font-extrabold bg-clip-text text-transparent text-white">
-            PRICING
-          </p>
-          <p className="text-white text-lg">
-            Get Started <br /> Pick your Plan Now
-          </p>
-        </div>
-      </div>
 
+
+      {/* banner */}
+      <div className="w-full h-[350px] bg-[#fdeaea] overflow-hidden relative" >
+        <div className=" flex h-full ">
+          <img className="h-full" src={pattern} alt="" />
+          <img className="h-full" src={pattern} alt="" />
+          <img className="h-full" src={pattern} alt="" />
+          <img className="h-full" src={pattern} alt="" />
+          <img className="h-full" src={pattern} alt="" />
+          <img className="h-full" src={pattern} alt="" />
+        </div>
+        <div className="max-w-7xl mx-auto flex justify-between h-full items-center absolute inset-0">
+          <div className="ms-4 text-left">
+            <p className="font-alice text-[28px] text-[#272932]">
+              "Unlock Love's Potential with Premium Plans!"</p>
+            <p className="text-[#3E4A5B]">Upgrade to Find Your Forever, <br /> Exclusive Benefits Await </p>
+            <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/plan'>Plan</Link></p>
+          </div>
+          <img className="h-full
+           hidden md:block lg:block " src={couple} alt="" />
+        </div>
+
+
+      </div>
+      <div className="max-w-[680px]  mx-auto mt-12 mb-8">
+        <p className="text-[42px] font-alice text-[#272932] text-center dark:text-white">We’ve Got The <span className="text-[#0F7173]">Perfect Plan</span>  That is Finding for <span className="text-[#0F7173]">Your Need</span> </p>
+        <p className="text-[#3E4A5B] font-lato text-center px-8 my-[18px] dark:text-gray-200 text-xl">
+          "Discover the path to lasting love with our premium subscription plans. Unleash a world of exclusive benefits and enhance your journey towards finding your soulmate." </p>
+      </div>
       {/* card section */}
-
-      <div className="bg-white w-[80%] mx-auto ">
-        <div className="lg:grid grid-cols-3 gap-10  mx-auto justify-items-center   max-w-screen-lg ">
-          {/* card-1 */}
-          <div className="lg:-mt-16  mb-10 lg:mb-0  mx-auto mt-10 max-w-sm">
-            <div className="bg-white shadow-md rounded-xl p-6">
-              <div className="mb-4 text-center">
-                <h2 className="text-5xl font-semibold mb-4 text-[#66451C]">
-                  Free
-                </h2>
-                <p className=" mb-4 text-[#66451C]">
-                  Printer took a type and scrambled
-                </p>
-
-                <p className="text-gray-600 text-3xl font-bold ">$0/mo</p>
-              </div>
-              <ul className="mb-4">
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-red-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                  5 Premium Profiles view /mo
-                </li>
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2.293 7.293a1 1 0 0 1 1.414 0L8 11.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Free user profile can view
-                </li>
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-red-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                  View contact details
-                </li>
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-red-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                  Send interest
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <svg
-                    className="w-4 h-4 mr-2 text-red-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                  Start Chat
-                </li>
-              </ul>
-              <button className="bg-[#34af78] w-full my-5  text-white font-semibold  mx-auto px-4 py-2 rounded-full  hover:bg-[#30855e]transition duration-300 ease-in-out">
-                Get Started
-              </button>
-            </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto font-lato py-8 gap-7  ">
+        {/* card */}
+        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden dark:bg-gray-600">
+          <Header bg={bg1} title='Lovebirds' titleImg={plant} price='10' profileCount='10' />
+          <div className="px-5 pt-6">
+            <p className="text-[24px] font-alice mb-[18px] dark:text-white">Lite Incudes:</p>
+            <Content isCross={true} text='2 Premium Profiles view /mo' />
+            <Content text='Free user profile can view' />
+            <Content isCross={true} text='5 Premium Profiles view /mo' />
+            <Content isCross={true} text='Send interest' />
+            <Content isCross={true} text='Start Chat' />
           </div>
+          <LinkBtn />
+        </div>
 
-          {/* 2nd card */}
-
-          <div className="lg:-mt-32 mb-10 max-w-sm mx-auto lg:mb-0">
-            <div className="bg-white shadow-md rounded-xl p-6 w-full">
-              <div className=" mb-4 text-center">
-                <span className="bg-yellow-400 text-white px-2 py-1 rounded-full text-sm font-semibold">
-                  Most Popular Plan
-                </span>
-                <h2 className="text-5xl font-semibold text-[#66451C] mb-4 mt-9">
-                  Gold Plan
-                </h2>
-                <p className="text-[#66451C]-700 mb-4">
-                  Printer took a type and scrambled
-                </p>
-                <span className="text-gray-600 text-3xl font-semibold">
-                  $349/mo
-                </span>
-              </div>
-              <ul className="mb-4">
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2.293 7.293a1 1 0 0 1 1.414 0L8 11.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  20 Premium Profiles view /mo
-                </li>
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2.293 7.293a1 1 0 0 1 1.414 0L8 11.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Free user profile can view
-                </li>
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2.293 7.293a1 1 0 0 1 1.414 0L8 11.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  View contact details
-                </li>
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2.293 7.293a1 1 0 0 1 1.414 0L8 11.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Send interest
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2.293 7.293a1 1 0 0 1 1.414 0L8 11.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Start Chat
-                </li>
-              </ul>
-              <Link to={`/paymentOne?plan=${goldData}`}>
-                <button className="bg-[#34af78] w-full mx-auto font-semibold my-5  text-white px-4 py-2 rounded-full  hover:bg-[#30855e]transition duration-300 ease-in-out">
-                  Get Started
-                </button>
-              </Link>
-            </div>
+        {/* card */}
+        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden dark:bg-gray-600">
+          <Header bg={bg} isPopular={true} title='Premium' titleImg={monitor} price='49' profileCount='30' />
+          <div className="px-5 pt-6">
+            <p className="text-[24px] font-alice mb-[18px] dark:text-white">Lite Incudes:</p>
+            <Content text='6 Premium Profiles view /mo' />
+            <Content text='Free user profile can view' />
+            <Content text='5 Premium Profiles view /mo' />
+            <Content text='Send interest' />
+            <Content text='Start Chat' />
           </div>
-          {/* 3rd card */}
-          <div className="lg:-mt-16 mb-10 max-w-sm mx-auto lg:mb-0">
-            <div className="bg-white shadow-md rounded-xl p-6 w-full">
-              <div className="mb-4 text-center">
-                <h2 className="font-semibold mb-4 text-5xl text-[#66451C] ">
-                  Platinum
-                </h2>
-                <p className="text-[#66451C]-700 mb-4">
-                  Printer took a type and scrambled
-                </p>
-                <span className="text-gray-600 text-3xl font-semibold">
-                  $549/mo
-                </span>
-              </div>
-              <ul className="mb-4">
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2.293 7.293a1 1 0 0 1 1.414 0L8 11.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  0 Premium Profiles view /mo
-                </li>
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2.293 7.293a1 1 0 0 1 1.414 0L8 11.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Free user profile can view
-                </li>
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2.293 7.293a1 1 0 0 1 1.414 0L8 11.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  View contact details
-                </li>
-                <li className="flex items-center text-gray-600 mb-2">
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2.293 7.293a1 1 0 0 1 1.414 0L8 11.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Send interest
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2.293 7.293a1 1 0 0 1 1.414 0L8 11.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Start Chat
-                </li>
-              </ul>
+          <LinkBtn />
+        </div>
 
-              <Link to={`/paymentOne?plan=${platinumData}`}>
-                <button className="bg-[#34af78] w-full mx-auto font-semibold text-white px-4 py-2 my-5 rounded-full hover:bg-[#30855e] transition duration-300 ease-in-out">
-                  Get Started
-                </button>
-              </Link>
-            </div>
+        {/* card */}
+        <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden dark:bg-gray-600">
+          <Header bg={bg3} title='Ultimate ' titleImg={loyal} price='99' profileCount='70' />
+          <div className="px-5 pt-6">
+            <p className="text-[24px] font-alice mb-[18px] dark:text-white">Lite Incudes:</p>
+            <Content text='2 Premium Profiles view /mo' />
+            <Content text='Free user profile can view' />
+            <Content text='5 Premium Profiles view /mo' />
+            <Content text='Send interest' />
+            <Content text='Start Chat' />
           </div>
+          <LinkBtn />
         </div>
       </div>
+
     </div>
+
   );
 };
 
 export default Plans;
+
+const Header = ({ isPopular, title, titleImg, price, profileCount, bg }) => {
+
+  return (
+    <div className="relative">
+      <img className="absolute -z-10 inset-0" src={bg} alt="" />
+      <div className="px-5 pt-9">
+        <div className="flex justify-between ">
+          <div className="flex items-center gap-2">
+            <img className="w-9 h-9" src={titleImg} alt="" />
+            <p className="text-[36px] font-alice dark:text-white">{title}</p>
+          </div>
+          <p className={isPopular ? 'text-[#272932] dark:text-white py-[13px] px-[22px] border rounded-full font-lato border-[#0F7173]' : 'text-[#272932] py-[13px] px-[22px] border rounded-full font-lato border-[#0F7173] hidden '}>POPULAR</p>
+        </div>
+        <p className="text-[#3E4A5B] font-lato text-[22px] dark:text-white">Perfect to get Started</p>
+        <div className="flex items-end gap-2">
+          <p className="text-[78px] font-alice text-[#272932] dark:text-pink-500"><span className="text-[#A9ACBC]">$</span>{price}</p>
+          <p className="text-[#3E4A5B] mb-7 dark:text-white">{profileCount} profile/month</p>
+        </div>
+      </div>
+      <hr />
+    </div>
+  )
+}
+
+const Content = ({ isCross, text }) => {
+  return (
+    <div className="flex items-center gap-2 mb-4 ">
+      <img className="h-[22px] w-[22px]" src={isCross ? cross : tick} alt="" />
+      <p className="text-[18px] font-lato text-[#3E4A5B] dark:text-white">{text}</p>
+    </div>
+  )
+}
+
+const LinkBtn = () => {
+  return (
+    <div className="px-5 pb-5 pt-6 flex">
+      <Link className="w-full py-4 bg-primary-500 text-center font-bold text-[22px] text-white rounded-full " to={`/payment`}>Get Started</Link>
+    </div>
+  )
+}

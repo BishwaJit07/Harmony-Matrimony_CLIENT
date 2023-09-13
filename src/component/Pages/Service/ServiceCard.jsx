@@ -21,7 +21,8 @@ const ServiceCard = () => {
       price: price,
     };
     if(user && user.email){
-    fetch(`https://soulmates-server-two.vercel.app/bookedService`, {
+    fetch(`Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/bookedService`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

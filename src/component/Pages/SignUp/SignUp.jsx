@@ -47,7 +47,8 @@ const SignUp = () => {
               profile_complete: 10,
               profileVisit: 50,
             };
-            fetch("https://soulmates-server-two.vercel.app/alluser", {
+            fetch("Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/alluser", {
               method: "POST",
               headers: {
                 "content-type": "application/json",

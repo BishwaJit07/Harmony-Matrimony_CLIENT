@@ -16,9 +16,12 @@ const AddBlog = () => {
         const formData = new FormData();
         formData.append('image', data.image[0])
 
+        console.log(data)
+        console.log(formData)
+
         fetch(image_hosting_url, {
             method: "POST",
-            body: formData
+            // body: formData
         })
             .then(res => res.json())
             .then(imgResponse => {
@@ -28,7 +31,8 @@ const AddBlog = () => {
                     const newBlogs = { title, details: description, type, image: imgUrl, react: 0 };
                     console.log(newBlogs);
 
-                    fetch('https://soulmates-server-two.vercel.app/blogs', {
+                    fetch('Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/blogs', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"

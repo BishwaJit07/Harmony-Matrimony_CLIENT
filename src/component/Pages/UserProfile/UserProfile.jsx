@@ -41,7 +41,8 @@ const UserProfile = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://soulmates-server-two.vercel.app/deleteUser/${id}`, {
+        fetch(`Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/deleteUser/${id}`, {
           method :"DELETE"
         })
         .then(res => res.json())
@@ -66,7 +67,7 @@ const UserProfile = () => {
 
 
   return (
-    <div className="max-w-7xl mx-auto mt-4">
+    <div className="max-w-7xl mx-auto mt-4 dark:bg-gray-300 rounded-xl">
       {/* grid section */}
       <div className="flex flex-col md:flex-row gap-4 font-lato text-[#3E4A5B]">
         {/* user info section */}

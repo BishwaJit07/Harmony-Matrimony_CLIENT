@@ -25,7 +25,8 @@ const PostShow = ({ status, setLoader }) => {
   const handleDelete = (id) => {
     setLoader(true);
     axios
-      .delete(`https://soulmates-server-two.vercel.app/statusPost/${id}`)
+      .delete(`Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/statusPost/${id}`)
       .then((response) => {
         if (response.data.deletedCount) {
           setLoader(false);

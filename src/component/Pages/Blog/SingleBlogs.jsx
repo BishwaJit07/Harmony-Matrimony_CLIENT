@@ -7,7 +7,8 @@ const SingleBlogs = () => {
     const params = useParams();
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
-        fetch(`https://soulmates-server-two.vercel.app/blogs/${params.id}`)
+        fetch(`Hasibur Hossain
+https://harmony-matrimony-server.vercel.app/blogs/${params.id}`)
             .then(res => res.json())
             .then(data => setBlogs(data));
     }, []);
