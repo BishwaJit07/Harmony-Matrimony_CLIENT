@@ -9,7 +9,9 @@ import ring from '../../../assets/about-photos/rings.png'
 import img1 from '../../../assets/about-photos/1.jpg'
 import img2 from '../../../assets/about-photos/2.jpg'
 import img4 from '../../../assets/about-photos/4.jpg'
-
+import home from '../../../assets/about-photos/homeWhite.svg'
+import scop from '../../../assets/about-photos/peopleWhite.svg'
+import people from '../../../assets/about-photos/aboutPeople.png'
 // import girl from '../../../assets/about-photos/girl.jpg'
 // import shantoVai from '../../../assets/about-photos/shanto vai.jpg'
 // import Heading from "../../../Shared/Heading";
@@ -43,16 +45,27 @@ const About = () => {
       {/* about header */}
       <div className="relative mb-20 ">
         {/* about text */}
-        <div className="h-[300px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
+        {/* <div className="h-[300px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
           <div className="text-center space-y-5 pt-10">
             <p className=" text-xl text-[#EBFFF6] ">#1 Wedding Website</p>
             <p className="text-7xl font-extrabold bg-clip-text text-transparent text-white">About us</p>
             <p className="text-white text-lg">Most Trusted and premium Matrimony Service in the World.</p>
           </div>
+        </div> */}
+        <div className="bg-[#0F7173] h-[235px]">
+          <div className="max-w-7xl flex justify-between items-center h-full w-full mx-auto">
+            <div className="ms-4 text-left text-[#F0F2F5]">
+              <p className="font-alice text-[28px]">"Unlock Love's Potential with Premium Plans!"</p>
+              <p className="">Upgrade to Find Your Forever, <br /> Exclusive Benefits Await </p>
+              <p className="flex  font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/about'>About Us</Link></p>
+            </div>
+            <img src={people} alt="" />
+          </div>
         </div>
+
         {/* about cards */}
 
-        <div className="absolute w-full top-[85%] md:top-[80%] ">
+        <div className=" w-full mt-6">
           <div className="grid justify-center gap-6 md:gap-4 lg:gap-10 md:flex">
             <div className="w-[263px] md:w-[203px] lg:w-[263px] h-[206px] p-8 md:p-4 lg:p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
               <img className='w-[50px] h-[50px] mx-auto' src={badge} alt="" />
@@ -72,7 +85,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="h-[700px] md:h-[200px]"></div>
 
       {/* welcome section */}
       <div className="lg:grid lg:grid-cols-2 mb-12 max-w-7xl mx-auto ">
@@ -240,7 +252,7 @@ const About = () => {
       </div>
 
       {/* team section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3  lg:gap-7 justify-center  max-w-7xl mx-auto mb-32">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3  lg:gap-7 justify-center  max-w-7xl mx-auto mb-12">
 
         {/* card */}
         {team.map((item) => (
