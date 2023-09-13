@@ -6,6 +6,7 @@ import HappyStory from './HomeCompnent/HappyStory/HappyStory';
 import { Helmet } from "react-helmet";
 import MessageUsFb from "../../FacebookMessage/MessageUsFb";
 import Review from "./Review/Review";
+import Review2 from "./Review/Review2";
 import HowItWork from "./HowItWork/HowItWork";
 
 import HomeBanner from "./HomeCompnent/HomeBanner/HomeBanner";
@@ -18,7 +19,6 @@ import Gallery from "./HomeCompnent/gellary/Gallery";
 
 
 const Home = () => {
-
   return (
     <div className="">
       <Helmet>
@@ -26,18 +26,18 @@ const Home = () => {
         <title>Soulmate | Home</title>
       </Helmet>
       <HomeBanner></HomeBanner>
-      <HowItWork/>
+      <HowItWork />
       <WhyChooseUs2></WhyChooseUs2>
       <BestRecommendation2 />
-        {/* <SearchFunction></SearchFunction> */}
-        {/* <BestRecommendation /> */}
+      {/* <SearchFunction></SearchFunction> */}
+      {/* <BestRecommendation /> */}
       {/* <Gallary /> */}
       <Gallery />
-        {/* <SweetMemories/> */}
-      <Review/>
+      <Review2 />
+      {/* <SweetMemories/> */}
+      {/* <Review /> */}
     </div>
   );
-
 }
 export default Home;
 
