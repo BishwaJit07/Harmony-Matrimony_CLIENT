@@ -1,10 +1,11 @@
-import  {  useState } from 'react';
+import  {  useContext, useState } from 'react';
 import { useForm } from "react-hook-form"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 
 
@@ -15,6 +16,7 @@ const AddBlog2 = () => {
   const {register, handleSubmit} = useForm()
   const [startDate, setStartDate] = useState(new Date());
 
+  const { user } = useContext(AuthContext);
   const onSubmit = (blogData) => {
     const formData = new FormData();
     formData.append('image', blogData.image[0])
@@ -22,7 +24,7 @@ const AddBlog2 = () => {
 
     axios.post(image_hosting_url, formData)
       .then(res => {
-        const finalData = { title: blogData.title, details: blogData.details, type: blogData.type, image: res.data.data.url, react: 0, date: startDate}
+        const finalData = { title: blogData.title, details: blogData.details, type: blogData.type, image: res.data.data.url, react: 0, date: startDate, email : user.email}
         console.log({res, finalData})
         if(res.data.success){
           axios.post('https://soulmates-server-two.vercel.app/blogs', finalData)
@@ -73,9 +75,9 @@ const AddBlog2 = () => {
           <div className='w-full'>
             <label htmlFor="blog_category" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Blog Category</label>
             {/* <input type="text" id="first_name" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" /> */}
-            <select {...register('type', {required: true})} id="blog_category" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 pr-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full ">
+            <select defaultValue={'Advice'} {...register('type', {required: true})} id="blog_category" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 pr-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full ">
               <option selected>Choose a category</option>
-              <option value="advice">Advice</option>
+              <option Devalue="advice">Advice</option>
               <option value="engagement">Engagement</option>
               <option value="dates">Dates</option>
               <option value="wedding">Wedding</option>
