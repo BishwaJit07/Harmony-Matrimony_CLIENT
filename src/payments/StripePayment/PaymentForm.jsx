@@ -18,8 +18,7 @@ const PaymentForm = () => {
   }
 
   useEffect( () => {
-    fetch('Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/create-payment-intent', {
+    fetch('https://soulmates-server-two.vercel.app/create-payment-intent', {
       method: "POST",
       headers: {
         "content-type": "application/json"
@@ -91,8 +90,7 @@ https://harmony-matrimony-server.vercel.app/create-payment-intent', {
         status: "pending"
       }
 
-      fetch('Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/save-payments', {
+      fetch('https://soulmates-server-two.vercel.app/save-payments', {
         method: "POST",
         headers: {
           "content-type": "application/json"

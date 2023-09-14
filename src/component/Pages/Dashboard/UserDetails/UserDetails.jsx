@@ -5,8 +5,7 @@ const UserDetails = () => {
   const { user } = useContext(AuthContext);
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch(`Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/userStats/${user?.email}`)
+    fetch(`https://soulmates-server-two.vercel.app/userStats/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, []);

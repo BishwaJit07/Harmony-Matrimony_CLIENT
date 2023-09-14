@@ -71,8 +71,7 @@ const UserInfo1 = () => {
         }
         data = { mobile: phoneNumber, age: age, gender: selectedOption.gender, maritalStatus: maritalStatus.maritalStatus, religion: religion.Religion, country: country?.name, state: state?.name, city: city?.name, height: height?.name, weight: weight?.name, profile_complete: 30, profileFor: profileFor?.Profile_For, id: userInfo._id , motherTongue:motherTongue?.name , sect: sect.name }
         console.log(data)
-        fetch('Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/update1', {
+        fetch('https://soulmates-server-two.vercel.app/update1', {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

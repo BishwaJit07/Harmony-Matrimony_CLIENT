@@ -5,8 +5,7 @@ const PatnerProfile = () => {
     const params = useParams();
     const [user, setUser] = useState([]);
     useEffect(() => {
-        fetch(`Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/specificUser/${params.id}`)
+        fetch(`https://soulmates-server-two.vercel.app/specificUser/${params.id}`)
             .then(res => res.json())
             .then(data => setUser(data));
     }, [])

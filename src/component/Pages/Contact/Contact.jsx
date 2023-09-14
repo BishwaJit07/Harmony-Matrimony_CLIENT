@@ -14,8 +14,7 @@ const Contact = () => {
 
   const onSubmit = (contactData) => {
     const finalData = {name: contactData.name, email: contactData.email, subject: contactData.subject, status: 'pending'}
-    axios.post('Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/contact', finalData)
+    axios.post('https://soulmates-server-two.vercel.app/contact', finalData)
       .then(res => {
         console.log(res.data.insertedId)
         if (res.data.insertedId){

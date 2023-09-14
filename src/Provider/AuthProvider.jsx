@@ -40,8 +40,7 @@ const AuthProvider = ({ children }) => {
 
             // get and set token!!!!
             if (currentUser) {
-                axios.post('Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/jwt', { email: currentUser.email })
+                axios.post('https://soulmates-server-two.vercel.app/jwt', { email: currentUser.email })
                 
                     .then(data => {
                         console.log(data.data.token)

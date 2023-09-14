@@ -22,8 +22,7 @@ const Review = () => {
     const [reviews, setReview] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch('Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/reviews')
+        fetch('https://soulmates-server-two.vercel.app/reviews')
             .then(res => res.json())
             .then(data => {
                 setLoading(false);
@@ -42,13 +41,13 @@ https://harmony-matrimony-server.vercel.app/reviews')
             </div>
 
             {/* div for swiper */}
-            <div className=' lg:ms-28 w-full  md:w-[50%]'>
+            <div className=' lg:ms-28 w-full  md:w-[50%] '>
                 <div className='text-center text-2xl font-bold font-alice'><h2 className='md:hidden'>Happy Story</h2></div>
                 <Swiper
                     modules={[EffectCards, Navigation]}
                     effect={'cards'}
                     grabCursor={true}
-                    className="mySwiper-review  "
+                    className="mySwiper-review"
                 >
                     {
                         reviews?.map(review => <SwiperSlide key={review._id} >
@@ -69,11 +68,11 @@ https://harmony-matrimony-server.vercel.app/reviews')
                         </SwiperSlide>)
                     }
 
-                    <div className=' absolute  2xl:-left-[660px] 2xl:top-[300px]  '>
+                    <div className=' absolute  xl:-left-[510px] top-[300px] '>
                         <SwiperNavButtons></SwiperNavButtons>
                     </div>
-                    <h3 className='fixed top-2 md:-left-10 xl-left-14 text-6xl text-gray-400 hidden md:flex'><RiDoubleQuotesL /></h3>
-                    <h3 className='fixed md:-right-10 xl:-right-20  md:bottom-2 xl:-bottom-2 text-6xl text-gray-400 hidden md:flex'><RiDoubleQuotesR /></h3>
+                    <h3 className='fixed top-2 -left-14 text-6xl text-gray-400 hidden md:flex'><RiDoubleQuotesL /></h3>
+                    <h3 className='fixed -right-20 -bottom-2 text-6xl text-gray-400 hidden md:flex'><RiDoubleQuotesR /></h3>
 
                 </Swiper>
             </div>

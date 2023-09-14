@@ -13,8 +13,7 @@ const [love, setLove] = useState(false);
 
   const handleReactInc = id => {
     console.log(id);
-    fetch(`Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/blogs/${id}`, {
+    fetch(`https://soulmates-server-two.vercel.app/blogs/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())
@@ -27,8 +26,7 @@ https://harmony-matrimony-server.vercel.app/blogs/${id}`, {
   }
   const handleReactDec = id => {
     console.log(id);
-    fetch(`Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/blogss/${id}`, {
+    fetch(`https://soulmates-server-two.vercel.app/blogss/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())

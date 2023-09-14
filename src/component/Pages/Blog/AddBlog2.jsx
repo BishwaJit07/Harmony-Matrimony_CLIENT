@@ -25,8 +25,7 @@ const AddBlog2 = () => {
         const finalData = { title: blogData.title, details: blogData.details, type: blogData.type, image: res.data.data.url, react: 0, date: startDate}
         console.log({res, finalData})
         if(res.data.success){
-          axios.post('Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/blogs', finalData)
+          axios.post('https://soulmates-server-two.vercel.app/blogs', finalData)
             .then(res => {
               console.log(res)
               if (res.data.insertedId){

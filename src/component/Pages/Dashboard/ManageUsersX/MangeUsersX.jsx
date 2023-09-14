@@ -21,8 +21,7 @@ const MangeUsersX = () => {
   const [loading, setLoading] = useState(true);
   const [search, setsearch] = useState('')
   useEffect(() => {
-    fetch(`Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/authority?search=${search}`)
+    fetch(`https://soulmates-server-two.vercel.app/authority?search=${search}`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -43,8 +42,7 @@ https://harmony-matrimony-server.vercel.app/authority?search=${search}`)
     );
   }
   const handleMakeApprove = (id) => {
-    fetch(`Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/makeApprove/${id}`, {
+    fetch(`https://soulmates-server-two.vercel.app/makeApprove/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -67,8 +65,7 @@ https://harmony-matrimony-server.vercel.app/makeApprove/${id}`, {
   };
   const handleMakeDenied = (id) => {
     console.log(id);
-    fetch(`Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/makeDenied/${id}`, {
+    fetch(`https://soulmates-server-two.vercel.app/makeDenied/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

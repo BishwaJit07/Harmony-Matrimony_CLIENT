@@ -161,11 +161,11 @@ const AllUser = () => {
         <meta charSet="utf-8" />
         <title>Soulmate | Explore</title>
       </Helmet>
-      <div className=' lg:flex  items-center hidden '>
+      <div className=' flex  items-center '>
         {/* Text */}
-        <img src={topImage} alt="" />
+<img src={topImage} alt="" />
 
-        <div className="text-center ml-[70px] absolute z-10 ">
+        <div className="text-center ml-[70px] absolute z-10 hidden md:block ">
           <p className='text-left lg:text-[28px] font-alice text-[18px] '>Find Your Partner</p>
           <p className='text-sm xl:text-[14px] font-lato text-[#3E4A5B] leading-7 text-left mt-2 lg:mt-4'>Embark on a Journey to Find Your Life Partner  Explore <br /> Connect  and Build a Lifetime of Happiness with Us</p>
           <div className='relative pt-4 text-left text-[14px]  gap-2 hidden md:flex'>
@@ -186,8 +186,8 @@ const AllUser = () => {
         <div className={` ${open ? "md:w-[350px]  dark:bg-gray-500 dark:text-white" : "w-20"}  relative md:relative py-8 bg-[#F0F2F5] `}>
           <div className="flex items-center gap-6  bg-blue-500 w-[50px] md:hidden">
             <img src={sliderbtn} className={`absolute cursor-pointer -right-1  w-10 border-dark-purple border-2 rounded-full z-50 md:hidden   ${!open && "rotate-180"}`} onClick={() => setOpen(!open)} />
-          </div>
-          <div className="sticky top-0 ">
+          </div> 
+          <div  className="sticky top-0 ">
             <div className={`${!open && "hidden"} `}>
               <div className="w-[350px]">
                 <h2 className="flex items-center text-[22px] font-alice gap-2 w-[80%] mx-auto -mt-4"><BiFilterAlt />Filter</h2>
@@ -539,7 +539,7 @@ const AllUser = () => {
                 </div>
               </div>
             </div>
-
+            
           </div>
         </div>
 

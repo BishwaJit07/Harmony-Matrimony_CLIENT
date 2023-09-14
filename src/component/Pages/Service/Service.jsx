@@ -14,15 +14,13 @@ const Service = () => {
   const [photography, setPhotography] = useState([]);
   const [hotel, setHotel] = useState([]);
   useEffect(() => {
-    fetch("Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/service/catering")
+    fetch("https://soulmates-server-two.vercel.app/service/catering")
       .then((res) => res.json())
       .then((data) => setCatering(data));
   }, []);
 
   useEffect(() => {
-    fetch("Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/service/photography")
+    fetch("https://soulmates-server-two.vercel.app/service/photography")
       .then((res) => res.json())
       .then((data) => setPhotography(data));
   }, []);

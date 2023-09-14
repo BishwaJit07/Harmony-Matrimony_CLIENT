@@ -65,8 +65,7 @@ const AuthoritySignUp = () => {
                   status: "pending"
                 };
                 console.log(saveUser);
-                fetch("Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/authority", {
+                fetch("https://soulmates-server-two.vercel.app/authority", {
                   method: "POST",
                   headers: {
                     "content-type": "application/json",

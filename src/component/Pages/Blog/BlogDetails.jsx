@@ -14,8 +14,7 @@ const BlogDetails = () => {
   const [latests, setLatests] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/blogsLatest")
+    fetch("https://soulmates-server-two.vercel.app/blogsLatest")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

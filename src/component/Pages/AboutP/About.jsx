@@ -26,8 +26,7 @@ const About = () => {
   const [team, setteam] = useState([]);
 
   useEffect(() => {
-    fetch("Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/team")
+    fetch("https://soulmates-server-two.vercel.app/team")
       .then((res) => res.json())
       .then((data) => setteam(data));
   }, []);

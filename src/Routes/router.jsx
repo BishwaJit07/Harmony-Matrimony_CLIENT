@@ -3,6 +3,7 @@ import Home from "../component/Pages/Home/Home";
 import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
 import Blog from "../component/Pages/Blog/Blog";
+import AddBlog from "../component/Pages/Blog/AddBlog";
 import Plans from "../component/Pages/Plans/Plans";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import Dashboard from "../component/Pages/Dashboard/Dashboard";
@@ -46,6 +47,8 @@ import UserProfile from "../component/Pages/UserProfile/UserProfile";
 import VerifyUser from "../component/Pages/Dashboard/VerifyUser/VerifyUser";
 import UserDetails from "../component/Pages/Dashboard/UserDetails/UserDetails";
 import AddBlog2 from "../component/Pages/Blog/AddBlog2";
+import Message from "../ChatApp/Message";
+import Messenger from "../component/Pages/Chat/Messenger/Messenger";
 
 
 
@@ -87,8 +90,7 @@ const router = createBrowserRouter([
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
 
-        loader: ({ params }) => fetch(`Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/blogsDetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`)
 
       },
       {
@@ -110,8 +112,7 @@ https://harmony-matrimony-server.vercel.app/blogsDetails/${params.id}`)
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-          fetch(`Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/service/${params.id}`),
+          fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
       },
       {
         path: "/paymentOne",
@@ -170,6 +171,10 @@ https://harmony-matrimony-server.vercel.app/service/${params.id}`),
         path: "/myProfile",
         element: <MyProfile></MyProfile>,
       },
+      {
+        path: "/message",
+        element: <Messenger></Messenger>
+      },
 
       
       {
@@ -189,8 +194,7 @@ https://harmony-matrimony-server.vercel.app/service/${params.id}`),
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
 
-          fetch(`Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/service/${params.id}`),
+          fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
 
       },
     ],

@@ -12,8 +12,7 @@ const BestRecommendation2 = () => {
    const [userInfo] = useMyData();
    
    useEffect(() => {
-     fetch("Hasibur Hossain
-https://harmony-matrimony-server.vercel.app/allUser")
+     fetch("https://soulmates-server-two.vercel.app/allUser")
        .then((res) => res.json())
        .then((data) => {
          if (userInfo?.gender === "Male") {

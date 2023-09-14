@@ -13,7 +13,6 @@ import SweetMemories from "./HomeCompnent/SweetMemorise/SweetMemories";
 
 import BestRecommendation2 from "./HomeCompnent/BestRecommendation2/BestRecommendation2";
 import WhyChooseUs2 from "./HomeCompnent/WhyChooseUs2/WhyChooseUs2";
-import ScrollToTopButton from "../../../Shared/Scroll button/ScrollToTopButton";
 
 
 
@@ -21,31 +20,29 @@ const Home = () => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Soulmate | Home</title>
-      </Helmet>
-      <div className=" overflow-x-hidden md:overflow-visible lg:overflow-x-hidden">
-      <HomeBanner></HomeBanner>
-      <HowItWork/>
-      <WhyChooseUs2></WhyChooseUs2>
-      <BestRecommendation2 />
-      <ScrollToTopButton></ScrollToTopButton>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Soulmate | Home</title>
+    </Helmet>
+    <div className=" overflow-x-hidden md:overflow-visible lg:overflow-x-hidden">
+    <HomeBanner></HomeBanner>
+    <HowItWork/>
+    <WhyChooseUs2></WhyChooseUs2>
+    <BestRecommendation2 />
+    <div className="w-[80%] mx-auto">
 
-      <div className="w-[80%] mx-auto">
-
-        {/* <SearchFunction></SearchFunction> */}
-        {/* <BestRecommendation /> */}
+      {/* <SearchFunction></SearchFunction> */}
+      {/* <BestRecommendation /> */}
 
 
-        <Gallary />
-        {/* <SweetMemories/> */}
-        <Review />
-      </div>
-    
+      <Gallary />
+      {/* <SweetMemories/> */}
+      <Review />
+    </div>
+  
 
-      </div>
-    </>
+    </div>
+  </>
   );
 
 }
