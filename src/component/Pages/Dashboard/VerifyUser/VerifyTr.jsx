@@ -3,7 +3,8 @@ import { AiOutlineCheck } from "react-icons/ai";
 import {RxCross1} from "react-icons/rx";
 import {motion} from 'framer-motion'
 
-const VerifyTr = ({index, user, handleVerify,  handleCancle}) => {
+const VerifyTr = ({index, user, handleVerify,  handleVerifyCancle}) => {
+
     return (
         <>
           <motion.tr
@@ -27,8 +28,10 @@ const VerifyTr = ({index, user, handleVerify,  handleCancle}) => {
         <td> <div className="text-black ">{user?.name}</div></td>
         <td className="px-6 py-4">
          <div className="">
+
           <button onClick={()=>handleVerify(user?.email)} className='text-xl text-white bg-green-500 p-2 rounded-full ml-8 cursor-pointer'><AiOutlineCheck/></button>
           <button onClick={()=>handleCancle(user?.email)} className='text-xl text-white bg-red-500 p-2 rounded-full ml-8 cursor-pointer'><RxCross1/></button>
+
           </div> 
        
         </td>

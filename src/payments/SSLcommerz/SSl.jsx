@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-const PaymentCard = () => {
+import useMyData from "../../Hooks/useMyData";
+
+const SSl = () => {
+  const [userInfo] = useMyData();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [location, setLocation] = useState("");
@@ -16,6 +19,7 @@ const PaymentCard = () => {
     e.preventDefault();
     // Handle form submission here
     const data = {
+      userId: userInfo._id,
       name,
       email,
       location,
@@ -37,18 +41,14 @@ const PaymentCard = () => {
         console.log({ location });
       });
   };
-
   return (
-    <div className="max-w-xs my-20 mx-auto bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-      <div className="bg-blue-500 text-white text-center py-4">
-        <p className="font-bold text-lg">Payment Card</p>
-      </div>
-      <form className="p-6" onSubmit={handleSubmit}>
+    <div className="w-full p-8 border rounded-2xl my-4">
+      <form className="" onSubmit={handleSubmit}>
         <label className="text-gray-600 block mb-2"> Name</label>
         <input
           type="text"
           className="w-full border py-2 px-3 mb-3 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-          value={name}
+          value={userInfo.name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Full Name"
         />
@@ -57,7 +57,7 @@ const PaymentCard = () => {
         <input
           type="text"
           className="w-full border py-2 px-3 mb-3 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-          value={email}
+          value={userInfo.email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="xyz@gmail.com"
         />
@@ -67,7 +67,7 @@ const PaymentCard = () => {
             <input
               type="text"
               className="w-full border py-2 px-3 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-              value={location}
+              value={userInfo.city}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="Location"
             />
@@ -87,13 +87,13 @@ const PaymentCard = () => {
         <input
           type="text"
           className="w-full border py-2 px-3 mb-3 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-          value={phone}
+          value={userInfo.mobile}
           onChange={(e) => setPhone(e.target.value)}
           placeholder="+880"
         />
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300 mt-8"
         >
           Submit Payment
         </button>
@@ -102,4 +102,4 @@ const PaymentCard = () => {
   );
 };
 
-export default PaymentCard;
+export default SSl;

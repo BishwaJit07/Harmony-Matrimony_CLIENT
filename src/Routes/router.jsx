@@ -3,7 +3,6 @@ import Home from "../component/Pages/Home/Home";
 import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
 import Blog from "../component/Pages/Blog/Blog";
-import AddBlog from "../component/Pages/Blog/AddBlog";
 import Plans from "../component/Pages/Plans/Plans";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import Dashboard from "../component/Pages/Dashboard/Dashboard";
@@ -47,6 +46,8 @@ import UserProfile from "../component/Pages/UserProfile/UserProfile";
 import VerifyUser from "../component/Pages/Dashboard/VerifyUser/VerifyUser";
 import UserDetails from "../component/Pages/Dashboard/UserDetails/UserDetails";
 import AddBlog2 from "../component/Pages/Blog/AddBlog2";
+import PaymentPage from "../payments/PaymentPage/PaymentPage";
+import SSl from "../payments/SSLcommerz/SSl";
 
 
 
@@ -142,7 +143,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <StripePayment />,
+        element: <PaymentPage />,
+        children: [
+          {
+            path: '/payment/stripe',
+            element: <StripePayment />
+          },
+          {
+            path: '/payment/sslCommerz',
+            element: <SSl />
+          }
+        ]
       },
       {
         path: "/alluser",

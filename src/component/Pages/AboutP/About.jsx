@@ -86,12 +86,14 @@ const About = () => {
         <div className=" space-y-6 font-semibold px-8 dark:text-white">
           <div className="dark:text-white">
             <p className='text-[58px] font-bold'>Welcome to</p>
-            <p className='text-[35px] font-bold text-[#ec1d02] dark:text-pink-500'>Wedding matrimony</p>
+            <p className='text-[35px] font-bold text-[#ec1d02] dark:text-pink-500'>Soulmate matrimony</p>
           </div>
-          <p className="dark:text-white">Best wedding matrimony It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-          <p>Click here to Start you matrimony service now.</p>
+          <p className="dark:text-white">Welcome to our matrimony site, where love stories begin and dreams of forever come to life. We are thrilled to have you join our community of hopeful hearts on the journey to finding lasting love. Start your adventure today, and let us be your trusted partner in this beautiful chapter of life..</p>
+          <br />
+          <Link to='/plans'>Click here to Start you Soulmate Finding Journy now.</Link>
           <hr />
-          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable.</p>
+          <p> Where the search for love meets a world of possibilities. We're delighted to have you here, embarking on the path to a lifetime of happiness. Explore, connect, and let us help you find that special someone who will make your heart skip a beat.
+          </p>
           <div className="md:flex gap-10 space-y-6 md:space-y-0 ">
             <div className="flex items-center gap-3">
               <div className="w-[50px] h-[50px] bg-black flex justify-center items-center rounded-full border-gray-300 border-[7px]">
@@ -163,10 +165,10 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              It is a long established fact
+            How can your website help me find the perfect wedding partner?
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p> Our website employs advanced matchmaking algorithms and a vast user base to increase your chances of connecting with your ideal life partner.</p>
             </div>
           </div>
 
@@ -174,10 +176,10 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded ">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              Where can I get some?
+            What makes your matrimony site stand out from the rest?
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p>We stand out through our commitment to user privacy, a wide range of premium features, and a dedicated support team that ensures a safe and enjoyable experience.</p>
             </div>
           </div>
 
@@ -185,10 +187,10 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              Where does it come from?
+            How do I create an impressive profile on your website?
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p>We provide profile creation tips and guidelines to help you showcase your personality, interests, and preferences effectively.</p>
             </div>
           </div>
 
@@ -196,11 +198,11 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              Why do we use it?
+            Can I trust the authenticity of profiles on your site?
 
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p> Yes, we implement strict verification processes to ensure the authenticity of profiles, enhancing your confidence in the people you interact with.</p>
             </div>
           </div>
 
@@ -208,10 +210,10 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              What is Lorem Ipsum?
+            Do you offer any wedding planning resources or advice?
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p> Yes, our platform provides a wealth of wedding planning resources, including articles, guides, and a vibrant community of engaged couples to share insights and ideas.</p>
             </div>
           </div>
 
@@ -219,10 +221,10 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              Contrary to popular belief
+            What subscription plans do you offer, and how can they benefit me?
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p> We offer a range of subscription plans tailored to your needs, granting access to exclusive features, enhanced visibility, and greater control over your search for a life partner.</p>
             </div>
           </div>
         </div>
