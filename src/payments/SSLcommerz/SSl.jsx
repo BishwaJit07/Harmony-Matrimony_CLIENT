@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import useMyData from "../../Hooks/useMyData";
 
 const SSl = () => {
+  const [userInfo] = useMyData();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [location, setLocation] = useState("");
@@ -11,12 +13,13 @@ const SSl = () => {
 
   const searchParams = new URLSearchParams(url.search);
   const plan = searchParams.get("plan");
-  // const decodedData = JSON.parse(atob(plan));
+  const decodedData = JSON.parse(atob(plan));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here
     const data = {
+      userId: userInfo._id,
       name,
       email,
       location,
@@ -25,7 +28,7 @@ const SSl = () => {
       plan: decodedData.plan,
       price: decodedData.price,
     };
-    fetch("https://soulmates-server-two.vercel.app/order", {
+    fetch("https://harmony-matrimony-server.vercel.app/order", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
@@ -33,20 +36,19 @@ const SSl = () => {
       .then((res) => res.json())
       .then((data) => {
         window.location.replace(data.url);
-        const location = data.url
-        console.log(data)
+        const location = data.url;
+        console.log(data);
         console.log({ location });
-
       });
   };
   return (
-    <div className='w-full p-8 border rounded-2xl my-4'>
+    <div className="w-full p-8 border rounded-2xl my-4">
       <form className="" onSubmit={handleSubmit}>
         <label className="text-gray-600 block mb-2"> Name</label>
         <input
           type="text"
           className="w-full border py-2 px-3 mb-3 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-          value={name}
+          value={userInfo.name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Full Name"
         />
@@ -55,7 +57,7 @@ const SSl = () => {
         <input
           type="text"
           className="w-full border py-2 px-3 mb-3 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-          value={email}
+          value={userInfo.email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="xyz@gmail.com"
         />
@@ -65,7 +67,7 @@ const SSl = () => {
             <input
               type="text"
               className="w-full border py-2 px-3 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-              value={location}
+              value={userInfo.city}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="Location"
             />
@@ -85,7 +87,7 @@ const SSl = () => {
         <input
           type="text"
           className="w-full border py-2 px-3 mb-3 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-          value={phone}
+          value={userInfo.mobile}
           onChange={(e) => setPhone(e.target.value)}
           placeholder="+880"
         />
