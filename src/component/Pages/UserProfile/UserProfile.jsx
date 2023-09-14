@@ -21,6 +21,7 @@ import file from "../../../assets/other/file.png";
 import useMyData from "../../../Hooks/useMyData";
 import Swal from "sweetalert2";
 import Follow from "../MyProfle/follow/Follow";
+import Proposal from "../MyProfle/proposal/Proposal";
 
 const UserProfile = () => {
   const [userInfo] = useMyData();
@@ -142,6 +143,7 @@ const UserProfile = () => {
         <div className=" md:w-[40%]">
           <MetForUser />
           <Follow />
+          <Proposal />
           <BoxBorderContent title="Hobbies" content={<Hobbies />} />
           <BoxBorderContent title="Social Media" content={<SocialMedia />} />
           <Plan />
@@ -258,11 +260,7 @@ const PersonalInfo = () => {
       <div className="">
         <Info title="Gender" value={gender} />
         <Info title="Height" value={height} />
-        <Info
-          title="Marital Status
-"
-          value={marital_status}
-        />
+        <Info title="Marital Status" value={marital_status} />
         <Info title="Profile" value={profile} />
         <Info title="Religion" value={religion} />
         <Info title="State" value={state} />

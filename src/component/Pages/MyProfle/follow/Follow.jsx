@@ -49,42 +49,58 @@ const Follow = () => {
             </TabList>
 
             <TabPanel>
-              {following?.map((follow) => (
-                <Link to={`/profile/${follow.favId}`} key={follow.favId}>
-                  <div className="flex items-center space-x-4 p-4 border-b border-gray-300">
-                    <div className="flex-shrink-0">
-                      <img
-                        src={follow.favImg}
-                        className="h-12 w-12 rounded-full"
-                      />
-                    </div>
-                    <div className="flex-grow">
-                      <p className="text-lg font-medium text-gray-800">
-                        {follow.favUser}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+              {following?.length > 0 ? (
+                <>
+                  {following?.map((follow) => (
+                    <Link to={`/profile/${follow.favId}`} key={follow.favId}>
+                      <div className="flex items-center space-x-4 p-4 border-b border-gray-300">
+                        <div className="flex-shrink-0">
+                          <img
+                            src={follow.favImg}
+                            className="h-12 w-12 rounded-full"
+                          />
+                        </div>
+                        <div className="flex-grow">
+                          <p className="text-lg font-medium text-gray-800">
+                            {follow.favUser}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <span>Nothing To Show</span>
+                </>
+              )}
             </TabPanel>
             <TabPanel>
-              {followers?.map((follower) => (
-                <Link to={`/profile/${follower.userId}`} key={follower._id}>
-                  <div className="flex items-center space-x-4 p-4 border-b border-gray-300">
-                    <div className="flex-shrink-0">
-                      <img
-                        src={follower.userImg}
-                        className="h-12 w-12 rounded-full"
-                      />
-                    </div>
-                    <div className="flex-grow">
-                      <p className="text-lg font-medium text-gray-800">
-                        {follower.userName}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+              {followers?.length > 0 ? (
+                <>
+                  {followers?.map((follower) => (
+                    <Link to={`/profile/${follower.userId}`} key={follower._id}>
+                      <div className="flex items-center space-x-4 p-4 border-b border-gray-300">
+                        <div className="flex-shrink-0">
+                          <img
+                            src={follower.userImg}
+                            className="h-12 w-12 rounded-full"
+                          />
+                        </div>
+                        <div className="flex-grow">
+                          <p className="text-lg font-medium text-gray-800">
+                            {follower.userName}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <span>Nothing To Show</span>
+                </>
+              )}
             </TabPanel>
           </Tabs>
         </div>
