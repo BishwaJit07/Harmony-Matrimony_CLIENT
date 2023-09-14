@@ -47,11 +47,16 @@
     "react-tabs": "^6.0.2",
     "react-vertical-timeline-component": "^3.6.0",
     "recharts": "^2.8.0",
+    "socket.io-client": "^4.7.2",
     "sort-by": "^0.0.2",
     "sweetalert2": "^11.6.13",
     "swiper": "^10.2.0",
+
+    "tailwind-scrollbar": "^3.0.5",
+    "timeago.js": "^4.0.0-beta.3"
+
     "tailwind-merge": "^1.14.0",
-    "tailwind-scrollbar": "^3.0.5"
+    
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

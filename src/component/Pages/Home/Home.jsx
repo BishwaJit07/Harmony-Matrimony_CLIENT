@@ -20,23 +20,31 @@ import Gallery from "./HomeCompnent/gellary/Gallery";
 
 const Home = () => {
   return (
-    <div className="">
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Soulmate | Home</title>
-      </Helmet>
-      <HomeBanner></HomeBanner>
-      <HowItWork />
-      <WhyChooseUs2></WhyChooseUs2>
-      <BestRecommendation2 />
+
+    <>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Soulmate | Home</title>
+    </Helmet>
+    <div className=" overflow-x-hidden md:overflow-visible lg:overflow-x-hidden">
+    <HomeBanner></HomeBanner>
+    <HowItWork/>
+    <WhyChooseUs2></WhyChooseUs2>
+    <BestRecommendation2 />
+    <div className="w-[80%] mx-auto">
+
       {/* <SearchFunction></SearchFunction> */}
       {/* <BestRecommendation /> */}
-      {/* <Gallary /> */}
-      <Gallery />
-      <Review2 />
+
+
+      <Gallary />
       {/* <SweetMemories/> */}
-      {/* <Review /> */}
+      <Review />
     </div>
+  
+
+    </div>
+  </>
   );
 }
 export default Home;

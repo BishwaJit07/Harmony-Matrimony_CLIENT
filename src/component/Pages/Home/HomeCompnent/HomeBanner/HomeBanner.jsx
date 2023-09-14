@@ -16,13 +16,15 @@ const HomeBanner = () => {
 
   return (
     <div className=' bg-[#FDE8E8] select-none dark:bg-gray-800'>
-      <div className="md:flex gap-5 justify-around w-[80%] xl:w-[100%] mx-auto py-10 md:py-0">
+      <div className="md:flex gap-5 justify-between w-[80%]  mx-auto py-10 md:py-0">
         <div className="space-y-5  mb-8 md:mt-[100px]  ">
           <p className='lg:text-[56px] text-3xl font-alice leading-normal dark:text-white'>Find Your <span className="text-primary-500">Life Partner</span> With Us</p>
           <p className='text-sm lg:text-[22px] font-lato text-gray-500 leading-9 dark:text-white'>End the struggle of finding a bride or groom. Discover your <br className="hidden md:flex" /> perfect match from the comfort of home. Your ultimate <br className="hidden md:flex" /> destination to find your ideal pertner</p>
-          <div className="flex items-center gap-8 ">
-            <Link to='/allUser' className='bg-primary-500 rounded-full text-white px-16 py-2 mt-4 md:text-[22px] hover:bg-red-800 '>Explore </Link>
-            <button onClick={() => window.my_modal_3.showModal()} className='flex justify-center items-center gap-2 mt-4 text-[22px] 	'>
+
+          <div className="lg:flex items-center gap-8 ">
+            <Link to='/allUser' className='bg-primary-500 rounded-full text-white px-16 py-2 mt-4 md:text-[22px]'>Explore </Link>
+            <button onClick={() => window.my_modal_3.showModal()} className='flex justify-center items-center gap-2 mt-4 text-[22px]'>
+
               <span className="relative flex  justify-center items-center">
                 <span className="animate-ping absolute inline-flex h-[80%] w-[80%] rounded-full bg-red-400 opacity-75 duration-1000 md:text-[22xp] "></span>
                 <span className="relative inline-flex rounded-full h-[30px] w-[30px] md:h-[48px] md:w-[48px] bg-[#F27373] items-center justify-center"><BsFillPlayFill className=' text-white' /></span>

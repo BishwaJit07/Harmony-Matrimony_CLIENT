@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Footer from '../Shared/Footer/Footer';
 import NavBar2 from '../component/Pages/Home/HomeCompnent/NavBar2/NavBar2';
+import ScrollToTopButton from '../Shared/ScrollTopToButtom';
 
 const Main = () => {
     // const location = useLocation();
@@ -11,6 +12,7 @@ const Main = () => {
             {/* { homeheader ?  <Navbar/> : <HomeNavbar/>} */}
             <Outlet/>
             <Footer></Footer>
+            <ScrollToTopButton></ScrollToTopButton>
         </div>
     );
 };
