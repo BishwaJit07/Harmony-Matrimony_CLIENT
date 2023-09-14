@@ -93,12 +93,12 @@ const MangeUsersX = () => {
     <div className="relative overflow-x-auto  rounded-2xl px-6 w-[75%] mx-auto py-6 my-10 cards ">
       {/* Input field */}
 
-      <div className="InputContainer">
+      <div class="InputContainer">
         <input
           ref={searchRef}
           placeholder="Search By Name.."
           id="input"
-          className="input"
+          class="input"
           name="text"
           type="text"
         />

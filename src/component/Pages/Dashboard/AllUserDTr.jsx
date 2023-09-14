@@ -1,7 +1,9 @@
 
 import {RxCross1} from "react-icons/rx";
 import {motion} from 'framer-motion'
+
 import GLightbox from 'glightbox';
+
 
 const AllUserDTr = ({index, user}) => {
     return (
@@ -17,7 +19,9 @@ const AllUserDTr = ({index, user}) => {
       >
         <td className="text-black">{index + 1}</td>
         <td scope="row" className="flex items-center px-6 py-4 whitespace-nowrap ">
+
           <a href={user?.verificationImage} className="glightbox">
+
           <img className="w-10 h-10 rounded-full " src={user?.profileImage} alt="Jese image" />
           </a>
         </td>

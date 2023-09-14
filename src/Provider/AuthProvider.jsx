@@ -43,7 +43,6 @@ const AuthProvider = ({ children }) => {
                 axios.post('https://soulmates-server-two.vercel.app/jwt', { email: currentUser.email })
                 
                     .then(data => {
-                        console.log(data.data.token)
                         localStorage.setItem('access-token', data.data.token)
                         setLoading(false);
                     })

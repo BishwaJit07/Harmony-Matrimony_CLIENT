@@ -14,14 +14,18 @@ const VerifyUser = () => {
         })
     },[verify])
     const handleVerify = email =>{
+
      fetch(`https://soulmates-server-two.vercel.app/userVerify/${email}`, {
+
       method : "PATCH"
      })
      .then(res => res.json())
         .then(data =>{
+
           if (data.modifiedCount > 0) {
             Swal.fire({
               title: `He is Denied now!`,
+
               showClass: {
                 popup: "animate__animated animate__fadeInDown",
               },
@@ -33,8 +37,29 @@ const VerifyUser = () => {
         })
         .catch(error => console.log(error))
     }
-    const handleVerifyCancle = email =>{
-console.log(email);
+
+    const handleCancle = email =>{
+      fetch(`https://harmony-matrimony-server.vercel.app/userCancle/${email}`, {
+        method : "PUT"
+      })
+      .then(res => res.json())
+      .then(data =>{
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: `Her verification is cancled!`,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+        }
+        
+      })
+      .catch(error => console.log(error))
+
     }
     return (
         <div className="relative overflow-x-auto  rounded-2xl px-6 w-[75%] mx-auto py-6 my-5">
@@ -64,7 +89,9 @@ console.log(email);
               user={user}
               index={index}
               handleVerify={handleVerify}
-              handleVerifyCancle={handleVerifyCancle}
+
+              handleCancle={handleCancle}
+
             />
           ))}
         </tbody>
