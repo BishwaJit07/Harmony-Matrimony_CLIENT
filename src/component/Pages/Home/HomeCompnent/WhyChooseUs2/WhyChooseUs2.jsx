@@ -7,7 +7,8 @@ const WhyChooseUs2 = () => {
       <div className="w-[80%] mx-auto py-[75px]">
         <div className="text-center mb-10" >
           <p className="text-[45px] mb-3 font-alice">Why Choose Us</p>
-          <p className="font-lato md:text-[18px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem <br /> Ipsum has been the industry s standard dummy text ever since the 1500s</p>
+          <p className="font-lato md:text-[18px]">
+Choose our site for an unparalleled matrimony experience. <br /> We offer a trusted platform, cutting-edge features, and a thriving community dedicated to helping you find your perfect match.</p>
         </div>
         {/* card section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4" >
