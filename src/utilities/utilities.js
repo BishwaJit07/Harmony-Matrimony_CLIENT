@@ -53,3 +53,16 @@ export function useCustomQuery(key, endpoint) {
     return response.data;
   });
 }
+
+export const updateStatus = (path, upId, newStatus, refetch) => {
+  const data = {
+    status: newStatus,
+  };
+  axios
+    .put(`https://harmony-matrimony-server.vercel.app/${path}/${upId}`, data)
+    .then((response) => {
+      if (response.data.modifiedCount > 0) {
+        refetch();
+      }
+    });
+};

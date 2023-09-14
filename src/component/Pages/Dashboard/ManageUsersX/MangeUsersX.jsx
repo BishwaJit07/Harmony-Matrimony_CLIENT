@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Pending from "./Pending";
 
-
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import "../../../../style.css";
@@ -9,8 +8,6 @@ import "../../../../style.css";
 
 import './ManageUser.css'
 
-
-import "./ManageUser.css";
 import Approve from "./Approve";
 import Denied from "./Denied";
 import { useRef } from "react";
@@ -96,12 +93,12 @@ const MangeUsersX = () => {
     <div className="relative overflow-x-auto  rounded-2xl px-6 w-[75%] mx-auto py-6 my-10 cards ">
       {/* Input field */}
 
-      <div className="InputContainer">
+      <div class="InputContainer">
         <input
           ref={searchRef}
           placeholder="Search By Name.."
           id="input"
-          className="input"
+          class="input"
           name="text"
           type="text"
         />
