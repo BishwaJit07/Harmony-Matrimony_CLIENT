@@ -18,7 +18,7 @@ const MangeUsersX = () => {
   const [loading, setLoading] = useState(true);
   const [search, setsearch] = useState('')
   useEffect(() => {
-    fetch(`https://soulmates-server-two.vercel.app/authority?search=${search}`)
+    fetch(`https://soulmates-server.vercel.app/authority?search=${search}`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -39,7 +39,7 @@ const MangeUsersX = () => {
     );
   }
   const handleMakeApprove = (id) => {
-    fetch(`https://soulmates-server-two.vercel.app/makeApprove/${id}`, {
+    fetch(`https://soulmates-server.vercel.app/makeApprove/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -62,7 +62,7 @@ const MangeUsersX = () => {
   };
   const handleMakeDenied = (id) => {
     console.log(id);
-    fetch(`https://soulmates-server-two.vercel.app/makeDenied/${id}`, {
+    fetch(`https://soulmates-server.vercel.app/makeDenied/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

@@ -12,7 +12,7 @@ const BestRecommendation2 = () => {
    const [userInfo] = useMyData();
    
    useEffect(() => {
-     fetch("https://soulmates-server-two.vercel.app/allUser")
+     fetch("https://soulmates-server.vercel.app/allUser")
        .then((res) => res.json())
        .then((data) => {
          if (userInfo?.gender === "Male") {

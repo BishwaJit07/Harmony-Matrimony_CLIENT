@@ -22,7 +22,7 @@ const Review = () => {
     const [reviews, setReview] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch('https://soulmates-server-two.vercel.app/reviews')
+        fetch('https://soulmates-server.vercel.app/reviews')
             .then(res => res.json())
             .then(data => {
                 setLoading(false);

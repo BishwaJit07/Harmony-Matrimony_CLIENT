@@ -13,7 +13,7 @@ import axios from 'axios';
 
 const Review = () => {
   const [reviews, setReview] = useState([]);
-  axios.get('https://soulmates-server-two.vercel.app/reviews').then(data => setReview(data.data))
+  axios.get('https://soulmates-server.vercel.app/reviews').then(data => setReview(data.data))
 
   return (
     <div className="max-w-7xl mx-auto overflow-hidden my-6">
