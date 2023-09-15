@@ -13,7 +13,6 @@ import line from "../../../../assets/Shared/line.png"
 
 const Review = () => {
   const [reviews, setReview] = useState([]);
-
   useEffect(() => {
     fetch("https://soulmates-server.vercel.app/reviews")
       .then((res) => res.json())
@@ -28,6 +27,7 @@ const Review = () => {
         {/* div for text */}
         <div className='lg:col-span-2 '>
           <h3 className='text-[40px] font-alice  dark:text-white hidden lg:block'>Countless individuals have Discovered their life partners Through SoulMate!</h3>
+
         </div>
         {/* div for swiper */}
         <div className=' w-full col-span-4 relative'>
@@ -41,13 +41,15 @@ const Review = () => {
           >
             {
               reviews?.map(review => <SwiperSlide key={review._id} >
-                <div className="bg-white p-6 grid lg:grid-cols-2 gap-4 border border-[#C3CAD5] rounded-2xl">
-                  <div className="">
-                    <p className='text-[#595E73] text-sm lg:text-[16px] font-lato font-normal'>{review.review.slice(0, 250)} <span className='text-red-600'>See More</span></p>
-                    <p className='text-[24px] font-alice text-[#272932] font-normal mt-6'>Vysakh & Pooja</p>
+
+                <div className="bg-white p-6 grid grid-cols-1  lg:grid-cols-2 gap-4 border border-[#C3CAD5] rounded-2xl">
+                  <div className="order-last lg:order-first">
+                    <p className='text-[#595E73] text-[18px] font-lato font-normal'>{review.review.slice(0, 250)} <span className='text-red-600'>See More</span></p>
+                    <p className='text-[24px] font-alice text-[#272932] font-normal mt-4'>Vysakh & Pooja</p>
                     <p className='text-[#595E73] text-[18px] font-lato font-normal'>Khulna SoulMate</p>
                   </div>
-                  <img className='h-[300px] w-[300px] xl:w-full rounded-2xl object-cover object-top' src={review.imageURL} alt="" />
+                  <img className='h-[311px] w-full  rounded-2xl object-cover object-top' src={review.imageURL} alt="" />
+
                 </div>
               </SwiperSlide>)
             }

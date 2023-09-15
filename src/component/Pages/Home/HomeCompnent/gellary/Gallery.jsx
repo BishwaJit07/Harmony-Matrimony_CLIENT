@@ -11,6 +11,7 @@ import line from "../../../../../assets/Shared/line.png"
 const Gallery = () => {
   return (
     <div className='max-w-7xl mx-auto'>
+
       <div className='text-center'>
         <h1 className="text-[45px] mb-1 font-alice">
           Love Stories Unveiled
@@ -21,12 +22,16 @@ const Gallery = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-3">
+
+
+   
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
         <div className="col-span-2 flex flex-col gap-3">
-          <PhotoContainer imgStyle='h-[363px] w-full object-cover' img={img1} />
-          <div className="grid grid-cols-2 gap-3">
-            <PhotoContainer img={img2} />
-            <PhotoContainer img={img3} />
+          <PhotoContainer imgStyle='h-[363px] w-full object-cover' img={img1}/>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+            <PhotoContainer img={img2}/>
+            <PhotoContainer img={img3}/>
+
           </div>
         </div>
         <div className="flex flex-col gap-3">
@@ -50,7 +55,7 @@ const PhotoContainer = ({ img, imgStyle }) => {
           <p className=' text-white font-alice text-[24px]'>Vysakh & Pooja</p>
           <p className='font-lato text-[18px] text-white'>Khulna SoulMate</p>
         </div>
-        <button className='text-white border border-white px-10 py-4 rounded-full text-[18px] font-lato'>View More</button>
+        <button className='text-white border border-white px-10 py-4 rounded-full text-[18px] font-lato hidden '>View More</button>
       </div>
     </div>
   )

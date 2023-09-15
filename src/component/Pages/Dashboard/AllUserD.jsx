@@ -1,4 +1,4 @@
-import useAllUsers from "../../../Hooks/useAllUsers";
+import useAllUsers from "../../../hooks/useAllUsers";
 import {motion} from 'framer-motion'
 import AllUserDTr from "./AllUserDTr";
 const AllUserD = () => {

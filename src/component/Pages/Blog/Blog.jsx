@@ -56,7 +56,7 @@ const Blog = () => {
             <p className="text-[#3E4A5B]">Upgrade to Find Your Forever, <br /> Exclusive Benefits Await </p>
             <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/plan'>Plan</Link></p>
           </div>
-          <img className="h-full" src={couple} alt="" />
+          <img className="h-full hidden lg:block" src={couple} alt="" />
         </div>
       </div>
       
