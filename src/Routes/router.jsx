@@ -47,6 +47,7 @@ import UserProfile from "../component/Pages/UserProfile/UserProfile";
 import VerifyUser from "../component/Pages/Dashboard/VerifyUser/VerifyUser";
 import UserDetails from "../component/Pages/Dashboard/UserDetails/UserDetails";
 import AddBlog2 from "../component/Pages/Blog/AddBlog2";
+import DashboardProfile from "../component/Pages/Dashboard/Shared/DashboardProfile";
 
 
 
@@ -232,6 +233,10 @@ const router = createBrowserRouter([
     element: <Dashboard></Dashboard>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
+      {
+        path: "/dashboard",
+        element: <DashboardProfile></DashboardProfile>
+      },
       {
         path: "adminUser",
         element: <AdminHome></AdminHome>,
