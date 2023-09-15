@@ -24,7 +24,7 @@ const PaymentCard = () => {
       plan: decodedData.plan,
       price: decodedData.price,
     };
-    fetch("https://harmony-matrimony-server.vercel.app/order", {
+    fetch("https://soulmates-server.vercel.app/order", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

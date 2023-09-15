@@ -66,3 +66,12 @@ export const updateStatus = (path, upId, newStatus, refetch) => {
       }
     });
 };
+
+export const useProposalInfo = (id) => {
+  const { refetch: refetchProposal, data: proposal = [] } = useCustomQuery(
+    ["proposal", id],
+    `https://harmony-matrimony-server.vercel.app/getProposal/${id}`
+  );
+
+  return { refetchProposal, proposal };
+};
