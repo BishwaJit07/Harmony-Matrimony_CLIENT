@@ -41,7 +41,7 @@ const PhotoContainer = ({img, imgStyle}) => {
           <p className=' text-white font-alice text-[24px]'>Vysakh & Pooja</p>
           <p className='font-lato text-[18px] text-white'>Khulna SoulMate</p>
         </div>
-        <button className='text-white border border-white px-10 py-4 rounded-full text-[18px] font-lato hidden'>View More</button>
+        <button className='text-white border border-white px-10 py-4 rounded-full text-[18px] font-lato hidden '>View More</button>
       </div>
     </div>
   )
