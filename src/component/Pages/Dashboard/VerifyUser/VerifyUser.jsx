@@ -96,6 +96,7 @@ const VerifyUser = () => {
           ))}
         </tbody>
       </table>
+
         </div>
     );
 };
