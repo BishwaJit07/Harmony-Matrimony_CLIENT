@@ -1,4 +1,4 @@
-import "./chatonline.css"
+import "./ChatOnline.css"
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
