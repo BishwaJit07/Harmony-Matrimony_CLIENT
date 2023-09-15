@@ -2,7 +2,7 @@
 
 const TermCondition = () => {
     return (
-        <div>
+        <div className="w-[80%] mx-auto my-10">
             <h6 className="text-xl"> Terms and Conditions Preview</h6><br />
 
             <p className="">

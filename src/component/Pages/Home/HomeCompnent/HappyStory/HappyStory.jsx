@@ -20,7 +20,7 @@ const HappyStory = () => {
   // }, [])
 
   return (
-    <div className="my-32">
+    <div className="my-32 mb-">
       <h1 className="red-text font-bold border-b-2  w-fit mx-auto p-2">
         Happy Story
       </h1>
