@@ -59,7 +59,7 @@ const About = () => {
               <p className="">Upgrade to Find Your Forever, <br /> Exclusive Benefits Await </p>
               <p className="flex  font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/about'>About Us</Link></p>
             </div>
-            <img src={people} alt="" />
+            <img className="hidden lg:block" src={people} alt="" />
           </div>
         </div>
 

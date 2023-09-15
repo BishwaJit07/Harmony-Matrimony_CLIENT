@@ -6,6 +6,11 @@ import { Link } from "react-router-dom";
 import useMyData from "../../../Hooks/useMyData";
 import sliderbtn from "../../../assets/other/control.png";
 import topImage from "../../../assets/Explor/Banner.png";
+import home from '../../../assets/plan/home.svg'
+import scop from '../../../assets/plan/scop.svg'
+import couple from '../../../assets/plan/couple.png'
+import couple1 from '../../../assets/other/lovely-couple.png'
+import couple3 from '../../../assets/other/couple-removebg-preview.png'
 import { BiFilterAlt, BiSolidHome } from "react-icons/bi";
 import { PiBinocularsFill } from "react-icons/pi";
 import {
@@ -172,30 +177,19 @@ const AllUser = () => {
         <meta charSet="utf-8" />
         <title>Soulmate | Explore</title>
       </Helmet>
-      <div className=" flex  items-center ">
-        {/* Text */}
-        <img src={topImage} alt="" />
 
-        <div className="text-center ml-[70px] absolute z-10 hidden md:block ">
-          <p className="text-left lg:text-[28px] font-alice text-[18px] ">
-            Find Your Partner
-          </p>
-          <p className="text-sm xl:text-[14px] font-lato text-[#3E4A5B] leading-7 text-left mt-2 lg:mt-4">
-            Embark on a Journey to Find Your Life Partner Explore <br /> Connect
-            and Build a Lifetime of Happiness with Us
-          </p>
-          <div className="relative pt-4 text-left text-[14px]  gap-2 hidden md:flex">
-            <Link to="/" className="flex items-center gap-1">
-              <BiSolidHome /> Home
-            </Link>
-            <p>/</p>
-            <Link to="/allUser" className="flex items-center gap-1">
-              <PiBinocularsFill />
-              Explore
-            </Link>
+      {/* banner */}
+      <div className="bg-[#FDE8E8] h-[235px]">
+        <div className="max-w-7xl mx-auto h-full flex justify-between items-center">
+          <div className="ms-4 text-left">
+            <p className="font-alice text-[28px] text-[#272932]">"Unlock Love's Potential with Premium Plans!"</p>
+            <p className="text-[#3E4A5B]">Upgrade to Find Your Forever, <br /> Exclusive Benefits Await </p>
+            <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/allUser'>Explore</Link></p>
           </div>
+          <img className="h-full hidden lg:block" src={couple} alt="" />
         </div>
       </div>
+      
       {/* Filter */}
       <div className="flex select-none z-20 ">
         {/* <div className={` ${open ? "md:w-[445px]" : "w-20"}  relative md:relative py-8 bg-[#F0F2F5] `}>
