@@ -88,7 +88,7 @@ const router = createBrowserRouter([
       {
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/blogsDetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://soulmates-server.vercel.app/blogsDetails/${params.id}`)
 
       },
       {
@@ -110,7 +110,7 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/service/${params.id}`),
+          fetch(`https://soulmates-server.vercel.app/service/${params.id}`),
       },
       {
         path: "/paymentOne",
@@ -199,7 +199,7 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-        fetch(`http://localhost:5000/service/${params.id}`),
+        fetch(`https://soulmates-server.vercel.app/service/${params.id}`),
 
       },
     ],

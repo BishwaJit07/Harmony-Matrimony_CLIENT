@@ -14,7 +14,7 @@ const Contact = () => {
 
   const onSubmit = (contactData) => {
     const finalData = {name: contactData.name, email: contactData.email, subject: contactData.subject, status: 'pending'}
-    axios.post('http://localhost:5000/contact', finalData)
+    axios.post('https://soulmates-server.vercel.app/contact', finalData)
       .then(res => {
         console.log(res.data.insertedId)
         if (res.data.insertedId){
@@ -32,7 +32,7 @@ const Contact = () => {
   }
   
   return (
-    <div className=" max-w-7xl mx-auto mb-8">
+    <div className=" max-w-7xl mx-auto mb-8 w-[80%]">
       <div className="text-center mb-12">
         <p className="text-[48px] font-alice text-[#272932] dark:text-white">Contact us</p>
         <p className="text-[18px] font-lato text-[#3E4A5B] dark:text-gray-200">We're here to help you on your journey towards finding a lifelong partner. At <span className="text-red-500 ">'Soulmate Matrimony'</span> , <br /> we value your feedback, questions, and suggestions. </p>

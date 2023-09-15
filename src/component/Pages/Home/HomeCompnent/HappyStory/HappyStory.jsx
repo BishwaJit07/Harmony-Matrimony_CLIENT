@@ -14,13 +14,13 @@ const HappyStory = () => {
 
   // // fetch happyStories data
   // useEffect(() => {
-  //   fetch('http://localhost:5000/allCouple')
+  //   fetch('https://soulmates-server.vercel.app/allCouple')
   //     .then(res => res.json())
   //     .then(data => setHappyStories(data))
   // }, [])
 
   return (
-    <div className="my-32">
+    <div className="my-32 mb-">
       <h1 className="red-text font-bold border-b-2  w-fit mx-auto p-2">
         Happy Story
       </h1>

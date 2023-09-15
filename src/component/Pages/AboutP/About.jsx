@@ -28,7 +28,7 @@ const About = () => {
   const [team, setteam] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/team")
+    fetch("https://soulmates-server.vercel.app/team")
       .then((res) => res.json())
       .then((data) => setteam(data));
   }, []);
@@ -52,14 +52,14 @@ const About = () => {
             <p className="text-white text-lg">Most Trusted and premium Matrimony Service in the World.</p>
           </div>
         </div> */}
-        <div className="bg-[#0F7173] h-[235px]">
-          <div className="max-w-7xl flex justify-between items-center h-full w-full mx-auto">
-            <div className="ms-4 text-left text-[#F0F2F5]">
-              <p className="font-alice text-[28px]">"Unlock Love's Potential with Premium Plans!"</p>
-              <p className="">Upgrade to Find Your Forever, <br /> Exclusive Benefits Await </p>
+        <div className="bg-[#0F7173]">
+          <div className="max-w-7xl flex justify-between items-center h-full w-full mx-auto p-5 lg:p-0">
+            <div className="ms-4 text-left text-[#F0F2F5] ">
+            <p className="font-alice lg:text-[28px] text-2xl">{"Unlock Love's Potential with Premium Plans!"}</p>
+              <p className="lg:text-base text-xs mt-2 ">Upgrade to Find Your Forever, <br /> Exclusive Benefits Await </p>
               <p className="flex  font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/about'>About Us</Link></p>
             </div>
-            <img src={people} alt="" />
+            <img className="hidden lg:block" src={people} alt="" />
           </div>
         </div>
 
@@ -104,8 +104,8 @@ const About = () => {
           <br />
           <Link to='/plans'>Click here to Start you Soulmate Finding Journy now.</Link>
           <hr />
-          <p> Where the search for love meets a world of possibilities. We're delighted to have you here, embarking on the path to a lifetime of happiness. Explore, connect, and let us help you find that special someone who will make your heart skip a beat.
-          </p>
+          <p className="font-alice text-[28px]">{"Where the search for love meets a world of possibilities. We're delighted to have you here, embarking on the path to a lifetime of happiness. Explore, connect, and let us help you find that special someone who will make your heart skip a beat"}</p>
+
           <div className="md:flex gap-10 space-y-6 md:space-y-0 ">
             <div className="flex items-center gap-3">
               <div className="w-[50px] h-[50px] bg-black flex justify-center items-center rounded-full border-gray-300 border-[7px]">
@@ -256,7 +256,7 @@ const About = () => {
 
         {/* card */}
         {team.map((item) => (
-          <div key={item._id} className="shadow rounded mx-4 overflow-hidden group relative w-80 h-80">
+          <div key={item._id} className="shadow rounded my-3 overflow-hidden group relative w-80 h-80 mx-auto">
             <img className="w-full object-cover group-hover:scale-110  duration-700" src={item.img} alt="" />
               <div className="h-[100px]"></div>
               <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">

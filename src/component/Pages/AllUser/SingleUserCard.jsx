@@ -26,7 +26,7 @@ const SingleUserCard = ({ filteredUser }) => {
   const handleClick = () => {
     axios
       .put(
-        `http://localhost:5000/profileVisit?user=${userInfo?.email}`
+        `https://soulmates-server.vercel.app/profileVisit?user=${userInfo?.email}`
       )
       .then((response) => {
         if (response.data.modifiedCount > 0) {
@@ -95,7 +95,7 @@ const SingleUserCard = ({ filteredUser }) => {
         {getString(aboutMe)}
       </p>
       {/* info */}
-      <div className="flex justify-between ">
+      <div className="flex justify-around ">
         <div className="text-center md:px-10 md:py-2 ">
           <p className="text-[#8695AC]  dark:text-white">Age</p>
           <p className="text-[#3E4A5B]  dark:text-white">{age}</p>

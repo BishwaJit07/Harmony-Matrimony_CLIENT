@@ -20,7 +20,7 @@ const HowItWork = () => {
           Create your profile, meet personalized matches, and <br /> build meaningful connections on your journey to love.
         </p>
         {/* cards */}
-        <div>
+        <div className="">
           <div className="timeline " >
             <div>
               <div className="timeline__component">

@@ -11,7 +11,7 @@ const useAdmin = () => {
         queryKey : ["isAdmin", user?.email],
         enabled : !loading,
         queryFn : async () => {
-            const res = await axiosSecure.get(`http://localhost:5000/users/admin/${user.email}`)
+            const res = await axiosSecure.get(`https://soulmates-server.vercel.app/users/admin/${user.email}`)
 
 
 

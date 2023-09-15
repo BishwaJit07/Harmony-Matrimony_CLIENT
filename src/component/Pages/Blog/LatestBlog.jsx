@@ -8,7 +8,7 @@ const LatestBlog = () => {
     const [latest, setLatest] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/blogsLatest')
+        fetch('https://soulmates-server.vercel.app/blogsLatest')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
