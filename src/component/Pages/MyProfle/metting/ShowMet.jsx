@@ -20,17 +20,17 @@ const FixedMet = ({ partnerUser }) => {
 
   const { refetch: refetchAccept, data: acceptInfo = [] } = useCustomQuery(
     ["accept", userId],
-    `https://harmony-matrimony-server.vercel.app/reqAccept/${userId}`
+    `https://soulmates-server.vercel.app/reqAccept/${userId}`
   );
 
   const { refetch: refetchPending, data: pendingInfo = [] } = useCustomQuery(
     ["req", userId],
-    `https://harmony-matrimony-server.vercel.app/getReqPending/${userId}`
+    `https://soulmates-server.vercel.app/getReqPending/${userId}`
   );
 
   const { refetch: refetchReq, data: requestInfo = [] } = useCustomQuery(
     ["pending", userId],
-    `https://harmony-matrimony-server.vercel.app/sendReqPending/${userId}`
+    `https://soulmates-server.vercel.app/sendReqPending/${userId}`
   );
 
   useEffect(() => {

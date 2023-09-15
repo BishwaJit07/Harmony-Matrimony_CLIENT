@@ -9,17 +9,17 @@ const Proposal = () => {
 
   const { refetch: refetchProposal, data: proposal = [] } = useCustomQuery(
     ["proposal", userInfo._id],
-    `https://harmony-matrimony-server.vercel.app/getProposal/${userInfo._id}`
+    `https://soulmates-server.vercel.app/getProposal/${userInfo._id}`
   );
 
   const { refetch: refetchAccept, data: accept = [] } = useCustomQuery(
     ["acceptt", userInfo._id],
-    `https://harmony-matrimony-server.vercel.app/getAccept/${userInfo._id}`
+    `https://soulmates-server.vercel.app/getAccept/${userInfo._id}`
   );
 
   const { refetch: refetchReject, data: reject = [] } = useCustomQuery(
     ["reject", userInfo._id],
-    `https://harmony-matrimony-server.vercel.app/getReject/${userInfo._id}`
+    `https://soulmates-server.vercel.app/getReject/${userInfo._id}`
   );
 
   const refetchFunc = () => {

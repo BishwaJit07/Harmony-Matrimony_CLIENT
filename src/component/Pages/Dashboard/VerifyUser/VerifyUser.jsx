@@ -39,7 +39,7 @@ const VerifyUser = () => {
     }
 
     const handleCancle = email =>{
-      fetch(`https://harmony-matrimony-server.vercel.app/userCancle/${email}`, {
+      fetch(`https://soulmates-server.vercel.app/userCancle/${email}`, {
         method : "PUT"
       })
       .then(res => res.json())

@@ -16,7 +16,7 @@ const FixedMet = ({ partnerUser }) => {
   useEffect(() => {
     axios
       .get(
-        `https://harmony-matrimony-server.vercel.app/userPlanInfo?email=${user?.email}`
+        `https://soulmates-server.vercel.app/userPlanInfo?email=${user?.email}`
       )
       .then((response) => {
         setUserInfo(response.data);
@@ -38,7 +38,7 @@ const FixedMet = ({ partnerUser }) => {
 
     axios
       .post(
-        `https://harmony-matrimony-server.vercel.app/setMeeting?email=${user?.email}`,
+        `https://soulmates-server.vercel.app/setMeeting?email=${user?.email}`,
         setMet
       )
       .then((response) => {
