@@ -6,23 +6,32 @@ import img4 from '../../../../../assets/galleryPhotos/4.png'
 import img5 from '../../../../../assets/galleryPhotos/5.png'
 import { twMerge } from 'tailwind-merge'
 import Header from '../../../../../Shared/Header/Header';
-
+import line from "../../../../../assets/Shared/line.png"
 
 const Gallery = () => {
   return (
     <div className='max-w-7xl mx-auto'>
-      <Header title='Love Stories Unveiled' text={'Explore real-life love tales from couples who found their soulmates, inspiring your own romantic journey'}/>
+      <div className='text-center'>
+        <h1 className="text-[45px] mb-1 font-alice">
+          Love Stories Unveiled
+        </h1>
+        <img src={line} alt="" className="w-[105px] mx-auto mb-[30px]" />
+        <p className="text-[18px]  font-lato text-center  max-w-[685px] mx-auto leading-[27px] mb-20">
+          Explore real-life love tales from couples who found their <br /> soulmates, inspiring your own romantic journey
+        </p>
+      </div>
+
       <div className="grid grid-cols-3 gap-3">
         <div className="col-span-2 flex flex-col gap-3">
-          <PhotoContainer imgStyle='h-[363px] w-full object-cover' img={img1}/>
+          <PhotoContainer imgStyle='h-[363px] w-full object-cover' img={img1} />
           <div className="grid grid-cols-2 gap-3">
-            <PhotoContainer img={img2}/>
-            <PhotoContainer img={img3}/>
+            <PhotoContainer img={img2} />
+            <PhotoContainer img={img3} />
           </div>
         </div>
         <div className="flex flex-col gap-3">
-          <PhotoContainer imgStyle='h-[282px] object-cover' img={img4}/>
-          <PhotoContainer imgStyle='h-[282px] object-cover' img={img5}/>
+          <PhotoContainer imgStyle='h-[282px] object-cover' img={img4} />
+          <PhotoContainer imgStyle='h-[282px] object-cover' img={img5} />
         </div>
       </div>
     </div>
@@ -31,11 +40,11 @@ const Gallery = () => {
 
 export default Gallery;
 
-const PhotoContainer = ({img, imgStyle}) => {
+const PhotoContainer = ({ img, imgStyle }) => {
 
-  return(
+  return (
     <div className="relative rounded-2xl overflow-hidden group">
-      <img className={imgStyle ? imgStyle  : "h-full w-full"} src={img} alt="" />
+      <img className={imgStyle ? imgStyle : "h-full w-full"} src={img} alt="" />
       <div className="absolute flex justify-between bg-slate-800 w-full  bg-opacity-50 group-hover:bottom-0 -bottom-24 px-5 py-4 duration-300">
         <div className="">
           <p className=' text-white font-alice text-[24px]'>Vysakh & Pooja</p>

@@ -20,22 +20,22 @@ import insta from "../../../../assets/other/insta.svg";
 import twitter from "../../../../assets/other/twitter.svg";
 import { useEffect, useState } from "react";
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import FixedMet from "../metting/FixedMet";
 import useMyData from "../../../../Hooks/useMyData";
 import axios from "axios";
 import { RiUserUnfollowFill } from "react-icons/ri";
 
 const Profile2 = () => {
-  const [userInfo] = useMyData();
+  const [userInfo,refetch] = useMyData();
   const params = useParams();
   const [user, setUser] = useState([]);
   const [loader, setLoader] = useState(true);
   const [disable, setDisable] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(
-      `https://soulmates-server.vercel.app/specificUser/${params.id}`
+      `https://harmony-matrimony-server.vercel.app/specificUser/${params.id}`
     )
       .then((res) => res.json())
       .then((data) => setUser(data));
@@ -76,7 +76,7 @@ const Profile2 = () => {
   useEffect(() => {
     axios
       .get(
-        `https://soulmates-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
+        `https://harmony-matrimony-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
       )
       .then((response) => {
         if (response.data.userId) {
@@ -94,13 +94,13 @@ const Profile2 = () => {
 
     axios
       .get(
-        `https://soulmates-server.vercel.app/showFlowing/${userInfo._id}`
+        `https://harmony-matrimony-server.vercel.app/showFlowing/${userInfo._id}`
       )
       .then((response) => {
         if (response.data.userId) {
           axios
             .put(
-              `https://soulmates-server.vercel.app/makeFav/${userInfo._id}`,
+              `https://harmony-matrimony-server.vercel.app/makeFav/${userInfo._id}`,
               favUser
             )
             .then((response) => {
@@ -111,7 +111,7 @@ const Profile2 = () => {
         } else {
           axios
             .post(
-              `https://soulmates-server.vercel.app/setFav/${userInfo._id}`,
+              `https://harmony-matrimony-server.vercel.app/setFav/${userInfo._id}`,
               favUser
             )
             .then((response) => {
@@ -132,7 +132,7 @@ const Profile2 = () => {
     };
     axios
       .put(
-        `https://soulmates-server.vercel.app/makeUnfollow/${userInfo._id}`,
+        `https://harmony-matrimony-server.vercel.app/makeUnfollow/${userInfo._id}`,
         unfollow
       )
       .then((response) => {
@@ -141,6 +141,20 @@ const Profile2 = () => {
         }
       });
   };
+
+    const handleClick = async () => 
+    {
+        try{
+            const res = await axios.get(`https://soulmates-server.vercel.app/conversations/find/${userInfo._id}/${params.id}`)
+            console.log(res.data)
+            navigate("/message");
+            refetch();
+        }
+        catch(err){
+            console.log(err)
+        }
+
+    }
 
   return (
     <>
@@ -231,7 +245,7 @@ const Profile2 = () => {
                   </div>
                   {/* button */}
                   <div className="flex justify-between gap-3 px-2 py-4">
-                    <button className="text-[17px] font-bold w-full bg-secondary-500 rounded-full text-white py-4  flex justify-center items-center ">
+                    <button className="text-[17px] font-bold w-full bg-secondary-500 rounded-full text-white py-4  flex justify-center items-center " onClick={handleClick}>
                       Message
                     </button>
 

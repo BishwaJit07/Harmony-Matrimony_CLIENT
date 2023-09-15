@@ -39,7 +39,7 @@ const UserProfile = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://soulmates-server-two.vercel.app/deleteUser/${id}`, {
+        fetch(`https://soulmates-server.vercel.app/deleteUser/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

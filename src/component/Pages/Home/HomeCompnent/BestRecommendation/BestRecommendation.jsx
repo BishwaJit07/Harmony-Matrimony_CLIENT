@@ -9,12 +9,13 @@ import "./styles.css";
 import { Pagination , Navigation , A11y } from "swiper/modules";
 import { SwiperNavButtons } from "./SwiperNavButton";
 import { Link } from "react-router-dom";
+import line from "../../../../../assets/Shared/line.png"
 const BestRecommendation = () => {
 
   
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch("https://soulmates-server-two.vercel.app/allUser")
+    fetch("https://soulmates-server.vercel.app/allUser")
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, []);
@@ -23,9 +24,10 @@ const BestRecommendation = () => {
   return (
     <div className=" w-full  mt-[90px]">
       {/* content-section */}
-      <div className="mb-8">
+      <div className="mb-12">
         
-        <h2 className='text-3xl font-semibold '>Best Recommendation <span className='red-text'>for you</span> </h2>
+        <h2 className='text-3xl font-semibold'>Best Recommendation <span className='red-text'>for you</span> </h2>
+        <img src={line} alt="" className="w-[105px] mx-auto mb-[30px]" />
       </div>
       {/* slider Section */}
       <div>

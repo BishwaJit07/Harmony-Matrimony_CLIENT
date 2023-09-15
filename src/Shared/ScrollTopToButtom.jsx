@@ -41,8 +41,9 @@ const ScrollToTopButton = () => {
   return (
     isVisible && (
       <div
+        
         id="progress"
-        className="fixed bottom-20 right-12 h-14 w-14 grid place-items-center rounded-full bg-red-100 cursor-pointer transition-transform duration-300 ease-in-out  animate-bounce"
+        className="z-50 fixed bottom-20 right-12 h-14 w-14 grid place-items-center rounded-full bg-red-100 cursor-pointer transition-transform duration-300 ease-in-out  animate-bounce"
         onClick={scrollToTop}
       >
         <svg

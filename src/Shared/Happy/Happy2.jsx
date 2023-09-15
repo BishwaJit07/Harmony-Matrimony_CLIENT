@@ -26,7 +26,7 @@ const { user } = useContext(AuthContext);
         const finalData = { coupleName: reviewData.user + " and " + reviewData.patner, review: reviewData.details,  imageURL: res.data.data.url, location:reviewData.location,date: startDate}
         console.log({res, finalData})
         if(res.data.success){
-          axios.post('https://soulmates-server-two.vercel.app/reviews', finalData)
+          axios.post('https://soulmates-server.vercel.app/reviews', finalData)
             .then(res => {
               console.log(res)
               if (res.data.insertedId){
@@ -55,7 +55,7 @@ const { user } = useContext(AuthContext);
   }
 
   return (
-    <div className=' max-w-7xl mx-auto'>
+    <div className=' max-w-7xl mx-auto '>
       <form onSubmit={handleSubmit(onSubmit)} className='space-y-6 px-10 bg-white my-10 py-10 w-[700px] mx-auto rounded-[30px]' action="">
         {/* input field */}
         <div>

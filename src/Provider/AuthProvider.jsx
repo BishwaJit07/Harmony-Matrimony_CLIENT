@@ -8,7 +8,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     
     const googleProvider = new GoogleAuthProvider();
 
@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
 
             // get and set token!!!!
             if (currentUser) {
-                axios.post('https://soulmates-server-two.vercel.app/jwt', { email: currentUser.email })
+                axios.post('https://soulmates-server.vercel.app/jwt', { email: currentUser.email })
                 
                     .then(data => {
                         localStorage.setItem('access-token', data.data.token)
