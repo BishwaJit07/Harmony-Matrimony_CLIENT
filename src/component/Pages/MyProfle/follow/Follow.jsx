@@ -13,7 +13,7 @@ const Follow = () => {
   useEffect(() => {
     axios
       .get(
-        `https://harmony-matrimony-server.vercel.app/showFlowing/${userInfo._id}`
+        `https://soulmates-server.vercel.app/showFlowing/${userInfo._id}`
       )
       .then((response) => {
         if (response.data) {
@@ -25,7 +25,7 @@ const Follow = () => {
   useEffect(() => {
     axios
       .get(
-        `https://harmony-matrimony-server.vercel.app/showFlowers/${userInfo._id}`
+        `https://soulmates-server.vercel.app/showFlowers/${userInfo._id}`
       )
       .then((response) => {
         if (response.data) {

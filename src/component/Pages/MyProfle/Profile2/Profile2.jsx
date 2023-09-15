@@ -35,7 +35,7 @@ const Profile2 = () => {
   const navigate = useNavigate();
   useEffect(() => {
     fetch(
-      `https://harmony-matrimony-server.vercel.app/specificUser/${params.id}`
+      `https://soulmates-server.vercel.app/specificUser/${params.id}`
     )
       .then((res) => res.json())
       .then((data) => setUser(data));
@@ -76,7 +76,7 @@ const Profile2 = () => {
   useEffect(() => {
     axios
       .get(
-        `https://harmony-matrimony-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
+        `https://soulmates-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
       )
       .then((response) => {
         if (response.data.userId) {
@@ -94,13 +94,13 @@ const Profile2 = () => {
 
     axios
       .get(
-        `https://harmony-matrimony-server.vercel.app/showFlowing/${userInfo._id}`
+        `https://soulmates-server.vercel.app/showFlowing/${userInfo._id}`
       )
       .then((response) => {
         if (response.data.userId) {
           axios
             .put(
-              `https://harmony-matrimony-server.vercel.app/makeFav/${userInfo._id}`,
+              `https://soulmates-server.vercel.app/makeFav/${userInfo._id}`,
               favUser
             )
             .then((response) => {
@@ -111,7 +111,7 @@ const Profile2 = () => {
         } else {
           axios
             .post(
-              `https://harmony-matrimony-server.vercel.app/setFav/${userInfo._id}`,
+              `https://soulmates-server.vercel.app/setFav/${userInfo._id}`,
               favUser
             )
             .then((response) => {
@@ -132,7 +132,7 @@ const Profile2 = () => {
     };
     axios
       .put(
-        `https://harmony-matrimony-server.vercel.app/makeUnfollow/${userInfo._id}`,
+        `https://soulmates-server.vercel.app/makeUnfollow/${userInfo._id}`,
         unfollow
       )
       .then((response) => {

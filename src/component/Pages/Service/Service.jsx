@@ -4,10 +4,13 @@ import { TbHeartPlus } from "react-icons/tb";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
+import scop from '../../../assets/plan/scop.svg'
+import couple from '../../../assets/other/blogCouple.png'
+import home from '../../../assets/plan/home.svg'
 // import "./styles.css";
 import {Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
 import { Link } from "react-router-dom";
+import Happy2 from "../../../Shared/Happy/Happy2";
 
 const Service = () => {
   const [catering, setCatering] = useState([]);
@@ -159,6 +162,20 @@ const Service = () => {
       </div>
     </div>
     </div>
+<div className="max-w-screen-xl mt-20 mx-auto">
+<div className="bg-[#FBF2E4] h-[235px]">
+        <div className="max-w-7xl mx-auto h-full flex justify-between items-center">
+          <div className="ms-4 text-left">
+            <p className="font-alice text-[28px] text-[#272932]">"Unlock Love's Potential with Premium Plans!"</p>
+            <p className="text-[#3E4A5B]">Upgrade to Find Your Forever, <br /> Exclusive Benefits Await </p>
+            <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/plan'>Plan</Link></p>
+          </div>
+          <img className="h-full" src={couple} alt="" />
+        </div>
+      </div>
+<Happy2/>
+</div>
+    
    </>
   );
 };

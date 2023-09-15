@@ -11,7 +11,7 @@ const ChatOnline = ({ onlineUsers, currentId, setCurrentChat , refetch}) => {
 
     useEffect(() => {
         const getUsers = async () => {
-            const res = await axios.get("https://harmony-matrimony-server.vercel.app/allUser");
+            const res = await axios.get("https://soulmates-server.vercel.app/allUser");
             setAllUser(res.data);
         };
 
