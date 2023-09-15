@@ -4,7 +4,7 @@ import line from "../../../../../assets/Shared/line.png"
 const WhyChooseUs2 = () => {
   return (
     <div className=' bg-opacity-30 mx-auto bg-primary-50 mt-[90px] dark:text-white dark:bg-gray-800' >
-      <div className="w-[80%] mx-auto py-[75px]">
+      <div className="max-w-7xl mx-auto py-[75px]">
         <div className="text-center mb-10" >
           <p className="text-[45px] mb-1 font-alice">Why Choose Us</p>
           <img src={line} alt="" className="w-[105px] mx-auto mb-[30px]" />

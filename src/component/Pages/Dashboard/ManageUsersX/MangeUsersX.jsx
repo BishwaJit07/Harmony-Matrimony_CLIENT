@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Pending from "./Pending";
 
-
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import "../../../../style.css";
@@ -9,8 +8,6 @@ import "../../../../style.css";
 
 import './ManageUser.css'
 
-
-import "./ManageUser.css";
 import Approve from "./Approve";
 import Denied from "./Denied";
 import { useRef } from "react";
@@ -21,7 +18,7 @@ const MangeUsersX = () => {
   const [loading, setLoading] = useState(true);
   const [search, setsearch] = useState('')
   useEffect(() => {
-    fetch(`https://soulmates-server-two.vercel.app/authority?search=${search}`)
+    fetch(`http://localhost:5000/authority?search=${search}`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -42,7 +39,7 @@ const MangeUsersX = () => {
     );
   }
   const handleMakeApprove = (id) => {
-    fetch(`https://soulmates-server-two.vercel.app/makeApprove/${id}`, {
+    fetch(`http://localhost:5000/makeApprove/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -65,7 +62,7 @@ const MangeUsersX = () => {
   };
   const handleMakeDenied = (id) => {
     console.log(id);
-    fetch(`https://soulmates-server-two.vercel.app/makeDenied/${id}`, {
+    fetch(`http://localhost:5000/makeDenied/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

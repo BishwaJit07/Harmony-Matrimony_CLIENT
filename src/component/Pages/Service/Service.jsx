@@ -14,13 +14,13 @@ const Service = () => {
   const [photography, setPhotography] = useState([]);
   const [hotel, setHotel] = useState([]);
   useEffect(() => {
-    fetch("https://soulmates-server-two.vercel.app/service/catering")
+    fetch("http://localhost:5000/service/catering")
       .then((res) => res.json())
       .then((data) => setCatering(data));
   }, []);
 
   useEffect(() => {
-    fetch("https://soulmates-server-two.vercel.app/service/photography")
+    fetch("http://localhost:5000/service/photography")
       .then((res) => res.json())
       .then((data) => setPhotography(data));
   }, []);

@@ -11,7 +11,7 @@ const Message = ({ message, own}) => {
         const getUser = async () => {
             //finding user
             try {
-                const res = await axios(`https://soulmates-server-two.vercel.app/specificUser/${message?.sender}`)
+                const res = await axios(`http://localhost:5000/specificUser/${message?.sender}`)
                 setUser(res.data)
             }
             catch (err) {

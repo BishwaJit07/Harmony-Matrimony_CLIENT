@@ -3,7 +3,6 @@ import Home from "../component/Pages/Home/Home";
 import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
 import Blog from "../component/Pages/Blog/Blog";
-import AddBlog from "../component/Pages/Blog/AddBlog";
 import Plans from "../component/Pages/Plans/Plans";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import Dashboard from "../component/Pages/Dashboard/Dashboard";
@@ -39,9 +38,7 @@ import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 import Profile2 from "../component/Pages/MyProfle/Profile2/Profile2";
-
 import AdminHome from "../component/Pages/Dashboard/AdminHome/AdminHome";
-
 import ChatRoom from "../ChatApp/ChatRoom/ChatRoom";
 import UserProfile from "../component/Pages/UserProfile/UserProfile";
 import VerifyUser from "../component/Pages/Dashboard/VerifyUser/VerifyUser";
@@ -50,6 +47,9 @@ import AddBlog2 from "../component/Pages/Blog/AddBlog2";
 import Message from "../ChatApp/Message";
 import Messenger from "../component/Pages/Chat/Messenger/Messenger";
 import UserPrivateRoute from "./UserPrivateRoute";
+import PaymentPage from "../payments/PaymentPage/PaymentPage";
+import SSl from "../payments/SSLcommerz/SSl";
+
 
 
 
@@ -88,7 +88,7 @@ const router = createBrowserRouter([
       {
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/blogsDetails/${params.id}`)
 
       },
       {
@@ -110,7 +110,7 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-          fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
+          fetch(`http://localhost:5000/service/${params.id}`),
       },
       {
         path: "/paymentOne",
@@ -142,7 +142,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <StripePayment />,
+        element: <PaymentPage />,
+        children: [
+          {
+            path: '/payment/stripe',
+            element: <StripePayment />
+          },
+          {
+            path: '/payment/sslCommerz',
+            element: <SSl />
+          }
+        ]
       },
       {
         path: "/alluser",
@@ -189,7 +199,7 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-        fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
+        fetch(`http://localhost:5000/service/${params.id}`),
 
       },
     ],

@@ -7,7 +7,7 @@ const SingleBlogs = () => {
     const params = useParams();
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
-        fetch(`https://soulmates-server-two.vercel.app/blogs/${params.id}`)
+        fetch(`http://localhost:5000/blogs/${params.id}`)
             .then(res => res.json())
             .then(data => setBlogs(data));
     }, []);

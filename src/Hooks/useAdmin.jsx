@@ -4,10 +4,6 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import useAxiosSecure from "./useAxiosSecure";
 
-
-
-
-
 const useAdmin = () => {
     const {user, loading} = useContext(AuthContext);
     const [axiosSecure] = useAxiosSecure()
@@ -15,7 +11,7 @@ const useAdmin = () => {
         queryKey : ["isAdmin", user?.email],
         enabled : !loading,
         queryFn : async () => {
-            const res = await axiosSecure.get(`https://soulmates-server-two.vercel.app/users/admin/${user.email}`)
+            const res = await axiosSecure.get(`http://localhost:5000/users/admin/${user.email}`)
 
 
 
