@@ -45,10 +45,12 @@ const NavBar2 = () => {
         </div>
         <div className="navbar-end ml-auto">
           <DarkMode />
-          <div><Link to="/message"><AiFillMessage className='text-3xl mr-2 text-red-400' /></Link></div>
+         
           {user ? (
+            <> 
+            <div><Link to="/message"><AiFillMessage className='text-3xl mr-2 text-red-400' /></Link></div>
             <DropdownProfile userInfo={userInfo} logOut={handleLogOut} />
-
+            </>
           ) : (
             <div className="">
               <Link to="/signup">

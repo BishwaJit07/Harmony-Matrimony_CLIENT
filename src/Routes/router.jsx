@@ -49,8 +49,7 @@ import UserDetails from "../component/Pages/Dashboard/UserDetails/UserDetails";
 import AddBlog2 from "../component/Pages/Blog/AddBlog2";
 import Message from "../ChatApp/Message";
 import Messenger from "../component/Pages/Chat/Messenger/Messenger";
-
-
+import UserPrivateRoute from "./UserPrivateRoute";
 
 
 
@@ -61,6 +60,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path: "/",
+        element: <Home />,
+      },
+      {
 
         path: '/userProfile',
         element: <UserProfile />
@@ -69,10 +72,6 @@ const router = createBrowserRouter([
         path: '/profile/:id',
         element: <Profile2 />
 
-      },
-      {
-        path: "/",
-        element: <Home />,
       },
       {
         path: "/signIn",
@@ -89,7 +88,6 @@ const router = createBrowserRouter([
       {
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
-
         loader: ({ params }) => fetch(`https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`)
 
       },
@@ -148,7 +146,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/alluser",
-        element: <AllUser></AllUser>,
+        element: <UserPrivateRoute><AllUser></AllUser></UserPrivateRoute>,
       },
       {
         path: "/patnerProfile/:id",
@@ -173,10 +171,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/message",
-        element: <Messenger></Messenger>
+        element: <UserPrivateRoute><Messenger></Messenger></UserPrivateRoute>
       },
-
-      
       {
         path: "/signup",
         element: <SignUp />,
@@ -193,8 +189,7 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-
-          fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
+        fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
 
       },
     ],
