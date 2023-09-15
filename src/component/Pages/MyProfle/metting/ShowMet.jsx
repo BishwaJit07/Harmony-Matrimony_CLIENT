@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useCustomQuery } from "../../../../utilities/utilities";
+import {
+  useCustomQuery,
+  useProposalInfo,
+} from "../../../../utilities/utilities";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import MetInfo from "./MetInfo";
@@ -9,6 +12,7 @@ const FixedMet = ({ partnerUser }) => {
   const { _id } = partnerUser;
   const params = useParams();
   const [userId, setUserId] = useState("");
+  const { refetchProposal } = useProposalInfo(userId);
 
   useEffect(() => {
     if (params.id) {
@@ -20,27 +24,29 @@ const FixedMet = ({ partnerUser }) => {
 
   const { refetch: refetchAccept, data: acceptInfo = [] } = useCustomQuery(
     ["accept", userId],
-    `https://soulmates-server.vercel.app/reqAccept/${userId}`
+    `https://harmony-matrimony-server.vercel.app/reqAccept/${userId}`
   );
 
   const { refetch: refetchPending, data: pendingInfo = [] } = useCustomQuery(
     ["req", userId],
-    `https://soulmates-server.vercel.app/getReqPending/${userId}`
+    `https://harmony-matrimony-server.vercel.app/getReqPending/${userId}`
   );
 
   const { refetch: refetchReq, data: requestInfo = [] } = useCustomQuery(
     ["pending", userId],
-    `https://soulmates-server.vercel.app/sendReqPending/${userId}`
+    `https://harmony-matrimony-server.vercel.app/sendReqPending/${userId}`
   );
 
   useEffect(() => {
     refetchAccept();
     refetchReq();
     refetchPending();
+    refetchProposal();
   }, [userId]);
 
   const refetch = () => {
     refetchAccept();
+    refetchProposal();
     refetchReq();
     refetchPending();
   };

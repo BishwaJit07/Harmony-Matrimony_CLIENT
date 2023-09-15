@@ -59,10 +59,19 @@ export const updateStatus = (path, upId, newStatus, refetch) => {
     status: newStatus,
   };
   axios
-    .put(`https://soulmates-server.vercel.app/${path}/${upId}`, data)
+    .put(`https://harmony-matrimony-server.vercel.app/${path}/${upId}`, data)
     .then((response) => {
       if (response.data.modifiedCount > 0) {
         refetch();
       }
     });
+};
+
+export const useProposalInfo = (id) => {
+  const { refetch: refetchProposal, data: proposal = [] } = useCustomQuery(
+    ["proposal", id],
+    `https://harmony-matrimony-server.vercel.app/getProposal/${id}`
+  );
+
+  return { refetchProposal, proposal };
 };

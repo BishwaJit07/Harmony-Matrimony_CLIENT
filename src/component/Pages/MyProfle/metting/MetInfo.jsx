@@ -2,18 +2,13 @@ import axios from "axios";
 import { formatMetDate } from "../../../../utilities/utilities";
 
 const MetInfo = ({ infoData, actionType, refetch, user }) => {
-  console.log(infoData);
-  console.log(typeof actionType);
-  console.log(refetch);
-  console.log(user);
-
   const acceptHandle = (delId) => {
     const delMEt = {
       status: "accept",
     };
     axios
       .put(
-        `https://soulmates-server.vercel.app/acceptMet/${delId}`,
+        `https://harmony-matrimony-server.vercel.app/acceptMet/${delId}`,
         delMEt
       )
       .then((response) => {
@@ -29,7 +24,7 @@ const MetInfo = ({ infoData, actionType, refetch, user }) => {
     };
     axios
       .put(
-        `https://soulmates-server.vercel.app/deleteMet/${delId}`,
+        `https://harmony-matrimony-server.vercel.app/deleteMet/${delId}`,
         delMEt
       )
       .then((response) => {
@@ -45,7 +40,7 @@ const MetInfo = ({ infoData, actionType, refetch, user }) => {
     };
     axios
       .put(
-        `https://soulmates-server.vercel.app/setProposal/${delId}`,
+        `https://harmony-matrimony-server.vercel.app/setProposal/${delId}`,
         delMEt
       )
       .then((response) => {
