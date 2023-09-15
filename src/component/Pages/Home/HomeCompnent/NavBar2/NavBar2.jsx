@@ -7,14 +7,11 @@ import { AuthContext } from '../../../../../Provider/AuthProvider';
 import Headroom from 'react-headroom'
 import './NavBar2.css'
 import { DarkMode } from '../../../../../Shared/DarkMode/DarkMode';
-
+import { AiFillMessage } from "react-icons/ai";
 const NavBar2 = () => {
   // if you need to add new links in navbar, add it in li element
-  const [userInfo ] = useMyData();
+  const [userInfo] = useMyData();
   const { user, logOut } = useContext(AuthContext);
-  
-
-  
 
 
   const handleLogOut = () => {
@@ -33,30 +30,31 @@ const NavBar2 = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <NavItems></NavItems>
+              <NavItems></NavItems>
             </ul>
           </div>
           <Link to="/" className='hidden md:flex'><img className='scale-75' src={logo} alt="" /></Link>
         </div>
         <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1">
-                <NavItems></NavItems>
+            <NavItems></NavItems>
           </ul>
         </div>
         <div className="navbar-end ml-auto">
-        <DarkMode /> 
-            {user ? ( 
-              <DropdownProfile userInfo={userInfo} logOut={handleLogOut}/>
-             
-            ) : (
-              <div className="">
-                <Link to="/signup">
-                  <button className='bg-primary-500 rounded-full text-white px-10 py-2   justify-center items-center hidden md:flex'>Join Now</button>
-                </Link>
-              </div>
-            )}
+          <DarkMode />
+          <div><Link to="/message"><AiFillMessage className='text-3xl mr-2 text-red-400' /></Link></div>
+          {user ? (
+            <DropdownProfile userInfo={userInfo} logOut={handleLogOut} />
 
-          </div>
+          ) : (
+            <div className="">
+              <Link to="/signup">
+                <button className='bg-primary-500 rounded-full text-white px-10 py-2   justify-center items-center hidden md:flex'>Join Now</button>
+              </Link>
+            </div>
+          )}
+
+        </div>
       </div>
     </Headroom>
   );
@@ -81,23 +79,21 @@ const ProfileDropLinks = () => {
       <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/myProfile'>Profile</Link></li>
       <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/dashboard'>Dashboard</Link></li>
       <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/settings'>Settings</Link></li>
-      
+
     </>
   )
 }
 
-const DropdownProfile = ({ userInfo, logOut,  }) => {
+const DropdownProfile = ({ userInfo, logOut, }) => {
   const [toggle, setToggle] = useState(false)
-  console.log(userInfo, logOut)
-  return(
+  return (
     <div className="relative">
-      <button onClick={() => setToggle(!toggle)} id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" className="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-primary-500  md:mr-0 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-200 " type="button">
-        <span className="sr-only">Open user menu</span>
-        <img className="w-10 h-10 mr-2 rounded-full" src={userInfo.profileImage} alt="user photo" />
-          <span>{userInfo.name}</span>
-          <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-          </svg>
+      <button onClick={() => setToggle(!toggle)} id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" className="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-primary-500  md:mr-0 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-200 py-1 px-2" type="button">
+        <img className="w-10 h-10 mr-2 rounded-full object-cover" src={userInfo.profileImage} alt="user photo" />
+        <span>{userInfo.name}</span>
+        <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+        </svg>
       </button>
       <div id="dropdownAvatarName" className={toggle ? 'z-10 absolute mt-1 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600' : 'z-10 hidden absolute mt-1 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600'}>
         <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
