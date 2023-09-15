@@ -1,16 +1,20 @@
 import useMyData from "../../../../Hooks/useMyData";
-import { updateStatus, useCustomQuery } from "../../../../utilities/utilities";
+import {
+  updateStatus,
+  useCustomQuery,
+  useProposalInfo,
+} from "../../../../utilities/utilities";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ListPanel from "./ListPanel";
+import { useState } from "react";
 
 const Proposal = () => {
   const [userInfo] = useMyData();
+  const [disable, setDisable] = useState(false);
+  const { refetchProposal, proposal } = useProposalInfo(userInfo._id);
 
-  const { refetch: refetchProposal, data: proposal = [] } = useCustomQuery(
-    ["proposal", userInfo._id],
-    `https://harmony-matrimony-server.vercel.app/getProposal/${userInfo._id}`
-  );
+  console.log(proposal);
 
   const { refetch: refetchAccept, data: accept = [] } = useCustomQuery(
     ["acceptt", userInfo._id],
@@ -29,6 +33,7 @@ const Proposal = () => {
   };
 
   const deleteHandle = (id) => {
+    setDisable(true);
     updateStatus("deleteMet", id, "proposal reject", refetchFunc);
   };
 
@@ -54,6 +59,7 @@ const Proposal = () => {
             <TabPanel>
               <ListPanel
                 data={proposal}
+                disable={disable}
                 user={userInfo._id}
                 datatype={"proposal"}
                 onDelete={deleteHandle}
@@ -64,6 +70,7 @@ const Proposal = () => {
             <TabPanel>
               <ListPanel
                 data={accept}
+                disable={disable}
                 user={userInfo._id}
                 datatype={"accept"}
                 onDelete={deleteHandle}
@@ -74,6 +81,7 @@ const Proposal = () => {
             <TabPanel>
               <ListPanel
                 data={reject}
+                disable={disable}
                 user={userInfo._id}
                 datatype={"reject"}
                 onDelete={deleteHandle}

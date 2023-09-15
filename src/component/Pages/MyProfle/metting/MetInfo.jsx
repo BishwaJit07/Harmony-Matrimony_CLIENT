@@ -2,11 +2,6 @@ import axios from "axios";
 import { formatMetDate } from "../../../../utilities/utilities";
 
 const MetInfo = ({ infoData, actionType, refetch, user }) => {
-  console.log(infoData);
-  console.log(typeof actionType);
-  console.log(refetch);
-  console.log(user);
-
   const acceptHandle = (delId) => {
     const delMEt = {
       status: "accept",

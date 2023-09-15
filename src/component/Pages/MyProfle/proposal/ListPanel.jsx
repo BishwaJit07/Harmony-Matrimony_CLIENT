@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ListPanel = ({ data, user, datatype, onDelete, onAccept }) => {
+const ListPanel = ({ data, disable, user, datatype, onDelete, onAccept }) => {
   return (
     <>
       {data?.length > 0 ? (
@@ -29,6 +29,7 @@ const ListPanel = ({ data, user, datatype, onDelete, onAccept }) => {
                 datatype !== "accept" &&
                 datatype !== "reject" ? (
                   <button
+                    disabled={disable}
                     onClick={() => onDelete(item.metId)}
                     className="bg-red-500 text-white px-3 py-1 rounded-full"
                   >
@@ -39,6 +40,7 @@ const ListPanel = ({ data, user, datatype, onDelete, onAccept }) => {
                     {datatype !== "accept" && datatype !== "reject" && (
                       <>
                         <button
+                          disabled={disable}
                           onClick={() => onAccept(item.metId)}
                           className="bg-green-500 text-white px-3 py-1 rounded-full me-2"
                         >
