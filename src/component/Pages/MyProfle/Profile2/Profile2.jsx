@@ -67,6 +67,7 @@ const Profile2 = () => {
     interests,
   } = user;
 
+  console.log(interests);
   useEffect(() => {
     if (userInfo?.profileVisit > 0) {
       setLoader(false);
@@ -464,12 +465,16 @@ const Profile2 = () => {
 
                 <BorderBottom />
                 <Title title="Hobbies" />
+               
                 {/* Hobbies Section */}
-                <div className="flex gap-3 flex-wrap">
+                {/* {
+                  interests?  <div className="flex gap-3 flex-wrap">
                   {interests?.map((interest, index) => (
                     <HBox key={index} value={interest} />
                   ))}
-                </div>
+                </div>: <></>
+                } */}
+                
 
                 <BorderBottom />
                 <Title title="Social Media" />
