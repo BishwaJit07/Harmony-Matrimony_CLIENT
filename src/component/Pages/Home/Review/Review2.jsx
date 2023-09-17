@@ -61,7 +61,7 @@ const Review = () => {
     //   </div >
     // </div>
     <div className="max-w-7xl mx-auto overflow-hidden my-[110px]">
-      <p className="text-[45px] mb-1 font-alice text-center">Happy Story</p>
+      <p className="text-[45px] mb-1 font-alice text-center dark:text-white">Happy Story</p>
       <img src={line} alt="" className="w-[105px] mx-auto mb-[30px]" />
     <div className='grid grid-cols-1 md:grid-cols-6 items-center'>
       {/* div for text */}
@@ -82,11 +82,11 @@ const Review = () => {
         >
           {
             reviews?.map(review => <SwiperSlide key={review._id} >
-              <div className="bg-white p-6 grid grid-cols-1  lg:grid-cols-2 gap-4 border border-[#C3CAD5] rounded-2xl">
+              <div className="bg-white p-6 grid grid-cols-1  lg:grid-cols-2 gap-4 border border-[#C3CAD5] rounded-2xl dark:bg-gray-500">
                 <div className="order-last lg:order-first">
-                  <p className='text-[#595E73] text-[18px] font-lato font-normal'>{review.review.slice(0, 250)} <span className='text-red-600'>See More</span></p>
-                  <p className='text-[24px] font-alice text-[#272932] font-normal mt-4'>Vysakh & Pooja</p>
-                  <p className='text-[#595E73] text-[18px] font-lato font-normal'>Khulna SoulMate</p>
+                  <p className='text-[#595E73] text-[18px] font-lato font-normal dark:text-white'>{review.review.slice(0, 250)} <span className='text-red-600'>See More</span></p>
+                  <p className='text-[24px] font-alice text-[#272932] font-normal mt-4 dark:text-white'>Vysakh & Pooja</p>
+                  <p className='text-[#595E73] text-[18px] font-lato font-normal dark:text-white'>Khulna SoulMate</p>
                 </div>
                 <img className='h-[311px] w-full  rounded-2xl object-cover object-top' src={review.imageURL} alt="" />
               </div>

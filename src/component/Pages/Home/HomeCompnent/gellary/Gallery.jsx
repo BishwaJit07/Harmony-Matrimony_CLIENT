@@ -13,11 +13,11 @@ const Gallery = () => {
     <div className='max-w-7xl mx-auto'>
 
       <div className='text-center'>
-        <h1 className="text-[45px] mb-1 font-alice">
+        <h1 className="text-[45px] mb-1 font-alice dark:text-white">
           Love Stories Unveiled
         </h1>
         <img src={line} alt="" className="w-[105px] mx-auto mb-[30px]" />
-        <p className="text-[18px]  font-lato text-center  max-w-[685px] mx-auto leading-[27px] mb-20">
+        <p className="text-[18px]  font-lato text-center  max-w-[685px] mx-auto leading-[27px] mb-20 dark:text-white">
           Explore real-life love tales from couples who found their <br /> soulmates, inspiring your own romantic journey
         </p>
       </div>
