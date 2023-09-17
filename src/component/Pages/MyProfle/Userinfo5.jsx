@@ -15,7 +15,7 @@ const Userinfo5 = () => {
   const onSubmit = () => {
     const userinfo ={hobbies: selectedOptions, aboutMe : aboutMe ,  id: userInfo._id, profile_complete: 90  }
     console.log(userInfo)
-    fetch('https://soulmates-server.vercel.app/update5', {
+    fetch('https://soulmate-server-routed.vercel.app/update5', {
         method: "PUT",
         headers: {
           "content-type" : "application/json"

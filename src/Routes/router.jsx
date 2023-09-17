@@ -47,7 +47,7 @@ import AddBlog2 from "../component/Pages/Blog/AddBlog2";
 import DashboardProfile from "../component/Pages/Dashboard/Shared/DashboardProfile";
 import Message from "../ChatApp/Message";
 import Messenger from "../component/Pages/Chat/Messenger/Messenger";
-import UserPrivateRoute from "./UserPrivateRoute";
+import UserPrivateRoute from "./UserPrivateRoute"
 import PaymentPage from "../payments/PaymentPage/PaymentPage";
 import SSl from "../payments/SSLcommerz/SSl";
 import GalleryPage from "../component/Pages/GalleryPage/GalleryPage";
@@ -90,7 +90,7 @@ const router = createBrowserRouter([
       {
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`https://soulmates-server.vercel.app/blogsDetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://soulmate-server-routed.vercel.app/blogsDetails/${params.id}`)
 
       },
       {
@@ -112,7 +112,7 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-          fetch(`https://soulmates-server.vercel.app/service/${params.id}`),
+          fetch(`https://soulmate-server-routed.vercel.app/service/${params.id}`),
       },
       {
         path: "/paymentOne",
@@ -206,7 +206,7 @@ const router = createBrowserRouter([
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
 
-        fetch(`https://soulmates-server.vercel.app/service/${params.id}`),
+        fetch(`https://soulmate-server-routed.vercel.app/service/${params.id}`),
 
       },
     ],

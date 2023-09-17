@@ -5,7 +5,7 @@ const PatnerProfile = () => {
     const params = useParams();
     const [user, setUser] = useState([]);
     useEffect(() => {
-        fetch(`https://soulmates-server.vercel.app/specificUser/${params.id}`)
+        fetch(`https://soulmate-server-routed.vercel.app/specificUser/${params.id}`)
             .then(res => res.json())
             .then(data => setUser(data));
     }, [])

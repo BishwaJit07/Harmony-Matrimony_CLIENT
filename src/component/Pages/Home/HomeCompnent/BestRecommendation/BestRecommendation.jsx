@@ -15,7 +15,7 @@ const BestRecommendation = () => {
   
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch("https://soulmates-server.vercel.app/allUser")
+    fetch("https://soulmate-server-routed.vercel.app/allUser")
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, []);

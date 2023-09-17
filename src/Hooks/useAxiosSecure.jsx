@@ -6,7 +6,7 @@ import useAuth from './useAuth';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'https://soulmates-server.vercel.app', 
+  baseURL: 'https://soulmate-server-routed.vercel.app', 
 });
 
 const useAxiosSecure = () => {

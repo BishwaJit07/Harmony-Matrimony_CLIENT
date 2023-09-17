@@ -65,7 +65,7 @@ const AuthoritySignUp = () => {
                   status: "pending"
                 };
                 console.log(saveUser);
-                fetch("https://soulmates-server.vercel.app/authority", {
+                fetch("https://soulmate-server-routed.vercel.app/authority", {
                   method: "POST",
                   headers: {
                     "content-type": "application/json",

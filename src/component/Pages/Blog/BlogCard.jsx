@@ -13,7 +13,7 @@ const [love, setLove] = useState(false);
 
   const handleReactInc = id => {
     console.log(id);
-    fetch(`https://soulmates-server.vercel.app/blogs/${id}`, {
+    fetch(`https://soulmate-server-routed.vercel.app/blogs/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())
@@ -26,7 +26,7 @@ const [love, setLove] = useState(false);
   }
   const handleReactDec = id => {
     console.log(id);
-    fetch(`https://soulmates-server.vercel.app/blogss/${id}`, {
+    fetch(`https://soulmate-server-routed.vercel.app/blogss/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())
