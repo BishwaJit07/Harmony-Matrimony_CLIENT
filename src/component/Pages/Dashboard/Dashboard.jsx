@@ -11,21 +11,25 @@ import DashboardNav from "./Shared/DashboardNav";
 import FooterDashboard from "./FooterDashboard";
 import { FaUserTie } from "react-icons/fa";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import DashboardProfile from "./Shared/DashboardProfile";
+
 
 const Dashboard = () => {
     const [open, setOpen] = useState(true);
     const {user} = useContext(AuthContext);
+
     console.log(user?.email);
+
     const [profileDatas, setProfileDatas] = useState({});
-    const [loading, setLoading]= useState(true)
+    console.log('data', profileDatas );
+    
     useEffect(() =>{
-      fetch(`https://harmony-matrimony-server.vercel.app/profileData/${user?.email}`)
+      fetch(`https://soulmates-server.vercel.app/profileData/${user?.email}`)
       .then(res => res.json())
       .then(data =>{
-        console.log('data', data );
-        setLoading(false)
+       
         setProfileDatas(data)
+       
+        
       })
       .catch(error => console.log(error))
     },[user])

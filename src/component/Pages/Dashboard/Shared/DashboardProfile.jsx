@@ -5,13 +5,15 @@ const DashboardProfile = () => {
   const {user} = useContext(AuthContext);
   const [profileDatas, setProfileDatas] = useState({});
   const [loading, setLoading]= useState(true)
+
   useEffect(() =>{
-    fetch(`https://harmony-matrimony-server.vercel.app/profileData/${user?.email}`)
+    fetch(`https://soulmates-server.vercel.app/profileData/${user?.email}`)
     .then(res => res.json())
     .then(data =>{
       console.log('data', data );
-      setLoading(false)
+    
       setProfileDatas(data)
+      setLoading(false)
     })
     .catch(error => console.log(error))
   },[user])
@@ -26,7 +28,7 @@ const DashboardProfile = () => {
                   <img className="h-40 w-40" src={profileDatas?.profileImage}/>
                 </div>
             </div>
-              <div clas>
+              <div >
                 <h4 className="text-center text-3xl my-2 text-cyan-700 font-medium">{profileDatas?.name}</h4>
                <p className="text-center text-xl my-2 text-cyan-700 font-medium">{profileDatas?.email}</p>
                <div className='ms-56 my-3'>

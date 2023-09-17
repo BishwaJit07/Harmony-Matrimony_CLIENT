@@ -35,7 +35,7 @@ const Profile2 = () => {
   const navigate = useNavigate();
   useEffect(() => {
     fetch(
-      `https://harmony-matrimony-server.vercel.app/specificUser/${params.id}`
+      `https://soulmates-server.vercel.app/specificUser/${params.id}`
     )
       .then((res) => res.json())
       .then((data) => setUser(data));
@@ -67,6 +67,7 @@ const Profile2 = () => {
     interests,
   } = user;
 
+  console.log(interests);
   useEffect(() => {
     if (userInfo?.profileVisit > 0) {
       setLoader(false);
@@ -76,7 +77,7 @@ const Profile2 = () => {
   useEffect(() => {
     axios
       .get(
-        `https://harmony-matrimony-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
+        `https://soulmates-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
       )
       .then((response) => {
         if (response.data.userId) {
@@ -94,13 +95,13 @@ const Profile2 = () => {
 
     axios
       .get(
-        `https://harmony-matrimony-server.vercel.app/showFlowing/${userInfo._id}`
+        `https://soulmates-server.vercel.app/showFlowing/${userInfo._id}`
       )
       .then((response) => {
         if (response.data.userId) {
           axios
             .put(
-              `https://harmony-matrimony-server.vercel.app/makeFav/${userInfo._id}`,
+              `https://soulmates-server.vercel.app/makeFav/${userInfo._id}`,
               favUser
             )
             .then((response) => {
@@ -111,7 +112,7 @@ const Profile2 = () => {
         } else {
           axios
             .post(
-              `https://harmony-matrimony-server.vercel.app/setFav/${userInfo._id}`,
+              `https://soulmates-server.vercel.app/setFav/${userInfo._id}`,
               favUser
             )
             .then((response) => {
@@ -132,7 +133,7 @@ const Profile2 = () => {
     };
     axios
       .put(
-        `https://harmony-matrimony-server.vercel.app/makeUnfollow/${userInfo._id}`,
+        `https://soulmates-server.vercel.app/makeUnfollow/${userInfo._id}`,
         unfollow
       )
       .then((response) => {
@@ -464,12 +465,16 @@ const Profile2 = () => {
 
                 <BorderBottom />
                 <Title title="Hobbies" />
+               
                 {/* Hobbies Section */}
-                <div className="flex gap-3 flex-wrap">
+                {/* {
+                  interests?  <div className="flex gap-3 flex-wrap">
                   {interests?.map((interest, index) => (
                     <HBox key={index} value={interest} />
                   ))}
-                </div>
+                </div>: <></>
+                } */}
+                
 
                 <BorderBottom />
                 <Title title="Social Media" />
