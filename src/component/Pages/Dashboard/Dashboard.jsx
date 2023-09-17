@@ -20,7 +20,7 @@ const Dashboard = () => {
     const [profileDatas, setProfileDatas] = useState({});
     const [loading, setLoading]= useState(true)
     useEffect(() =>{
-      fetch(`https://harmony-matrimony-server.vercel.app/profileData/${user?.email}`)
+      fetch(`https://soulmates-server.vercel.app/profileData/${user?.email}`)
       .then(res => res.json())
       .then(data =>{
         console.log('data', data );
