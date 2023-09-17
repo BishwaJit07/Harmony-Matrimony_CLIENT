@@ -50,6 +50,7 @@ import Messenger from "../component/Pages/Chat/Messenger/Messenger";
 import UserPrivateRoute from "./UserPrivateRoute";
 import PaymentPage from "../payments/PaymentPage/PaymentPage";
 import SSl from "../payments/SSLcommerz/SSl";
+import GalleryPage from "../component/Pages/GalleryPage/GalleryPage";
 
 
 
@@ -131,6 +132,10 @@ const router = createBrowserRouter([
       {
         path: "/happy",
         element: <Happy2 />,
+      },
+      {
+        path: '/galleryPage',
+        element: <GalleryPage />
       },
       {
         path: "/plans",
