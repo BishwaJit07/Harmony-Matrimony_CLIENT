@@ -9,7 +9,7 @@ import img4 from '../../../../../assets/home/newHomeBannerImg/7.jpg'
 import img5 from '../../../../../assets/home/newHomeBannerImg/8.jpg'
 import img6 from '../../../../../assets/home/newHomeBannerImg/9.jpg';
 import SearchFunction from "../../SearchFunction/SearchFunction";
-import { useState } from "react";
+
 
 
 const HomeBanner = () => {
