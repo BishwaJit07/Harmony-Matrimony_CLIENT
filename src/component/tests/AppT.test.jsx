@@ -7,9 +7,6 @@ import AppT from './AppT';
 describe('App', () => {
   it('renders headline', () => {
     render(<AppT title="React" />);
-
     screen.debug();
-
-    // check if App components renders headline
   });
 });
