@@ -35,7 +35,7 @@ const Profile = () => {
   const navigate = useNavigate();
   useEffect(() => {
     fetch(
-      `https://soulmates-server.vercel.app/specificUser/${params.id}`
+      `https://soulmate-server-routed.vercel.app/specificUser/${params.id}`
     )
       .then((res) => res.json())
       .then((data) => setUser(data));
@@ -77,7 +77,7 @@ const Profile = () => {
   useEffect(() => {
     axios
       .get(
-        `https://soulmates-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
+        `https://soulmate-server-routed.vercel.app/disableFav/${userInfo._id}/${user._id}`
       )
       .then((response) => {
         if (response.data.userId) {
@@ -95,13 +95,13 @@ const Profile = () => {
 
     axios
       .get(
-        `https://soulmates-server.vercel.app/showFlowing/${userInfo._id}`
+        `https://soulmate-server-routed.vercel.app/showFlowing/${userInfo._id}`
       )
       .then((response) => {
         if (response.data.userId) {
           axios
             .put(
-              `https://soulmates-server.vercel.app/makeFav/${userInfo._id}`,
+              `https://soulmate-server-routed.vercel.app/makeFav/${userInfo._id}`,
               favUser
             )
             .then((response) => {
@@ -112,7 +112,7 @@ const Profile = () => {
         } else {
           axios
             .post(
-              `https://soulmates-server.vercel.app/setFav/${userInfo._id}`,
+              `https://soulmate-server-routed.vercel.app/setFav/${userInfo._id}`,
               favUser
             )
             .then((response) => {
@@ -133,7 +133,7 @@ const Profile = () => {
     };
     axios
       .put(
-        `https://soulmates-server.vercel.app/makeUnfollow/${userInfo._id}`,
+        `https://soulmate-server-routed.vercel.app/makeUnfollow/${userInfo._id}`,
         unfollow
       )
       .then((response) => {
@@ -146,7 +146,7 @@ const Profile = () => {
     const handleClick = async () => 
     {
         try{
-            const res = await axios.get(`https://soulmates-server.vercel.app/conversations/find/${userInfo._id}/${params.id}`)
+            const res = await axios.get(`https://soulmate-server-routed.vercel.app/conversations/find/${userInfo._id}/${params.id}`)
             console.log(res.data)
             navigate("/message");
             refetch();
