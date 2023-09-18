@@ -5,7 +5,7 @@ const PatnerProfile = () => {
     const params = useParams();
     const [user, setUser] = useState([]);
     useEffect(() => {
-        fetch(`https://soulmates-server-two.vercel.app/specificUser/${params.id}`)
+        fetch(`https://soulmate-server-routed.vercel.app/specificUser/${params.id}`)
             .then(res => res.json())
             .then(data => setUser(data));
     }, [])
@@ -35,7 +35,7 @@ const PatnerProfile = () => {
                         />
                     </div>
                     {/* Profile Info */}
-                    <div className="ml-4">
+                    <div className="ml-4 ">
                         <h3 className="user-name font-semibold md:text-2xl text-base ">{name}</h3>
                         <div className="address flex items-center text-gray-700 font-bold">
                             <p className="block">{country}</p>

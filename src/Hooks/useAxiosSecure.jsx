@@ -6,7 +6,7 @@ import useAuth from './useAuth';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'https://soulmates-server-two.vercel.app', 
+  baseURL: 'https://soulmate-server-routed.vercel.app', 
 });
 
 const useAxiosSecure = () => {
@@ -28,7 +28,7 @@ const useAxiosSecure = () => {
         if (error.response && (error.response.status === 401 || error.response.status === 403)) {
 
           await logOut();
-          navigate('/signin');
+          // navigate('/signin');
         }
         return Promise.reject(error);
       }

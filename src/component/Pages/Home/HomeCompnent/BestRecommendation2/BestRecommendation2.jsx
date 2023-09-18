@@ -4,20 +4,36 @@ import 'swiper/css';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { SwiperNavButtons } from "../BestRecommendation/SwiperNavButton";
+import useMyData from "../../../../../Hooks/useMyData";
 
 const BestRecommendation2 = () => {
   
    const [datas, setDatas] = useState([]);
+   const [userInfo] = useMyData();
    
    useEffect(() => {
-     fetch("https://soulmates-server-two.vercel.app/allUser")
+     fetch("https://soulmate-server-routed.vercel.app/allUser")
        .then((res) => res.json())
-       .then((data) => setDatas(data));
+       .then((data) => {
+         if (userInfo?.gender === "Male") {
+          const filteredData = data.filter((user) => user.gender === "Female");
+          setDatas(filteredData);
+        }
+        else if (userInfo?.gender === "Female") {
+          const filteredData = data.filter((user) => user.gender === "Male");
+          setDatas(filteredData);
+        }
+        else {
+          setDatas(data);
+        }
+       });
    }, []);
 
+   
+
    return (
-     <div className="py-[120px] w-[80%] mx-auto ">
-         <p className="text-[#272932] lg:text-[40px] text-center text-[20px] lg:text-left font-alice xl:ml-16 -mb-16 ">Best Recommendation for you</p>
+     <div className="py-[120px] max-w-7xl mx-auto ">
+         <p className="text-[#272932] text-[40px] px-8 md:px-0 text-center  lg:text-left font-alice xl:ml-16 -mb-16 dark:text-white">Best Recommendation for you</p>
        <div className="max-w-7xl mx-auto ">
        </div>
        <Swiper

@@ -42,6 +42,7 @@ const AuthoritySignUp = () => {
       return;
     }
 
+
     fetch(image_hosting_url, {
       method: "POST",
       body: formData,
@@ -64,7 +65,7 @@ const AuthoritySignUp = () => {
                   status: "pending"
                 };
                 console.log(saveUser);
-                fetch("https://soulmates-server-two.vercel.app/authority", {
+                fetch("https://soulmate-server-routed.vercel.app/authority", {
                   method: "POST",
                   headers: {
                     "content-type": "application/json",
@@ -92,10 +93,11 @@ const AuthoritySignUp = () => {
           });
         }
       });
+
   };
 
   return (
-    <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20">
+    <div className="card lg:card-side bg-base-100 shadow-2xl w-[80%] mx-auto  rounded-3xl h-[50%] my-20 select-none">
       {/* Title */}
       <Helmet>
         <meta charSet="utf-8" />
@@ -113,7 +115,7 @@ const AuthoritySignUp = () => {
           Welcome to SoulMate | Authority
         </p>
         {/* authority button start*/}
-        <div className="flex justify-center">
+        <div className="flex justify-center gap-4">
           <div className="flex gap-5 mt-3">
             <label className="cursor-pointer">
               <input
@@ -121,12 +123,13 @@ const AuthoritySignUp = () => {
                 className="peer sr-only"
                 name="authority"
                 onChange={() => setAuthority("admin")}
+                required
               />
-              <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+              <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-blue-800  peer-checked:ring-blue-800 peer-checked:ring-offset-2">
                 <div className="flex flex-col ">
                   <div className="flex  gap-1 items-center justify-center px-2">
                     <p>
-                      <span value="Gender" className="sm:text-lg ">
+                      <span value="Gender" className="sm:text-lg p-4">
                         Admin
                       </span>
                     </p>
@@ -142,12 +145,13 @@ const AuthoritySignUp = () => {
                 className="peer sr-only"
                 name="authority"
                 onChange={() => setAuthority("support")}
+                required
               />
-              <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow peer-checked:text-[#51ac83]  peer-checked:ring-[#51ac83] peer-checked:ring-offset-2">
+              <div className=" max-w-xl rounded-3xl bg-gray-100 p-2 text-gray-600 ring-2 ring-transparent transition-all hover:shadow  peer-checked:text-blue-800  peer-checked:ring-blue-800 peer-checked:ring-offset-2">
                 <div className="flex flex-col ">
-                  <div className="flex  gap-1 items-center justify-center px-2">
+                  <div className="flex  gap-1 items-center justify-center px-2 ">
                     <p>
-                      <span className="sm:text-lg ">Support</span>
+                      <span className="sm:text-lg p-4">Support</span>
                     </p>
                   </div>
                 </div>
@@ -182,17 +186,16 @@ const AuthoritySignUp = () => {
 
           {/* img url  */}
           <div>
-            <div className="relative z-0 mt-2">
-              <input
-                name="imgurl"
-                {...register("image", { required: true })}
-                type="file"
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2  dark:border-gray-500 focus:outline-none focus:ring-0  peer"
-                placeholder=""
-              />
+            <div className="relative z-0 mt-8">
               <label className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-3 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Enter your Image Url
               </label>
+              <input
+                name="imgurl"
+                {...register("image", { required: true })}
+               type="file" className="file-input file-input-bordered file-input-[#080373] w-full " 
+                placeholder=""
+              />
               {errors.imgurl && (
                 <span className="text-red-600">This field is required</span>
               )}

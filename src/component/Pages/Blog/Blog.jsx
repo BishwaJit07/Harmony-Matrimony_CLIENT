@@ -4,6 +4,10 @@ import LeftCard from "./LeftCard";
 import LatestBlog from "./LatestBlog";
 import Loading from "../../../Shared/Loading";
 import { Helmet } from "react-helmet";
+import home from '../../../assets/plan/home.svg'
+import scop from '../../../assets/plan/scop.svg'
+import couple from '../../../assets/other/blogCouple.png'
+import { Link } from "react-router-dom";
 const Blog = () => {
   const [blogData, setBlogData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +15,7 @@ const Blog = () => {
 
   // fetch Blog data
   useEffect(() => {
-    fetch("https://soulmates-server-two.vercel.app/blogs")
+    fetch("https://soulmate-server-routed.vercel.app/blogs")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -20,7 +24,7 @@ const Blog = () => {
   }, [react]);
 
   const handleShowBlogByCategory = (type) => {
-      fetch(`https://soulmates-server-two.vercel.app/blogs/type/${type}`)
+      fetch(`https://soulmate-server-routed.vercel.app/blogs/type/${type}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -45,15 +49,21 @@ const Blog = () => {
         <title>Soulmate | Blog</title>
       </Helmet>
 
-      <div className="secondary h-12 lg:h-[200px] bg-[url('https://i.ibb.co/txC9WyP/Photo.jpg')]">
-
-        <h1 className="text-center lg:pt-16 pt-0 lg:text-5xl text-lg font-semibold text-red-600 ">Blog & Articles</h1>
-
+      <div className="bg-[#FBF2E4] h-[235px]">
+        <div className="max-w-7xl mx-auto h-full flex justify-between items-center">
+          <div className="ms-4 text-left">
+            <p className="font-alice text-[28px] text-[#272932]">"Love Stories Unveiled, Advice Shared"</p>
+            <p className="text-[#3E4A5B]">Explore our blog for heartwarming love stories and expert relationship advice,<br />  guiding you on your path to a lifelong connection filled with love and joy. </p>
+            <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/plan'>Plan</Link></p>
+          </div>
+          <img className="h-full hidden lg:block" src={couple} alt="" />
+        </div>
       </div>
-      <div className="flex flex-col-reverse lg:flex-row justify-center gap-16 ">
+      
+      <div className="flex flex-col-reverse lg:flex-row justify-center gap-16 dark:text-gray-200 ">
         <div className="lg:w-2/3  lg:mx-5 mx-2 w-full lg:ml-28 mt-10">
 
-          <h1 className="text-4xl font-semibold mb-8 font-serif text-center">ALL BLOG</h1>
+          <h1 className="text-4xl font-semibold mb-8 font-serif text-center ">ALL BLOG</h1>
           <div className="grid xl:grid-cols-2 gap-5">
             {blogData.map((data) => (
               <BlogCard key={data._id} data={data} setReact={setReact} react={react}></BlogCard>

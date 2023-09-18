@@ -3,12 +3,11 @@ import Home from "../component/Pages/Home/Home";
 import Main from "../Layouts/Main";
 import SignIn from "../component/Pages/SignIn/SignIn";
 import Blog from "../component/Pages/Blog/Blog";
-import AddBlog from "../component/Pages/Blog/AddBlog";
 import Plans from "../component/Pages/Plans/Plans";
 import ErrorPage from "../component/ErrorPage/ErrorPage";
 import Dashboard from "../component/Pages/Dashboard/Dashboard";
 import AllUserD from "../component/Pages/Dashboard/AllUserD";
-import Happy from "../Shared/Happy/Happy";
+import Happy2 from "../Shared/Happy/Happy2";
 import AllUser from "../component/Pages/AllUser/AllUser";
 import SignUp from "../component/Pages/SignUp/SignUp";
 import About from "../component/Pages/AboutP/About";
@@ -30,20 +29,28 @@ import Userinfo5 from "../component/Pages/MyProfle/Userinfo5";
 import Userinfo6 from "../component/Pages/MyProfle/Userinfo6";
 import Userinfo7 from "../component/Pages/MyProfle/Userinfo7";
 import BookService from "../component/Pages/Dashboard/BookService/BookService";
-import PaymentCard from "../component/Pages/PaymentPage/PaymentCard";
-import PaymentSuccess from "../component/Pages/PaymentPage/PaymentSuccess";
-import PaymentFail from "../component/Pages/PaymentPage/PaymentFail";
+import PaymentCard from "../payments/SSLcommerz/PaymentCard";
+import PaymentSuccess from "../payments/SSLcommerz/PaymentSuccess";
+import PaymentFail from "../payments/SSLcommerz/PaymentFail";
 import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
 import MangeUsersX from "../component/Pages/Dashboard/ManageUsersX/MangeUsersX";
 import AuthoritySignIn from "../component/Pages/AuthorityAccount/AuthoritySignIn";
 import AuthoritySignUp from "../component/Pages/AuthorityAccount/AuthoritySignUp";
 import Profile2 from "../component/Pages/MyProfle/Profile2/Profile2";
-
 import AdminHome from "../component/Pages/Dashboard/AdminHome/AdminHome";
-
 import ChatRoom from "../ChatApp/ChatRoom/ChatRoom";
 import UserProfile from "../component/Pages/UserProfile/UserProfile";
+import VerifyUser from "../component/Pages/Dashboard/VerifyUser/VerifyUser";
+import UserDetails from "../component/Pages/Dashboard/UserDetails/UserDetails";
+import AddBlog2 from "../component/Pages/Blog/AddBlog2";
+import DashboardProfile from "../component/Pages/Dashboard/Shared/DashboardProfile";
+import Message from "../ChatApp/Message";
+import Messenger from "../component/Pages/Chat/Messenger/Messenger";
+import UserPrivateRoute from "./UserPrivateRoute"
+import PaymentPage from "../payments/PaymentPage/PaymentPage";
+import SSl from "../payments/SSLcommerz/SSl";
+import GalleryPage from "../component/Pages/GalleryPage/GalleryPage";
 
 
 
@@ -55,6 +62,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path: "/",
+        element: <Home />,
+      },
+      {
 
         path: '/userProfile',
         element: <UserProfile />
@@ -63,10 +74,6 @@ const router = createBrowserRouter([
         path: '/profile/:id',
         element: <Profile2 />
 
-      },
-      {
-        path: "/",
-        element: <Home />,
       },
       {
         path: "/signIn",
@@ -81,16 +88,10 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
-        path: "/addBlog",
-        element: <AddBlog></AddBlog>,
-      },
-      {
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) =>
-          fetch(
-            `https://soulmates-server-two.vercel.app/blogsDetails/${params.id}`
-          ),
+        loader: ({ params }) => fetch(`https://soulmate-server-routed.vercel.app/blogsDetails/${params.id}`)
+
       },
       {
         path: "/termCondition",
@@ -111,7 +112,7 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-          fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
+          fetch(`https://soulmate-server-routed.vercel.app/service/${params.id}`),
       },
       {
         path: "/paymentOne",
@@ -130,7 +131,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/happy",
-        element: <Happy />,
+        element: <Happy2 />,
+      },
+      {
+        path: '/galleryPage',
+        element: <GalleryPage />
       },
       {
         path: "/plans",
@@ -143,11 +148,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <StripePayment />,
+        element: <PaymentPage />,
+        children: [
+          {
+            path: '/payment/stripe',
+            element: <StripePayment />
+          },
+          {
+            path: '/payment/sslCommerz',
+            element: <SSl />
+          }
+        ]
       },
       {
         path: "/alluser",
-        element: <AllUser></AllUser>,
+        element: <UserPrivateRoute><AllUser></AllUser></UserPrivateRoute>,
       },
       {
         path: "/patnerProfile/:id",
@@ -165,13 +180,15 @@ const router = createBrowserRouter([
         path: "/blogs/:id",
         element: <SingleBlogs />,
       },
+
       {
         path: "/myProfile",
         element: <MyProfile></MyProfile>,
       },
-
-      
-
+      {
+        path: "/message",
+        element: <UserPrivateRoute><Messenger></Messenger></UserPrivateRoute>
+      },
       {
         path: "/signup",
         element: <SignUp />,
@@ -188,7 +205,9 @@ const router = createBrowserRouter([
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) =>
-          fetch(`https://soulmates-server-two.vercel.app/service/${params.id}`),
+
+        fetch(`https://soulmate-server-routed.vercel.app/service/${params.id}`),
+
       },
     ],
   },
@@ -232,6 +251,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
+        path: "/dashboard",
+        element: <DashboardProfile></DashboardProfile>
+      },
+      {
         path: "adminUser",
         element: <AdminHome></AdminHome>,
       },
@@ -251,7 +274,19 @@ const router = createBrowserRouter([
         path: "addService",
         element: <AddService />,
       },
-    ],
+      {
+        path: "verifyUser",
+        element: <VerifyUser />,
+      },
+      {
+        path: "addBlog",
+        element: <AddBlog2 />
+      },
+      {
+        path:"userDetails",
+        element:<UserDetails></UserDetails>
+      }
+    ]
   },
   {
     path: "/",

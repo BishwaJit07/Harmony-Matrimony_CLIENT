@@ -1,3 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
 export function calculateAge(birthdate) {
   const birthYear = birthdate.getFullYear();
   const birthMonth = birthdate.getMonth();
@@ -28,3 +31,47 @@ export function formatDate(date) {
   const year = parts[2];
   return `${day} ${month} ${year}`;
 }
+
+export function formatMetDate(date) {
+  const inputDate = new Date(date);
+  const options = {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  };
+  const parts = inputDate.toLocaleString("en-US", options).split(", ");
+  const combined = parts[2] + " at " + parts[0] + ", " + parts[1];
+  return combined;
+}
+
+export function useCustomQuery(key, endpoint) {
+  return useQuery(key, async () => {
+    const response = await axios.get(endpoint);
+    return response.data;
+  });
+}
+
+export const updateStatus = (path, upId, newStatus, refetch) => {
+  const data = {
+    status: newStatus,
+  };
+  axios
+    .put(`https://soulmate-server-routed.vercel.app/${path}/${upId}`, data)
+    .then((response) => {
+      if (response.data.modifiedCount > 0) {
+        refetch();
+      }
+    });
+};
+
+export const useProposalInfo = (id) => {
+  const { refetch: refetchProposal, data: proposal = [] } = useCustomQuery(
+    ["proposal", id],
+    `https://soulmate-server-routed.vercel.app/getProposal/${id}`
+  );
+
+  return { refetchProposal, proposal };
+};

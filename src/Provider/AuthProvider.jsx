@@ -8,7 +8,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     
     const googleProvider = new GoogleAuthProvider();
 
@@ -40,10 +40,9 @@ const AuthProvider = ({ children }) => {
 
             // get and set token!!!!
             if (currentUser) {
-                axios.post('https://soulmates-server-two.vercel.app/jwt', { email: currentUser.email })
+                axios.post('https://soulmate-server-routed.vercel.app/jwt', { email: currentUser.email })
                 
                     .then(data => {
-                        console.log(data);
                         localStorage.setItem('access-token', data.data.token)
                         setLoading(false);
                     })
@@ -52,7 +51,6 @@ const AuthProvider = ({ children }) => {
             else {
                 localStorage.removeItem('access-token')
             }
-            console.log('current user', currentUser);
         })
         return () => {
             return unsubscribe();

@@ -28,9 +28,9 @@
     font-family: 'Pacifico', cursive;
 }
 
-.swiper-wrapper{
+/* .swiper-wrapper{
     @apply py-8 px-4
-}
+} */
 
 .navStyle a.active {
     background-color: blue;
@@ -80,4 +80,17 @@
 .font-lato{
     font-family: 'Lato', serif;
 
+}
+
+.react-datepicker__input-container input{
+    @apply text-[18px] font-medium font-lato rounded-full py-5 pl-7 pr-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+/* for leaflet map */
+.leaflet-pane{
+    @apply z-10
+}
+
+.link-shadow {
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }

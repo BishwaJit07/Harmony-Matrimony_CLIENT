@@ -1,49 +1,50 @@
 import useAllUsers from "../../../hooks/useAllUsers";
-
+import {motion} from 'framer-motion'
+import AllUserDTr from "./AllUserDTr";
 const AllUserD = () => {
-    const [users] = useAllUsers();
-    console.log(users);
-    return (
-        <div className="w-full">
-            <div>
-                <h1 className="text-[#FF725E] text-2xl font-bold border-b-2 border-[#FF725E] w-fit mx-auto p-2">
-                    All Users
-                </h1>
-                <div className="">
-                    <img src='https://i.ibb.co/swBsp3p/flower.png' alt="" className="lg:w-[20%] w-[60%] md:w-[40%] mx-auto -mt-1 mb-5" />
-                </div>
-            </div>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr className="border-b-2 border-green-200 text-lg text-[#FF725E]" >
-                            <th></th>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Religion</th>
-                            <th>Status</th>
-                            <th>Gender</th>
-                            <th>Country</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                       {
-                        users?.map((user, index)=> <tr className="border-b-1 border-green-200"  key={user._id}>
-                            <th>{index+1}</th>
-                            <th className="w-16 h-16 object-cover"><img src={user.img} alt="" /></th>
-                            <th>{user.name}</th>
-                            <th>{user.religion}</th>
-                            <th>{user.status}</th>
-                            <th>{user.gender}</th>
-                            <th>{user.country}</th>
-                        </tr>)
-                       }
-                    </tbody>
-                </table>
-            </div>
+  const [users] = useAllUsers();
+  return (
+    <div className="relative overflow-x-auto  rounded-2xl px-6 w-[75%] mx-auto py-6 my-5">
+    <h1 className='text-black text-4xl my-5 text-center font-serif'>All User</h1>
+    <table className="table w-full text-sm text-left text-gray-500 overflow-hidden card">
+{/* This is table HEAD */}
+
+<thead className="text-sm text-gray-700 uppercase bg-gray-50 ">
+  <tr className="">
+    <th></th>
+    <th></th>
+    <th scope="col" className="">
+      Name
+    </th>
+    <th scope="col" className="">
+     Country
+    </th>
+    <th scope="col" className="">
+     #
+    </th>
+    <th scope="col" className="">
+      Religion
+    </th>
+    <th scope="col" className="">
+     Work
+    </th>
+  </tr>
+</thead>
+
+        {/* This is table body, pending users goes here */}
+
+        <tbody className="">
+          {users?.map((user, index) => (
+                  <AllUserDTr
+                  key={user._id}
+                  user={user}
+                  index={index}
+                />
+          ))}
+        </tbody>
+      </table>
         </div>
-    );
+  );
 };
 
 export default AllUserD;

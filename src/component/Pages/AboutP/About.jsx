@@ -9,7 +9,9 @@ import ring from '../../../assets/about-photos/rings.png'
 import img1 from '../../../assets/about-photos/1.jpg'
 import img2 from '../../../assets/about-photos/2.jpg'
 import img4 from '../../../assets/about-photos/4.jpg'
-
+import home from '../../../assets/about-photos/homeWhite.svg'
+import scop from '../../../assets/about-photos/peopleWhite.svg'
+import people from '../../../assets/about-photos/aboutPeople.png'
 // import girl from '../../../assets/about-photos/girl.jpg'
 // import shantoVai from '../../../assets/about-photos/shanto vai.jpg'
 // import Heading from "../../../Shared/Heading";
@@ -18,7 +20,7 @@ import Heading from "../../../Shared/Heading";
 
 import { Helmet } from "react-helmet";
 import Contact from "../Contact/Contact";
-import MessageUsFb from "../../FacebookMessage/MessageUsFb";
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -26,7 +28,7 @@ const About = () => {
   const [team, setteam] = useState([]);
 
   useEffect(() => {
-    fetch("https://soulmates-server-two.vercel.app/team")
+    fetch("https://soulmate-server-routed.vercel.app/team")
       .then((res) => res.json())
       .then((data) => setteam(data));
   }, []);
@@ -41,18 +43,29 @@ const About = () => {
       </Helmet>
 
       {/* about header */}
-      <div className="relative mb-20">
+      <div className="relative mb-20 ">
         {/* about text */}
-        <div className="h-[300px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
+        {/* <div className="h-[300px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
           <div className="text-center space-y-5 pt-10">
-            <p className=" text-xl text-[#EBFFF6]">#1 Wedding Website</p>
+            <p className=" text-xl text-[#EBFFF6] ">#1 Wedding Website</p>
             <p className="text-7xl font-extrabold bg-clip-text text-transparent text-white">About us</p>
             <p className="text-white text-lg">Most Trusted and premium Matrimony Service in the World.</p>
           </div>
+        </div> */}
+        <div className="bg-[#0F7173]">
+          <div className="max-w-7xl flex justify-between items-center h-full w-full mx-auto p-5 lg:p-0">
+            <div className="ms-4 text-left text-[#F0F2F5] ">
+            <p className="font-alice lg:text-[28px] text-2xl">{"Where Hearts Find Their Perfect Match"}</p>
+              <p className="lg:text-base text-xs mt-2 "> we are dedicated to helping you find your lifelong partner <br /> With a deep understanding of the importance of love and compatibility </p>
+              <p className="flex  font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/about'>About Us</Link></p>
+            </div>
+            <img className="hidden lg:block" src={people} alt="" />
+          </div>
         </div>
+
         {/* about cards */}
 
-        <div className="absolute w-full top-[85%] md:top-[80%] ">
+        <div className=" w-full mt-6">
           <div className="grid justify-center gap-6 md:gap-4 lg:gap-10 md:flex">
             <div className="w-[263px] md:w-[203px] lg:w-[263px] h-[206px] p-8 md:p-4 lg:p-8 text-center text-[#66451c] space-y-4 border rounded shadow-lg hover:scale-110 hover:shadow-2xl duration-500 bg-white">
               <img className='w-[50px] h-[50px] mx-auto' src={badge} alt="" />
@@ -72,7 +85,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="h-[700px] md:h-[200px]"></div>
 
       {/* welcome section */}
       <div className="lg:grid lg:grid-cols-2 mb-12 max-w-7xl mx-auto ">
@@ -83,23 +95,25 @@ const About = () => {
           <img className='w-[80%] h-[300px] object-cover rounded-se-[100px] rounded-br-[15px] rounded-bl-[100px] border-white border-t-[15px] border-l-[15px] absolute top-[46%] left-[16%]' src={img2} alt="two couples picture" />
           <div className="w-[200px] h-[200px] border-[7px] border-[#ffe2f0] rounded-2xl absolute top-[68%] left-[68%] -z-10"></div>
         </div>
-        <div className=" space-y-6 font-semibold px-8">
-          <div className="">
+        <div className=" space-y-6 font-semibold px-8 dark:text-white">
+          <div className="dark:text-white">
             <p className='text-[58px] font-bold'>Welcome to</p>
-            <p className='text-[35px] font-bold text-[#ec1d02] '>Wedding matrimony</p>
+            <p className='text-[35px] font-bold text-[#ec1d02] dark:text-pink-500'>Soulmate matrimony</p>
           </div>
-          <p>Best wedding matrimony It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-          <p>Click here to Start you matrimony service now.</p>
+          <p className="dark:text-white">Welcome to our matrimony site, where love stories begin and dreams of forever come to life. We are thrilled to have you join our community of hopeful hearts on the journey to finding lasting love. Start your adventure today, and let us be your trusted partner in this beautiful chapter of life..</p>
+          <br />
+          <Link to='/plans'>Click here to Start you Soulmate Finding Journy now.</Link>
           <hr />
-          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable.</p>
-          <div className="md:flex gap-10 space-y-6 md:space-y-0">
+          <p className="font-alice text-[28px]">{"Where the search for love meets a world of possibilities. We're delighted to have you here, embarking on the path to a lifetime of happiness. Explore, connect, and let us help you find that special someone who will make your heart skip a beat"}</p>
+
+          <div className="md:flex gap-10 space-y-6 md:space-y-0 ">
             <div className="flex items-center gap-3">
               <div className="w-[50px] h-[50px] bg-black flex justify-center items-center rounded-full border-gray-300 border-[7px]">
                 <BsTelephoneFill className="text-white  text-[18px] " />
               </div>
               <div className="">
-                <p className="text-[#7a7a7a]">Enquiry</p>
-                <p className="text-[18px] font-semibold text-black">+01 2242 3366</p>
+                <p className="text-[#7a7a7a]dark:text-white">Enquiry</p>
+                <p className="text-[18px] font-semibold text-black dark:text-white">+01 2242 3366</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -107,8 +121,8 @@ const About = () => {
                 <AiOutlineMail className="text-white  text-[18px] " />
               </div>
               <div className="">
-                <p className="text-[#7a7a7a]">Get Support</p>
-                <p className="text-[18px] font-semibold text-black">info@example.com</p>
+                <p className="text-[#7a7a7a] dark:text-white">Get Support</p>
+                <p className="text-[18px] font-semibold text-black dark:text-white">info@example.com</p>
               </div>
             </div>
           </div>
@@ -116,7 +130,7 @@ const About = () => {
       </div>
 
       {/* counting section */}
-      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mt-32 mb-10 px-2 max-w-7xl mx-auto ">
+      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mt-32 mb-10 px-2 max-w-7xl mx-auto dark:text-orange-300 ">
         <div className="border p-5 flex flex-col lg:flex-row items-center lg:items-start gap-2 w-full md:border-l-0">
           <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
             <AiOutlineHeart className="text-[20px]" />
@@ -163,10 +177,10 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              It is a long established fact
+            How can your website help me find the perfect wedding partner?
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p> Our website employs advanced matchmaking algorithms and a vast user base to increase your chances of connecting with your ideal life partner.</p>
             </div>
           </div>
 
@@ -174,10 +188,10 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded ">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              Where can I get some?
+            What makes your matrimony site stand out from the rest?
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p>We stand out through our commitment to user privacy, a wide range of premium features, and a dedicated support team that ensures a safe and enjoyable experience.</p>
             </div>
           </div>
 
@@ -185,10 +199,10 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              Where does it come from?
+            How do I create an impressive profile on your website?
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p>We provide profile creation tips and guidelines to help you showcase your personality, interests, and preferences effectively.</p>
             </div>
           </div>
 
@@ -196,11 +210,11 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              Why do we use it?
+            Can I trust the authenticity of profiles on your site?
 
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p> Yes, we implement strict verification processes to ensure the authenticity of profiles, enhancing your confidence in the people you interact with.</p>
             </div>
           </div>
 
@@ -208,10 +222,10 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              What is Lorem Ipsum?
+            Do you offer any wedding planning resources or advice?
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p> Yes, our platform provides a wealth of wedding planning resources, including articles, guides, and a vibrant community of engaged couples to share insights and ideas.</p>
             </div>
           </div>
 
@@ -219,10 +233,10 @@ const About = () => {
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
             <div className="collapse-title text-xl font-bold">
-              Contrary to popular belief
+            What subscription plans do you offer, and how can they benefit me?
             </div>
             <div className="collapse-content text-[#66451c]">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus dignissimos fugit cupiditate corporis necessitatibus consequuntur sint blanditiis, nesciunt totam architecto voluptate unde quia eaque asperiores alias voluptatibus quaerat inventore nihil beatae quisquam id. Incidunt assumenda obcaecati iure? Incidunt sapiente aliquam eligendi eaque voluptatem earum sit facilis! Voluptas molestiae id illum!</p>
+              <p> We offer a range of subscription plans tailored to your needs, granting access to exclusive features, enhanced visibility, and greater control over your search for a life partner.</p>
             </div>
           </div>
         </div>
@@ -234,20 +248,20 @@ const About = () => {
       </div>
 
       <div className=" mt-32">
-        <h2 className="text-center font-alice text-4xl font-bold mb-6">Meet Our Team</h2>
+        <h2 className="text-center font-alice text-4xl font-bold mb-6 dark:text-white">Meet Our Team</h2>
       </div>
 
       {/* team section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3  lg:gap-7 justify-center  max-w-7xl mx-auto mb-32">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3  lg:gap-7 justify-center  max-w-7xl mx-auto mb-12">
 
         {/* card */}
         {team.map((item) => (
-          <div key={item._id} className="shadow rounded mx-4 overflow-hidden group relative w-80 h-80">
+          <div key={item._id} className="shadow rounded my-3 overflow-hidden group relative w-80 h-80 mx-auto">
             <img className="w-full object-cover group-hover:scale-110  duration-700" src={item.img} alt="" />
               <div className="h-[100px]"></div>
               <div className="absolute bottom-[30px] group-hover:mb-[65px] duration-700 text-center z-10 inset-x-0 ">
-                <p className="text-xl  font-bold text-[#5A4F24] group-hover:text-[#ffc107]">{item.name}</p>
-                <p className="text-sm group-hover:text-white">{item.team_role}</p>
+                <p className="text-xl  font-bold text-[#5A4F24] group-hover:text-[#ffc107] dark:text-yellow-400">{item.name}</p>
+                <p className="text-sm group-hover:text-white dark:text-gray-200">{item.team_role}</p>
               </div>
             
 
@@ -280,8 +294,6 @@ const About = () => {
       </div>
 
       <Contact />
-
-      <MessageUsFb />
     </div>
   );
 };

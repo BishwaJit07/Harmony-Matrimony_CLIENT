@@ -4,24 +4,28 @@ import { TbHeartPlus } from "react-icons/tb";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-
+import scop from '../../../assets/plan/scop.svg'
+import couple from '../../../assets/other/blogCouple.png'
+import home from '../../../assets/plan/home.svg'
 // import "./styles.css";
 import {Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
 import { Link } from "react-router-dom";
+import Happy2 from "../../../Shared/Happy/Happy2";
 
 const Service = () => {
-  const [datas, setDatas] = useState([]);
+  const [catering, setCatering] = useState([]);
+  const [photography, setPhotography] = useState([]);
+  const [hotel, setHotel] = useState([]);
   useEffect(() => {
-    fetch("https://soulmates-server-two.vercel.app/service/catering")
+    fetch("https://soulmate-server-routed.vercel.app/service/catering")
       .then((res) => res.json())
-      .then((data) => setDatas(data));
+      .then((data) => setCatering(data));
   }, []);
 
-  const [pdata, setpDatas] = useState([]);
   useEffect(() => {
-    fetch("https://soulmates-server-two.vercel.app/service/photography")
+    fetch("https://soulmate-server-routed.vercel.app/service/photography")
       .then((res) => res.json())
-      .then((data) => setpDatas(data));
+      .then((data) => setPhotography(data));
   }, []);
 
  
@@ -31,24 +35,16 @@ const Service = () => {
   return (
    <>
     <div className=" max-w-screen-xl mt-20 mx-auto ">
-      {/* new card */}
-        <div className="bg-[#F0F2F5]  text-[#536279] text-base w-[300px] rounded-lg overflow-hidden relative group">
-          <img className="w-[300px] h-[200px] object-cover" src="https://i.ibb.co/xG3C8FS/6.jpg" alt="" />
-          <TbHeartPlus className="p-2 bg-white text-4xl rounded-xl absolute top-2 right-2 hidden group-hover:block cursor-pointer " />
-          <div className="p-3 space-y-2 cursor-progress">
-            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Name:</span> Vegan Elegance Catering</p>
-            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Price:</span> 300$</p>
-            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Description: </span> Experience gourmet vegan cuisine that's elegant, flavorful, and ethically conscious.</p>
-          </div>
-        </div>   
+     
 
           
       {/* content-section */}
       <div className="mb-8">
-        <h2 className="text-3xl font-semibold ">
+        <h2 className="text-3xl font-semibold dark:text-white ">
           Hotel Booking service <span className="red-text">for you</span>{" "}
         </h2>
       </div>
+      
       {/* slider Section */}
       <div>
         <Swiper
@@ -69,36 +65,32 @@ const Service = () => {
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 40,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 50,
             },
+           
           }}
           
           modules={[Navigation, Pagination, A11y,Autoplay]}
           className="mySwiper"
         >
-          {datas.map((item) => (
+            {catering.map((item) => (
             <SwiperSlide key={item._id}>
               <Link to={`/hotel/${item._id}`}>
-                <div className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl">
-                  <img
-                    src={item?.image}
-                    alt="Hotel cover"
-                    className="object-cover w-full h-56 md:h-64 xl:h-80"
-                  />
-
-                  <div className="bg-black  px-6 py-4 bg-opacity-75 opacity-0 hover:opacity-100 text-gray-300 absolute inset-0 transition-opacity duration-200 flex flex-col">
-                    <p className="font-semibold">{item.name}</p>
-                    <br />
-                    <p>{item.description.substring(0, 100)}...</p>
-                    <br />
-                    <p className="mt-auto">Price: {item.price}</p>
-                  </div>
-                </div>
+                {/* new card */}
+        <div className="bg-[#F0F2F5]  text-[#536279] text-base w-[300px] rounded-lg overflow-hidden relative group mx-8">
+          <img className="w-[300px] h-[200px] object-cover" src={item?.image} alt="" />
+          <TbHeartPlus className="p-2 bg-white text-4xl rounded-xl absolute top-2 right-2 hidden group-hover:block cursor-pointer " />
+          <div className="p-3 space-y-2 cursor-progress">
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Name:</span> {item.name}</p>
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Price:</span> {item.price}</p>
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Description: </span> <span>{item.description.substring(0, 100)}...</span></p>
+          </div>
+        </div>   
               </Link>
             </SwiperSlide>
           ))}
@@ -114,7 +106,7 @@ const Service = () => {
     <div className=" max-w-screen-xl mt-20 mx-auto ">
       {/* content-section */}
       <div className="mb-8">
-        <h2 className="text-3xl font-semibold ">
+        <h2 className="text-3xl font-semibold dark:text-white ">
          Media Booking service <span className="red-text">for you</span>{" "}
         </h2>
       </div>
@@ -138,11 +130,11 @@ const Service = () => {
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 40,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 3,
               spaceBetween: 50,
             },
           }}
@@ -150,24 +142,19 @@ const Service = () => {
           modules={[Navigation, Pagination, A11y,Autoplay]}
           className="mySwiper"
         >
-          {pdata.map((item) => (
+              {photography.map((item) => (
             <SwiperSlide key={item._id}>
               <Link to={`/hotel/${item._id}`}>
-                <div className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl">
-                  <img
-                    src={item?.image}
-                    alt="Hotel cover"
-                    className="object-cover w-full h-56 md:h-64 xl:h-80"
-                  />
-
-                  <div className="bg-black px-6 py-4 bg-opacity-75 opacity-0 hover:opacity-100 text-gray-300 absolute inset-0 transition-opacity duration-200 flex flex-col">
-                    <p>{item.name}</p>
-                    <br />
-                    <p>{item.description.substring(0, 100)}...</p>
-                    <br />
-                    <p className="mt-auto">Price: {item.price}</p>
-                  </div>
-                </div>
+                 {/* new card */}
+ <div className="bg-[#F0F2F5]  text-[#536279] text-base w-[300px] rounded-lg overflow-hidden relative group mx-8">
+          <img className="w-[300px] h-[200px] object-cover" src={item?.image} alt="" />
+          <TbHeartPlus className="p-2 bg-white text-4xl rounded-xl absolute top-2 right-2 hidden group-hover:block cursor-pointer " />
+          <div className="p-3 space-y-2 cursor-progress">
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Name:</span> {item.name}</p>
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Price:</span> {item.price}</p>
+            <p className="font-medium"><span className="text-[#0e0d0d] font-semibold">Description: </span> <span>{item.description.substring(0, 100)}...</span></p>
+          </div>
+        </div>   
               </Link>
             </SwiperSlide>
           ))}
@@ -175,6 +162,20 @@ const Service = () => {
       </div>
     </div>
     </div>
+<div className="max-w-screen-xl mt-20 mx-auto">
+<div className="bg-[#FBF2E4] h-[235px]">
+        <div className="max-w-7xl mx-auto h-full flex justify-between items-center">
+          <div className="ms-4 text-left">
+            <p className="font-alice text-[28px] text-[#272932]">"Unlock Love's Potential with Premium Plans!"</p>
+            <p className="text-[#3E4A5B]">Upgrade to Find Your Forever, <br /> Exclusive Benefits Await </p>
+            <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/plan'>Plan</Link></p>
+          </div>
+          <img className="h-full" src={couple} alt="" />
+        </div>
+      </div>
+<Happy2/>
+</div>
+    
    </>
   );
 };
