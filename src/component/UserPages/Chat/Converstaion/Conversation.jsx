@@ -10,7 +10,7 @@ const Conversation = ({conversation , currentUser}) => {
         const getUser = async () => {
             //finding user
             try{
-                const res = await axios(`https://soulmate-server-routed.vercel.app/specificUser/${friendId}`)
+                const res = await axios(`https://soulmates-server.vercel.app/specificUser/${friendId}`)
                 setUser(res.data)
             }
             catch(err){

@@ -17,6 +17,7 @@ import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
 import UserProfile from "../component/UserPages/UserProfile/UserProfile";
 import Messenger from "../component/UserPages/Chat/Messenger/Messenger";
+import PaymentPage from "../payments/PaymentPage/PaymentPage";
 import SSl from "../payments/SSLcommerz/SSl";
 import SingleHappyStory from "../component/UserPages/Home/HappyStory/SingleHappyStory";
 import UserPrivateRoute from "./UserPrivateRoute";
@@ -41,8 +42,7 @@ import VerifyUser from "../component/AuthPages/Dashboard/Support/VerifyUser/Veri
 import UserDetails from "../component/AuthPages/Dashboard/Support/UserDetails/UserDetails";
 import BookService from "../component/AuthPages/Dashboard/Support/BookService/BookService";
 import Dashboard from "../component/AuthPages/Dashboard/Shared/Dashboard";
-import PaymentPage from "../payments/PaymentPage/PaymentPage";
-import GalleryPage from "../component/Pages/GalleryPage/GalleryPage";
+import GalleryPage from "../component/UserPages/GalleryPage/GalleryPage";
 
 
 
@@ -70,6 +70,10 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
+        path: "/galleryPage",
+        element: <GalleryPage/>,
+      },
+      {
         path: "/blog",
         element: <Blog></Blog>,
       },
@@ -90,7 +94,7 @@ const router = createBrowserRouter([
       {
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`https://soulmate-server-routed.vercel.app/blogsDetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://soulmates-server.vercel.app/blogsDetails/${params.id}`)
 
       },
       {
@@ -113,7 +117,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <PaymentPage/>,
+        element: <PaymentPage />,
         children: [
           {
             path: '/payment/stripe',
@@ -141,10 +145,6 @@ const router = createBrowserRouter([
       {
         path: "/signIn",
         element: <SignIn />,
-      },
-      {
-        path: "/galleryPage",
-        element: <GalleryPage/>,
       },
       {
         path: "/service",

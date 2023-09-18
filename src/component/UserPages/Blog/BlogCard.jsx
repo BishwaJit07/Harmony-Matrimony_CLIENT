@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+
 import {motion, AnimatePresence} from 'framer-motion'
+
 import { AiOutlineHeart, AiFillHeart, AiOutlineCalendar , AiOutlineArrowRight} from 'react-icons/ai'
 import { useState } from "react";
 
@@ -11,7 +13,7 @@ const [love, setLove] = useState(false);
 
   const handleReactInc = id => {
     console.log(id);
-    fetch(`https://soulmate-server-routed.vercel.app/blogs/${id}`, {
+    fetch(`https://soulmates-server.vercel.app/blogs/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())
