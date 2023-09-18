@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const LeftCard = () => {
   const [popular, setPopular] = useState([]);
   useEffect(() => {
-    fetch(`https://soulmates-server.vercel.app/PopularBlog`)
+    fetch(`https://soulmate-server-routed.vercel.app/PopularBlog`)
       .then(res => res.json())
       .then(data => {
         setPopular(data)

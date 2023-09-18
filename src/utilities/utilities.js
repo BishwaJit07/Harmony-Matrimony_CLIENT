@@ -59,7 +59,7 @@ export const updateStatus = (path, upId, newStatus, refetch) => {
     status: newStatus,
   };
   axios
-    .put(`https://soulmates-server.vercel.app/${path}/${upId}`, data)
+    .put(`https://soulmate-server-routed.vercel.app/${path}/${upId}`, data)
     .then((response) => {
       if (response.data.modifiedCount > 0) {
         refetch();
@@ -70,7 +70,7 @@ export const updateStatus = (path, upId, newStatus, refetch) => {
 export const useProposalInfo = (id) => {
   const { refetch: refetchProposal, data: proposal = [] } = useCustomQuery(
     ["proposal", id],
-    `https://soulmates-server.vercel.app/getProposal/${id}`
+    `https://soulmate-server-routed.vercel.app/getProposal/${id}`
   );
 
   return { refetchProposal, proposal };

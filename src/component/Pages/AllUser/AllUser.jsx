@@ -49,7 +49,7 @@ const AllUser = () => {
   };
   const [open, setOpen] = useState(true);
   useEffect(() => {
-    fetch("https://soulmates-server.vercel.app/allUser")
+    fetch("https://soulmate-server-routed.vercel.app/allUser")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

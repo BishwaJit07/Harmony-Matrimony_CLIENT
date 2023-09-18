@@ -5,7 +5,7 @@ const UserDetails = () => {
   const { user } = useContext(AuthContext);
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch(`https://soulmates-server.vercel.app/userStats/${user?.email}`)
+    fetch(`https://soulmate-server-routed.vercel.app/userStats/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setDatas(data));
   }, []);

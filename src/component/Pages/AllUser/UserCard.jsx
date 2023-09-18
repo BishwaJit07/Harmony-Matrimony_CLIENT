@@ -23,7 +23,7 @@ const UserCard = ({ filteredUser, length }) => {
   const handleClick = () => {
     axios
       .put(
-        `https://soulmates-server.vercel.app/profileVisit?user=${userInfo?.email}`
+        `https://soulmate-server-routed.vercel.app/profileVisit?user=${userInfo?.email}`
       )
       .then((response) => {
         if (response.data.modifiedCount > 0) {
