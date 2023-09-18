@@ -2,7 +2,6 @@ import { FaTwitter, FaArrowRight, FaPhoneAlt, FaFacebookF, FaLinkedinIn } from "
 import { AiFillInstagram } from "react-icons/ai";
 import { MdOutlineLocationCity, MdOutlineMail } from "react-icons/md";
 import { Link } from "react-router-dom";
-import FooterBotom from "./FooterBotom";
 import line from "../../assets/other/Group 1171277762 (1).png"
 import logo from '../../assets/logo/logo2.png'
 const Footer = () => {
@@ -20,7 +19,7 @@ const Footer = () => {
             and fulfilling relationship with us.
           </p>
           <p className="mt-5 mb-2 text-[#FFFFFF] opacity-[100%] font-alice">
-            Follow Us
+            Follow Usp
           </p>
           <div className="flex space-x-4 mb-5">
             <a href="#">
@@ -99,14 +98,14 @@ const Footer = () => {
             <div className="text-[#C3CAD5] text-[16px] mb-3">
               <p className="text-[22px] font-alice mb-1">Email</p>
               <div className="flex items-center gap-2 text-base ">
-                <MdOutlineMail  className="text-3xl bg-slate-600 p-2 rounded-full"></MdOutlineMail>
+                <MdOutlineMail className="text-3xl bg-slate-600 p-2 rounded-full"></MdOutlineMail>
                 <span>xyz@gmail.com</span>
               </div>
             </div>
             <div className="text-[#C3CAD5] text-[16px] mb-3">
               <p className="text-[22px] font-alice mb-1">Office Location</p>
               <div className="flex items-center gap-2 text-base ">
-                <MdOutlineLocationCity  className="text-3xl bg-slate-600 p-2 rounded-full"></MdOutlineLocationCity>
+                <MdOutlineLocationCity className="text-3xl bg-slate-600 p-2 rounded-full"></MdOutlineLocationCity>
                 <span>Dhaka, Dhaka, Bangladesh</span>
               </div>
             </div>
@@ -142,7 +141,11 @@ const Footer = () => {
           </button>
         </div>
       </footer>
-      <FooterBotom></FooterBotom>
+
+      <div className=" bg-neutral text-neutral-content ">
+        <div className="w-[80%] mx-auto md:flex justify-between items-center py-4">
+          <p className="text-white">© 2023 SoulMate. All Rights Reserved.</p>
+          <p className="text-white">Privacy / Terms & Condition</p></div></div>
     </div>
   );
 };

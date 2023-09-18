@@ -12,10 +12,8 @@ const useMyData = () => {
         enabled: !loading && !!user?.email,
         queryFn: async () => {
             if (!user?.email) {
-
                 return null;
             }
-
             const res = await axiosSecure(`/userInfo?email=${user.email}`);
             return res.data;
         }

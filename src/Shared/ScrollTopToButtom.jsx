@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 
 const ScrollToTopButton = () => {
   const [scrollValue, setScrollValue] = useState(0);
@@ -65,19 +65,11 @@ const ScrollToTopButton = () => {
             strokeLinecap="round"
             transform="rotate(-90 16 16)"
           />
-          {scrollValue > 99 ? (
-            <path
-              d="M11.996 22.108l-5.65-5.654 1.416-1.414 4.238 4.242 4.242-4.242 1.414 1.414z"
-              fill="#e52828"
- 
-            />
-          ) : (
-            <path
+          <path
               d="M11.996 9.892l5.65 5.654-1.416 1.414-4.238-4.242-4.242 4.242-1.414-1.414z"
               fill="#e52828"
             
             />
-          )}
         </svg>
       </div>
     )

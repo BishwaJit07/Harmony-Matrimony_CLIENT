@@ -6,16 +6,17 @@ import useAxiosSecure from "./useAxiosSecure";
 
 const useAdmin = () => {
     const {user, loading} = useContext(AuthContext);
-    const [axiosSecure] = useAxiosSecure()
+    const [axiosSecure] = useAxiosSecure();
     const {data: isAdmin ,isLoading: isAdminLoading} = useQuery({
         queryKey : ["isAdmin", user?.email],
         enabled : !loading,
         queryFn : async () => {
-            const res = await axiosSecure.get(`https://soulmates-server.vercel.app/users/admin/${user.email}`)
-
-
-
-            return res.data.admin;
+            if (!user?.email) {
+                return null;
+            }
+            const res = await axiosSecure(`/users/admin/${user.email}`)
+            console.log(res)
+            return res.data.match;
         }
     })
     return [isAdmin, isAdminLoading]
