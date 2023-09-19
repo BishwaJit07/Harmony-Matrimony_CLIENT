@@ -633,7 +633,7 @@ const AllUser = () => {
           </div>
         </div>
         {/* User */}
-        <div className="grid md:grid-cols-2 2xl:grid-cols-3 mx-auto  gap-5 relative  bg-white p-10  z-10 dark:bg-gray-800 overflow-hidden">
+        <div className="grid md:grid-cols-2 2xl:grid-cols-3 mx-auto  gap-5 relative  bg-white p-10  z-10 dark:bg-gray-800 overflow-hidden mb-10">
           {filteredUsers.map((filteredUser) => (
             <SingleUserCard
               key={filteredUser._id}

@@ -75,9 +75,7 @@ const Profile = () => {
   }, [userInfo]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://soulmates-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
+    axios.get(`https://soulmates-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
       )
       .then((response) => {
         if (response.data.userId) {

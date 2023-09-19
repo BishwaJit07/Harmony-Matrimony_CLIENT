@@ -43,6 +43,8 @@ import UserDetails from "../component/AuthPages/Dashboard/Support/UserDetails/Us
 import BookService from "../component/AuthPages/Dashboard/Support/BookService/BookService";
 import Dashboard from "../component/AuthPages/Dashboard/Shared/Dashboard";
 import GalleryPage from "../component/UserPages/GalleryPage/GalleryPage";
+import AdminRoute from "./AdminRoute";
+import SupportRoute from "./SupportRoute";
 
 
 
@@ -209,11 +211,11 @@ const router = createBrowserRouter([
       },
       {
         path: "manageUser",
-        element: <MangeUsersX></MangeUsersX>,
+        element: <AdminRoute><MangeUsersX></MangeUsersX></AdminRoute>,
       },
       {
         path: "allUser",
-        element: <AllUserD></AllUserD>,
+        element: <AdminRoute><AllUserD></AllUserD></AdminRoute>,
       },
       {
         path: "bookService",
@@ -221,15 +223,15 @@ const router = createBrowserRouter([
       },
       {
         path: "addService",
-        element: <AddService />,
+        element: <SupportRoute><AddService /></SupportRoute>,
       },
       {
         path: "verifyUser",
-        element: <VerifyUser />,
+        element: <SupportRoute><VerifyUser /></SupportRoute>,
       },
       {
         path: "addBlog",
-        element: <AddBlog />
+        element: <SupportRoute><VerifyUser /></SupportRoute>
       },
       {
         path:"userDetails",

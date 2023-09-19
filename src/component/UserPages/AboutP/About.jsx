@@ -27,7 +27,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className='font-poppins '>
+    <div className='font-poppins mb-32'>
 
       {/* Title */}
       <Helmet>
