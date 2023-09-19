@@ -8,7 +8,7 @@ const MetInfo = ({ infoData, actionType, refetch, user }) => {
     };
     axios
       .put(
-        `https://soulmate-server-routed.vercel.app/acceptMet/${delId}`,
+        `https://soulmates-server.vercel.app/acceptMet/${delId}`,
         delMEt
       )
       .then((response) => {
@@ -24,7 +24,7 @@ const MetInfo = ({ infoData, actionType, refetch, user }) => {
     };
     axios
       .put(
-        `https://soulmate-server-routed.vercel.app/deleteMet/${delId}`,
+        `https://soulmates-server.vercel.app/deleteMet/${delId}`,
         delMEt
       )
       .then((response) => {
@@ -40,7 +40,7 @@ const MetInfo = ({ infoData, actionType, refetch, user }) => {
     };
     axios
       .put(
-        `https://soulmate-server-routed.vercel.app/setProposal/${delId}`,
+        `https://soulmates-server.vercel.app/setProposal/${delId}`,
         delMEt
       )
       .then((response) => {

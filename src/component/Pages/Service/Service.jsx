@@ -17,13 +17,13 @@ const Service = () => {
   const [catering, setCatering] = useState([]);
   const [photography, setPhotography] = useState([]);
   useEffect(() => {
-    fetch("https://soulmate-server-routed.vercel.app/service/catering")
+    fetch("https://soulmates-server.vercel.app/service/catering")
       .then((res) => res.json())
       .then((data) => setCatering(data));
   }, []);
 
   useEffect(() => {
-    fetch("https://soulmate-server-routed.vercel.app/service/photography")
+    fetch("https://soulmates-server.vercel.app/service/photography")
       .then((res) => res.json())
       .then((data) => setPhotography(data));
   }, []);

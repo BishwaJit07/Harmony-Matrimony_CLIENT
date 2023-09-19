@@ -18,12 +18,12 @@ const Proposal = () => {
 
   const { refetch: refetchAccept, data: accept = [] } = useCustomQuery(
     ["acceptt", userInfo._id],
-    `https://soulmate-server-routed.vercel.app/getAccept/${userInfo._id}`
+    `https://soulmates-server.vercel.app/getAccept/${userInfo._id}`
   );
 
   const { refetch: refetchReject, data: reject = [] } = useCustomQuery(
     ["reject", userInfo._id],
-    `https://soulmate-server-routed.vercel.app/getReject/${userInfo._id}`
+    `https://soulmates-server.vercel.app/getReject/${userInfo._id}`
   );
 
   const refetchFunc = () => {

@@ -21,18 +21,17 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true)
     const [isAdmin] = useAdmin()
     const [isSupport] = useSupport()
-
+    console.log(user)
+    console.log(isSupport)
     useEffect(() => {
         fetch(`https://soulmates-server.vercel.app/profileData/${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log('data', data);
                 setLoading(false)
-                setProfileDatas(data)
-            })
+                setProfileDatas(data)})
             .catch(error => console.log(error))
     }, [user])
-    console.log(profileDatas);
+
 
 
     const adminRoutes = [

@@ -90,7 +90,7 @@ const router = createBrowserRouter([
       {
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`https://soulmate-server-routed.vercel.app/blogsDetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://soulmates-server.vercel.app/blogsDetails/${params.id}`)
 
       },
       {
@@ -113,7 +113,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <PaymentPage/>,
+        element:<UserPrivateRoute> <PaymentPage/></UserPrivateRoute>,
         children: [
           {
             path: '/payment/stripe',

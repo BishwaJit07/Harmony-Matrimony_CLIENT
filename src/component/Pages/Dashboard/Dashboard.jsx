@@ -23,7 +23,7 @@ const Dashboard = () => {
     console.log('data', profileDatas );
     
     useEffect(() =>{
-      fetch(`https://soulmate-server-routed.vercel.app/profileData/${user?.email}`)
+      fetch(`https://soulmates-server.vercel.app/profileData/${user?.email}`)
       .then(res => res.json())
       .then(data =>{
        

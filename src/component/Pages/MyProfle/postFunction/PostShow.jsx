@@ -25,7 +25,7 @@ const PostShow = ({ status, setLoader }) => {
   const handleDelete = (id) => {
     setLoader(true);
     axios
-      .delete(`https://soulmate-server-routed.vercel.app/statusPost/${id}`)
+      .delete(`https://soulmates-server.vercel.app/statusPost/${id}`)
       .then((response) => {
         if (response.data.deletedCount) {
           setLoader(false);
