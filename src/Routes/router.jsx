@@ -119,7 +119,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <UserPrivateRoute><PaymentPage /> </UserPrivateRoute> ,
+
+        element:<UserPrivateRoute> <PaymentPage/></UserPrivateRoute>,
+
         children: [
           {
             path: '/payment/stripe',
