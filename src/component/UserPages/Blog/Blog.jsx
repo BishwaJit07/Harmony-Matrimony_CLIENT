@@ -41,7 +41,7 @@ const Blog = () => {
   }
 
   return (
-    <div>
+    <div className="mb-32">
 
       {/* Title */}
       <Helmet>
@@ -49,7 +49,7 @@ const Blog = () => {
         <title>Soulmate | Blog</title>
       </Helmet>
 
-      <div className="bg-[#FBF2E4] h-[235px]">
+      <div className="bg-[#FBF2E4] h-[235px] ">
         <div className="max-w-7xl mx-auto h-full flex justify-between items-center">
           <div className="ms-4 text-left">
             <p className="font-alice text-[28px] text-[#272932]">"Love Stories Unveiled, Advice Shared"</p>

@@ -86,7 +86,7 @@ const Plans = () => {
         </p>
       </div>
       {/* card section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto font-lato py-8 gap-7  ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto font-lato py-8 gap-7  mb-20">
         {/* card */}
         <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden dark:bg-gray-600">
           <Header

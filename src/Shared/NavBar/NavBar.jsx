@@ -69,7 +69,7 @@ const NavItems = () => {
       <li className=' font-semibold text-base'><NavLink to="/allUser" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>Explore</NavLink></li>
       <li className=' font-semibold text-base'><NavLink to="/about" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>About us</NavLink></li>
       <li className=' font-semibold text-base'><NavLink to="/blog" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>Blog</NavLink></li>
-      <li className=' font-semibold text-base '><Link to="/plans" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>Plans</Link></li>
+      <li className=' font-semibold text-base '><NavLink to="/plans" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>Plans</NavLink></li>
     </>
   );
 }
