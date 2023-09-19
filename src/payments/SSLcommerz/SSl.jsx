@@ -4,11 +4,11 @@ import useMyData from "../../Hooks/useMyData";
 
 const SSl = () => {
   const [userInfo] = useMyData();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(userInfo?.name);
+  const [email, setEmail] = useState(userInfo?.email);
+  const [phone, setPhone] = useState(userInfo?.mobile);
   const [location, setLocation] = useState("");
   const [post, setPost] = useState("");
-  const [phone, setPhone] = useState("");
   const url = useLocation();
 
   const searchParams = new URLSearchParams(url.search);
@@ -28,13 +28,15 @@ const SSl = () => {
       plan: decodedData.plan,
       price: decodedData.price,
     };
-    fetch("https://soulmate-server-routed.vercel.app/order", {
+    console.log(data)
+    fetch("https://soulmates-server.vercel.app/order", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         window.location.replace(data.url);
         const location = data.url;
         console.log(data);
@@ -44,7 +46,7 @@ const SSl = () => {
   return (
     <div className="w-full p-8 border rounded-2xl my-4">
       <form className="" onSubmit={handleSubmit}>
-        <label className="text-gray-600 block mb-2"> Name</label>
+        <label className="text-gray-600 block mb-2">Name</label>
         <input
           type="text"
           className="w-full border py-2 px-3 mb-3 rounded-lg focus:outline-none focus:ring focus:border-blue-300"

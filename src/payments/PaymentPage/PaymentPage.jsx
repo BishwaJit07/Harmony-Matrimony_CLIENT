@@ -4,6 +4,8 @@ import payment from "../../assets/payment/payment.jpg";
 const PaymentPage = () => {
   const url = useLocation();
   const searchParams = new URLSearchParams(url.search);
+  const isStripeActive = url.pathname.includes("/payment/stripe");
+
 
   return (
     <div className=" max-w-7xl mx-auto ">
@@ -25,24 +27,25 @@ const PaymentPage = () => {
       <div className="grid grid-cols-2 gap-4 my-6 ">
         <div className="">
           <img
-            className="h-[550px] w-full rounded-2xl brightness-50"
+            className="h-[700px] w-full rounded-2xl brightness-50"
             src={payment}
             alt=""
           />
         </div>
-        <div className="w-full">
+        <div className="w-full bg-slate-50 p-2 rounded-md">
           <h3 className="dark:text-white text-center my-2 font-bold text-red-500">
             Select Your Favourite Payment Method
             <hr className="my-4" />
           </h3>
           <div className="flex w-full">
             <NavLink
-              to={`/payment/stripe?${searchParams}`}
-              className={({ isActive }) =>
-                isActive
-                  ? " w-full border text-center p-4 link-shadow dark:text-cyan-200"
-                  : "w-full border text-center p-4 dark:text-cyan-200"
-              }
+             to={`/payment/stripe?${searchParams}`}
+             isActive={() => isStripeActive}
+             className={({ isActive }) =>
+               isActive
+                 ? "w-full border text-center p-4 link-shadow dark:text-cyan-200"
+                 : "w-full border text-center p-4 dark:text-cyan-200"
+             }
             >
               Stripe
             </NavLink>
