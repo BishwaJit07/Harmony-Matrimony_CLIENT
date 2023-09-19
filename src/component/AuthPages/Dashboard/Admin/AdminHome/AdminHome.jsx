@@ -8,7 +8,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 const AdminHome = () => {
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch("https://soulmates-server.vercel.app/adminStats")
+    fetch("https://soulmate-server-routed.vercel.app/adminStats")
 
       .then((res) => res.json())
       .then((data) => setDatas(data));

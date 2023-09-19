@@ -16,7 +16,7 @@ const FixedMet = ({ partnerUser }) => {
   useEffect(() => {
     axios
       .get(
-        `https://soulmates-server.vercel.app/userPlanInfo?email=${user?.email}`
+        `https://soulmate-server-routed.vercel.app/userPlanInfo?email=${user?.email}`
       )
       .then((response) => {
         setUserInfo(response.data);
@@ -38,7 +38,7 @@ const FixedMet = ({ partnerUser }) => {
 
     axios
       .post(
-        `https://soulmates-server.vercel.app/setMeeting?email=${user?.email}`,
+        `https://soulmate-server-routed.vercel.app/setMeeting?email=${user?.email}`,
         setMet
       )
       .then((response) => {

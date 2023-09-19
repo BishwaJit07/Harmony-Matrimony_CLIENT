@@ -29,7 +29,7 @@ const SSl = () => {
       price: decodedData.price,
     };
     console.log(data)
-    fetch("https://soulmates-server.vercel.app/order", {
+    fetch("https://soulmate-server-routed.vercel.app/order", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

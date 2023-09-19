@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/plans",
-        element: <Plans></Plans>,
+        element: <Plans/>,
       },
       {
         path: "/about",
@@ -96,7 +96,7 @@ const router = createBrowserRouter([
       {
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`https://soulmates-server.vercel.app/blogsDetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://soulmate-server-routed.vercel.app/blogsDetails/${params.id}`)
 
       },
       {
@@ -119,7 +119,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <PaymentPage />,
+        element: <UserPrivateRoute><PaymentPage /> </UserPrivateRoute> ,
         children: [
           {
             path: '/payment/stripe',
@@ -156,7 +156,7 @@ const router = createBrowserRouter([
       {
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
-        loader: ({ params }) => fetch(`https://soulmates-server.vercel.app/service/${params.id}`),
+        loader: ({ params }) => fetch(`https://soulmate-server-routed.vercel.app/service/${params.id}`),
 
       },
       {
