@@ -15,7 +15,6 @@ const useSupport = () => {
                 return null;
             }
             const res = await axiosSecure(`/users/support/${user?.email}`)
-            console.log(res.data.match)
             return res.data.match;
         }
     })

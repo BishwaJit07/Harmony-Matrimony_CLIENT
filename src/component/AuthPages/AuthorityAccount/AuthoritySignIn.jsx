@@ -13,6 +13,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 const AuthoritySignIn = () => {
   const [Error, setError] = useState("");
   const { signIn } = useContext(AuthContext);
+  console.log(Error)
   const navigate = useNavigate()
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => {
@@ -25,22 +26,21 @@ const AuthoritySignIn = () => {
     const password = form.password.value;
 
     signIn(email, password)
-      .then(result => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-        if (loggedUser) {
-          Swal.fire(
-            'Good job!',
-            'Login Successful',
-            'success'
-          )
-          navigate('/dashboard');
-        }
-      })
-      .catch(error => {
-        setError(error.message);
-      })
-
+    .then(result => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      if (loggedUser) {
+        Swal.fire(
+          'Good job!',
+          'Login Successful',
+          'success'
+        )
+        navigate('/dashboard');
+      }
+    })
+  .catch((error) =>
+    setError(error.message),
+  );
   }
 
   return (
