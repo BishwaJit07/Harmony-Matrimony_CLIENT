@@ -17,6 +17,7 @@ import AddService from "../Shared/AddService/AddService";
 import StripePayment from "../payments/StripePayment/StripePayment";
 import UserProfile from "../component/UserPages/UserProfile/UserProfile";
 import Messenger from "../component/UserPages/Chat/Messenger/Messenger";
+import PaymentPage from "../payments/PaymentPage/PaymentPage";
 import SSl from "../payments/SSLcommerz/SSl";
 import SingleHappyStory from "../component/UserPages/Home/HappyStory/SingleHappyStory";
 import UserPrivateRoute from "./UserPrivateRoute";
@@ -41,8 +42,9 @@ import VerifyUser from "../component/AuthPages/Dashboard/Support/VerifyUser/Veri
 import UserDetails from "../component/AuthPages/Dashboard/Support/UserDetails/UserDetails";
 import BookService from "../component/AuthPages/Dashboard/Support/BookService/BookService";
 import Dashboard from "../component/AuthPages/Dashboard/Shared/Dashboard";
-import PaymentPage from "../payments/PaymentPage/PaymentPage";
-import GalleryPage from "../component/Pages/GalleryPage/GalleryPage";
+import GalleryPage from "../component/UserPages/GalleryPage/GalleryPage";
+import AdminRoute from "./AdminRoute";
+import SupportRoute from "./SupportRoute";
 
 
 
@@ -68,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/galleryPage",
+        element: <GalleryPage/>,
       },
       {
         path: "/blog",
@@ -143,10 +149,6 @@ const router = createBrowserRouter([
         element: <SignIn />,
       },
       {
-        path: "/galleryPage",
-        element: <GalleryPage/>,
-      },
-      {
         path: "/service",
         element: <Service></Service>,
       },
@@ -209,11 +211,11 @@ const router = createBrowserRouter([
       },
       {
         path: "manageUser",
-        element: <MangeUsersX></MangeUsersX>,
+        element: <AdminRoute><MangeUsersX></MangeUsersX></AdminRoute>,
       },
       {
         path: "allUser",
-        element: <AllUserD></AllUserD>,
+        element: <AdminRoute><AllUserD></AllUserD></AdminRoute>,
       },
       {
         path: "bookService",
@@ -221,15 +223,15 @@ const router = createBrowserRouter([
       },
       {
         path: "addService",
-        element: <AddService />,
+        element: <SupportRoute><AddService /></SupportRoute>,
       },
       {
         path: "verifyUser",
-        element: <VerifyUser />,
+        element: <SupportRoute><VerifyUser /></SupportRoute>,
       },
       {
         path: "addBlog",
-        element: <AddBlog />
+        element: <SupportRoute><VerifyUser /></SupportRoute>
       },
       {
         path:"userDetails",

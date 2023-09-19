@@ -7,16 +7,10 @@ const TermCondition = () => {
 
             <p className="">
                 ADD TO WEBSITE
-
                 EDIT
-
                 DELETE
                 TERMS AND CONDITIONS
-
                 Last updated August 22, 2023
-
-
-
                 AGREEMENT TO OUR LEGAL TERMS
             </p>
 

@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react'; // Import from @testing-library/react
-import HomeBanner from '../Pages/Home/HomeCompnent/HomeBanner/HomeBanner';
 import { expect, test } from 'vitest';
+import HomeBanner from '../component/UserPages/Home/HomeBanner/HomeBanner';
 
 test('Clicking the button opens the modal', () => {
   render(<HomeBanner />); // Render your component

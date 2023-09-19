@@ -5,15 +5,13 @@ const DashboardProfile = () => {
   const {user} = useContext(AuthContext);
   const [profileDatas, setProfileDatas] = useState({});
   const [loading, setLoading]= useState(true)
-
   useEffect(() =>{
     fetch(`https://soulmates-server.vercel.app/profileData/${user?.email}`)
     .then(res => res.json())
     .then(data =>{
       console.log('data', data );
-    
-      setProfileDatas(data)
       setLoading(false)
+      setProfileDatas(data)
     })
     .catch(error => console.log(error))
   },[user])

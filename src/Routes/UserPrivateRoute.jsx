@@ -7,14 +7,15 @@ const UserPrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
 
+  if (loading) {
+    return <div className="text-center h-screen"><Loading></Loading></div>;
+  }
+
   if (user) {
     return children;
   }
 
-  if (!loading) {
-    return <Navigate to="/signin" state={{ from: location }} replace />;
-  }
-  return <div className="text-center h-screen"><Loading></Loading></div>;
+  return <Navigate to="/signin" state={{ from: location }} replace />;
 };
 
 export default UserPrivateRoute;

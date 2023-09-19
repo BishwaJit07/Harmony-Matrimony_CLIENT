@@ -6,7 +6,7 @@ import img2 from '../../../assets/galleryPhotos/2.png'
 import img3 from '../../../assets/galleryPhotos/3.png'
 import img4 from '../../../assets/galleryPhotos/4.png'
 import img5 from '../../../assets/galleryPhotos/5.png'
-import { PhotoContainer, PhotoGallerySection } from '../../UserPages/Home/gellary/Gallery';
+import { PhotoContainer, PhotoGallerySection } from '../Home/gellary/Gallery';
 
 const imgs = [
   'https://images.unsplash.com/photo-1634729108630-543394c7c2de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
