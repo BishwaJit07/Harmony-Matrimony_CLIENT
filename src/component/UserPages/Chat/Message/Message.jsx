@@ -5,8 +5,10 @@ import { format } from 'timeago.js';
 import { useState } from "react";
 import { useEffect } from "react";
 import noProfile from "../../../../assets/other/blank.png"
-const Message = ({ message, own}) => {
+
+const Message = ({ message, own }) => {
     const [user, setUser] = useState(null);
+
     useEffect(() => {
         const getUser = async () => {
             //finding user
@@ -23,18 +25,32 @@ const Message = ({ message, own}) => {
 
 
     return (
-        <div className={own ? "message own" : "message"}>
-            <div className="messageTop">
-                {user?.profileImage ? 
-                <><img className="messageImg" src={user?.profileImage}/></> : 
-                <><img className="messageImg" src={noProfile}/></>
-                }
-
-                <p className="messageText">{message?.text}</p>
+      <>
+            <div className={ own ? "chat chat-end mb-2" : "chat chat-start mb-2"}>
+                <div className="chat-image avatar">
+                    <div className="w-10 rounded-full">
+                        {user?.profileImage ?
+                            <><img src={user?.profileImage} /></> :
+                            <><img src={noProfile} /></>
+                        }
+                    </div>
+                </div>
+                <div className="chat-header">
+                    {user?.name}
+                </div>
+                <div className="chat-bubble bg-[#FF7474]  text-white ">{message?.text}</div>
+                    <time className=" text-xs opacity-50 text-center">{format(message?.createdAt)}</time>
             </div>
-            <div className="messageBottom">{format(message?.createdAt)}</div>
-        </div>
+      
+      </>
+
+
+
+
+
     );
 };
 
 export default Message;
+
+

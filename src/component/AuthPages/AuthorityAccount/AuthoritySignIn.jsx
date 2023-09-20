@@ -79,14 +79,14 @@ const AuthoritySignIn = () => {
 
           {/* password field*/}
           <div>
-            <div className="relative z-0">
-              <input  type={passwordVisible ? 'text' : 'password'}  id="standard_success" aria-describedby="standard_success_help" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none  dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer" placeholder=" " required />
-              <label htmlFor="standard_success" className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+          <div className="relative z-0">
+              <input name='password'  type={passwordVisible ? 'text' : 'password'} id="standard_success" aria-describedby="standard_success_help" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none  dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer" placeholder=" " required />
               <span className="absolute right-3 transform -translate-y-1/2 top-1/2 cursor-pointer">
                 <i
                   onClick={togglePasswordVisibility}
                 >{passwordVisible ? <FaEyeSlash /> : <FaEye />}</i>
               </span>
+              <label htmlFor="standard_success" className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
             </div>
             {/* This paragraph is for input validation. if user inter invalid email or password this paragraph will be shown and text color will be red */}
             <p id="standard_success_help" className="hidden mt-2 text-xs text-[#a2a2a2] dark:text-gray-400"><span className="font-medium">Well done!</span> Some success message.</p>

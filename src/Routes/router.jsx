@@ -47,8 +47,6 @@ import AdminRoute from "./AdminRoute";
 import SupportRoute from "./SupportRoute";
 
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -228,6 +226,10 @@ const router = createBrowserRouter([
       {
         path: "verifyUser",
         element: <SupportRoute><VerifyUser /></SupportRoute>,
+      },
+      {
+        path: "addBlog",
+        element: <SupportRoute><AddBlog/></SupportRoute>,
       },
       {
         path: "addBlog",
