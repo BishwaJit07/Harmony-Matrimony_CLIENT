@@ -31,6 +31,7 @@ const NavBar = () => {
       }}
     >
       <div className="navbar bg-base-100  px-20 select-none dark:bg-gray-400 dark:text-white">
+
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -88,6 +89,7 @@ const NavBar = () => {
           )}
         </div>
       </div>
+    </div>
     </Headroom>
   );
 };
@@ -95,6 +97,7 @@ const NavBar = () => {
 const NavItems = () => {
   return (
     <>
+
       <li className=" font-semibold text-base dark:bg-gray-400 dark:text-white">
         <NavLink
           to="/"

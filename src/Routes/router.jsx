@@ -48,8 +48,6 @@ import SupportRoute from "./SupportRoute";
 import ChatPage from "../component/UserPages/ChatDesign/ChatPage";
 
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
