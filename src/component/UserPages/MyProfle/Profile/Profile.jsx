@@ -7,7 +7,7 @@ import img3 from "../../../../assets/home/recommendation/girl2.png";
 import img4 from "../../../../assets/home/recommendation/girl3.png";
 import img5 from "../../../../assets/home/recommendation/girl4.png";
 import location from "../../../../assets/other/location.svg";
-import follow from "../../../../assets/other/follow.svg";
+// import follow from "../../../../assets/other/follow.svg";
 import share from "../../../../assets/other/share.svg";
 import bookmark from "../../../../assets/other/bookmark.svg";
 import ages from "../../../../assets/other/age.svg";
@@ -24,19 +24,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import FixedMet from "../metting/FixedMet";
 import useMyData from "../../../../Hooks/useMyData";
 import axios from "axios";
-import { RiUserUnfollowFill } from "react-icons/ri";
+// import { RiUserUnfollowFill } from "react-icons/ri";
+import RelationSts from "../relationSts/RelationSts";
+import { performAction } from "../../../../utilities/utilities";
 
 const Profile = () => {
-  const [userInfo,refetch] = useMyData();
+  const [userInfo, refetch] = useMyData();
   const params = useParams();
   const [user, setUser] = useState([]);
   const [loader, setLoader] = useState(true);
   const [disable, setDisable] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(
-      `https://soulmates-server.vercel.app/specificUser/${params.id}`
-    )
+    fetch(`http://localhost:5000/specificUser/${params.id}`)
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, [params]);
@@ -67,7 +67,6 @@ const Profile = () => {
     interests,
   } = user;
 
-  console.log(interests);
   useEffect(() => {
     if (userInfo?.profileVisit > 0) {
       setLoader(false);
@@ -76,9 +75,7 @@ const Profile = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://soulmates-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
-      )
+      .get(`http://localhost:5000/disableFav/${userInfo._id}/${user._id}`)
       .then((response) => {
         if (response.data.userId) {
           setDisable(true);
@@ -93,49 +90,26 @@ const Profile = () => {
       favImg: user.profileImage,
     };
 
-    axios
-      .get(
-        `https://soulmates-server.vercel.app/showFlowing/${userInfo._id}`
-      )
-      .then((response) => {
-        if (response.data.userId) {
-          axios
-            .put(
-              `https://soulmates-server.vercel.app/makeFav/${userInfo._id}`,
-              favUser
-            )
-            .then((response) => {
-              if (response.data.modifiedCount > 0) {
-                setDisable(true);
-              }
-            });
-        } else {
-          axios
-            .post(
-              `https://soulmates-server.vercel.app/setFav/${userInfo._id}`,
-              favUser
-            )
-            .then((response) => {
-              if (response.data.insertedId) {
-                setDisable(true);
-              }
-            });
-        }
-      });
+    performAction(
+      userInfo._id,
+      "showFlowing",
+      "makeFav",
+      "setFav",
+      favUser,
+      () => {
+        setDisable(true);
+      }
+    );
   };
 
   const unfollowHandle = () => {
-    console.log("unfollow");
     const unfollow = {
       favId: user._id,
       favUser: user.name,
       favImg: user.profileImage,
     };
     axios
-      .put(
-        `https://soulmates-server.vercel.app/makeUnfollow/${userInfo._id}`,
-        unfollow
-      )
+      .put(`http://localhost:5000/makeUnfollow/${userInfo._id}`, unfollow)
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           setDisable(false);
@@ -143,19 +117,18 @@ const Profile = () => {
       });
   };
 
-    const handleClick = async () => 
-    {
-        try{
-            const res = await axios.get(`https://soulmates-server.vercel.app/conversations/find/${userInfo._id}/${params.id}`)
-            console.log(res.data)
-            navigate("/message");
-            refetch();
-        }
-        catch(err){
-            console.log(err)
-        }
-
+  const handleClick = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/conversations/find/${userInfo._id}/${params.id}`
+      );
+      console.log(res.data);
+      navigate("/message");
+      refetch();
+    } catch (err) {
+      console.log(err);
     }
+  };
 
   return (
     <>
@@ -246,7 +219,10 @@ const Profile = () => {
                   </div>
                   {/* button */}
                   <div className="flex justify-between gap-3 px-2 py-4">
-                    <button className="text-[17px] font-bold w-full bg-secondary-500 rounded-full text-white py-4  flex justify-center items-center " onClick={handleClick}>
+                    <button
+                      className="text-[17px] font-bold w-full bg-secondary-500 rounded-full text-white py-4  flex justify-center items-center "
+                      onClick={handleClick}
+                    >
                       Message
                     </button>
 
@@ -298,7 +274,7 @@ const Profile = () => {
                     </p>
                     <div className="flex flex-col lg:flex-row w-full justify-between mt-4 gap-2 lg:">
                       <div className="flex gap-4 ">
-                        {disable ? (
+                        {/* {disable ? (
                           <button
                             onClick={unfollowHandle}
                             className="text-[15px] bg-primary-500 px-4 rounded-full text-white py-[10px] flex justify-center items-center gap-1"
@@ -322,8 +298,10 @@ const Profile = () => {
                             </span>
                             Sent Interested
                           </button>
-                        )}
+                        )} */}
                         <FixedMet partnerUser={user} />
+
+                        <RelationSts partnerUser={user} />
                       </div>
                       <div className="flex gap-4">
                         <button className="bg-[#A4B0C1] px-[15px] py-[10px] rounded-full">
@@ -404,11 +382,7 @@ const Profile = () => {
                     <div className="">
                       <Info title="Gender" value={gender} />
                       <Info title="Height" value={height} />
-                      <Info
-                        title="Marital Status
-"
-                        value={marital_status}
-                      />
+                      <Info title="Marital Status" value={marital_status} />
                       <Info title="Profile" value={profile} />
                       <Info title="Religion" value={religion} />
                       <Info title="State" value={state} />
@@ -465,7 +439,7 @@ const Profile = () => {
 
                 <BorderBottom />
                 <Title title="Hobbies" />
-               
+
                 {/* Hobbies Section */}
                 {/* {
                   interests?  <div className="flex gap-3 flex-wrap">
@@ -474,7 +448,6 @@ const Profile = () => {
                   ))}
                 </div>: <></>
                 } */}
-                
 
                 <BorderBottom />
                 <Title title="Social Media" />
@@ -519,13 +492,6 @@ export const Info = ({ title, value }) => {
         <span className="text-[#8695AC] mr-1">{title}:</span>
         {value}
       </p>
-    </div>
-  );
-};
-const HBox = ({ value }) => {
-  return (
-    <div className="bg-white py-3 px-4 rounded-full text-[#536279] text-base ">
-      {value}
     </div>
   );
 };
