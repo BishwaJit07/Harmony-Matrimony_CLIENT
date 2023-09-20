@@ -14,7 +14,7 @@ import { AuthContext } from "../../../../Provider/AuthProvider";
 import useAdmin from "../../../../Hooks/useAdmin";
 import useSupport from "../../../../Hooks/useSupport";
 import useAuthData from "../../../../Hooks/useAuthData";
-import UserVerificationMes from "./userVerificationMes";
+import UserVerificationMes from "./UserVerificationMes";
 import Loading from "../../../../Shared/Loading";
 
 const Dashboard = () => {
