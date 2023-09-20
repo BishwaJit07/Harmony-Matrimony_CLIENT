@@ -14,8 +14,6 @@ const Proposal = () => {
   const [disable, setDisable] = useState(false);
   const { refetchProposal, proposal } = useProposalInfo(userInfo._id);
 
-  console.log(proposal);
-
   const { refetch: refetchAccept, data: accept = [] } = useCustomQuery(
     ["acceptt", userInfo._id],
     `https://soulmates-server.vercel.app/getAccept/${userInfo._id}`
