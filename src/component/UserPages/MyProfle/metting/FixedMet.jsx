@@ -3,12 +3,10 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
-import message from "../../../../assets/other/message.svg";
 import { RxCross2 } from "react-icons/rx";
 import { IoLocationSharp } from "react-icons/io5";
 
-const FixedMet = ({ partnerUser }) => {
-  const { _id } = partnerUser;
+const FixedMet = ({ partnerUserID }) => {
   const [showModal8, setShowModal8] = useState(false);
   const { register, handleSubmit } = useForm();
   const [userInfo, setUserInfo] = useState([]);
@@ -60,12 +58,9 @@ const FixedMet = ({ partnerUser }) => {
     <div>
       <button
         onClick={showModal}
-        className="bg-[#3E4A5B] text-[#F0F2F5] px-[15px] py-[10px] rounded-full flex gap-1 items-center"
+        className="py-4 px-4 bg-[#128587] text-[#F0F2F5] rounded-full"
       >
-        <span>
-          <img className="hidden lg:block" src={message} alt="" />
-        </span>
-        Meeting
+        Invite Meeting
       </button>
       {showModal8 ? (
         <>
@@ -87,7 +82,7 @@ const FixedMet = ({ partnerUser }) => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                       <input
                         type="hidden"
-                        value={_id}
+                        value={partnerUserID}
                         className="w-full text-blue-950"
                         {...register("id", { required: true })}
                       />
