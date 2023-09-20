@@ -38,13 +38,13 @@ const Dashboard = () => {
        
         { title: "Profile", icon: <BiSolidUserCircle/>, link: "/dashboard" },
         { title: "Dashboard", icon: <BiHome></BiHome>, link: "/dashboard/adminUser" },
-        { title: "Manage User", icon: <BiUser></BiUser>, link: "/dashboard/manageUser" },
+        { title: "Manage Author", icon: <BiUser></BiUser>, link: "/dashboard/manageUser" },
         { title: "Add Service", icon: <MdOutlineMedicalServices/>, link: "/dashboard/addService" },
         { title: "Add Blog", icon: <ImBlog/>, link: "/dashboard/addBlog" },
         { title: "Book Service", icon: <BsBookmarkCheck/>, link: "/dashboard/bookService" },
         { title: "All User", icon: <FaUsers/>, link: "/dashboard/allUser" },
         { title: "Verify User", icon: <FaUserCheck/>, link: "/dashboard/verifyUser" },
-        {title: "User Support", icon: <FaUserTie></FaUserTie>, link: "/dashboard/userDetails"}
+        {title: " Support Dashboard", icon: <FaUserTie></FaUserTie>, link: "/dashboard/userDetails"}
 
 
     ];
