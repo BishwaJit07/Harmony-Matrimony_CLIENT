@@ -94,7 +94,7 @@ const UserProfile = () => {
         );
         axios
           .delete(
-            `http://localhost:5000/delPartner/${id}/${userInfo._id}/${partner._id}`
+            `https://soulmates-server.vercel.app/delPartner/${id}/${userInfo._id}/${partner._id}`
           )
           .then((response) => {
             if (response.data.deletedCount > 0) {
@@ -409,11 +409,17 @@ const Hobbies = () => {
   const { interests } = userInfo;
 
   return (
-    <div className="flex gap-3 flex-wrap">
+   <div>
+     
+      <div className="flex gap-3 flex-wrap">
       {interests?.map((interest, index) => (
         <HBox key={index} value={interest} />
       ))}
     </div>
+    
+   
+   </div>
+    
   );
 };
 

@@ -11,7 +11,7 @@ const RelationSts = ({ partnerUser }) => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/disableRltn/${userInfo._id}/${partnerUser._id}`
+        `https://soulmates-server.vercel.app/disableRltn/${userInfo._id}/${partnerUser._id}`
       )
       .then((response) => {
         if (response.data.userId) {
@@ -47,7 +47,7 @@ const RelationSts = ({ partnerUser }) => {
       favImg: partnerUser.profileImage,
     };
     axios
-      .put(`http://localhost:5000/delRltn/${userInfo._id}`, unfollow)
+      .put(`https://soulmates-server.vercel.app/delRltn/${userInfo._id}`, unfollow)
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           setDisable(false);

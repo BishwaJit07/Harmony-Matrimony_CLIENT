@@ -36,7 +36,7 @@ const Profile = () => {
   const [disable, setDisable] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:5000/specificUser/${params.id}`)
+    fetch(`https://soulmates-server.vercel.app/specificUser/${params.id}`)
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, [params]);
@@ -76,7 +76,7 @@ const Profile = () => {
   useEffect(() => {
 
     axios
-      .get(`http://localhost:5000/disableFav/${userInfo._id}/${user._id}`)
+      .get(`https://soulmates-server.vercel.app/disableFav/${userInfo._id}/${user._id}`)
       .then((response) => {
         if (response.data.userId) {
           setDisable(true);
@@ -110,7 +110,7 @@ const Profile = () => {
       favImg: user.profileImage,
     };
     axios
-      .put(`http://localhost:5000/makeUnfollow/${userInfo._id}`, unfollow)
+      .put(`https://soulmates-server.vercel.app/makeUnfollow/${userInfo._id}`, unfollow)
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           setDisable(false);
@@ -121,7 +121,7 @@ const Profile = () => {
   const handleClick = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/conversations/find/${userInfo._id}/${params.id}`
+        `https://soulmates-server.vercel.app/conversations/find/${userInfo._id}/${params.id}`
       );
       console.log(res.data);
       navigate("/message");
