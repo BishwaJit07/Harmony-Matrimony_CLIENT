@@ -239,7 +239,7 @@ const router = createBrowserRouter([
       },
       {
         path: "addBlog",
-        element: <SupportRoute><VerifyUser /></SupportRoute>
+        element: <SupportRoute><AddBlog /></SupportRoute>
       },
       {
         path:"userDetails",

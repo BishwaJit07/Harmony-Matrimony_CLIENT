@@ -20,7 +20,7 @@ const NavBar = () => {
   };
 
   return (
-    <Headroom className="dark:bg-gray-500"
+    <Headroom className="bg-white dark:bg-gray-500"
       style={{
     
         zIndex: 50,

@@ -33,6 +33,7 @@ const MangeUsersX = () => {
     );
   }
   const handleMakeApprove = (id) => {
+    console.log(id);
     fetch(`https://soulmates-server.vercel.app/makeApprove/${id}`, {
       method: "PATCH",
     })
