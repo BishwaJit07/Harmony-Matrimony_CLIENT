@@ -8,7 +8,7 @@ const UserDetails = () => {
     fetch(`https://soulmates-server.vercel.app/userStats/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setDatas(data));
-  }, []);
+  }, [datas]);
 
   return (
     <div>

@@ -33,6 +33,7 @@ const MangeUsersX = () => {
     );
   }
   const handleMakeApprove = (id) => {
+    console.log(id);
     fetch(`https://soulmates-server.vercel.app/makeApprove/${id}`, {
       method: "PATCH",
     })
@@ -76,9 +77,9 @@ const MangeUsersX = () => {
         }
       });
   };
-  const pendingUsers = users.filter((user) => user.status === "pending");
-  const approvedUsers = users.filter((user) => user.status === "approved");
-  const deniedUsers = users.filter((user) => user.status === "denied");
+  const pendingUsers = users.filter((user) => user?.status === "pending");
+  const approvedUsers = users.filter((user) => user?.status === "approved");
+  const deniedUsers = users.filter((user) => user?.status === "denied");
 
   const handleSearch = () => {
     setsearch(searchRef.current.value)

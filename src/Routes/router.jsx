@@ -43,6 +43,9 @@ import UserDetails from "../component/AuthPages/Dashboard/Support/UserDetails/Us
 import BookService from "../component/AuthPages/Dashboard/Support/BookService/BookService";
 import Dashboard from "../component/AuthPages/Dashboard/Shared/Dashboard";
 import GalleryPage from "../component/UserPages/GalleryPage/GalleryPage";
+import AdminRoute from "./AdminRoute";
+import SupportRoute from "./SupportRoute";
+import ChatPage from "../component/UserPages/ChatDesign/ChatPage";
 
 
 
@@ -61,9 +64,14 @@ const router = createBrowserRouter([
         path: "/alluser",
         element: <UserPrivateRoute><AllUser></AllUser></UserPrivateRoute>,
       },
+
+      {
+        path: '/chat',
+        element: <ChatPage />
+      },
       {
         path: "/plans",
-        element: <Plans></Plans>,
+        element: <Plans/>,
       },
       {
         path: "/about",
@@ -117,7 +125,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <PaymentPage />,
+
+        element:<UserPrivateRoute> <PaymentPage/></UserPrivateRoute>,
+
         children: [
           {
             path: '/payment/stripe',
@@ -209,11 +219,11 @@ const router = createBrowserRouter([
       },
       {
         path: "manageUser",
-        element: <MangeUsersX></MangeUsersX>,
+        element: <AdminRoute><MangeUsersX></MangeUsersX></AdminRoute>,
       },
       {
         path: "allUser",
-        element: <AllUserD></AllUserD>,
+        element: <AdminRoute><AllUserD></AllUserD></AdminRoute>,
       },
       {
         path: "bookService",
@@ -221,15 +231,15 @@ const router = createBrowserRouter([
       },
       {
         path: "addService",
-        element: <AddService />,
+        element: <SupportRoute><AddService /></SupportRoute>,
       },
       {
         path: "verifyUser",
-        element: <VerifyUser />,
+        element: <SupportRoute><VerifyUser /></SupportRoute>,
       },
       {
         path: "addBlog",
-        element: <AddBlog />
+        element: <SupportRoute><AddBlog /></SupportRoute>
       },
       {
         path:"userDetails",

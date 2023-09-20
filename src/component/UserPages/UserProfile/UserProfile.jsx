@@ -253,7 +253,6 @@ const BoxBorderContent = ({ title, content }) => {
     <div className="mb-5 border border-[#C3CAD5] rounded-2xl overflow-hidden">
       <div className="flex justify-between items-center px-5 py-3">
         <p className="font-alice text-[25px] ">{title}</p>
-        <EditBtn text="Edit" />
       </div>
       <hr className="border border-[#C3CAD5]" />
       <div className="p-4">{content}</div>

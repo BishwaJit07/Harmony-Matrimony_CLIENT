@@ -74,6 +74,7 @@ const Profile = () => {
   }, [userInfo]);
 
   useEffect(() => {
+
     axios
       .get(`http://localhost:5000/disableFav/${userInfo._id}/${user._id}`)
       .then((response) => {

@@ -67,7 +67,7 @@ const BlogDetails = () => {
           className="mySwiper "
         >
           {latests?.map((latest) => (
-            <SwiperSlide key={latest._id} className="text-black bg-gray-200 ">
+            <SwiperSlide key={latest._id} className="text-black ">
               <div className="card w-96 bg-base-100 shadow-xl">
                 <figure className="h-[300px] w-full object-cover object-center">
                   <img
