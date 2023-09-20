@@ -7,10 +7,15 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsFilePlusFill, BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { BiPlus, BiSolidPlusCircle } from 'react-icons/bi';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 const AddService = () => {
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
   const [showModal3, setShowModal3] = useState(false);
+
+  const {user} = useContext(AuthContext);
+
   const handleService = event => {
     event.preventDefault();
     const form = event.target;
@@ -280,7 +285,7 @@ const AddService = () => {
                         <div className='flex justify-center items-center gap-6'>{/* provider email */}
                           <div className="mb-6">
                             <label htmlFor="providerEmail" className="block mb-2 text-sm font-medium text-gray-900 ">Provider Email</label>
-                            <input name='providerEmail' type="email" id="providerEmail" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Provider Email" required />
+                            <input defaultValue={user?.email} name='providerEmail' type="email" id="providerEmail" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Provider Email" required />
                           </div>
 
                           {/* provider name */}

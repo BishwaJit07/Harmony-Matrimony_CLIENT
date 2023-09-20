@@ -5,7 +5,21 @@ import { Link } from "react-router-dom";
 import FooterBotom from "./FooterBotom";
 import line from "../../assets/other/Group 1171277762 (1).png"
 import logo from '../../assets/logo/logo2.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from "react";
 const Footer = () => {
+  const [email, setEmail] = useState('')
+  const notifySubscribe = () => toast("Subscribed!");
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    const inputField = event.target.email;
+    const email = inputField.value;
+    console.log(email);
+    toast("Email Send!")
+    setEmail('')
+  };
   return (
     <div className="bg-[#222328] select-none ">
       <footer className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4  font-alice py-10  w-[80%] text-white mx-auto ">
@@ -99,14 +113,14 @@ const Footer = () => {
             <div className="text-[#C3CAD5] text-[16px] mb-3">
               <p className="text-[22px] font-alice mb-1">Email</p>
               <div className="flex items-center gap-2 text-base ">
-                <MdOutlineMail  className="text-3xl bg-slate-600 p-2 rounded-full"></MdOutlineMail>
+                <MdOutlineMail className="text-3xl bg-slate-600 p-2 rounded-full"></MdOutlineMail>
                 <span>xyz@gmail.com</span>
               </div>
             </div>
             <div className="text-[#C3CAD5] text-[16px] mb-3">
               <p className="text-[22px] font-alice mb-1">Office Location</p>
               <div className="flex items-center gap-2 text-base ">
-                <MdOutlineLocationCity  className="text-3xl bg-slate-600 p-2 rounded-full"></MdOutlineLocationCity>
+                <MdOutlineLocationCity className="text-3xl bg-slate-600 p-2 rounded-full"></MdOutlineLocationCity>
                 <span>Dhaka, Dhaka, Bangladesh</span>
               </div>
             </div>
@@ -127,17 +141,22 @@ const Footer = () => {
               <span className="label-text text-[#C3CAD5] font-alice mt-4 text-[18px]"> Email</span>
             </label>
             <div className="relative">
-              <input
-                type="text"
-                placeholder="Enter Your Email"
-                className="input-bordered w-full pr-16 px-4 py-[11px] border border-[#cf9063] rounded-full bg-[#222328] text-white"
-              />
-              <button className="absolute top-1 right-1 rounded-full -none px-10 bg-red-600 hover:bg-red-800   py-2">
-                sent
-              </button>
+              <form onSubmit={handleClick}>
+                <input
+                  type="text"
+                  name='email'
+                  value={email}
+                  onChange={(e)=> setEmail(e.target.value)}
+                  placeholder="Enter Your Email"
+                  className="input-bordered w-full pr-16 px-4 py-[11px] border border-[#cf9063] rounded-full bg-[#222328] text-white"
+                />
+                <button type="submit" className="absolute top-1 right-1 rounded-full -none px-10 bg-red-600 hover:bg-red-800   py-2">
+                  sent
+                </button>
+              </form>
             </div>
           </div>
-          <button className=" mt-5  p-3 rounded-full  bg-red-600 text-white hover:bg-red-800 w-full ">
+          <button onClick={notifySubscribe} className=" mt-5  p-3 rounded-full  bg-red-600 text-white hover:bg-red-800 w-full ">
             Subscribe
           </button>
         </div>

@@ -16,7 +16,7 @@ import DashboardProfile from "./Shared/DashboardProfile";
 const Dashboard = () => {
     const [open, setOpen] = useState(true);
     const {user} = useContext(AuthContext);
-    console.log(user?.email);
+    // console.log(user?.email);
     const [profileDatas, setProfileDatas] = useState({});
     const [loading, setLoading]= useState(true)
     useEffect(() =>{
@@ -61,21 +61,21 @@ const Dashboard = () => {
                   </div>
                   <div>
                     <h4 className="text-center text-xl my-2 text-cyan-700 font-medium">{user?.displayName}</h4>
-                    <h6 className="text-center text-md text-gray-500 border font-medium">{profileDatas?.role}</h6>
+                    <h6 className="text-center text-md text-gray-500 border font-medium py-1">{profileDatas?.role}</h6>
                   </div>
                 </div>
                 <ul className="pt-6 ">
                     {Menus.map((Menu, index) => (
-                        <li key={index} className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white  text-sm items-center gap-x-4 ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"} `}>
-                            <NavLink to={Menu.link}>
-                                <button className="flex items-center gap-5 cursor-pointer">
-                                    {Menu.icon}
-                                    <span className={`${!open && "hidden"} origin-left duration-200`}>
-                                        {Menu.title}
-                                    </span>
-                                </button>
-                            </NavLink>
-                        </li>
+                        <li key={index} className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white  text-sm items-center gap-x-4 relative ${Menu.gap ? "mt-9" : "mt-2"} ${index === 0 && "bg-light-white"} `}>
+                        <NavLink className={({ isActive }) => (isActive ? 'text-sky-800 hovered' : 'hover:text-sky-800')} to={Menu.link}>
+                            <button className="flex items-center gap-5 cursor-pointer text-md font-medium  py-1">
+                                {Menu.icon}
+                                <span className={`${!open && "hidden"} origin-left duration-200`}>
+                                    {Menu.title}
+                                </span>
+                            </button>
+                        </NavLink>
+                    </li>
                     ))}
                 </ul>
             </div>

@@ -1,14 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom';
 import img from '../../../assets/admin/admin.png'
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { AuthContext } from '../../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 import logo from "../../../assets/logo/logo.png"
 import { Helmet } from 'react-helmet';
-
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+import app from '../../../Firebase/firebase.config';
+const auth = getAuth(app);
 const AuthoritySignIn = () => {
-
+  const emailRef = useRef();
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate()
   const handleSignIn = (event) => {
@@ -34,6 +36,20 @@ const AuthoritySignIn = () => {
     //   console.log(error);
     // })
 
+  }
+  const handleReset = event =>{
+    const email = emailRef.current.value;
+    if(!email){
+      console.log('please provide your email address to reset password');
+      return;
+    }
+    sendPasswordResetEmail(auth, email)
+    .then(() =>{
+      alert('check your email')
+    })
+    .catch(error =>{
+      console.log(error);
+    })
   }
 
   return (
@@ -63,7 +79,7 @@ const AuthoritySignIn = () => {
             {/* Email field*/}
             <div>
               <div className="relative z-0">
-                <input name='email' type="email" id="standard_success" aria-describedby="standard_success_help" className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none  dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer" placeholder=" " required />
+                <input ref={emailRef} name='email' type="email" id="standard_success" aria-describedby="standard_success_help" className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-[#a2a2a2] appearance-none  dark:border-gray-500 dark:focus:border-gray-500 focus:outline-none focus:ring-0 focus:border-[#a2a2a2] peer" placeholder=" " required />
                 <label htmlFor="standard_success" className="absolute text-sm text-[#a2a2a2] dark:text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">User name or Email</label>
               </div>
               {/* This paragraph is for input validation. if user inter invalid email or password this paragraph will be shown and text color will be red */}
@@ -79,7 +95,7 @@ const AuthoritySignIn = () => {
               {/* This paragraph is for input validation. if user inter invalid email or password this paragraph will be shown and text color will be red */}
               <p id="standard_success_help" className="hidden mt-2 text-xs text-[#a2a2a2] dark:text-gray-400"><span className="font-medium">Well done!</span> Some success message.</p>
             </div>
-            <p className='text-sm text-[#a2a2a2] text-right'><Link className='red-text'>Forgot password?</Link> </p>
+            <p className='text-sm text-[#a2a2a2] text-right'><button onClick={handleReset} className='btn btn-link text-red-500'>Forgot password?</button> </p>
             <button className='btn text-gray-300 w-[40%] md:w-[25%] rounded-full mx-auto  bg-[#080373]'>SignIn</button>
 
           </form>
