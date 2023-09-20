@@ -45,6 +45,7 @@ import Dashboard from "../component/AuthPages/Dashboard/Shared/Dashboard";
 import GalleryPage from "../component/UserPages/GalleryPage/GalleryPage";
 import AdminRoute from "./AdminRoute";
 import SupportRoute from "./SupportRoute";
+import ChatPage from "../component/UserPages/ChatDesign/ChatPage";
 
 
 
@@ -62,6 +63,11 @@ const router = createBrowserRouter([
       {
         path: "/alluser",
         element: <UserPrivateRoute><AllUser></AllUser></UserPrivateRoute>,
+      },
+
+      {
+        path: '/chat',
+        element: <ChatPage />
       },
       {
         path: "/plans",
