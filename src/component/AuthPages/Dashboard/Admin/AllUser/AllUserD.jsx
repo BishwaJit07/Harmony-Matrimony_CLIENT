@@ -1,4 +1,4 @@
-import useAllUsers from "../../../../../hooks/useAllUsers";
+import useAllUsers from "../../../../../Hooks/useAllUsers";
 import AllUserDTr from "./AllUserDTr";
 const AllUserD = () => {
   const [users] = useAllUsers();

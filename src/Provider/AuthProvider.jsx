@@ -40,6 +40,7 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
+
             setUser(currentUser);
 
             // get and set token!!!!
@@ -56,6 +57,7 @@ const AuthProvider = ({ children }) => {
                     });
             } else {
                 localStorage.removeItem('access-token');
+
                 setLoading(false);
             }
         });
