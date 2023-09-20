@@ -19,10 +19,12 @@ const NavBar = () => {
       .catch((error) => console.log(error));
   };
 
+  
+
   return (
-    <Headroom className="bg-white dark:bg-gray-500"
+    <Headroom 
       style={{
-    
+        backgroundColor: DarkMode ?" rgb(107 114 128)":"white",
         zIndex: 50,
         boxShadow:
           "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",

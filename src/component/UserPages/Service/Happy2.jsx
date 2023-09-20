@@ -55,9 +55,9 @@ const Happy2 = () => {
   }
 
   return (
-    <div className='bg-gray-50'>
-      <form onSubmit={handleSubmit(onSubmit)} className='py-20' action="">
-        <div className='space-y-6 px-10 bg-white  py-10 w-[700px] mx-auto rounded-[30px]'>
+    <div className=''>
+      <form onSubmit={handleSubmit(onSubmit)} className='py-10 ' action="">
+        <div className='space-y-6 px-10 bg-white  py-10 w-[700px] mx-auto rounded-[30px] border-blue-500 border-2 dark:bg-gray-400'>
           {/* input field */}
         <div>
           <label htmlFor="patnerName" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Your Name</label>
