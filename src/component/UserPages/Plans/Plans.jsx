@@ -75,9 +75,9 @@ const Plans = () => {
       </div>
       <div className="max-w-[680px]  mx-auto mt-12 mb-8">
         <p className="text-[42px] font-alice text-[#272932] text-center dark:text-white">
-          We&rsquo;ve Got The
-          <span className="text-[#0F7173]">Perfect Plan</span>
-          That is Finding for <span className="text-[#0F7173]">Your Need</span>
+          We&rsquo;ve Got The 
+          <span className="text-[#0F7173]"> Perfect Plan </span>
+          That is Finding for <span className="text-[#0F7173]"> Your Need </span>
         </p>
         <p className="text-[#3E4A5B] font-lato text-center px-8 my-[18px] dark:text-gray-200 text-xl">
           &ldquo;Discover the path to lasting love with our premium subscription
