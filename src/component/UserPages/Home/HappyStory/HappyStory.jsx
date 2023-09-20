@@ -13,7 +13,7 @@ import line from "../../../../assets/Shared/line.png"
 const HappyStory = () => {
   const [reviews, setReview] = useState([]);
   useEffect(() => {
-    fetch("https://soulmate-server-routed.vercel.app/reviews")
+    fetch("https://soulmates-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, []);

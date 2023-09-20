@@ -15,7 +15,7 @@ const Blog = () => {
 
   // fetch Blog data
   useEffect(() => {
-    fetch("https://soulmate-server-routed.vercel.app/blogs")
+    fetch("https://soulmates-server.vercel.app/blogs")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -24,7 +24,7 @@ const Blog = () => {
   }, [react]);
 
   const handleShowBlogByCategory = (type) => {
-      fetch(`https://soulmate-server-routed.vercel.app/blogs/type/${type}`)
+      fetch(`https://soulmates-server.vercel.app/blogs/type/${type}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

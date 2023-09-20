@@ -11,7 +11,7 @@ const ChatOnline = ({ onlineUsers, currentId, setCurrentChat , refetch}) => {
 
     useEffect(() => {
         const getUsers = async () => {
-            const res = await axios.get("https://soulmate-server-routed.vercel.app/allUser");
+            const res = await axios.get("https://soulmates-server.vercel.app/allUser");
             setAllUser(res.data);
         };
 
@@ -25,7 +25,7 @@ const ChatOnline = ({ onlineUsers, currentId, setCurrentChat , refetch}) => {
     const handleClick = async (user) => 
     {
         try{
-            const res =await axios.get(`https://soulmate-server-routed.vercel.app/conversations/find/${currentId}/${user._id}`)
+            const res =await axios.get(`https://soulmates-server.vercel.app/conversations/find/${currentId}/${user._id}`)
             setCurrentChat(res.data)
             refetch()
         }
