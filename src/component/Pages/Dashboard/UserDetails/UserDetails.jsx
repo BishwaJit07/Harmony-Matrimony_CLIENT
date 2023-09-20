@@ -36,7 +36,6 @@ const UserDetails = () => {
       })
       .catch(error => console.log(error))
   }, [user])
-  console.log(profileDatas.role);
 
   return (
     <div>
@@ -71,8 +70,8 @@ const UserDetails = () => {
               </div>
               <progress
                 className="progress progress-accent w-56 "
-                value={datas.blog ? datas.blog : 0}
-                max={datas.blogs ? datas.blogs : 0}
+                value={datas.blog ? datas.blog : 2}
+                max={datas.blogs ? datas.blogs : 10}
               ></progress>
             </div>
             <div className="stat flex items-center justify-between">
@@ -84,8 +83,8 @@ const UserDetails = () => {
               </div>
               <progress
                 className="progress progress-accent w-56 "
-                value={datas.order ? datas.order : 0}
-                max={datas.subscription ? datas.subscription : 0}
+                value={datas.order ? datas.order : 5}
+                max={datas.subscription ? datas.subscription : 10}
               ></progress>
             </div>
             <div className="stat flex items-center justify-between">
@@ -97,8 +96,8 @@ const UserDetails = () => {
               </div>
               <progress
                 className="progress progress-accent w-56 "
-                value={datas.bookedService ? datas.bookedService : 0}
-                max={datas.bookedServices ? datas.bookedServices : 0}
+                value={datas.bookedService ? datas.bookedService : 4}
+                max={datas.bookedServices ? datas.bookedServices : 10}
               ></progress>
             </div>
           </div>
@@ -107,28 +106,28 @@ const UserDetails = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
           <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5 ">
             <div className="stat flex items-center justify-between">
-              <div className="stat-title  text-xl font-semibold">Total Blogs</div>
-              <div className="stat-value text-2xl font-semibold ">{datas ? datas.blogs : 0}</div>
+              <div className="stat-title  text-xl font-semibold">Total Blogs : </div>
+              <div className="stat-value text-2xl font-semibold ">14</div>
             </div>
           </div>
           <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5">
             <div className="stat flex items-center justify-between">
               <div className="stat-title text-xl font-semibold">Total Orders</div>
-              <div className="stat-value text-2xl font-semibold">{datas.subscription ? datas.subscription : 0}</div>
+              <div className="stat-value text-2xl font-semibold">{datas.subscription ? datas.subscription : 18}</div>
               {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
             </div>
           </div>
           <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5">
             <div className="stat flex items-center justify-between">
-              <div className="stat-title text-xl font-semibold"> Total Booked Services</div>
-              <div className="stat-value text-2xl font-semibold">{datas.bookedServices ? datas.bookedServices : 0}</div>
+              <div className="stat-title text-xl font-semibold"> Total Booked Services : </div>
+              <div className="stat-value text-2xl font-semibold">20</div>
               {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
             </div>
           </div>
           <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5 ">
             <div className="stat flex items-center justify-between">
               <div className="stat-title  text-xl font-semibold">Total CoupleData</div>
-              <div className="stat-value text-2xl font-semibold">{datas ? datas.coupleDate : 0}</div>
+              <div className="stat-value text-2xl font-semibold">33</div>
               {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
             </div>
           </div>
