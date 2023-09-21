@@ -26,7 +26,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className='font-poppins mb-32'>
+    <div className='font-poppins mb-32 dark:bg-gray-800'>
 
       {/* Title */}
       <Helmet>
@@ -35,7 +35,7 @@ const About = () => {
       </Helmet>
 
       {/* about header */}
-      <div className="relative mb-20 ">
+      <div className="relative mb-20 dark:bg-gray-800">
         {/* about text */}
         {/* <div className="h-[300px] bg-gradient-to-t from-[#FF725E] to-[#ec1d02] ">
           <div className="text-center space-y-5 pt-10">
@@ -79,7 +79,7 @@ const About = () => {
       </div>
 
       {/* welcome section */}
-      <div className="lg:grid lg:grid-cols-2 mb-12 max-w-7xl mx-auto ">
+      <div className="lg:grid lg:grid-cols-2 mb-12 max-w-7xl mx-auto dark:bg-gray-800">
         {/* photo section */}
         <div className="relative hidden lg:block">
           <div className="w-[100px] h-[100px] border-[7px] border-[#f0a805] rounded-full absolute -top-[7%] -left-[5%] -z-10 "></div>
@@ -122,7 +122,7 @@ const About = () => {
       </div>
 
       {/* counting section */}
-      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mt-32 mb-10 px-2 max-w-7xl mx-auto dark:text-orange-300 ">
+      <div className="text-[#66451c] grid grid-cols-2 gap-2 md:gap-0 md:flex mt-32 mb-10 px-2 max-w-7xl mx-auto dark:text-orange-300 dark:bg-gray-800">
         <div className="border p-5 flex flex-col lg:flex-row items-center lg:items-start gap-2 w-full md:border-l-0">
           <div className="border-[#d7d1be] border p-3 w-auto rounded-2xl mt-2">
             <AiOutlineHeart className="text-[20px]" />
@@ -168,32 +168,32 @@ const About = () => {
           {/* single accordion */}
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
-            <div className="collapse-title text-xl font-bold">
+            <div className="collapse-title text-xl font-bold dark:bg-gray-500 dark:text-white">
               How can your website help me find the perfect wedding partner?
             </div>
-            <div className="collapse-content text-[#66451c]">
-              <p> Our website employs advanced matchmaking algorithms and a vast user base to increase your chances of connecting with your ideal life partner.</p>
+            <div className="collapse-content text-[#66451c]  dark:bg-gray-500 dark:text-white">
+              <p className=" dark:bg-gray-500 dark:text-white"> Our website employs advanced matchmaking algorithms and a vast user base to increase your chances of connecting with your ideal life partner.</p>
             </div>
           </div>
 
           {/* single accordion */}
           <div className="collapse collapse-plus bg-white shadow rounded ">
             <input type="radio" name="my-accordion-3" />
-            <div className="collapse-title text-xl font-bold">
+            <div className="collapse-title text-xl font-bold  dark:bg-gray-500 dark:text-white">
               What makes your matrimony site stand out from the rest?
             </div>
-            <div className="collapse-content text-[#66451c]">
+            <div className="collapse-content text-[#66451c]  dark:bg-gray-500 dark:text-white">
               <p>We stand out through our commitment to user privacy, a wide range of premium features, and a dedicated support team that ensures a safe and enjoyable experience.</p>
             </div>
           </div>
 
           {/* single accordion */}
-          <div className="collapse collapse-plus bg-white shadow rounded">
+          <div className="collapse collapse-plus bg-white shadow rounded ">
             <input type="radio" name="my-accordion-3" />
-            <div className="collapse-title text-xl font-bold">
+            <div className="collapse-title text-xl font-bold  dark:bg-gray-500 dark:text-white">
               How do I create an impressive profile on your website?
             </div>
-            <div className="collapse-content text-[#66451c]">
+            <div className="collapse-content text-[#66451c]  dark:bg-gray-500 dark:text-white">
               <p>We provide profile creation tips and guidelines to help you showcase your personality, interests, and preferences effectively.</p>
             </div>
           </div>
@@ -201,11 +201,11 @@ const About = () => {
           {/* single accordion */}
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
-            <div className="collapse-title text-xl font-bold">
+            <div className="collapse-title text-xl font-bold  dark:bg-gray-500 dark:text-white">
               Can I trust the authenticity of profiles on your site?
 
             </div>
-            <div className="collapse-content text-[#66451c]">
+            <div className="collapse-content text-[#66451c]  dark:bg-gray-500 dark:text-white">
               <p> Yes, we implement strict verification processes to ensure the authenticity of profiles, enhancing your confidence in the people you interact with.</p>
             </div>
           </div>
@@ -213,10 +213,10 @@ const About = () => {
           {/* single accordion */}
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
-            <div className="collapse-title text-xl font-bold">
+            <div className="collapse-title text-xl font-bold  dark:bg-gray-500 dark:text-white">
               Do you offer any wedding planning resources or advice?
             </div>
-            <div className="collapse-content text-[#66451c]">
+            <div className="collapse-content text-[#66451c]  dark:bg-gray-500 dark:text-white">
               <p> Yes, our platform provides a wealth of wedding planning resources, including articles, guides, and a vibrant community of engaged couples to share insights and ideas.</p>
             </div>
           </div>
@@ -224,10 +224,10 @@ const About = () => {
           {/* single accordion */}
           <div className="collapse collapse-plus bg-white shadow rounded">
             <input type="radio" name="my-accordion-3" />
-            <div className="collapse-title text-xl font-bold">
+            <div className="collapse-title text-xl font-bold  dark:bg-gray-500 dark:text-white">
               What subscription plans do you offer, and how can they benefit me?
             </div>
-            <div className="collapse-content text-[#66451c]">
+            <div className="collapse-content text-[#66451c]  dark:bg-gray-500 dark:text-white">
               <p> We offer a range of subscription plans tailored to your needs, granting access to exclusive features, enhanced visibility, and greater control over your search for a life partner.</p>
             </div>
           </div>

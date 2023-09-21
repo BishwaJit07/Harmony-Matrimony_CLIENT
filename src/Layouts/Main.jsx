@@ -6,7 +6,7 @@ import ScrollToTop from '../Shared/scroll to top/ScrollToTop';
 
 const Main = () => {
     return (
-        <div >
+        <div className='dark:bg-gray-800'>
             <ScrollToTop/>
             <NavBar />
             <Outlet/>

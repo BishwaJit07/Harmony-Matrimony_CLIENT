@@ -153,17 +153,7 @@ const NavItems = () => {
   );
 };
 
-// profile dropdown links
-const ProfileDropLinks = () => {
-  return (
-    <>
 
-      <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/myProfile'>Profile</Link></li>
-      <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/paymentHistory'>Payment History</Link></li>
-
-    </>
-  );
-};
 
 
 const DropdownProfile = ({ userInfo, logOut, }) => {
@@ -178,9 +168,9 @@ const DropdownProfile = ({ userInfo, logOut, }) => {
         <span className=''>{userInfo.name}</span>
       </label>
       <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-        <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/myProfile'>Profile</Link></li>
-        <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/paymentHistory'>Payment History</Link></li>
-        <li onClick={() => logOut()} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded-lg">Sign out</li>
+        <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:text-black dark:hover:bg-gray-600 dark:hover:text-white" to='/myProfile'>Profile</Link></li>
+        <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white dark:text-black" to='/paymentHistory'>Payment History</Link></li>
+        <li onClick={() => logOut()} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded-lg dark:text-black">Sign out</li>
       </ul>
 
     </div>
