@@ -13,6 +13,7 @@ const FixedMet = ({ partnerUser }) => {
   const { user, loading } = useContext(AuthContext);
   const [metForm, setMetForm] = useState(true);
 
+
   useEffect(() => {
     axios
       .get(
@@ -48,6 +49,8 @@ const FixedMet = ({ partnerUser }) => {
         }
       });
   };
+
+
 
   return (
     <div>

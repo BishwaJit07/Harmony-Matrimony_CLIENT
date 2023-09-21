@@ -26,7 +26,7 @@ const NavBar = () => {
      
     >
     <div>
-    <div className="navbar bg-base-100 w-[80%]  mx-auto select-none dark:bg-gray-500 dark:text-white">
+    <div className="navbar bg-base-100 w-[80%]  mx-auto select-none dark:bg-gray-500 dark:text-white bg-[#E8FCFC]">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

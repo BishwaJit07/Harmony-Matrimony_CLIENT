@@ -1,8 +1,8 @@
+
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from './useAxiosSecure';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
-
 
 const useMyData = () => {
     const { user, loading } = useContext(AuthContext);
@@ -21,7 +21,7 @@ const useMyData = () => {
 
     useEffect(() => {
         if (!user?.email) {
-            // navigate('/signin');
+            // Handle the case where there's no valid user email (e.g., redirect to sign-in).
         }
     }, [user?.email]);
 

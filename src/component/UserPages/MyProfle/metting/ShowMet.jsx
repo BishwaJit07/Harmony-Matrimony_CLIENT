@@ -13,7 +13,7 @@ const FixedMet = ({ partnerUser }) => {
   const params = useParams();
   const [userId, setUserId] = useState("");
   const { refetchProposal } = useProposalInfo(userId);
-
+ 
   useEffect(() => {
     if (params.id) {
       setUserId(params.id);

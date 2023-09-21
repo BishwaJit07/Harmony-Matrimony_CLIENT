@@ -10,6 +10,8 @@ const MyProfile = () => {
 
   const [userInfo] = useMyData();
   const {  profile_complete } = userInfo
+  
+  console.log(userInfo , profile_complete)
 
   const accountFor = [
     { id: 1, name: 'MySelf' },
