@@ -29,12 +29,12 @@ const Dashboard = () => {
 
         { title: "Profile", icon: <BiSolidUserCircle />, link: "/dashboard" },
         { title: "Dashboard", icon: <BiHome></BiHome>, link: "/dashboard/adminUser" },
-        { title: "Manage User", icon: <BiUser></BiUser>, link: "/dashboard/manageUser" },
+        { title: "Manage Authority", icon: <BiUser></BiUser>, link: "/dashboard/manageUser" },
         { title: "All User", icon: <FaUsers />, link: "/dashboard/allUser" }
     ];
     const supportRoutes = [
         { title: "Profile", icon: <BiSolidUserCircle />, link: "/dashboard" },
-        { title: "User Support", icon: <FaUserTie></FaUserTie>, link: "/dashboard/userDetails" },
+        { title: "Support Dashboard", icon: <FaUserTie></FaUserTie>, link: "/dashboard/userDetails" },
         { title: "Add Service", icon: <MdOutlineMedicalServices />, link: "/dashboard/addService" },
         { title: "Add Blog", icon: <ImBlog />, link: "/dashboard/addBlog" },
         { title: "Verify User", icon: <FaUserCheck />, link: "/dashboard/verifyUser" },

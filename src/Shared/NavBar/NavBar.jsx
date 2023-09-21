@@ -157,96 +157,32 @@ const NavItems = () => {
 const ProfileDropLinks = () => {
   return (
     <>
-      <li>
-        <Link
-          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          to="/myProfile"
-        >
-          Profile
-        </Link>
-      </li>
-      <li>
-        <Link
-          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-          to="/settings"
-        >
-          Payment History
-        </Link>
-      </li>
+
+      <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/myProfile'>Profile</Link></li>
+      <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/paymentHistory'>Payment History</Link></li>
+
     </>
   );
 };
 
-const DropdownProfile = ({ userInfo, logOut }) => {
-  const [toggle, setToggle] = useState(false);
+
+const DropdownProfile = ({ userInfo, logOut, }) => {
   return (
-    <div className="relative">
-      <button
-        onClick={() => setToggle(!toggle)}
-        id="dropdownAvatarNameButton"
-        data-dropdown-toggle="dropdownAvatarName"
-        className="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-primary-500  md:mr-0 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-200 py-1 px-2"
-        type="button"
-      >
-        {userInfo.profileImage ? (
-          <>
-            <img
-              className="w-10 h-10 mr-2 rounded-full object-cover"
-              src={userInfo.profileImage}
-              alt="user photo"
-            />
-          </>
-        ) : (
-          <img
-            className="w-10 h-10 mr-2 rounded-full object-cover"
-            src={noProfile}
-            alt="user photo"
-          />
-        )}
-        <span className="dark:text-white">{userInfo.name}</span>
-        <svg
-          className="w-2.5 h-2.5 ml-2.5 dark:text-red-400"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 10 6"
-        >
-          <path
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="m1 1 4 4 4-4"
-          />
-        </svg>
-      </button>
-      <div
-        id="dropdownAvatarName"
-        className={
-          toggle
-            ? "z-10 absolute mt-1 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-            : "z-10 hidden absolute mt-1 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-        }
-      >
-        <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-          <div className="font-medium ">Pro User</div>
-          <div className="truncate">{userInfo.email}</div>
-        </div>
-        <ul
-          className="py-2 text-sm text-gray-700 dark:text-gray-200"
-          aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton"
-        >
-          <ProfileDropLinks />
-        </ul>
-        <div className="py-2">
-          <button
-            onClick={() => logOut()}
-            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-          >
-            Sign out
-          </button>
-        </div>
-      </div>
+
+    <div className="dropdown">
+      <label tabIndex={0} className=" flex items-center active:scale-95 duration-75 cursor-pointer border rounded-full pr-3 ">
+        {userInfo.profileImage ?
+              <><img className="w-10 h-10 mr-2 rounded-full object-cover" src={userInfo.profileImage} alt="user photo" /></>
+              : <img className="w-10 h-10 mr-2 rounded-full object-cover" src={noProfile} alt="user photo" />
+            }
+        <span className=''>{userInfo.name}</span>
+      </label>
+      <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+        <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/myProfile'>Profile</Link></li>
+        <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/paymentHistory'>Payment History</Link></li>
+        <li onClick={() => logOut()} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded-lg">Sign out</li>
+      </ul>
+
     </div>
   );
 };

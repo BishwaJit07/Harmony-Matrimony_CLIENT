@@ -11,6 +11,7 @@ import "swiper/css";
 import Loading from "../../../Shared/Loading";
 const BlogDetails = () => {
   const data = useLoaderData();
+  console.log(data);
   const [latests, setLatests] = useState([]);
   const [loading, setLoading] = useState(true);
 
