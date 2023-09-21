@@ -15,12 +15,9 @@ const Approve = ({user, index,handleMakeDenied}) => {
        
        >
          <td className="text-black ">{index + 1}</td>
-         <td scope="row" className="flex items-center px-6 py-4 whitespace-nowrap ">
-           <img className="w-10 h-10 rounded-full" src={user?.profileImage} alt="Jese image" />
-         </td>
+         <td scope="row" className="flex items-center px-6 py-4 whitespace-nowrap "><img className="w-10 h-10 rounded-full" src={user?.profileImage} alt="Jese image" /></td>
          <td> <div className="text-black ">{user?.name}</div></td>
          <td> <div className="text-black ">{user?.role}</div></td>
-       
          <td></td>
        </motion.tr>
     );

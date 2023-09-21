@@ -10,15 +10,12 @@ import { useState } from "react";
 
 const BlogCard = ({ data, react, setReact }) => {
 const [love, setLove] = useState(false);
-  console.log(love)
   const handleReactInc = id => {
-    console.log(id);
     fetch(`https://soulmates-server.vercel.app/blogs/${id}`, {
       method: "PATCH",
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           setReact(!react)
         }
@@ -30,7 +27,6 @@ const [love, setLove] = useState(false);
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           setReact(!react)
         }

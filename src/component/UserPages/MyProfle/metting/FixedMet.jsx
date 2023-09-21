@@ -61,7 +61,7 @@ const FixedMet = ({ partnerUserID }) => {
     <div>
       <button
         onClick={showModal}
-        className="py-4 px-4 bg-[#128587] text-[#F0F2F5] rounded-full"
+        className="py-4 px-6 bg-[#128587] text-[#F0F2F5] rounded-full"
       >
         Invite Meeting
       </button>

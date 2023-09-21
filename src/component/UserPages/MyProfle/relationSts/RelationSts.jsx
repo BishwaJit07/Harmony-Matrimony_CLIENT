@@ -58,20 +58,20 @@ const RelationSts = ({ partnerUser }) => {
   };
 
   return (
-    <div>
+    <div className="select-none">
       {disable ? (
         <button
           onClick={handleDelRelation}
-          className="py-4 px-4 bg-[#2F9D54] text-[#F0F2F5] rounded-full"
+          className="py-4 px-6 outline  text-red-500  rounded-full outline-2 outline-red-500 outline-offset-0 "
         >
-          Req Sent
+          Cancel Request
         </button>
       ) : (
         <button
           onClick={handleRelation}
-          className="py-4 px-4 bg-[#2F9D54] text-[#F0F2F5] rounded-full"
+          className="py-4 px-6 bg-[#2F9D54] text-[#F0F2F5] rounded-full"
         >
-          Relationship Req
+          Relationship Request
         </button>
       )}
     </div>
