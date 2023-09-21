@@ -31,8 +31,7 @@ const AllUser = () => {
   const [height, setheight] = useState(null);
   const [weight, setWeight] = useState(null);
   const [job, setJob] = useState(null);
-  console.log(userData)
-  console.log(filteredUsers)
+
 
   const handleAgeChange = (newAgeRange) => {
     setAgeRange(newAgeRange);
@@ -608,7 +607,7 @@ const AllUser = () => {
       <div className="bg-[#FDE8E8] h-[235px]">
         <div className="max-w-7xl mx-auto h-full flex justify-between items-center">
           <div className="ms-4 text-left">
-            <p className="font-alice text-[28px] text-[#272932]">" Discover Your Perfect Match "</p>
+            <p className="font-alice text-[28px] text-[#272932]">Discover Your Perfect Match</p>
             <p className="text-[#3E4A5B]">Unlock a world of possibilities as you browse through a <br /> diverse collection of partner profiles,  where true love stories begin </p>
             <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/allUser'>Explore</Link></p>
           </div>

@@ -64,7 +64,6 @@ const Profile = () => {
     yearlyIncome,
     drinkHabit,
     foodHabit,
-    interests,
   } = user;
 
   useEffect(() => {

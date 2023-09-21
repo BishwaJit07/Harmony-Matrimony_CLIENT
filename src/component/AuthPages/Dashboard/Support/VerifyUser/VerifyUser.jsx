@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 const VerifyUser = () => {
   const [verify, setVerify] = useState([]);
   const [loading, setLoading] = useState(true)
-  console.log(verify)
+
   useEffect(() => {
     // Fetch data only when the component mounts
     fetch('https://soulmates-server.vercel.app/verifyUser')

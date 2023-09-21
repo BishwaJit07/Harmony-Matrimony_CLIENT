@@ -19,14 +19,15 @@ const Messenger = () => {
     const [onlineUsers, setOnlineUsers] = useState([]);
     const [userInfo, refetch] = useMyData();
     const socket = useRef();
-    const scrollRef = useRef();
+    const messagesEndRef = useRef(null);
     const [arrivalMessage, setArrivalMessage] = useState(null);
     const [lastMessages, setLastMessages] = useState([]);
     const [friend, setFriend] = useState(null);
-
+    console.log(userInfo)
     useEffect(() => {
-        socket.current = io('https://socket-io-chat-app-5f87e6d4f1ce.herokuapp.com/');
+        socket.current = io('https://socketio2.onrender.com');
         socket.current.on('getMessage', (data) => {
+            console.log(data)
             setArrivalMessage({
                 sender: data.senderId,
                 text: data.text,
@@ -138,7 +139,7 @@ const Messenger = () => {
     };
 
     useEffect(() => {
-        scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
 
     return (
@@ -162,7 +163,7 @@ const Messenger = () => {
             </div>
             {/* chat box */}
             <div className='chatBox bg-red-50 '>
-                <div className="sticky  bg-red-100">
+                <div className="sticky bg-red-100">
                     <div className="flex justify-between px-5 py-5 items-center shadow-sm flex-none">
                         {/* img and name */}
                         <div className="flex items-center gap-2">
@@ -183,9 +184,12 @@ const Messenger = () => {
                     {currentChat ? (
                         <>
                             <div className="chatBoxTop hide-scrollbar">
-                                {messages.map(message => (
-                                    <div  key={message._id}><Message message={message} own={message.sender === userInfo._id} /></div>
+                               <div>
+                               {messages.map(message => (
+                                <Message key={message._id} message={message} own={message.sender === userInfo._id} />
                                 ))}
+                                <div ref={messagesEndRef}></div>
+                               </div>
                             </div>
                             <div className="px-4 flex-none flex justify-between items-center chatBoxBottom bg-red-50">
                                 <textarea className='font-lato text-[20px] w-[90%] bg-[#EDDEDE] px-5 py-3 rounded-xl resize-x  textarea chatMessageInput' placeholder='Message...' type="text" onChange={(e) => setNewMessages(e.target.value)} value={newMessages} />
