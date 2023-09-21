@@ -11,12 +11,14 @@ import { SwiperNavButtons } from './SwiperNavButton';
 import line from "../../../../assets/Shared/line.png"
 
 const HappyStory = () => {
-  const [reviews, setReview] = useState([]);
+  const [reviews, setReview] = useState(null);
   useEffect(() => {
     fetch("https://soulmates-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, []);
+  
+  console.log(reviews)
   return (
     <div className="max-w-7xl mx-auto overflow-hidden my-[110px]">
       <p className="text-[45px] mb-1 font-alice text-center dark:text-white">Happy Story</p>
@@ -38,9 +40,10 @@ const HappyStory = () => {
           grabCursor={true}
           className="mySwiper-review"
         >
-          {
-            reviews?.map(review => <SwiperSlide key={review._id} >
-              
+
+          {reviews ? <>{
+            reviews.map(review => <SwiperSlide key={review._id} >
+
               <div className="bg-white p-6 grid grid-cols-1  lg:grid-cols-2 gap-4 border border-[#C3CAD5] rounded-2xl dark:bg-gray-500">
                 <div className="order-last lg:order-first">
                   <p className='text-[#595E73] text-[18px] font-lato font-normal dark:text-white'>{review.review.slice(0, 250)} <span className='text-red-600'>See More</span></p>
@@ -50,7 +53,7 @@ const HappyStory = () => {
                 <img className='h-[311px] w-full  rounded-2xl object-cover object-top' src={review.imageURL} alt="" />
               </div>
             </SwiperSlide>)
-          }
+          }</> : <></>}
           <div className="absolute -left-[420px] bottom-10">
             <SwiperNavButtons />
           </div>

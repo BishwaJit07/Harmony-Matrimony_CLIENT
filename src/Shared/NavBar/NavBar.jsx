@@ -19,12 +19,10 @@ const NavBar = () => {
       .catch((error) => console.log(error));
   };
 
-  
-
   return (
-    <Headroom className="bg-white dark:bg-gray-400"
+    <Headroom
+      className="bg-white dark:bg-gray-400"
       style={{
-       
         zIndex: 50,
         boxShadow:
           "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
@@ -88,6 +86,7 @@ const NavBar = () => {
           )}
         </div>
       </div>
+   
     </Headroom>
   );
 };

@@ -3,9 +3,7 @@
     display: flex;
   }
   
-  .chatMenu {
-    flex: 3.5;
-  }
+
   
   .chatMenuInput {
     width: 90%;

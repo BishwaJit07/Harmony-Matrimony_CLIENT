@@ -79,7 +79,7 @@ const UserProfile = () => {
   const handlePartnerDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
-      text: `You won't be able to delete this! ${id}`,
+      text: `You won't be able to delete this!`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -108,7 +108,7 @@ const UserProfile = () => {
   return (
     <div className="max-w-7xl mx-auto mt-4 dark:bg-gray-300 rounded-xl">
       {/* grid section */}
-      <div className="flex flex-col md:flex-row gap-4 font-lato text-[#3E4A5B]">
+      <div className="flex flex-col md:flex-row gap-4 font-lato text-[#778599]">
         {/* user info section */}
         <div className="md:w-[60%] ">
           {/* banner and profile img */}
@@ -409,17 +409,13 @@ const Hobbies = () => {
   const { interests } = userInfo;
 
   return (
-   <div>
-     
+    <div>
       <div className="flex gap-3 flex-wrap">
-      {interests?.map((interest, index) => (
-        <HBox key={index} value={interest} />
-      ))}
+        {interests?.map((interest, index) => (
+          <HBox key={index} value={interest} />
+        ))}
+      </div>
     </div>
-    
-   
-   </div>
-    
   );
 };
 
