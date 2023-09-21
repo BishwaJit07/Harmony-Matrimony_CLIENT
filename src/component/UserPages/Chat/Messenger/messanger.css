@@ -16,6 +16,7 @@
 
 .chatBox {
   flex: 5.5;
+  height: calc(100vh - 170px);
 }
 
 .chatBoxWrapper {
@@ -26,13 +27,12 @@
 }
 
 .chatBoxTop {
-  height: 100%;
+
   overflow-y: scroll;
-  padding-right: 10px;
-  scroll-behavior: smooth; /* Enable smooth scrolling */
-  display: flex;
-  flex-direction: column-reverse; /* Reverse message order to show the latest at the bottom */
+
+ /* Reverse message order to show the latest at the bottom */
 }
+
 
 .chatBoxBottom {
   margin-top: 5px;
