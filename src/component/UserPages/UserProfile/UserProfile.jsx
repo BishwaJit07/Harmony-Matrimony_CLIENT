@@ -18,7 +18,6 @@ import file from "../../../assets/other/file.png";
 import useMyData from "../../../Hooks/useMyData";
 import Swal from "sweetalert2";
 import Follow from "../MyProfle/follow/Follow";
-import Proposal from "../MyProfle/proposal/Proposal";
 import ShowRltnNotify from "../MyProfle/relationSts/ShowRltnNotify";
 import { Link } from "react-router-dom";
 import { useRelationInfo } from "../../../utilities/utilities";
@@ -227,7 +226,6 @@ const UserProfile = () => {
           <ShowRltnNotify />
           <MetForUser />
           <Follow />
-          <Proposal />
           <BoxBorderContent title="Hobbies" content={<Hobbies />} />
           <BoxBorderContent title="Social Media" content={<SocialMedia />} />
           <Plan />

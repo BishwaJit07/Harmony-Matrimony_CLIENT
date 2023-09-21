@@ -58,20 +58,13 @@ export const updateStatus = (path, upId, newStatus, refetch) => {
   const data = {
     status: newStatus,
   };
-  axios.put(`https://soulmates-server.vercel.app/${path}/${upId}`, data).then((response) => {
-    if (response.data.modifiedCount > 0) {
-      refetch();
-    }
-  });
-};
-
-export const useProposalInfo = (id) => {
-  const { refetch: refetchProposal, data: proposal = [] } = useCustomQuery(
-    ["proposal", id],
-    `https://soulmates-server.vercel.app/getProposal/${id}`
-  );
-
-  return { refetchProposal, proposal };
+  axios
+    .put(`https://soulmates-server.vercel.app/${path}/${upId}`, data)
+    .then((response) => {
+      if (response.data.modifiedCount > 0) {
+        refetch();
+      }
+    });
 };
 
 export const useRelationInfo = (id) => {
@@ -91,31 +84,35 @@ export const performAction = (
   data,
   successCallback
 ) => {
-  axios.get(`https://soulmates-server.vercel.app/${getpath}/${id}`).then((response) => {
-    if (response.data.userId) {
-      axios
-        .put(`https://soulmates-server.vercel.app/${putPath}/${id}`, data)
-        .then((response) => {
-          if (response.data.modifiedCount > 0) {
-            successCallback();
-          }
-        });
-    } else {
-      axios
-        .post(`https://soulmates-server.vercel.app/${postPath}/${id}`, data)
-        .then((response) => {
-          if (response.data.insertedId) {
-            successCallback();
-          }
-        });
-    }
-  });
+  axios
+    .get(`https://soulmates-server.vercel.app/${getpath}/${id}`)
+    .then((response) => {
+      if (response.data.userId) {
+        axios
+          .put(`https://soulmates-server.vercel.app/${putPath}/${id}`, data)
+          .then((response) => {
+            if (response.data.modifiedCount > 0) {
+              successCallback();
+            }
+          });
+      } else {
+        axios
+          .post(`https://soulmates-server.vercel.app/${postPath}/${id}`, data)
+          .then((response) => {
+            if (response.data.insertedId) {
+              successCallback();
+            }
+          });
+      }
+    });
 };
 
 export const unFlwDelAction = (id, data, func) => {
-  axios.put(`https://soulmates-server.vercel.app/delRltn/${id}`, data).then((response) => {
-    if (response.data.modifiedCount > 0) {
-      func();
-    }
-  });
+  axios
+    .put(`https://soulmates-server.vercel.app/delRltn/${id}`, data)
+    .then((response) => {
+      if (response.data.modifiedCount > 0) {
+        func();
+      }
+    });
 };
