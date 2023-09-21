@@ -21,14 +21,14 @@ const NavBar = () => {
 
   return (
     <Headroom
-      className="bg-white dark:bg-gray-400"
+      className="bg-white dark:bg-gray-400 "
       style={{
         zIndex: 50,
         boxShadow:
           "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
       }}
     >
-      <div className="navbar bg-base-100  px-20 select-none dark:bg-gray-400 dark:text-white">
+      <div className="navbar  px-20 select-none dark:bg-gray-400 dark:text-white bg-[#E8FCFC]">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

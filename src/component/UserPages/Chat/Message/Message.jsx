@@ -8,6 +8,7 @@ import noProfile from "../../../../assets/other/blank.png"
 
 const Message = ({ message, own }) => {
     const [user, setUser] = useState(null);
+    console.log(message, user)
 
     useEffect(() => {
         const getUser = async () => {
@@ -22,8 +23,7 @@ const Message = ({ message, own }) => {
         }
         getUser()
     }, [message])
-
-
+    
     return (
       <>
             <div className={ own ? "chat chat-end mb-2" : "chat chat-start mb-2"}>
@@ -38,7 +38,7 @@ const Message = ({ message, own }) => {
                 <div className="chat-header">
                     {user?.name}
                 </div>
-                <div className="chat-bubble bg-[#FF7474]  text-white ">{message?.text}</div>
+                <div  className={ own ? "chat-bubble bg-[#FF7474]  text-white  " : "chat-bubble  bg-white  text-black"}>{message?.text}</div>
                     <time className=" text-xs opacity-50 text-center">{format(message?.createdAt)}</time>
             </div>
       

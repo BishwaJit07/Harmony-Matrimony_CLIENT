@@ -9,6 +9,7 @@ const SingleUserCard = ({ filteredUser }) => {
   const [userInfo, refetch] = useMyData();
   const navigate = useNavigate();
 
+
   const {
     profileImage,
     name,

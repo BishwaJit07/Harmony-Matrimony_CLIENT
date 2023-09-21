@@ -9,7 +9,7 @@ const Follow = () => {
   const [userInfo] = useMyData();
   const [following, setFollowing] = useState([]);
   const [followers, setFollowers] = useState([]);
-
+  console.log(followers,following)
   useEffect(() => {
     axios
       .get(`https://soulmates-server.vercel.app/showFlowing/${userInfo._id}`)

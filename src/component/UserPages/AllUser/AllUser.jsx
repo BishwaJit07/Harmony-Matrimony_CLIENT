@@ -31,7 +31,8 @@ const AllUser = () => {
   const [height, setheight] = useState(null);
   const [weight, setWeight] = useState(null);
   const [job, setJob] = useState(null);
-
+  console.log(userData)
+  console.log(filteredUsers)
 
   const handleAgeChange = (newAgeRange) => {
     setAgeRange(newAgeRange);

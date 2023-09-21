@@ -10,7 +10,7 @@ import { useState } from "react";
 
 const BlogCard = ({ data, react, setReact }) => {
 const [love, setLove] = useState(false);
-
+  console.log(love)
   const handleReactInc = id => {
     console.log(id);
     fetch(`https://soulmates-server.vercel.app/blogs/${id}`, {
