@@ -19,11 +19,29 @@ import useMyData from "../../../Hooks/useMyData";
 import Swal from "sweetalert2";
 import Follow from "../MyProfle/follow/Follow";
 import Proposal from "../MyProfle/proposal/Proposal";
+import ShowRltnNotify from "../MyProfle/relationSts/ShowRltnNotify";
+import { Link } from "react-router-dom";
+import { useRelationInfo } from "../../../utilities/utilities";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const UserProfile = () => {
   const [userInfo] = useMyData();
+  const [partner, setPartner] = useState();
 
-  const { profileImage, name, email, _id, profileVisit } = userInfo;
+  const { refetchRelation, relationship } = useRelationInfo(userInfo._id);
+
+  useEffect(() => {
+    if (relationship[0]?.partner1 !== undefined) {
+      setPartner(relationship[0]?.partner1);
+    } else if (relationship[0]?.partner2 !== undefined) {
+      setPartner(relationship[0]?.partner2);
+    } else {
+      setPartner([]);
+    }
+  }, [relationship]);
+
+  const { profileImage, name, email, _id, profileVisit, status } = userInfo;
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -58,10 +76,39 @@ const UserProfile = () => {
     });
   };
 
+  const handlePartnerDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `You won't be able to delete this!`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          "Deleted",
+          "Wait a few second for changes or reload the page",
+          "success"
+        );
+        axios
+          .delete(
+            `https://soulmates-server.vercel.app/delPartner/${id}/${userInfo._id}/${partner._id}`
+          )
+          .then((response) => {
+            if (response.data.deletedCount > 0) {
+              refetchRelation();
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div className="max-w-7xl mx-auto mt-4 dark:bg-gray-300 rounded-xl">
       {/* grid section */}
-      <div className="flex flex-col md:flex-row gap-4 font-lato text-[#3E4A5B]">
+      <div className="flex flex-col md:flex-row gap-4 font-lato text-[#778599]">
         {/* user info section */}
         <div className="md:w-[60%] ">
           {/* banner and profile img */}
@@ -105,26 +152,65 @@ const UserProfile = () => {
                   </div>
                 </div>
                 {/* follow section */}
-                <div className="flex justify-between mt-5 mr-8 md:mr-0">
-                  <div className="text-[18px] text-center">
-                    <p className="font-bold">100</p>
-                    <p>Sent Interested</p>
-                  </div>
-                  <div className="text-[18px] text-center">
-                    <p className="font-bold">400</p>
-                    <p>Followers</p>
-                  </div>
-                  <div className="text-[18px] text-center ">
-                    <p className="font-bold">2500</p>
-                    <p>Following</p>
-                  </div>
-                  <div className="text-[18px] text-center ">
-                    <p className="font-bold">
-                      {profileVisit < 0 ? 0 : profileVisit}
+                {status === "successful" ? (
+                  <div className="flex justify-between mt-5">
+                    <p>
+                      Married with <Link>{partner?.name}</Link>
                     </p>
-                    <p>Visit remaining</p>
+
+                    <div className="flex items-center space-x-4 p-4 border-b border-gray-300">
+                      <Link
+                        to={`/profile/${partner?._id}`}
+                        className="flex items-center gap-3"
+                      >
+                        <div className="flex-shrink-0">
+                          <img
+                            src={partner?.profileImage}
+                            className="h-12 w-12 rounded-full"
+                          />
+                        </div>
+
+                        <div className="flex-grow">
+                          <p className="text-lg font-medium text-gray-800">
+                            {partner?.name}
+                          </p>
+                        </div>
+                      </Link>
+                      <div className="flex-grow">
+                        <button
+                          onClick={() =>
+                            handlePartnerDelete(relationship[0]?._id)
+                          }
+                          className="bg-primary-300 px-[8px] py-[6px] rounded-full tooltip"
+                          data-tip="Delete Profile"
+                        >
+                          <AiOutlineDelete className="text-white text-1xl" />
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="flex justify-between mt-5 mr-8 md:mr-0">
+                    <div className="text-[18px] text-center">
+                      <p className="font-bold">100</p>
+                      <p>Sent Interested</p>
+                    </div>
+                    <div className="text-[18px] text-center">
+                      <p className="font-bold">400</p>
+                      <p>Followers</p>
+                    </div>
+                    <div className="text-[18px] text-center ">
+                      <p className="font-bold">2500</p>
+                      <p>Following</p>
+                    </div>
+                    <div className="text-[18px] text-center ">
+                      <p className="font-bold">
+                        {profileVisit < 0 ? 0 : profileVisit}
+                      </p>
+                      <p>Visit remaining</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -138,6 +224,7 @@ const UserProfile = () => {
 
         {/* other section */}
         <div className=" md:w-[40%]">
+          <ShowRltnNotify />
           <MetForUser />
           <Follow />
           <Proposal />
@@ -249,8 +336,6 @@ const PersonalInfo = () => {
     foodHabit,
   } = userInfo;
 
-  console.log(userInfo);
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2">
       <div className="">
@@ -324,10 +409,12 @@ const Hobbies = () => {
   const { interests } = userInfo;
 
   return (
-    <div className="flex gap-3 flex-wrap">
-      {interests?.map((interest, index) => (
-        <HBox key={index} value={interest} />
-      ))}
+    <div>
+      <div className="flex gap-3 flex-wrap">
+        {interests?.map((interest, index) => (
+          <HBox key={index} value={interest} />
+        ))}
+      </div>
     </div>
   );
 };

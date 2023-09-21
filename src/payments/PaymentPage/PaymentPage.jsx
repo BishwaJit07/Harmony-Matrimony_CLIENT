@@ -32,7 +32,7 @@ const PaymentPage = () => {
             alt=""
           />
         </div>
-        <div className="w-full bg-slate-50 p-2 rounded-md">
+        <div className="w-full bg-slate-50 p-2 rounded-md dark:bg-gray-400">
           <h3 className="dark:text-white text-center my-2 font-bold text-red-500">
             Select Your Favourite Payment Method
             <hr className="my-4" />

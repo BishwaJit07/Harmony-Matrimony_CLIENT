@@ -19,14 +19,16 @@ const NavBar = () => {
       .catch((error) => console.log(error));
   };
 
-  
-
   return (
-    <Headroom 
-     
+    <Headroom
+      className="bg-white dark:bg-gray-400 "
+      style={{
+        zIndex: 50,
+        boxShadow:
+          "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
+      }}
     >
-    <div>
-    <div className="navbar bg-base-100 w-[80%]  mx-auto select-none dark:bg-gray-500 dark:text-white bg-[#E8FCFC]">
+      <div className="navbar  px-20 select-none dark:bg-gray-400 dark:text-white bg-[#E8FCFC]">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -84,7 +86,7 @@ const NavBar = () => {
           )}
         </div>
       </div>
-    </div>
+   
     </Headroom>
   );
 };
@@ -92,7 +94,7 @@ const NavBar = () => {
 const NavItems = () => {
   return (
     <>
-      <li className=" font-semibold text-base  dark:bg-gray-500 dark:text-white">
+      <li className=" font-semibold text-base dark:bg-gray-400 dark:text-white">
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -103,7 +105,7 @@ const NavItems = () => {
           Home
         </NavLink>
       </li>
-      <li className=" font-semibold text-base dark:bg-gray-500 dark:text-white">
+      <li className=" font-semibold text-base dark:bg-gray-400 dark:text-white">
         <NavLink
           to="/allUser"
           className={({ isActive }) =>
@@ -114,7 +116,7 @@ const NavItems = () => {
           Explore
         </NavLink>
       </li>
-      <li className=" font-semibold text-base dark:bg-gray-500 dark:text-white">
+      <li className=" font-semibold text-base dark:bg-gray-400 dark:text-white">
         <NavLink
           to="/about"
           className={({ isActive }) =>
@@ -125,7 +127,7 @@ const NavItems = () => {
           About us
         </NavLink>
       </li>
-      <li className=" font-semibold text-base dark:bg-gray-500 dark:text-white">
+      <li className=" font-semibold text-base dark:bg-gray-400 dark:text-white">
         <NavLink
           to="/blog"
           className={({ isActive }) =>
@@ -136,7 +138,7 @@ const NavItems = () => {
           Blog
         </NavLink>
       </li>
-      <li className=" font-semibold text-base dark:bg-gray-500 dark:text-white">
+      <li className=" font-semibold text-base dark:bg-gray-400 dark:text-white">
         <NavLink
           to="/plans"
           className={({ isActive }) =>
@@ -201,7 +203,7 @@ const DropdownProfile = ({ userInfo, logOut }) => {
             alt="user photo"
           />
         )}
-        <span className="dark:text-gray-200">{userInfo.name}</span>
+        <span className="dark:text-white">{userInfo.name}</span>
         <svg
           className="w-2.5 h-2.5 ml-2.5 dark:text-red-400"
           aria-hidden="true"

@@ -42,6 +42,7 @@ const HappyStory = () => {
         >
           {reviews ? (
             reviews.map(review => <SwiperSlide key={review._id} >
+
               <div className="bg-white p-6 grid grid-cols-1  lg:grid-cols-2 gap-4 border border-[#C3CAD5] rounded-2xl dark:bg-gray-500">
                 <div className="order-last lg:order-first">
                   <p className='text-[#595E73] text-[18px] font-lato font-normal dark:text-white'>{review.review.slice(0, 250)} <span className='text-red-600'>See More</span></p>

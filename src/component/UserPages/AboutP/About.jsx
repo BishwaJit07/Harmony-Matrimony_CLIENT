@@ -96,7 +96,7 @@ const About = () => {
           <br />
           <Link to='/plans'>Click here to Start you Soulmate Finding Journy now.</Link>
           <hr />
-          <p className="font-alice text-[28px]">{"Where the search for love meets a world of possibilities. We're delighted to have you here, embarking on the path to a lifetime of happiness. Explore, connect, and let us help you find that special someone who will make your heart skip a beat"}</p>
+          <p className="">{"Where the search for love meets a world of possibilities. We're delighted to have you here, embarking on the path to a lifetime of happiness. Explore, connect, and let us help you find that special someone who will make your heart skip a beat"}</p>
 
           <div className="md:flex gap-10 space-y-6 md:space-y-0 ">
             <div className="flex items-center gap-3">
