@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 const HappyStory = () => {
   const [reviews, setReview] = useState([]); // Initialize as an empty array
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://soulmates-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, []);

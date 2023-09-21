@@ -8,7 +8,7 @@ const Main = () => {
     const location = useLocation();
     const removeFoother = location.pathname.includes("/message")
     return (
-        <div >
+        <div className='dark:bg-gray-800'>
             <ScrollToTop/>
             <NavBar />
             <Outlet/>

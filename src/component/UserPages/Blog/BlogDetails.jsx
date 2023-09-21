@@ -2,7 +2,7 @@ import {
   AiOutlineCalendar,
   AiFillHeart,
 } from "react-icons/ai";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { useEffect, useState } from "react";
 
@@ -10,10 +10,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Loading from "../../../Shared/Loading";
 const BlogDetails = () => {
-  const data = useLoaderData();
-  console.log(data);
+ 
   const [latests, setLatests] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const params = useParams();
+  const [data, setData] = useState([]);
+  useEffect(() => {
+      fetch(`https://soulmates-server.vercel.app/blogs/${params.id}`)
+          .then(res => res.json())
+          .then(data => setData(data));
+  }, [params.id])
+
 
   useEffect(() => {
     fetch("https://soulmates-server.vercel.app/blogsLatest")
@@ -37,7 +45,7 @@ const BlogDetails = () => {
 
   return (
     <div className="dark:bg-gray-400">
-      <div className="">
+      {/* <div className="">
         <div className="ms-20 lg:ms-96 lg:mx-10 mx-20 my-8 lg:my-5 lg:w-1/2 w-full">
           <img
             className="lg:h-[500px] md:h-[400px] h-full w-48 md:w-[700px] lg:w-full  object-cover"
@@ -61,7 +69,25 @@ const BlogDetails = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
+
+<div className="card lg:card-side bg-base-100 shadow-xl dark:bg-gray-700 flex ">
+  <figure style={{ flex: '40%' }}><img src={data.image} alt="Album" /></figure>
+  <div style={{ flex: '60%' }} className="card-body flex flex-col justify-center items-center text-center dark:text-white">
+    <h2 className="card-title">{data.title}</h2>
+    <p>{data.details}</p>
+    <div className="card-actions justify-end">
+      {data.date}
+      <p>
+        | <AiFillHeart className="inline-block text-red-600" />{" "}
+        {data.react}
+      </p>
+    </div>
+  </div>
+</div>
+
+  
+
       {/* Latest Blog Slide */}
 
       <div className=" mt-20 ms-16">

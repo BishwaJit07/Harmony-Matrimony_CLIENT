@@ -133,9 +133,9 @@ const AllUser = () => {
 
   const Filter = () => {
     return (
-      < >
+      < div className="">
         <div className="sticky top-0 ">
-          <div className="">
+          <div className="dark:bg-gray-500 p-2 rounded-xl">
             <div className="w-[350px] hidden lg:block">
               <h2 className="flex items-center text-[22px] font-alice gap-2 w-[80%] mx-auto -mt-4">
                 <BiFilterAlt />
@@ -591,12 +591,12 @@ const AllUser = () => {
             </div>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 
   return (
-    <div className="">
+    <div className="dark:bg-gray-800">
       {/* Title */}
       <Helmet>
         <meta charSet="utf-8" />
@@ -605,7 +605,7 @@ const AllUser = () => {
       
             {/* banner */}
       <div className="bg-[#FDE8E8] h-[235px]">
-        <div className="max-w-7xl mx-auto h-full flex justify-between items-center">
+        <div className="max-w-7xl mx-auto h-full flex justify-between items-center ">
           <div className="ms-4 text-left">
             <p className="font-alice text-[28px] text-[#272932]">Discover Your Perfect Match</p>
             <p className="text-[#3E4A5B]">Unlock a world of possibilities as you browse through a <br /> diverse collection of partner profiles,  where true love stories begin </p>
@@ -617,7 +617,7 @@ const AllUser = () => {
       
 
       {/* Filter lg */}
-      <div className="lg:flex select-none z-20 ">
+      <div className="lg:flex select-none z-20 dark:bg-gray-800">
         <div className="hidden lg:block py-8 bg-[#F0F2F5] w-[350px]  dark:bg-gray-500 dark:text-white">
           <Filter></Filter>
         </div>
