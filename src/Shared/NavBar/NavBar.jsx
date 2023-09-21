@@ -1,39 +1,62 @@
-import { Link, NavLink } from 'react-router-dom';
-import logo from '../../assets/logo/logo3.png'
-import useMyData from '../../Hooks/useMyData';
-import noProfile from "../../assets/other/blank.png"
-import { useContext, useState } from 'react';
-import { AuthContext } from '../../Provider/AuthProvider';
-import Headroom from 'react-headroom'
-import './NavBar.css'
-import { DarkMode } from '../DarkMode/DarkMode';
+import { Link, NavLink } from "react-router-dom";
+import logo from "../../assets/logo/logo3.png";
+import useMyData from "../../Hooks/useMyData";
+import noProfile from "../../assets/other/blank.png";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Headroom from "react-headroom";
+import "./NavBar.css";
+import { DarkMode } from "../DarkMode/DarkMode";
 import { AiFillMessage } from "react-icons/ai";
 const NavBar = () => {
   // if you need to add new links in navbar, add it in li element
   const [userInfo] = useMyData();
   const { user, logOut } = useContext(AuthContext);
 
-
   const handleLogOut = () => {
     logOut()
-      .then(() => { })
+      .then(() => {})
       .catch((error) => console.log(error));
   };
 
   return (
-
-    <Headroom style={{ backgroundColor: "white", zIndex: 50, boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px" }} >
-      <div className="navbar bg-base-100 w-[80%] mx-auto select-none ">
+    <Headroom
+      className="bg-white dark:bg-gray-400"
+      style={{
+        zIndex: 50,
+        boxShadow:
+          "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
+      }}
+    >
+      <div className="navbar bg-base-100  px-20 select-none dark:bg-gray-400 dark:text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
             </label>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
               <NavItems></NavItems>
             </ul>
           </div>
-          <Link to="/" className='hidden md:flex'><img className='scale-75' src={logo} alt="" /></Link>
+          <Link to="/" className="hidden md:flex">
+            <img className="scale-75" src={logo} alt="" />
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1">
@@ -45,44 +68,103 @@ const NavBar = () => {
 
           {user ? (
             <>
-              <div><Link to="/message"><AiFillMessage className='text-3xl mr-2 text-red-400' /></Link></div>
+              <div>
+                <Link to="/message">
+                  <AiFillMessage className="text-3xl mr-2 text-red-400" />
+                </Link>
+              </div>
               <DropdownProfile userInfo={userInfo} logOut={handleLogOut} />
             </>
           ) : (
             <div className="">
               <Link to="/signup">
-                <button className='bg-primary-500 rounded-full text-white px-10 py-2   justify-center items-center hidden md:flex'>Join Now</button>
+                <button className="bg-primary-500 rounded-full text-white px-10 py-2   justify-center items-center hidden md:flex">
+                  Join Now
+                </button>
               </Link>
             </div>
           )}
-
         </div>
       </div>
+   
     </Headroom>
   );
 };
 
 const NavItems = () => {
   return (
-    < >
-      <li className=' font-semibold text-base '><NavLink to="/" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>Home</NavLink></li>
-      <li className=' font-semibold text-base'><NavLink to="/allUser" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>Explore</NavLink></li>
-      <li className=' font-semibold text-base'><NavLink to="/about" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>About us</NavLink></li>
-      <li className=' font-semibold text-base'><NavLink to="/blog" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>Blog</NavLink></li>
-      <li className=' font-semibold text-base '><NavLink to="/plans" className={({ isActive }) => (isActive && 'w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]')}>Plans</NavLink></li>
+    <>
+      <li className=" font-semibold text-base dark:bg-gray-400 dark:text-white">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive &&
+            "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px] dark:text-white"
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li className=" font-semibold text-base dark:bg-gray-400 dark:text-white">
+        <NavLink
+          to="/allUser"
+          className={({ isActive }) =>
+            isActive &&
+            "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px] "
+          }
+        >
+          Explore
+        </NavLink>
+      </li>
+      <li className=" font-semibold text-base dark:bg-gray-400 dark:text-white">
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive &&
+            "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]"
+          }
+        >
+          About us
+        </NavLink>
+      </li>
+      <li className=" font-semibold text-base dark:bg-gray-400 dark:text-white">
+        <NavLink
+          to="/blog"
+          className={({ isActive }) =>
+            isActive &&
+            "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]"
+          }
+        >
+          Blog
+        </NavLink>
+      </li>
+      <li className=" font-semibold text-base dark:bg-gray-400 dark:text-white">
+        <NavLink
+          to="/plans"
+          className={({ isActive }) =>
+            isActive &&
+            "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]"
+          }
+        >
+          Plans
+        </NavLink>
+      </li>
     </>
   );
-}
+};
 
 // profile dropdown links
 const ProfileDropLinks = () => {
   return (
     <>
+
       <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/myProfile'>Profile</Link></li>
       <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/paymentHistory'>Payment History</Link></li>
+
     </>
-  )
-}
+  );
+};
+
 
 const DropdownProfile = ({ userInfo, logOut, }) => {
   return (
@@ -100,8 +182,9 @@ const DropdownProfile = ({ userInfo, logOut, }) => {
         <li><Link className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" to='/paymentHistory'>Payment History</Link></li>
         <li onClick={() => logOut()} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white rounded-lg">Sign out</li>
       </ul>
+
     </div>
-  )
-}
+  );
+};
 
 export default NavBar;

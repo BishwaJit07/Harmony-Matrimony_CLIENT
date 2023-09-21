@@ -48,8 +48,6 @@ import SupportRoute from "./SupportRoute";
 import ChatPage from "../component/UserPages/ChatDesign/ChatPage";
 import PaymentHistory from "../payments/PaymentHistory/PaymentHistory";
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -102,7 +100,7 @@ const router = createBrowserRouter([
       {
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>,
-        loader: ({ params }) => fetch(`https://soulmate-server-routed.vercel.app/blogsDetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://soulmates-server.vercel.app/blogsDetails/${params.id}`)
 
       },
       {
@@ -168,7 +166,7 @@ const router = createBrowserRouter([
       {
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
-        loader: ({ params }) => fetch(`https://soulmate-server-routed.vercel.app/service/${params.id}`),
+        loader: ({ params }) => fetch(`https://soulmates-server.vercel.app/service/${params.id}`),
 
       },
       {
@@ -243,7 +241,7 @@ const router = createBrowserRouter([
       },
       {
         path: "addBlog",
-        element: <SupportRoute><VerifyUser /></SupportRoute>
+        element: <SupportRoute><AddBlog /></SupportRoute>
       },
       {
         path:"userDetails",

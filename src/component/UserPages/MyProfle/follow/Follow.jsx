@@ -12,9 +12,7 @@ const Follow = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://soulmate-server-routed.vercel.app/showFlowing/${userInfo._id}`
-      )
+      .get(`https://soulmates-server.vercel.app/showFlowing/${userInfo._id}`)
       .then((response) => {
         if (response.data) {
           setFollowing(response.data?.favUser);
@@ -24,9 +22,7 @@ const Follow = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://soulmate-server-routed.vercel.app/showFlowers/${userInfo._id}`
-      )
+      .get(`https://soulmates-server.vercel.app/showFlowers/${userInfo._id}`)
       .then((response) => {
         if (response.data) {
           setFollowers(response.data);

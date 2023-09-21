@@ -34,7 +34,7 @@ const Userinfo4 = () => {
                 if (imgResponse.success) {
                     const imgUrl = imgResponse.data.display_url;
                     const userinfo = { profileImage: imgUrl, id: userInfo._id , profile_complete:70 }
-                    fetch('https://soulmate-server-routed.vercel.app/update4', {
+                    fetch('https://soulmates-server.vercel.app/update4', {
                         method: "PUT",
                         headers: {
                             "content-type": "application/json"
