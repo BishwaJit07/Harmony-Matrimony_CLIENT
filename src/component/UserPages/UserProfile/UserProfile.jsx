@@ -79,7 +79,7 @@ const UserProfile = () => {
   const handlePartnerDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
-      text: `You won't be able to delete this! ${id}`,
+      text: `You won't be able to delete this!`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -409,17 +409,13 @@ const Hobbies = () => {
   const { interests } = userInfo;
 
   return (
-   <div>
-     
+    <div>
       <div className="flex gap-3 flex-wrap">
-      {interests?.map((interest, index) => (
-        <HBox key={index} value={interest} />
-      ))}
+        {interests?.map((interest, index) => (
+          <HBox key={index} value={interest} />
+        ))}
+      </div>
     </div>
-    
-   
-   </div>
-    
   );
 };
 

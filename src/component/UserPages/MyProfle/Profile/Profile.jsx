@@ -74,9 +74,10 @@ const Profile = () => {
   }, [userInfo]);
 
   useEffect(() => {
-
     axios
-      .get(`https://soulmates-server.vercel.app/disableFav/${userInfo._id}/${user._id}`)
+      .get(
+        `https://soulmates-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
+      )
       .then((response) => {
         if (response.data.userId) {
           setDisable(true);
@@ -110,7 +111,10 @@ const Profile = () => {
       favImg: user.profileImage,
     };
     axios
-      .put(`https://soulmates-server.vercel.app/makeUnfollow/${userInfo._id}`, unfollow)
+      .put(
+        `https://soulmates-server.vercel.app/makeUnfollow/${userInfo._id}`,
+        unfollow
+      )
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           setDisable(false);
@@ -300,7 +304,7 @@ const Profile = () => {
                             Sent Interested
                           </button>
                         )} */}
-                        <FixedMet partnerUser={user} />
+                        <FixedMet partnerUserID={user?._id} />
 
                         <RelationSts partnerUser={user} />
                       </div>
