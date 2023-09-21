@@ -16,6 +16,7 @@
 
 .chatBox {
   flex: 5.5;
+  height: calc(100vh - 170px);
 }
 
 .chatBoxWrapper {

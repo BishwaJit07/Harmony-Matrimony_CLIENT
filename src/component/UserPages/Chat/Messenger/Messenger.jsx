@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { io } from 'socket.io-client';
 import axios from 'axios';
 import useMyData from '../../../../Hooks/useMyData';
@@ -162,7 +162,7 @@ const Messenger = () => {
             </div>
             {/* chat box */}
             <div className='chatBox bg-red-50 '>
-                <div className="sticky hidden bg-red-100">
+                <div className="sticky  bg-red-100">
                     <div className="flex justify-between px-5 py-5 items-center shadow-sm flex-none">
                         {/* img and name */}
                         <div className="flex items-center gap-2">
