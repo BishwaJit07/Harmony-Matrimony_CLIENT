@@ -19,7 +19,6 @@ import Contact from "./Contact";
 
 const About = () => {
   const [team, setteam] = useState([]);
-  console.log(team)
   useEffect(() => {
     fetch("https://soulmates-server.vercel.app/team")
       .then((res) => res.json())

@@ -52,7 +52,7 @@ const Blog = () => {
       <div className="bg-[#FBF2E4] h-[235px] ">
         <div className="max-w-7xl mx-auto h-full flex justify-between items-center">
           <div className="ms-4 text-left">
-            <p className="font-alice text-[28px] text-[#272932]">"Love Stories Unveiled, Advice Shared"</p>
+            <p className="font-alice text-[28px] text-[#272932]">Love Stories Unveiled, Advice Shared</p>
             <p className="text-[#3E4A5B]">Explore our blog for heartwarming love stories and expert relationship advice,<br />  guiding you on your path to a lifelong connection filled with love and joy. </p>
             <p className="flex text-[#536279] font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/plan'>Plan</Link></p>
           </div>

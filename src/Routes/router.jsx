@@ -46,7 +46,7 @@ import GalleryPage from "../component/UserPages/GalleryPage/GalleryPage";
 import AdminRoute from "./AdminRoute";
 import SupportRoute from "./SupportRoute";
 import ChatPage from "../component/UserPages/ChatDesign/ChatPage";
-
+import PaymentHistory from "../payments/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -111,6 +111,10 @@ const router = createBrowserRouter([
       {
         path: "/paymentOne",
         element: <PaymentCard></PaymentCard>,
+      },
+      {
+        path: '/paymentHistory',
+        element: <PaymentHistory />
       },
       
       {

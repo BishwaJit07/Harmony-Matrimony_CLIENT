@@ -1,7 +1,6 @@
 import {
   AiOutlineCalendar,
   AiFillHeart,
-  AiOutlineArrowRight,
 } from "react-icons/ai";
 import { Link, useLoaderData } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
@@ -9,6 +8,7 @@ import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import Loading from "../../../Shared/Loading";
 const BlogDetails = () => {
   const data = useLoaderData();
   const [latests, setLatests] = useState([]);
@@ -18,7 +18,6 @@ const BlogDetails = () => {
     fetch("https://soulmates-server.vercel.app/blogsLatest")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setLatests(data);
         setLoading(false);
       })
@@ -26,6 +25,14 @@ const BlogDetails = () => {
         console.log(error);
       });
   }, []);
+  
+  if (loading) {
+    return (
+      <div>
+        <Loading></Loading>
+      </div>
+    );
+  }
 
   return (
     <div className="dark:bg-gray-400">
