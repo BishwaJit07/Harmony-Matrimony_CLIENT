@@ -9,6 +9,7 @@ const BestRecommendation = () => {
 
   const [userData] = useAllUsersGender();
   const [userInfo] = useMyData();
+
   if(userInfo?.gender)
   {
     return (

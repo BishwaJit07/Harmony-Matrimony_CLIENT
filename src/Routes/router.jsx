@@ -46,7 +46,8 @@ import GalleryPage from "../component/UserPages/GalleryPage/GalleryPage";
 import AdminRoute from "./AdminRoute";
 import SupportRoute from "./SupportRoute";
 import ChatPage from "../component/UserPages/ChatDesign/ChatPage";
-
+import PaymentHistory from "../payments/PaymentHistory/PaymentHistory";
+import TermCondition from "../component/UserPages/SignUp/TermCondition";
 
 const router = createBrowserRouter([
   {
@@ -104,6 +105,12 @@ const router = createBrowserRouter([
 
       },
       {
+        path: "reviews/:id",
+        element: <SingleHappyStory></SingleHappyStory>,
+        
+
+      },
+      {
         path: "/service",
         element: <Service></Service>,
       },
@@ -111,6 +118,10 @@ const router = createBrowserRouter([
       {
         path: "/paymentOne",
         element: <PaymentCard></PaymentCard>,
+      },
+      {
+        path: '/paymentHistory',
+        element: <PaymentHistory />
       },
       
       {
@@ -158,13 +169,18 @@ const router = createBrowserRouter([
         path: "/service",
         element: <Service></Service>,
       },
-   
+      
+      {
+        path:"termCondition",
+        element:<TermCondition/>
+      },
       {
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
         loader: ({ params }) => fetch(`https://soulmates-server.vercel.app/service/${params.id}`),
 
       },
+   
       {
         path: "/",
         children: [
@@ -243,6 +259,7 @@ const router = createBrowserRouter([
         path:"userDetails",
         element:<UserDetails></UserDetails>
       }
+      
     ]
   },
   {
