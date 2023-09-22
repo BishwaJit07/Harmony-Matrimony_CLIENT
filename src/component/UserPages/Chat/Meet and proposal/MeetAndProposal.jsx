@@ -14,7 +14,7 @@ const MeetAndProposal = ({ friend }) => {
           alt=""
         />
         <Link to={`/profile/${friend?._id}`}>
-          <p className="text-[#434656] text-[28px] text-center font-alice mt-4 ">
+          <p className="text-[#434656] text-[28px] text-center font-alice mt-4 dark:text-white">
             {friend?.name}
           </p>
         </Link>

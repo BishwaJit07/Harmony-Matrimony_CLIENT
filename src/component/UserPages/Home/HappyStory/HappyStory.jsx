@@ -46,7 +46,7 @@ const HappyStory = () => {
 
               <div className="bg-white p-6 grid grid-cols-1  lg:grid-cols-2 gap-4 border border-[#C3CAD5] rounded-2xl dark:bg-gray-500">
                 <div className="order-last lg:order-first">
-                  <p className='text-[#595E73] text-[18px] font-lato font-normal dark:text-white'>{review.review.slice(0, 250)} <Link to={`/reviews/${review._id}`}  className='text-red-600'>See More</Link></p>
+                  <p className='text-[#595E73] text-[18px] font-lato font-normal dark:text-white'>{review.review.slice(0, 250)} <Link to="/reviews" className='text-red-600'>See More</Link></p>
                   <p className='text-[24px] font-alice text-[#272932] font-normal mt-4 dark:text-white'>{review.coupleName}</p>
                   <p className='text-[#595E73] text-[18px] font-lato font-normal dark:text-white'>{review.location}</p>
                 </div>
