@@ -492,7 +492,7 @@ const Plan = () => {
         if (data.status) {
           console.log(data.data.data.url)
           const imgLink = { img: data.data.data.url, userId: _id }
-          axios.post('http://localhost:5000/galleryImg', imgLink)
+          axios.post('https://soulmates-server.vercel.app/galleryImg', imgLink)
             .then(data => {
               if (data.status == 200) {
                 setLoading(false)

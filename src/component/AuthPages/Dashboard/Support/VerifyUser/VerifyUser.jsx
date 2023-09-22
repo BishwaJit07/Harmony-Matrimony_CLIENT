@@ -18,7 +18,7 @@ const VerifyUser = () => {
         console.log(error)
         setLoading(false);
       });
-  }, []);
+  }, [verify]);
   const handleVerify = email => {
     fetch(`https://soulmates-server.vercel.app/userVerify/${email}`, {
       method: "PATCH"

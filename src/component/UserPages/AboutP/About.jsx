@@ -18,12 +18,12 @@ import { Link } from "react-router-dom";
 import Contact from "./Contact";
 
 const About = () => {
-  const [team, setteam] = useState([]);
+  const [team, setTeam] = useState([]);
   useEffect(() => {
     fetch("https://soulmates-server.vercel.app/team")
       .then((res) => res.json())
-      .then((data) => setteam(data));
-  }, []);
+      .then((data) => setTeam(data));
+  }, [team]);
 
   return (
     <div className='font-poppins mb-32 dark:bg-gray-800'>

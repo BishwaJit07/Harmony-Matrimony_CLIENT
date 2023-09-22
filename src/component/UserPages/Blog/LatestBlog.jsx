@@ -17,7 +17,7 @@ const LatestBlog = () => {
             .catch(error => {
                 console.log(error);
             })
-    }, [])
+    }, [latest])
     return (
         <div className='mt-10'>
             <h1 className="text-3xl font-serif font-medium my-4">Latest Blogs</h1>
