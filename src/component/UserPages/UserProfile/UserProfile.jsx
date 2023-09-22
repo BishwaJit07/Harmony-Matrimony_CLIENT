@@ -476,6 +476,7 @@ const SocialMedia = () => {
 
 // plan
 const Plan = () => {
+  // console.log(import.meta.env.VITE_Image_Upload_Token)
   const [userInfo] = useMyData();
   const { register, handleSubmit } = useForm()
   const { _id } = userInfo;
@@ -489,11 +490,13 @@ const Plan = () => {
 
     axios.post(imgHostingUrl, imgData)
       .then(data => {
+        console.log({imgbb: data})
         if (data.status) {
           console.log(data.data.data.url)
           const imgLink = { img: data.data.data.url, userId: _id }
           axios.post('http://localhost:5000/galleryImg', imgLink)
             .then(data => {
+              console.log({db: data})
               if (data.status == 200) {
                 setLoading(false)
                 Swal.fire(
