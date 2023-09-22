@@ -134,6 +134,9 @@ const Profile = () => {
     }
   };
 
+
+  
+
   return (
     <>
       {loader ? (
@@ -155,69 +158,13 @@ const Profile = () => {
                   {/* sticky the photo */}
                   {/* photo gallery */}
                   <div className="flex flex-col md:flex-row gap-2">
-                    <img
-                      className="mx-4 md:mx-0 h-[590px] rounded-2xl object-cover"
-                      src={profileImage}
-                      alt=""
-                    />
+                    <img className={user?.gallery ? "mx-4 md:mx-0 h-[590px] rounded-2xl object-cover w-[75%] " : "mx-4 md:mx-0 h-[590px] rounded-2xl object-cover "} src={profileImage} alt="" />
 
-                    {/* small imgs */}
+                    {/* Gallery imgs */}
                     <div className="flex flex-row md:flex-col gap-1 md:gap-4 px-1">
-                      {/* single small img */}
-                      <div className="relative group cursor-pointer">
-                        <img
-                          className="w-[145px] h-[133px] rounded-2xl object-cover "
-                          src={img2}
-                          alt=""
-                        />
-                        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* single small img */}
-                      <div className="relative group cursor-pointer">
-                        <img
-                          className="w-[145px] h-[133px] rounded-2xl object-cover "
-                          src={img3}
-                          alt=""
-                        />
-                        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* single small img */}
-                      <div className="relative group cursor-pointer">
-                        <img
-                          className="w-[145px] h-[133px] rounded-2xl object-cover "
-                          src={img4}
-                          alt=""
-                        />
-                        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* single small img */}
-                      <div className="relative group cursor-pointer">
-                        <img
-                          className="w-[145px] h-[133px] rounded-2xl object-cover "
-                          src={img5}
-                          alt=""
-                        />
-                        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
-                          </div>
-                        </div>
-                      </div>
+                      {
+                        user?.gallery?.map((img, index) => <GalleryImg key={index} img={img} />)
+                      }
                     </div>
                     {/* small imgs end */}
                   </div>
@@ -499,3 +446,20 @@ export const Info = ({ title, value }) => {
     </div>
   );
 };
+
+const GalleryImg = ({img}) => {
+  return(
+    <div className="relative group cursor-pointer">
+      <img
+        className="w-[145px] h-[133px] rounded-2xl object-cover "
+        src={img}
+        alt=""
+      />
+      <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
+        <div className="w-full h-full flex items-center justify-center">
+          <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
+        </div>
+      </div>
+    </div>
+  )
+}
