@@ -19,7 +19,7 @@ const BookService = () => {
             setLoading(false)
             setDatas(data)
         })
-    },[])
+    },[user?.email])
     console.log(datas)
 
     if (loading) {

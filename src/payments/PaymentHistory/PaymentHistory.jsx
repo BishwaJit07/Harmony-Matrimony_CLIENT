@@ -36,8 +36,8 @@ const PaymentHistory = () => {
       <div className="bg-[#730f4d]">
         <div className="max-w-7xl flex justify-between items-center h-full w-full mx-auto p-5 lg:p-0">
           <div className="ms-4 text-left text-[#F0F2F5] ">
-            <p className="font-alice lg:text-[28px] text-2xl">{"Where Hearts Find Their Perfect Match"}</p>
-            <p className="lg:text-base text-xs mt-2 "> we are dedicated to helping you find your lifelong partner <br /> With a deep understanding of the importance of love and compatibility </p>
+            <p className="font-alice lg:text-[28px] text-2xl">{"Your Payment History"}</p>
+            <p className="lg:text-base text-xs mt-2 ">Keep track of your payment history and subscription details here. <br /> Your support helps us continue providing our matrimony services to help you find your perfect match.</p>
             <p className="flex  font-lato pt-7"><img className="mr-1" src={home} alt="" /> <Link to='/'>Home</Link> <span className="mx-2">/</span><img className="mr-1" src={scop} alt="" /> <Link to='/paymentHistory'>Payment History</Link></p>
           </div>
           <img className="hidden lg:block" src={people} alt="" />

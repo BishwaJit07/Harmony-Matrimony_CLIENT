@@ -19,7 +19,7 @@ import UserProfile from "../component/UserPages/UserProfile/UserProfile";
 import Messenger from "../component/UserPages/Chat/Messenger/Messenger";
 import PaymentPage from "../payments/PaymentPage/PaymentPage";
 import SSl from "../payments/SSLcommerz/SSl";
-import SingleHappyStory from "../component/UserPages/Home/HappyStory/SingleHappyStory";
+import AllHappyStory from "../component/UserPages/Home/HappyStory/AllHappyStory";
 import UserPrivateRoute from "./UserPrivateRoute";
 import AddBlog from "../component/UserPages/Blog/AddBlog";
 import AllUser from "../component/UserPages/AllUser/AllUser";
@@ -98,8 +98,8 @@ const router = createBrowserRouter([
 
       },
       {
-        path: "reviews/:id",
-        element: <SingleHappyStory></SingleHappyStory>,
+        path: "/reviews",
+        element: <AllHappyStory></AllHappyStory>,
         
 
       },
@@ -142,10 +142,7 @@ const router = createBrowserRouter([
         ]
       },
       
-      {
-        path: "/allcouple/:id",
-        element: <SingleHappyStory />,
-      },
+    
       {
         path: "/message",
         element: <UserPrivateRoute><Messenger></Messenger></UserPrivateRoute>

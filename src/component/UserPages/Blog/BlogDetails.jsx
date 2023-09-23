@@ -33,7 +33,7 @@ const BlogDetails = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [latests]);
   
   if (loading) {
     return (
@@ -44,7 +44,7 @@ const BlogDetails = () => {
   }
 
   return (
-    <div className="dark:bg-gray-400">
+    <div >
       {/* <div className="">
         <div className="ms-20 lg:ms-96 lg:mx-10 mx-20 my-8 lg:my-5 lg:w-1/2 w-full">
           <img
@@ -71,8 +71,8 @@ const BlogDetails = () => {
         </div>
       </div> */}
 
-<div className="card lg:card-side bg-base-100 shadow-xl dark:bg-gray-700 flex ">
-  <figure style={{ flex: '40%' }}><img src={data.image} alt="Album" /></figure>
+<div className="card lg:card-side bg-base-100 shadow-xl dark:bg-gray-500 flex m-4 ">
+  <figure style={{ flex: '40%' }}><img src={data.image} alt="Album" className="h-80% w-80"/></figure>
   <div style={{ flex: '60%' }} className="card-body flex flex-col justify-center items-center text-center dark:text-white">
     <h2 className="card-title">{data.title}</h2>
     <p>{data.details}</p>
@@ -99,10 +99,32 @@ const BlogDetails = () => {
          spaceBetween={30}
           watchSlidesProgress={true}
           className="mySwiper "
+          breakpoints={{
+            240: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+            1280: {
+              slidesPerView: 4,
+              spaceBetween: 50,
+            },
+          }}
         >
           {latests?.map((latest) => (
             <SwiperSlide key={latest._id} className="text-black ">
-              <div className="card w-96 bg-base-100 shadow-xl">
+              <div className="card w-96 h-96 bg-base-100 shadow-xl">
                 <figure className="h-[300px] w-full object-cover object-center">
                   <img
                     src={latest.image}
@@ -113,7 +135,7 @@ const BlogDetails = () => {
                 <div className="card-body dark:bg-gray-300">
                   <h2 className="card-title text-black">{latest.title}</h2>
                   <p className="text-xs text-slate-600">{latest.details.slice(0, 150)}
-                  <button><Link to={`/blogDetails/${data._id}`} className="text-red-600 font-semibold text-sm ms-1">Read more</Link></button>
+                  <button><Link to={`/blogDetails/${latest._id}`} className="text-red-600 font-semibold text-sm ms-1">Read more</Link></button>
                   </p>
                 </div>
               </div>

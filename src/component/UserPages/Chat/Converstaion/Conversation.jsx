@@ -22,14 +22,14 @@ const Conversation = ({ conversation, currentUser, messages, selected }) => {
     return (
         <div className={` p- ${selected ? ' border border-t-0 border-b-0 bg-red-50 ' : ''}`}>
 
-            <div className={selected ? 'flex justify-between bg-gradient-to-l from-primary-100 cursor-pointer ' : 'flex justify-between hover:bg-gray-200 cursor-pointer'}>
+            <div className={selected ? 'flex justify-between bg-gradient-to-l from-primary-400 cursor-pointer ' : 'flex justify-between hover:bg-gray-500 cursor-pointer'}>
                 <div className="flex py-2 px-6">
                     <div className="w-[90px]">
                         <img src={user?.profileImage} className='conversationImg' alt="" />
                     </div>
                     <div className="w-full px-2 flex flex-col justify-evenly">
                         <div className="flex justify-between items-end">
-                            <p className='text-[#434656] font-alice text-xl'>{user?.name}</p>
+                            <p className='text-[#434656] font-alice text-xl dark:text-white'>{user?.name}</p>
                         </div>
                         <div className="flex justify-between">
                             <p className='text-[14px] font-lato text-[#8695AC] '>{messages?.text}</p>
