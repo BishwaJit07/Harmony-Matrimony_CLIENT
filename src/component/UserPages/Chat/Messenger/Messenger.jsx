@@ -23,7 +23,7 @@ const Messenger = () => {
     const [arrivalMessage, setArrivalMessage] = useState(null);
     const [lastMessages, setLastMessages] = useState([]);
     const [friend, setFriend] = useState(null);
-    console.log(userInfo)
+    console.log(messages, newMessages)
     useEffect(() => {
         socket.current = io('https://socketio2.onrender.com');
         socket.current.on('getMessage', (data) => {
@@ -144,78 +144,74 @@ const Messenger = () => {
 
     return (
 
-       <>
-       <div className="messenger ">
-            {/* Chat menu */}
-            <div className="chatMenu">
-                <div>
-                    <h2 className="text-center text-2xl font-alice">Message</h2>
-                    <ChatOnline onlineUsers={onlineUsers} currentId={userInfo._id} setCurrentChat={setCurrentChat} refetch={refetch} />
-                </div>
-            
-                <div className="overflow-y-scroll h-[770px] hide-scrollbar">
-                    {conversations.map((conversation, index) => (
-                        <div key={conversation._id} onClick={() => setCurrentChat(conversation)}>
-                            <Conversation conversation={conversation} messages={lastMessages[index]} currentUser={userInfo} selected={currentChat && currentChat._id === conversation._id} />
-                        </div>
-                    ))}
-                </div>
-            </div>
-            {/* chat box */}
-            <div className='chatBox bg-red-50 '>
-                <div className="sticky bg-red-100">
-                    <div className="flex justify-between px-5 py-5 items-center shadow-sm flex-none">
-                        {/* img and name */}
-                        <div className="flex items-center gap-2">
-                            <img className='w-[50px] h-[50px] rounded-full object-cover object-top ' src={friend?.profileImage} alt="" />
-                            <div className="">
-                                <p className='text-[#434656] font-alice text-[18px]'>{friend?.name}</p>
-                                <p className='font-lato text-[#4ECA77] text-[12px]'>Online</p>
+        <>
+            <div className="messenger ">
+                {/* Chat menu */}
+                <div className="chatMenu">
+                    <div>
+                        <h2 className="text-center text-2xl font-alice">Message</h2>
+                        <ChatOnline onlineUsers={onlineUsers} currentId={userInfo._id} setCurrentChat={setCurrentChat} refetch={refetch} />
+                    </div>
+
+                    <div className="overflow-y-scroll h-[770px] hide-scrollbar">
+                        {conversations.map((conversation, index) => (
+                            <div key={conversation._id} onClick={() => setCurrentChat(conversation)}>
+                                <Conversation conversation={conversation} messages={lastMessages[index]} currentUser={userInfo} selected={currentChat && currentChat._id === conversation._id} />
                             </div>
-                        </div>
-                        {/* call icons */}
-                        <div className="flex gap-6">
-                            <img className='w-[30px] h-[30px]' src={call} alt="" />
-                            <img className='w-[30px] h-[30px]' src={video} alt="" />
-                        </div>
+                        ))}
                     </div>
                 </div>
-                <div className="chatBoxWrapper bg-red-50">
-                    {currentChat ? (
-                        <>
-                            <div className="chatBoxTop hide-scrollbar">
-                               <div>
-                               {messages.map(message => (
-                                <Message key={message._id} message={message} own={message.sender === userInfo._id} />
-                                ))}
-                                <div ref={messagesEndRef}></div>
-                               </div>
-                            </div>
-                            <div className="px-4 flex-none flex justify-between items-center chatBoxBottom bg-red-50">
-                                <textarea className='font-lato text-[20px] w-[90%] bg-[#EDDEDE] px-5 py-3 rounded-xl resize-x  textarea chatMessageInput' placeholder='Message...' type="text" onChange={(e) => setNewMessages(e.target.value)} value={newMessages} />
-                                <div className="" onClick={handleSubmit}>
-                                    <img className='p-3 bg-gradient-to-tl from-[#FE3535] to-[#FFD5D5] rounded-full chatSubmitButton' src={send} alt="" />
+                {/* chat box */}
+                <div className='chatBox bg-red-50 '>
+
+                    <div className="chatBoxWrapper bg-red-50">
+                        {currentChat ? (
+                            <>
+                                <div className="sticky bg-red-100">
+                                    <div className="flex justify-between px-5 py-5 items-center shadow-sm flex-none">
+                                        {/* img and name */}
+                                        <div className="flex items-center gap-2">
+                                            <img className='w-[50px] h-[50px] rounded-full object-cover object-top ' src={friend?.profileImage} alt="" />
+                                            <div className="">
+                                                <p className='text-[#434656] font-alice text-[18px]'>{friend?.name}</p>
+                                                <p className='font-lato text-[#4ECA77] text-[12px]'>Online</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </>
-                    ) : (
-                        <span className="noConversationText">Open a conversation to start a chat</span>
-                    )}
+                                <div className="chatBoxTop hide-scrollbar">
+                                    <div>
+                                        {messages.map(message => (
+                                            <Message key={message._id} message={message} own={message.sender === userInfo._id} friend={friend} userInfo={userInfo} />
+                                        ))}
+                                        <div ref={messagesEndRef}></div>
+                                    </div>
+                                </div>
+                                <div className="px-4 flex-none flex justify-between items-center chatBoxBottom bg-red-50">
+                                    <textarea className='font-lato text-[20px] w-[90%] bg-[#EDDEDE] px-5 py-3 rounded-xl resize-x  textarea chatMessageInput' placeholder='Message...' type="text" onChange={(e) => setNewMessages(e.target.value)} value={newMessages} />
+                                    <div className="" onClick={handleSubmit}>
+                                        <img className='p-3 bg-gradient-to-tl from-[#FE3535] to-[#FFD5D5] rounded-full chatSubmitButton' src={send} alt="" />
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <span className="noConversationText">Open a conversation to start a chat</span>
+                        )}
+                    </div>
                 </div>
-            </div>
 
 
-            {/* chat online */}
-            <div className="chatOnline ">
-                <div className="chatOnlineWrapper">
-                    {
-                        currentChat ? <><MeetAndProposal friend={friend} userInfo={userInfo}></MeetAndProposal></> : <></>
-                    }
+                {/* chat online */}
+                <div className="chatOnline ">
+                    <div className="chatOnlineWrapper">
+                        {
+                            currentChat ? <><MeetAndProposal friend={friend} userInfo={userInfo}></MeetAndProposal></> : <></>
+                        }
+                    </div>
                 </div>
-            </div>
-        </div >
+            </div >
 
-       </>
+        </>
     );
 };
 

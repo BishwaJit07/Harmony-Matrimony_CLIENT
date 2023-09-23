@@ -12,7 +12,7 @@ const AdminHome = () => {
 
       .then((res) => res.json())
       .then((data) => setDatas(data));
-  }, []);
+  }, [data._id]);
   const doller = datas.revenue / 100;
   console.log(datas);
 

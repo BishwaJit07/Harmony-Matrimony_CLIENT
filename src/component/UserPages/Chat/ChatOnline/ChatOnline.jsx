@@ -8,7 +8,7 @@ const ChatOnline = ({ onlineUsers, currentId, setCurrentChat , refetch}) => {
 
     const [allUsers, setAllUser] = useState([]);
     const [onlineFriends, setOnlineFriends] = useState([])
-
+    console.log(onlineFriends, allUsers)
 
     useEffect(() => {
         const getUsers = async () => {

@@ -24,10 +24,11 @@ import { Link } from "react-router-dom";
 import { useRelationInfo } from "../../../utilities/utilities";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 
 const UserProfile = () => {
   const [userInfo] = useMyData();
-  const [partner, setPartner] = useState();
+  const [partner, setPartner] = useState([]);
 
   const { refetchRelation, relationship } = useRelationInfo(userInfo._id);
 
@@ -274,7 +275,8 @@ const HBox = ({ value }) => {
 const Status = () => {
   const [userInfo] = useMyData();
 
-  const { age, height, jobSector, city } = userInfo;
+  const { age, height, jobSector, city , state } = userInfo;
+  console.log(userInfo)
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
       <div className="p-3  rounded-2xl bg-[#F0F2F5]">
@@ -295,7 +297,7 @@ const Status = () => {
         <img className="h-[35px] w-[35px] mb-3 mx-auto" src={citys} alt="" />
         <div className="text-center text-[18px]">
           <p>CITY:</p>
-          <p>{city}</p>
+          <p>{state}</p>
         </div>
       </div>
       <div className="p-3 bg-[#F0F2F5] rounded-2xl">
@@ -475,15 +477,71 @@ const SocialMedia = () => {
 
 // plan
 const Plan = () => {
+  const [userInfo] = useMyData();
+  const { register, handleSubmit } = useForm()
+  const { _id } = userInfo;
+  const imgHostingUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${import.meta.env.VITE_Image_Upload_Token}`
+  const [loading, setLoading] = useState(false)
+
+  const upload = e => {
+    setLoading(true)
+    const imgData = new FormData()
+    imgData.append('image', e.image[0])
+
+    axios.post(imgHostingUrl, imgData)
+      .then(data => {
+        if (data.status) {
+          console.log(data.data.data.url)
+          const imgLink = { img: data.data.data.url, userId: _id }
+          axios.post('https://soulmates-server.vercel.app/galleryImg', imgLink)
+            .then(data => {
+              if (data.status == 200) {
+                setLoading(false)
+                Swal.fire(
+                  'Good job!',
+                  'Photo Upload Successful!',
+                  'success'
+                )
+              }
+            })
+            .catch(err => {
+              setLoading(false)
+              Swal.fire(
+                'Error!',
+                'Something Went Wrong!',
+                'error'
+              )
+            })
+        }
+      })
+      .catch(err => {
+        setLoading(false)
+        Swal.fire(
+          'Error!',
+          'Something Went Wrong!',
+          'error'
+        )
+      })
+  };
+
   return (
-    <div className="mb-5 border border-[#C3CAD5] rounded-2xl overflow-hidden">
-      <img className="mx-auto my-6" src={file} alt="" />
-      <p className="text-center text-[30px] font-alice">
-        Upgrade to PRO for <br /> more resources
-      </p>
-      <button className="text-[22px] w-[90%] mx-auto my-6  bg-primary-500 rounded-full text-white py-4  flex justify-center items-center ">
-        Upgrade Now
+    <form onSubmit={handleSubmit(upload)} className="">
+
+      <div className="flex items-center justify-center w-full">
+
+        <label htmlFor="dropzone-file" className="py-5 flex flex-col items-center justify-center w-full border border-[#C3CAD5]   cursor-pointer bg-gray-50  hover:bg-gray-100 rounded-2xl">
+
+          <div className="flex flex-col items-center justify-center pt-4 pb-4">
+            <img className="mx-auto " src={file} alt="" />
+
+            <p className="text-center text-[30px] font-alice">Upload  PICTURE  for<br />  gallery</p>
+          </div>
+          <input {...register('image')} name="image" id="dropzone-file" type="file" className="hidden" />
+        </label>
+      </div>
+      <button disabled={loading} type="submit" className={loading ? 'text-[22px] w-[90%] mx-auto my-6  bg-gray-300 cursor-not-allowed rounded-full text-white py-4  flex justify-center items-center ' : 'active:scale-95 duration-100 text-[22px] w-[90%] mx-auto my-6  bg-primary-500 rounded-full text-white py-4  flex justify-center items-center '}>
+        {loading ? <span className="loading loading-spinner loading-lg"></span> : 'Upload Now'}
       </button>
-    </div>
+    </form>
   );
 };
