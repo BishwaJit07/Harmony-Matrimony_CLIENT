@@ -28,7 +28,7 @@ import { useForm } from "react-hook-form";
 
 const UserProfile = () => {
   const [userInfo] = useMyData();
-  const [partner, setPartner] = useState();
+  const [partner, setPartner] = useState([]);
 
   const { refetchRelation, relationship } = useRelationInfo(userInfo._id);
 
@@ -275,7 +275,8 @@ const HBox = ({ value }) => {
 const Status = () => {
   const [userInfo] = useMyData();
 
-  const { age, height, jobSector, city } = userInfo;
+  const { age, height, jobSector, city , state } = userInfo;
+  console.log(userInfo)
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
       <div className="p-3  rounded-2xl bg-[#F0F2F5]">
@@ -296,7 +297,7 @@ const Status = () => {
         <img className="h-[35px] w-[35px] mb-3 mx-auto" src={citys} alt="" />
         <div className="text-center text-[18px]">
           <p>CITY:</p>
-          <p>{city}</p>
+          <p>{state}</p>
         </div>
       </div>
       <div className="p-3 bg-[#F0F2F5] rounded-2xl">

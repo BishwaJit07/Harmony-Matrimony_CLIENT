@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { City, Country, State } from "country-state-city";
 import { useEffect, useState, Fragment } from "react";
 import { BiFemale, BiMale } from "react-icons/bi";
-import { calculateAge } from "../../../utilities/utilities";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Selector from "../MyProfle/Selector";
@@ -24,6 +23,10 @@ import {
   jewishSectOptions,
   buddhistSectOptions,
 } from "../../../Shared/Variable";
+import { Calendar } from "react-date-range";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+
 
 const genders = [
   { id: 1, name: "Male", icon: <BiMale className="text-lg" /> },
@@ -51,6 +54,13 @@ const UserInfo1 = () => {
   const [country, setCountry] = useState("Country");
   const [state, setState] = useState();
   const [city, setCity] = useState();
+  const [date, setDate] = useState(new Date());
+  const [isOpen, setIsOpen] = useState(true);
+  
+  const handleChange = (newDate) => {
+    setDate(newDate);
+    setIsOpen(false); // Close the modal when a date is selected
+  };
 
   console.log(userInfo);
 
@@ -70,10 +80,17 @@ const UserInfo1 = () => {
     cityData && setCity(cityData[0]);
   }, [cityData]);
 
+  
+  function calculateAgeFromDate(dateString) {
+    const date = new Date(dateString);
+    const currentDate = new Date();
+    const age = currentDate.getFullYear() - date.getFullYear();
+    return age;
+  }
+
   const onSubmit = (data) => {
     setError("");
-    const birthdate = new Date(data.birth);
-    const age = calculateAge(birthdate);
+    const age = calculateAgeFromDate(date);
     if (age < 18) {
       setError("You must be 18 years old");
       return;
@@ -93,7 +110,7 @@ const UserInfo1 = () => {
       profileFor: profileFor?.Profile_For,
       id: userInfo._id,
       motherTongue: motherTongue?.name,
-      sect: sect.name,
+      sect: sect?.name,
     };
     console.log(data);
     fetch("https://soulmates-server.vercel.app/update1", {
@@ -110,6 +127,7 @@ const UserInfo1 = () => {
         navigate("/userinfo2");
       });
   };
+
 
   return (
     <div>
@@ -296,17 +314,31 @@ const UserInfo1 = () => {
               <div className="mt-10 lg:w-[50%]">
                 <label
                   className="text-black text-lg font-semibold"
-                  htmlFor="standard_success"
+                  htmlFor="datePickerInput"
                 >
                   Date of Birth
                 </label>
                 <input
-                  {...register("birth", { required: true })}
-                  id="standard_success"
-                  aria-describedby="standard_success_help"
-                  type="date"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md    focus:border-[#51ac83] focus:outline-none peer-checked:ring-[#51ac83] "
+                  id="datePickerInput"
+                  type="text"
+                  value={date.toLocaleDateString()}
+                  onClick={() => setIsOpen(true)} // Open the modal when the input field is clicked
+                  readOnly
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#51ac83] focus:outline-none peer-checked:ring-[#51ac83]"
                 />
+                {isOpen && (
+                  <div className="modal-overlay">
+                    <div className="calendar-modal">
+                      <Calendar
+                        date={date}
+                        onChange={handleChange}
+                        onMonthChange={() => setIsOpen(false)}
+
+                        className="calendarElement"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             <div className="flex gap-10">
@@ -343,10 +375,9 @@ const UserInfo1 = () => {
                             <Listbox.Option
                               key={value.id}
                               className={({ active }) =>
-                                `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                  active
-                                    ? "bg-amber-100 text-amber-900"
-                                    : "text-gray-900"
+                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                  ? "bg-amber-100 text-amber-900"
+                                  : "text-gray-900"
                                 }`
                               }
                               value={value}
@@ -354,9 +385,8 @@ const UserInfo1 = () => {
                               {({ selected }) => (
                                 <>
                                   <span
-                                    className={`block truncate ${
-                                      selected ? "font-medium" : "font-normal"
-                                    }`}
+                                    className={`block truncate ${selected ? "font-medium" : "font-normal"
+                                      }`}
                                   >
                                     {value.name}
                                   </span>
@@ -380,10 +410,10 @@ const UserInfo1 = () => {
               </div>
               {/* sect selection option */}
               {religion.Religion === "Muslim" ||
-              religion.Religion === "Hindu" ||
-              religion.Religion === "Buddhist" ||
-              religion.Religion === "Jewish" ||
-              religion.Religion === "Christian" ? (
+                religion.Religion === "Hindu" ||
+                religion.Religion === "Buddhist" ||
+                religion.Religion === "Jewish" ||
+                religion.Religion === "Christian" ? (
                 <>
                   <div className="mt-10 z-20 lg:w-[50%]">
                     <div>
@@ -420,10 +450,9 @@ const UserInfo1 = () => {
                                       <Listbox.Option
                                         key={value.id}
                                         className={({ active }) =>
-                                          `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                            active
-                                              ? "bg-amber-100 text-amber-900"
-                                              : "text-gray-900"
+                                          `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                            ? "bg-amber-100 text-amber-900"
+                                            : "text-gray-900"
                                           }`
                                         }
                                         value={value}
@@ -431,11 +460,10 @@ const UserInfo1 = () => {
                                         {({ selected }) => (
                                           <>
                                             <span
-                                              className={`block truncate ${
-                                                selected
-                                                  ? "font-medium"
-                                                  : "font-normal"
-                                              }`}
+                                              className={`block truncate ${selected
+                                                ? "font-medium"
+                                                : "font-normal"
+                                                }`}
                                             >
                                               {value.name}
                                             </span>
@@ -461,10 +489,9 @@ const UserInfo1 = () => {
                                       <Listbox.Option
                                         key={value.id}
                                         className={({ active }) =>
-                                          `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                            active
-                                              ? "bg-amber-100 text-amber-900"
-                                              : "text-gray-900"
+                                          `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                            ? "bg-amber-100 text-amber-900"
+                                            : "text-gray-900"
                                           }`
                                         }
                                         value={value}
@@ -472,11 +499,10 @@ const UserInfo1 = () => {
                                         {({ selected }) => (
                                           <>
                                             <span
-                                              className={`block truncate ${
-                                                selected
-                                                  ? "font-medium"
-                                                  : "font-normal"
-                                              }`}
+                                              className={`block truncate ${selected
+                                                ? "font-medium"
+                                                : "font-normal"
+                                                }`}
                                             >
                                               {value.name}
                                             </span>
@@ -502,10 +528,9 @@ const UserInfo1 = () => {
                                       <Listbox.Option
                                         key={value.id}
                                         className={({ active }) =>
-                                          `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                            active
-                                              ? "bg-amber-100 text-amber-900"
-                                              : "text-gray-900"
+                                          `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                            ? "bg-amber-100 text-amber-900"
+                                            : "text-gray-900"
                                           }`
                                         }
                                         value={value}
@@ -513,11 +538,10 @@ const UserInfo1 = () => {
                                         {({ selected }) => (
                                           <>
                                             <span
-                                              className={`block truncate ${
-                                                selected
-                                                  ? "font-medium"
-                                                  : "font-normal"
-                                              }`}
+                                              className={`block truncate ${selected
+                                                ? "font-medium"
+                                                : "font-normal"
+                                                }`}
                                             >
                                               {value.name}
                                             </span>
@@ -543,10 +567,9 @@ const UserInfo1 = () => {
                                       <Listbox.Option
                                         key={value.id}
                                         className={({ active }) =>
-                                          `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                            active
-                                              ? "bg-amber-100 text-amber-900"
-                                              : "text-gray-900"
+                                          `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                            ? "bg-amber-100 text-amber-900"
+                                            : "text-gray-900"
                                           }`
                                         }
                                         value={value}
@@ -554,11 +577,10 @@ const UserInfo1 = () => {
                                         {({ selected }) => (
                                           <>
                                             <span
-                                              className={`block truncate ${
-                                                selected
-                                                  ? "font-medium"
-                                                  : "font-normal"
-                                              }`}
+                                              className={`block truncate ${selected
+                                                ? "font-medium"
+                                                : "font-normal"
+                                                }`}
                                             >
                                               {value.name}
                                             </span>
@@ -584,10 +606,9 @@ const UserInfo1 = () => {
                                       <Listbox.Option
                                         key={value.id}
                                         className={({ active }) =>
-                                          `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                            active
-                                              ? "bg-amber-100 text-amber-900"
-                                              : "text-gray-900"
+                                          `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                            ? "bg-amber-100 text-amber-900"
+                                            : "text-gray-900"
                                           }`
                                         }
                                         value={value}
@@ -595,11 +616,10 @@ const UserInfo1 = () => {
                                         {({ selected }) => (
                                           <>
                                             <span
-                                              className={`block truncate ${
-                                                selected
-                                                  ? "font-medium"
-                                                  : "font-normal"
-                                              }`}
+                                              className={`block truncate ${selected
+                                                ? "font-medium"
+                                                : "font-normal"
+                                                }`}
                                             >
                                               {value.name}
                                             </span>
@@ -666,10 +686,9 @@ const UserInfo1 = () => {
                             <Listbox.Option
                               key={myHeight.id}
                               className={({ active }) =>
-                                `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                  active
-                                    ? "bg-amber-100 text-amber-900"
-                                    : "text-gray-900"
+                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                  ? "bg-amber-100 text-amber-900"
+                                  : "text-gray-900"
                                 }`
                               }
                               value={myHeight}
@@ -677,9 +696,8 @@ const UserInfo1 = () => {
                               {({ selected }) => (
                                 <>
                                   <span
-                                    className={`block truncate ${
-                                      selected ? "font-medium" : "font-normal"
-                                    }`}
+                                    className={`block truncate ${selected ? "font-medium" : "font-normal"
+                                      }`}
                                   >
                                     {myHeight.name}
                                   </span>
@@ -734,10 +752,9 @@ const UserInfo1 = () => {
                             <Listbox.Option
                               key={value.id}
                               className={({ active }) =>
-                                `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                  active
-                                    ? "bg-amber-100 text-amber-900"
-                                    : "text-gray-900"
+                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                  ? "bg-amber-100 text-amber-900"
+                                  : "text-gray-900"
                                 }`
                               }
                               value={value}
@@ -745,9 +762,8 @@ const UserInfo1 = () => {
                               {({ selected }) => (
                                 <>
                                   <span
-                                    className={`block truncate ${
-                                      selected ? "font-medium" : "font-normal"
-                                    }`}
+                                    className={`block truncate ${selected ? "font-medium" : "font-normal"
+                                      }`}
                                   >
                                     {value.name}
                                   </span>
