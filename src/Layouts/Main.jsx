@@ -3,6 +3,7 @@ import Footer from '../Shared/Footer/Footer';
 import ScrollToTopButton from '../Shared/ScrollTopToButtom';
 import NavBar from '../Shared/NavBar/NavBar';
 import ScrollToTop from '../Shared/scroll to top/ScrollToTop';
+import SmallNav from '../Shared/NavBar/SmallNav';
 
 const Main = () => {
     const location = useLocation();
@@ -14,6 +15,7 @@ const Main = () => {
             <Outlet/>
             {removeFoother ? <></> :  <Footer></Footer>}
             <ScrollToTopButton></ScrollToTopButton>
+            <SmallNav/>
         </div>
     );
 };

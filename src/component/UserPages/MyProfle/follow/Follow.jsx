@@ -29,7 +29,7 @@ const Follow = () => {
       )
       .then((response) => {
         if (response.data) {
-          setFollowers(response.data);
+          setFollowers(response?.data);
         }
       });
   }, [userInfo]);

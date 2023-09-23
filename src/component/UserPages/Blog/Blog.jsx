@@ -4,10 +4,11 @@ import LeftCard from "./LeftCard";
 import LatestBlog from "./LatestBlog";
 import Loading from "../../../Shared/Loading";
 import { Helmet } from "react-helmet";
-import home from '../../../assets/plan/home.svg'
-import scop from '../../../assets/plan/scop.svg'
-import couple from '../../../assets/other/blogCouple.png'
+import home from '../../../assets/plan/home.svg';
+import scop from '../../../assets/plan/scop.svg';
+import couple from '../../../assets/other/blogCouple.png';
 import { Link } from "react-router-dom";
+
 const Blog = () => {
   const [blogData, setBlogData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,17 +21,30 @@ const Blog = () => {
       .then((data) => {
         setLoading(false);
         setBlogData(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching blog data:', error);
+        setLoading(false);
+        // Handle the error or set blogData to a default value (e.g., [])
+        setBlogData([]);
       });
   }, [react]);
 
   const handleShowBlogByCategory = (type) => {
-      fetch(`https://soulmates-server.vercel.app/blogs/type/${type}`)
+    fetch(`https://soulmates-server.vercel.app/blogs/type/${type}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
         setBlogData(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching blog data by category:', error);
+        setLoading(false);
+        // Handle the error or set blogData to a default value
+        setBlogData([]);
       });
   }
+
 
   if (loading) {
     return (
@@ -59,15 +73,19 @@ const Blog = () => {
           <img className="h-full hidden lg:block" src={couple} alt="" />
         </div>
       </div>
-      
+
       <div className="flex flex-col-reverse lg:flex-row justify-center gap-16 dark:text-gray-200 ">
         <div className="lg:w-2/3  lg:mx-5 mx-2 w-full lg:ml-28 mt-10">
 
           <h1 className="text-4xl font-semibold mb-8 font-serif text-center ">ALL BLOG</h1>
           <div className="grid xl:grid-cols-2 gap-5">
-            {blogData.map((data) => (
-              <BlogCard key={data._id} data={data} setReact={setReact} react={react}></BlogCard>
-            ))}
+            {Array.isArray(blogData) && blogData.length > 0 ? (
+              blogData.map((data) => (
+                <BlogCard key={data._id} data={data} setReact={setReact} react={react}></BlogCard>
+              ))
+            ) : (
+              <p>No blog data available.</p>
+            )}
           </div>
         </div>
         <div className="w-full lg:w-1/3 lg:mr-28  mt-10">
@@ -77,17 +95,17 @@ const Blog = () => {
               <h3 className="font-medium text-3xl font-serif">Tags</h3>
             </div>
             <div className="my-3">
-              <button onClick={()=>handleShowBlogByCategory('advice')} className="btn btn-sm rounded-xl bg-slate-200 ms-2">Advice</button>
-              <button  onClick={()=>handleShowBlogByCategory('engagement')} className="btn btn-sm rounded-xl bg-slate-200 ms-2">Engagement</button>
-              <button  onClick={()=>handleShowBlogByCategory('wedding')} className="btn btn-sm rounded-xl bg-slate-200 ms-2">Wedding</button>
+              <button onClick={() => handleShowBlogByCategory('advice')} className="btn btn-sm rounded-xl bg-slate-200 ms-2">Advice</button>
+              <button onClick={() => handleShowBlogByCategory('engagement')} className="btn btn-sm rounded-xl bg-slate-200 ms-2">Engagement</button>
+              <button onClick={() => handleShowBlogByCategory('wedding')} className="btn btn-sm rounded-xl bg-slate-200 ms-2">Wedding</button>
             </div>
             <div>
-              <button  onClick={()=>handleShowBlogByCategory('date')} className="btn btn-sm rounded-xl bg-slate-200 ms-2">Dates</button>
-              <button  onClick={()=>handleShowBlogByCategory('photography')} className="btn btn-sm rounded-xl bg-slate-200 ms-2">Photography</button>
+              <button onClick={() => handleShowBlogByCategory('date')} className="btn btn-sm rounded-xl bg-slate-200 ms-2">Dates</button>
+              <button onClick={() => handleShowBlogByCategory('photography')} className="btn btn-sm rounded-xl bg-slate-200 ms-2">Photography</button>
             </div>
           </div>
-            <LeftCard></LeftCard>
-            <LatestBlog></LatestBlog>
+          <LeftCard></LeftCard>
+          <LatestBlog></LatestBlog>
         </div>
       </div>
     </div>

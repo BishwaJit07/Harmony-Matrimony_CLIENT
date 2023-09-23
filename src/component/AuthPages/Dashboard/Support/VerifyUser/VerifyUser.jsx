@@ -4,10 +4,11 @@ import Swal from 'sweetalert2';
 
 const VerifyUser = () => {
   const [verify, setVerify] = useState([]);
-  const [loading, setLoading] = useState(true)
-
+  const [loading, setLoading] = useState(true);
+  
+  
   useEffect(() => {
-    // Fetch data only when the component mounts
+    
     fetch('https://soulmates-server.vercel.app/verifyUser')
       .then(res => res.json())
       .then(data => {
@@ -18,7 +19,10 @@ const VerifyUser = () => {
         console.log(error)
         setLoading(false);
       });
-  }, [verify]);
+  }, []); 
+  
+
+  
   const handleVerify = email => {
     fetch(`https://soulmates-server.vercel.app/userVerify/${email}`, {
       method: "PATCH"

@@ -12,7 +12,7 @@ import heights from "../../../assets/other/height.svg";
 import jobs from "../../../assets/other/job.svg";
 import citys from "../../../assets/other/city.svg";
 import MetForUser from "../MyProfle/metting/MetForUser";
-import { AiOutlineMail, AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineMail, AiOutlineDelete, AiOutlinePlusCircle } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import file from "../../../assets/other/file.png";
 import useMyData from "../../../Hooks/useMyData";
@@ -28,7 +28,7 @@ import { useForm } from "react-hook-form";
 
 const UserProfile = () => {
   const [userInfo] = useMyData();
-  const [partner, setPartner] = useState();
+  const [partner, setPartner] = useState([]);
 
   const { refetchRelation, relationship } = useRelationInfo(userInfo._id);
 
@@ -230,8 +230,8 @@ const UserProfile = () => {
           <Follow />
           <Proposal />
           <BoxBorderContent title="Hobbies" content={<Hobbies />} />
-          <BoxBorderContent title="Social Media" content={<SocialMedia />} />
-          <Plan />
+          <BoxBorderContent title="Upload Your Photo" content={<SocialMedia />} />
+          {/* <Plan /> */}
         </div>
       </div>
     </div>
@@ -275,7 +275,8 @@ const HBox = ({ value }) => {
 const Status = () => {
   const [userInfo] = useMyData();
 
-  const { age, height, jobSector, city } = userInfo;
+  const { age, height, jobSector, city , state } = userInfo;
+  console.log(userInfo)
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
       <div className="p-3  rounded-2xl bg-[#F0F2F5]">
@@ -296,7 +297,7 @@ const Status = () => {
         <img className="h-[35px] w-[35px] mb-3 mx-auto" src={citys} alt="" />
         <div className="text-center text-[18px]">
           <p>CITY:</p>
-          <p>{city}</p>
+          <p>{state}</p>
         </div>
       </div>
       <div className="p-3 bg-[#F0F2F5] rounded-2xl">
@@ -421,55 +422,79 @@ const Hobbies = () => {
 };
 
 const SocialMedia = () => {
+  const [userInfo] = useMyData();
+  const { register, handleSubmit } = useForm()
+  const { _id } = userInfo;
+  const imgHostingUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${import.meta.env.VITE_Image_Upload_Token}`
+  const [loading, setLoading] = useState(false)
+  const [imgURL, setImgURL] = useState(null)
+
+  const upload = e => {
+    setLoading(true)
+    const imgData = new FormData()
+    imgData.append('image', e.image[0])
+
+    axios.post(imgHostingUrl, imgData)
+      .then(data => {
+        if (data.status) {
+          console.log(data.data.data.url)
+          const imgLink = { img: data.data.data.url, userId: _id }
+          console.log(imgLink)
+          axios.post('https://soulmates-server.vercel.app/galleryImg', imgLink)
+            .then(data => {
+              if (data.status == 200) {
+                setLoading(false)
+                Swal.fire(
+                  'Good job!',
+                  'Photo Upload Successful!',
+                  'success'
+                )
+              }
+            })
+            .catch(err => {
+              setLoading(false)
+              Swal.fire(
+                'Error!',
+                'Something Went Wrong!',
+                'error'
+              )
+            })
+        }
+      })
+      .catch(err => {
+        setLoading(false)
+        Swal.fire(
+          'Error!',
+          'Something Went Wrong!',
+          'error'
+        )
+      })
+  };
+  const handleOnchange = e => {
+    const file = e.target.files[0]
+    console.log(2)
+    if (file) {
+      const imgUrl = URL.createObjectURL(file)
+      setImgURL(imgUrl)
+    }
+  }
+
   return (
-    <div className="flex gap-2">
-      {/* single small img */}
-      <div className="relative group cursor-pointer">
-        <img
-          className="w-[125px] h-[113px] rounded-2xl object-cover "
-          src={img2}
-          alt=""
-        />
-        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-          <div className="w-full h-full flex items-center justify-center"></div>
-        </div>
-      </div>
+    <div className="">
+      {imgURL && <img className="w-[125px] h-[113px] rounded-2xl object-cover " src={imgURL} />}
+      <form onSubmit={handleSubmit(upload)} className="">
 
-      {/* single small img */}
-      <div className="relative group cursor-pointer">
-        <img
-          className="w-[125px] h-[113px] rounded-2xl object-cover "
-          src={img3}
-          alt=""
-        />
-        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-          <div className="w-full h-full flex items-center justify-center"></div>
+        <div className="flex items-center justify-center w-full">
+          <label htmlFor="dropzone-file" className="mt-4 py-5 flex flex-col items-center justify-center w-full  border-[#C3CAD5]  border-dashed border-2 cursor-pointer bg-gray-50  hover:bg-gray-100 rounded-2xl">
+            <p className="flex items-center gap-2 text-xl text-primary-300"> <AiOutlinePlusCircle /> <span>Add Photo</span></p>
+            <input {...register('image')}  name="image" id="dropzone-file" type="file" className="hidden" />
+          </label>
         </div>
-      </div>
 
-      {/* single small img */}
-      <div className="relative group cursor-pointer">
-        <img
-          className="w-[125px] h-[113px] rounded-2xl object-cover "
-          src={img4}
-          alt=""
-        />
-        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-          <div className="w-full h-full flex items-center justify-center"></div>
-        </div>
-      </div>
-
-      {/* single small img */}
-      <div className="relative group cursor-pointer">
-        <img
-          className="w-[125px] h-[113px] rounded-2xl object-cover "
-          src={img5}
-          alt=""
-        />
-        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-          <div className="w-full h-full flex items-center justify-center"></div>
-        </div>
-      </div>
+        <button disabled={loading} type="submit" className={loading ? 'text-[22px] w-[90%] mx-auto my-6  bg-gray-300 cursor-not-allowed rounded-full text-white py-4  flex justify-center items-center ' : 'active:scale-95 duration-100 text-[22px] w-[90%] mx-auto my-6  bg-primary-500 rounded-full text-white py-4  flex justify-center items-center '}>
+          {loading ? <span className="loading loading-spinner loading-lg"></span> : 'Upload Now'}
+        </button>
+      </form>
     </div>
   );
 };
