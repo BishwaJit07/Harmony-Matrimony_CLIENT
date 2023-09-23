@@ -147,7 +147,7 @@ const AllUser = () => {
     return (
       < div className="">
         <div className="">
-          <div className="dark:bg-gray-500 p-2 rounded-xl  lg:w-[350px]">
+          <div className="dark:bg-gray-500 p-2 rounded-xl  lg:w-[350px]  ">
             <div className=" mx-auto hidden lg:block ">
               <div className="flex justify-between items-center w-[80%] mx-auto ">
                 <div className="flex justify-center items-center">
@@ -166,7 +166,7 @@ const AllUser = () => {
               </div>
               <hr className="my-2 h-0.5 border-t-0 bg-[#595E73] opacity-100 dark:opacity-50 mt-4"></hr>
             </div>
-            <div className="lg:h-[500px] ov">
+            <div className="lg:h-[500px] overflow-y-scroll">
               <div className="w-[80%] mx-auto pb-10 ">
                 <div className="">
                   {/* For Marital Status */}
@@ -381,26 +381,26 @@ const AllUser = () => {
                     value={setSelectedCountry}
                     onChange={setSelectedCountry}
                   >
-                    <Listbox.Button className=" relative w-full cursor-default rounded-lg bg-white py-2 pl-2 mt-2 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm ">
-                      <span className="block truncate text-sm text-[#536279]">
-                        {selectedCountry
+                    <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-2 mt-2 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+                          <span className="block truncate text-sm text-[#536279]">
+                          {selectedCountry
                           ? selectedCountry?.name
                           : "Select Country"}
-                      </span>
-                      <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center ">
-                        <HiChevronUpDown
-                          className="h-5 w-5 text-gray-400 mr-3"
-                          aria-hidden="true"
-                        />
-                      </span>
-                    </Listbox.Button>
+                          </span>
+                          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center ">
+                            <HiChevronUpDown
+                              className="h-5 w-5 text-gray-400 mr-3"
+                              aria-hidden="true"
+                            />
+                          </span>
+                        </Listbox.Button>
                     <Transition
                       as={Fragment}
                       leave="transition ease-in duration-100"
                       leaveFrom="opacity-100"
                       leaveTo="opacity-0"
                     >
-                      <Listbox.Options className="z-30 absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                      <Listbox.Options className="z-30 absolute mt-1 max-h-20 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                         {countryData.map((country, index) => (
                           <Listbox.Option
                             key={index}
@@ -643,7 +643,7 @@ const AllUser = () => {
 
       {/* Filter lg */}
       <div className="lg:flex select-none z-20 dark:bg-gray-800 sticky top-0  ">
-        <div className="hidden lg:block py-8 bg-[#F0F2F5] w-[350px]  dark:bg-gray-500 dark:text-white h-[1200px] sticky top-0">
+        <div className="hidden lg:block py-8 bg-[#F0F2F5] w-[350px]  dark:bg-gray-500 dark:text-white h-[800px] mt-10 ml-10 rounded-2xl sticky top-0">
           <Filter></Filter>
         </div>
 
