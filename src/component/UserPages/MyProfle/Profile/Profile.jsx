@@ -2,6 +2,13 @@ import { PiMagnifyingGlassPlusThin } from "react-icons/pi";
 import { BsArrowRightShort, BsTelephone } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
+import LightGallery from 'lightgallery/react';
+
+// import styles
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-thumbnail.css';
+import './style.css'
 import img2 from "../../../../assets/home/recommendation/girl.png";
 import img3 from "../../../../assets/home/recommendation/girl2.png";
 import img4 from "../../../../assets/home/recommendation/girl3.png";
@@ -19,13 +26,20 @@ import insta from "../../../../assets/other/insta.svg";
 import twitter from "../../../../assets/other/twitter.svg";
 import { useEffect, useState } from "react";
 
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import FixedMet from "../metting/FixedMet";
 import useMyData from "../../../../Hooks/useMyData";
 import axios from "axios";
 import { RiUserUnfollowFill } from "react-icons/ri";
 import RelationSts from "../relationSts/RelationSts";
 import { performAction } from "../../../../utilities/utilities";
+
+const onInit = () => {
+  console.log('lightGallery has been initialized');
+};
+
+import lgThumbnail from 'lightgallery/plugins/thumbnail';
+import lgZoom from 'lightgallery/plugins/zoom';
 
 const Profile = () => {
   const [userInfo, refetch] = useMyData();
@@ -142,6 +156,9 @@ const Profile = () => {
     }
   };
 
+
+  
+
   return (
     <>
       {loader ? (
@@ -162,70 +179,23 @@ const Profile = () => {
                 <div className="sticky top-4">
                   {/* sticky the photo */}
                   {/* photo gallery */}
-                  <div className="flex flex-col md:flex-row gap-2">
-                    <img
-                      className="mx-4 md:mx-0 h-[590px] rounded-2xl object-cover"
-                      src={profileImage}
-                      alt=""
-                    />
+                  <div className="flex flex-col lg:flex-row gap-2 ">
+                    <img className={user?.gallery ? "mx-auto h-[590px] rounded-2xl object-cover w-[95%] lg:w-[75%]  " : "w-[98%] mx-auto h-[590px] rounded-2xl object-cover "} src={profileImage} alt="" />
 
-                    {/* small imgs */}
-                    <div className="flex flex-row md:flex-col gap-1 md:gap-4 px-1">
-                      {/* single small img */}
-                      <div className="relative group cursor-pointer">
-                        <img
-                          className="w-[145px] h-[133px] rounded-2xl object-cover "
-                          src={img2}
-                          alt=""
-                        />
-                        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* single small img */}
-                      <div className="relative group cursor-pointer">
-                        <img
-                          className="w-[145px] h-[133px] rounded-2xl object-cover "
-                          src={img3}
-                          alt=""
-                        />
-                        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* single small img */}
-                      <div className="relative group cursor-pointer">
-                        <img
-                          className="w-[145px] h-[133px] rounded-2xl object-cover "
-                          src={img4}
-                          alt=""
-                        />
-                        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* single small img */}
-                      <div className="relative group cursor-pointer">
-                        <img
-                          className="w-[145px] h-[133px] rounded-2xl object-cover "
-                          src={img5}
-                          alt=""
-                        />
-                        <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
-                          <div className="w-full h-full flex items-center justify-center">
-                            <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
-                          </div>
-                        </div>
-                      </div>
+                    {/* Gallery imgs */}
+                      <div className="flex  gap-8 md:gap-4 px-1 hide-scrollbar overflow-x-scroll lg:overflow-y-scroll lg:h-[590px] soulContainer">
+                      {
+                        // user?.gallery?.map((img, index) => <GalleryImg key={index} img={img} />)
+                      }
+                        <LightGallery
+                          onInit={onInit}
+                          speed={500}
+                          plugins={[lgThumbnail, lgZoom]}
+                        >
+                          {
+                            user?.gallery?.map((img, index) => <GalleryImg key={index} img={img} />)
+                          }
+                        </LightGallery>
                     </div>
                     {/* small imgs end */}
                   </div>
@@ -510,6 +480,7 @@ export const Info = ({ title, value }) => {
   );
 };
 
+
 const HBox = ({ value }) => {
   return (
     <div className="bg-white py-3 px-4 rounded-full text-[#536279] text-base ">
@@ -517,3 +488,21 @@ const HBox = ({ value }) => {
     </div>
   );
 };
+
+const GalleryImg = ({img}) => {
+  return(
+    <Link to={img} className="relative group cursor-pointer mb-2 w-[145px] lg:w-full">
+      <img
+        className="w-[145px] h-[133px] rounded-2xl object-cover  "
+        src={img}
+        alt=""
+      />
+      <div className="absolute center-div bg-black rounded-2xl duration-300 bg-opacity-50 h-0 w-0 group-hover:h-full group-hover:w-full ">
+        <div className="w-full h-full flex items-center justify-center mb-4">
+          <PiMagnifyingGlassPlusThin className="text-5xl text-primary-50" />
+        </div>
+      </div>
+    </Link>
+  )
+}
+
