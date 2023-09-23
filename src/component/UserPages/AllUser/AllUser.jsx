@@ -25,6 +25,7 @@ const AllUser = () => {
   const [religionStatus, setReligionStatus] = useState(null);
   const [ageRange, setAgeRange] = useState([18, 60]);
   const [selectedCountry, setSelectedCountry] = useState(null);
+  
   const [state, setState] = useState(null);
   const [stateData, setStateData] = useState();
   let countryData = Country.getAllCountries();

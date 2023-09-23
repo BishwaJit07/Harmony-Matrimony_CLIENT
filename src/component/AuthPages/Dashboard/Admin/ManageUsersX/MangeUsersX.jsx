@@ -10,6 +10,7 @@ const MangeUsersX = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+console.log(search);
 
   useEffect(() => {
     fetch(`https://soulmates-server.vercel.app/authority?search=${search.toLowerCase()}`)

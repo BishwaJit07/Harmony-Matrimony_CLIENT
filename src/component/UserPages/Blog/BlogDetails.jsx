@@ -12,6 +12,7 @@ import Loading from "../../../Shared/Loading";
 const BlogDetails = () => {
  
   const [latests, setLatests] = useState([]);
+  console.log(latests);
   const [loading, setLoading] = useState(true);
 
   const params = useParams();
@@ -33,7 +34,7 @@ const BlogDetails = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [latests]);
+  }, []);
   
   if (loading) {
     return (

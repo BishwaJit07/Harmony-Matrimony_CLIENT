@@ -7,6 +7,7 @@ const ChatOnline = ({ onlineUsers, currentId, setCurrentChat , refetch}) => {
    
 
     const [allUsers, setAllUser] = useState([]);
+    console.log(allUsers);
     const [onlineFriends, setOnlineFriends] = useState([])
     console.log(onlineFriends, allUsers)
 

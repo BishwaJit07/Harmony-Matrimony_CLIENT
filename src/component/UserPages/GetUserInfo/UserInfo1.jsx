@@ -53,6 +53,7 @@ const UserInfo1 = () => {
   const [cityData, setCityData] = useState();
   const [country, setCountry] = useState("Country");
   const [state, setState] = useState();
+  console.log(sta);
   const [city, setCity] = useState();
   const [date, setDate] = useState(new Date());
   const [isOpen, setIsOpen] = useState(true);
