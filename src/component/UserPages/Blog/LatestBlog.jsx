@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const LatestBlog = () => {
     const [latest, setLatest] = useState([]);
+    console.log(latest);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch('https://soulmates-server.vercel.app/blogsLatest')
@@ -17,7 +18,7 @@ const LatestBlog = () => {
             .catch(error => {
                 console.log(error);
             })
-    }, [latest])
+    }, [])
     return (
         <div className='mt-10'>
             <h1 className="text-3xl font-serif font-medium my-4">Latest Blogs</h1>

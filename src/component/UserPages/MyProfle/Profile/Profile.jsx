@@ -434,21 +434,7 @@ const Profile = () => {
                 }
 
                 <BorderBottom />
-                <Title title="Social Media" />
-                <div className="flex gap-2">
-                  <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-                    <img src={facebook} className="text-2xl" />
-                  </div>
-                  <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-                    <img src={linkedin} className="text-2xl" />
-                  </div>
-                  <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-                    <img src={insta} className="text-2xl" />
-                  </div>
-                  <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-                    <img src={twitter} className="text-2xl" />
-                  </div>
-                </div>
+                
 
                 {/* info div */}
               </div>

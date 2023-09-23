@@ -100,7 +100,7 @@
   position: absolute;
   border: 1px solid #ccc;
   z-index: 999;
-
+}
 /* for profile gallery */
 .lg-react-element{
   @apply flex lg:flex-col gap-2 

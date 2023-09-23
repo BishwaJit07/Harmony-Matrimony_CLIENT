@@ -230,7 +230,7 @@ const UserProfile = () => {
           <Follow />
           <Proposal />
           <BoxBorderContent title="Hobbies" content={<Hobbies />} />
-          <BoxBorderContent title="Social Media" content={<SocialMedia />} />
+          <BoxBorderContent title="Upload Your Photo" content={<SocialMedia />} />
           {/* <Plan /> */}
         </div>
       </div>
