@@ -16,7 +16,7 @@ const DashboardProfile = () => {
   },[user])
 
     return (
-      <div className='h-screen'>
+      <div className=''>
         <div className="flex flex-col items-center ">
           <img className="w-64 h-64 object-cover object-top rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mt-28" src={profileDatas?.profileImage} alt="" />
           <h4 className="text-center text-3xl text-cyan-700 font-medium mt-8">{profileDatas?.name}</h4>
