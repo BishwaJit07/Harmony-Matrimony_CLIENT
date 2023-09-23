@@ -172,7 +172,7 @@ const Profile = () => {
                   {/* sticky the photo */}
                   {/* photo gallery */}
                   <div className="flex flex-col lg:flex-row gap-2 ">
-                    <img className={user?.gallery ? "mx-auto h-[590px] rounded-2xl object-cover w-[95%] lg:w-[75%]  " : "mx-auto h-[590px] rounded-2xl object-cover "} src={profileImage} alt="" />
+                    <img className={user?.gallery ? "mx-auto h-[590px] rounded-2xl object-cover w-[95%] lg:w-[75%]  " : "w-[98%] mx-auto h-[590px] rounded-2xl object-cover "} src={profileImage} alt="" />
 
                     {/* Gallery imgs */}
                       <div className="flex  gap-8 md:gap-4 px-1 hide-scrollbar overflow-x-scroll lg:overflow-y-scroll lg:h-[590px] soulContainer">
