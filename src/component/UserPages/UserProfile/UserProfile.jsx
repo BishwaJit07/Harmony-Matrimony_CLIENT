@@ -1,4 +1,5 @@
 import { BsTelephone } from "react-icons/bs";
+import Lottie from "lottie-react";
 import LightGallery from 'lightgallery/react';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
@@ -32,6 +33,10 @@ import { useRelationInfo } from "../../../utilities/utilities";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+
+// lottie files
+import manyLove from '../../../assets/lottie/manyLove.json'
+import topLottie from '../../../assets/lottie/bigLove.json'
 
 const UserProfile = () => {
   const [userInfo] = useMyData();
@@ -231,6 +236,7 @@ const UserProfile = () => {
 
         {/* other section */}
         <div className=" md:w-[40%]">
+          <MarriedStatus />
           <ShowRltnNotify />
           <MetForUser />
           <Follow />
@@ -245,6 +251,18 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
+
+const MarriedStatus = () => {
+  return(
+    <div className="relative mb-5 flex flex-col  border border-[#C3CAD5] rounded-2xl overflow-hidden">
+      <Lottie animationData={topLottie} />
+      <Lottie className="absolute bottom-0" animationData={manyLove} />
+      <p className="text-3xl font-alice text-black text-center">In a relationship with </p>
+      <p className="text-[#3E43CB] text-lg font-lato text-center">Wade Warren</p>
+      <p className="font-bold  mt-2 mb-6 p-2 rounded-full bg-gray-100 mx-auto w-[120px] flex justify-center">24/05/2023</p>
+    </div>
+  )
+}
 
 const EditBtn = ({ text }) => {
   return (
