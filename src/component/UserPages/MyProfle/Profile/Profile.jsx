@@ -179,6 +179,7 @@ const Profile = () => {
                       {
                         // user?.gallery?.map((img, index) => <GalleryImg key={index} img={img} />)
                       }
+
                         <LightGallery
                           onInit={onInit}
                           speed={500}
@@ -470,9 +471,9 @@ export const Info = ({ title, value }) => {
   );
 };
 
-const GalleryImg = ({img}) => {
+export const GalleryImg = ({img, isProfile}) => {
   return(
-    <Link to={img} className="relative group cursor-pointer mb-2 w-[145px] lg:w-full">
+    <Link to={img} className={`relative group cursor-pointer mb-2 w-[145px] ${!isProfile && 'lg:w-full'}`}>
       <img
         className="w-[145px] h-[133px] rounded-2xl object-cover  "
         src={img}

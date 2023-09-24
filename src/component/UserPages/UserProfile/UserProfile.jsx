@@ -1,4 +1,11 @@
 import { BsTelephone } from "react-icons/bs";
+import LightGallery from 'lightgallery/react';
+import lgThumbnail from 'lightgallery/plugins/thumbnail';
+import lgZoom from 'lightgallery/plugins/zoom';
+// import styles
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-thumbnail.css';
 import banner from "../../../assets/userProfile/userBanner.png";
 import img2 from "../../../assets/home/recommendation/girl.png";
 import img3 from "../../../assets/home/recommendation/girl2.png";
@@ -6,7 +13,7 @@ import img4 from "../../../assets/home/recommendation/girl3.png";
 import img5 from "../../../assets/home/recommendation/girl4.png";
 import edit from "../../../assets/other/edit.svg";
 import share from "../../../assets/other/share.svg";
-import { Info } from "../MyProfle/Profile/Profile";
+import { GalleryImg, Info } from "../MyProfle/Profile/Profile";
 import ages from "../../../assets/other/age.svg";
 import heights from "../../../assets/other/height.svg";
 import jobs from "../../../assets/other/job.svg";
@@ -41,8 +48,7 @@ const UserProfile = () => {
       setPartner([]);
     }
   }, [relationship]);
-
-  const { profileImage, name, email, _id, profileVisit, status } = userInfo;
+  const { profileImage, name, email, _id, profileVisit, status, gallery } = userInfo;
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -230,7 +236,7 @@ const UserProfile = () => {
           <Follow />
           <Proposal />
           <BoxBorderContent title="Hobbies" content={<Hobbies />} />
-          <BoxBorderContent title="Social Media" content={<SocialMedia />} />
+          <BoxBorderContent title="Photos" content={<SocialMedia gallery={gallery}/>} />
           {/* <Plan /> */}
         </div>
       </div>
@@ -420,13 +426,14 @@ const Hobbies = () => {
   );
 };
 
-const SocialMedia = () => {
+const SocialMedia = ({gallery}) => {
   const [userInfo] = useMyData();
   const { register, handleSubmit } = useForm()
   const { _id } = userInfo;
   const imgHostingUrl = `https://api.imgbb.com/1/upload?expiration=600&key=${import.meta.env.VITE_Image_Upload_Token}`
   const [loading, setLoading] = useState(false)
   const [imgURL, setImgURL] = useState(null)
+  console.log(userInfo)
 
   const upload = e => {
     setLoading(true)
@@ -480,7 +487,20 @@ const SocialMedia = () => {
 
   return (
     <div className="">
-      {imgURL && <img className="w-[125px] h-[113px] rounded-2xl object-cover " src={imgURL} />}
+      {/* {imgURL && <img className="w-[125px] h-[113px] rounded-2xl object-cover " src={imgURL} />} */}
+      <div className="overflow-x-scroll profile">
+        {
+          gallery && <LightGallery
+
+            speed={500}
+            plugins={[lgThumbnail, lgZoom]}
+          >
+            {
+              gallery?.map((img, index) => <GalleryImg key={index} img={img} isProfile={true}/>)
+            }
+          </LightGallery>
+        }
+      </div>
       <form onSubmit={handleSubmit(upload)} className="">
 
         <div className="flex items-center justify-center w-full">
