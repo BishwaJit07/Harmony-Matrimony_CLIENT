@@ -3,9 +3,9 @@ import { AuthContext } from '../../../../Provider/AuthProvider';
 
 const DashboardProfile = () => {
   const {user} = useContext(AuthContext);
-  console.log(user);
   const [profileDatas, setProfileDatas] = useState({});
   const [loading, setLoading]= useState(true)
+  console.log(user,profileDatas);
   useEffect(() =>{
     fetch(`https://soulmates-server.vercel.app/profileData/${user?.email}`)
     .then(res => res.json())

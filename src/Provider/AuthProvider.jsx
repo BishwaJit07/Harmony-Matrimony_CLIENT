@@ -10,7 +10,6 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
-
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
@@ -40,33 +39,23 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-
             setUser(currentUser);
-
-            // get and set token!!!!
             if (currentUser) {
                 axios.post('https://soulmates-server.vercel.app/jwt', { email: currentUser.email })
                     .then(data => {
-                        console.log(data);
                         localStorage.setItem('access-token', data.data.token);
                         setLoading(false);
                     })
-                    .catch(error => {
-                        console.error('Error fetching token:', error);
-                        setLoading(false);
-                    });
             } else {
                 localStorage.removeItem('access-token');
-
                 setLoading(false);
             }
         });
 
-        // Return the cleanup function to unsubscribe from the onAuthStateChanged observer.
         return () => {
             unsubscribe();
         };
-    }, []); // The empty dependency array ensures this effect runs only once, like componentDidMount.
+    }, []); 
 
     const authInfo = {
         user,

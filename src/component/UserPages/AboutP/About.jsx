@@ -22,8 +22,8 @@ const About = () => {
   console.log(team);
   useEffect(() => {
     fetch("https://soulmates-server.vercel.app/team")
-      .then((res) => res.json())
-      .then((data) => setTeam(data));
+    .then((res) => res.json())
+    .then((data) => setTeam(data));
   }, []);
 
   return (
