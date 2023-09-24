@@ -21,8 +21,13 @@ const [happyStories, setHappyStories] = useState([]);
   useEffect(() => {
       fetch(`https://soulmates-server.vercel.app/reviews`)
           .then(res => res.json())
-          .then(data => setHappyStories(data));
+          .then(data => {setHappyStories(data)});
   }, [params.id])
+
+  const getName = (coupleName) => {
+    const name = coupleName.split('and')
+    return name
+  }
 
   return (
     <div className='max-w-7xl mx-auto px-2'>
@@ -34,7 +39,7 @@ const [happyStories, setHappyStories] = useState([]);
         {/* dynamic data goes here */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-[12px] mb-4">
           {
-            happyStories.map((data, index) => <PhotoContainer key={index} img={data.imageURL} imgStyle='w-full h-full object-cover' />)
+            happyStories.map((data, index) => <PhotoContainer maleName={getName(data.coupleName)[0]} femaleName={getName(data.coupleName)[1]} key={index} img={data.imageURL} imgStyle='w-full h-full object-cover' />)
           }
         </div>
       </div>
