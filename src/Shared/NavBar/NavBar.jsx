@@ -2,12 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo/logo3.png";
 import useMyData from "../../Hooks/useMyData";
 import noProfile from "../../assets/other/blank.png";
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Headroom from "react-headroom";
 import "./NavBar.css";
 import { DarkMode } from "../DarkMode/DarkMode";
 import { AiFillMessage } from "react-icons/ai";
+
 const NavBar = () => {
   // if you need to add new links in navbar, add it in li element
   const [userInfo] = useMyData();
@@ -15,7 +16,7 @@ const NavBar = () => {
 
   const handleLogOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
 
@@ -28,10 +29,10 @@ const NavBar = () => {
           "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
       }}
     >
-      <div className="navbar  px-20 select-none dark:bg-gray-400 dark:text-white bg-[#E8FCFC]">
+      <div className="navbar  md:px-20 select-none dark:bg-gray-400 dark:text-white bg-[#E8FCFC]">
         <div className="navbar-start">
-          <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <div className="dropdown lg:hidden hidden md:flex">
+            <label tabIndex={0} className="btn btn-ghost ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -54,18 +55,17 @@ const NavBar = () => {
               <NavItems></NavItems>
             </ul>
           </div>
-          <Link to="/" className="hidden md:flex">
+          <Link to="/" className="">
             <img className="scale-75" src={logo} alt="" />
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex ">
+        <div className="lg:navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1">
             <NavItems></NavItems>
           </ul>
         </div>
         <div className="navbar-end ml-auto">
           <DarkMode />
-
           {user ? (
             <>
               <div>
@@ -73,7 +73,9 @@ const NavBar = () => {
                   <AiFillMessage className="text-3xl mr-2 text-red-400" />
                 </Link>
               </div>
-              <DropdownProfile userInfo={userInfo} logOut={handleLogOut} />
+              <div className="hidden md:block">
+                <DropdownProfile userInfo={userInfo} logOut={handleLogOut} />
+              </div>
             </>
           ) : (
             <div className="">
@@ -86,7 +88,7 @@ const NavBar = () => {
           )}
         </div>
       </div>
-   
+
     </Headroom>
   );
 };
@@ -98,8 +100,8 @@ const NavItems = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive &&
-            "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px] dark:text-white"
+            isActive ?
+              "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px] dark:text-white" : ""
           }
         >
           Home
@@ -109,8 +111,8 @@ const NavItems = () => {
         <NavLink
           to="/allUser"
           className={({ isActive }) =>
-            isActive &&
-            "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px] "
+            isActive ?
+              "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px] " : ""
           }
         >
           Explore
@@ -120,8 +122,8 @@ const NavItems = () => {
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            isActive &&
-            "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]"
+            isActive ?
+              "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]" : ""
           }
         >
           About us
@@ -131,8 +133,8 @@ const NavItems = () => {
         <NavLink
           to="/blog"
           className={({ isActive }) =>
-            isActive &&
-            "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]"
+            isActive ?
+              "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]" : ""
           }
         >
           Blog
@@ -142,8 +144,8 @@ const NavItems = () => {
         <NavLink
           to="/plans"
           className={({ isActive }) =>
-            isActive &&
-            "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]"
+            isActive ?
+              "w-fit block after:block after:h-[3px] after:bg-[#4BE5E7] after:w-[30px]" : ""
           }
         >
           Plans
@@ -159,12 +161,12 @@ const NavItems = () => {
 const DropdownProfile = ({ userInfo, logOut, }) => {
   return (
 
-    <div className="dropdown">
+    <div className="dropdown ">
       <label tabIndex={0} className=" flex items-center active:scale-95 duration-75 cursor-pointer border rounded-full pr-3 ">
         {userInfo.profileImage ?
-              <><img className="w-10 h-10 mr-2 rounded-full object-cover" src={userInfo.profileImage} alt="user photo" /></>
-              : <img className="w-10 h-10 mr-2 rounded-full object-cover" src={noProfile} alt="user photo" />
-            }
+          <><img className="w-10 h-10 mr-2 rounded-full object-cover" src={userInfo.profileImage} alt="user photo" /></>
+          : <img className="w-10 h-10 mr-2 rounded-full object-cover" src={noProfile} alt="user photo" />
+        }
         <span className=''>{userInfo.name}</span>
       </label>
       <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">

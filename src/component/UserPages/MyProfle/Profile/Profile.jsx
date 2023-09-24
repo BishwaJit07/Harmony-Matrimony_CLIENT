@@ -14,7 +14,6 @@ import img3 from "../../../../assets/home/recommendation/girl2.png";
 import img4 from "../../../../assets/home/recommendation/girl3.png";
 import img5 from "../../../../assets/home/recommendation/girl4.png";
 import location from "../../../../assets/other/location.svg";
-// import follow from "../../../../assets/other/follow.svg";
 import share from "../../../../assets/other/share.svg";
 import bookmark from "../../../../assets/other/bookmark.svg";
 import ages from "../../../../assets/other/age.svg";
@@ -31,7 +30,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import FixedMet from "../metting/FixedMet";
 import useMyData from "../../../../Hooks/useMyData";
 import axios from "axios";
-// import { RiUserUnfollowFill } from "react-icons/ri";
+import { RiUserUnfollowFill } from "react-icons/ri";
 import RelationSts from "../relationSts/RelationSts";
 import { performAction } from "../../../../utilities/utilities";
 
@@ -78,7 +77,16 @@ const Profile = () => {
     yearlyIncome,
     drinkHabit,
     foodHabit,
+    interests
   } = user;
+
+
+  // function formatHeight(height) {
+  //   const heightParts = height.split(" ");
+  //   const feet = parseInt(heightParts[0]);
+  //   const inches = parseInt(heightParts[2]);
+  //   return `${feet}ft ${inches}in`;
+  // }
 
   useEffect(() => {
     if (userInfo?.profileVisit > 0) {
@@ -164,7 +172,7 @@ const Profile = () => {
         </>
       ) : (
         <>
-          <div className="max-w-7xl mx-auto">
+          <div className="w-[80%] mx-auto my-20">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-lato mt-4">
               {/* photo section */}
               <div className="">
@@ -314,7 +322,7 @@ const Profile = () => {
                       />
                       <div className="text-center text-[18px]">
                         <p>HEIGHT:</p>
-                        <p>{height}</p>
+                        <p>{(height)}</p>
                       </div>
                     </div>
                     <div className="p-3 bg-white rounded-2xl">
@@ -325,7 +333,7 @@ const Profile = () => {
                       />
                       <div className="text-center text-[18px]">
                         <p>CITY:</p>
-                        <p>{city}</p>
+                        <p>{state}</p>
                       </div>
                     </div>
                     <div className="p-3 bg-white rounded-2xl">
@@ -412,34 +420,22 @@ const Profile = () => {
                   </div>
                 </div>
 
-                <BorderBottom />
-                <Title title="Hobbies" />
 
                 {/* Hobbies Section */}
-                {/* {
-                  interests?  <div className="flex gap-3 flex-wrap">
-                  {interests?.map((interest, index) => (
-                    <HBox key={index} value={interest} />
-                  ))}
-                </div>: <></>
-                } */}
+                {
+                  interests ?
+                    <>
+                      <BorderBottom />
+                      <Title title="Hobbies" />
+                      <div className="flex gap-3 flex-wrap">
+                        {interests?.map((interest, index) => (
+                          <HBox key={index} value={interest} />
+                        ))}
+                      </div></> : <></>
+                }
 
                 <BorderBottom />
-                <Title title="Social Media" />
-                <div className="flex gap-2">
-                  <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-                    <img src={facebook} className="text-2xl" />
-                  </div>
-                  <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-                    <img src={linkedin} className="text-2xl" />
-                  </div>
-                  <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-                    <img src={insta} className="text-2xl" />
-                  </div>
-                  <div className="bg-white p-[12px] rounded-full border border-[#6b7b958c]">
-                    <img src={twitter} className="text-2xl" />
-                  </div>
-                </div>
+                
 
                 {/* info div */}
               </div>
@@ -471,7 +467,7 @@ export const Info = ({ title, value }) => {
   );
 };
 
-export const GalleryImg = ({img, isProfile}) => {
+const GalleryImg = ({img}) => {
   return(
     <Link to={img} className={`relative group cursor-pointer mb-2 w-[145px] ${!isProfile && 'lg:w-full'}`}>
       <img
@@ -487,3 +483,4 @@ export const GalleryImg = ({img, isProfile}) => {
     </Link>
   )
 }
+

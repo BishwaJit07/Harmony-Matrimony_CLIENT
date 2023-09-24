@@ -6,7 +6,9 @@ import Loading from "../../../../../Shared/Loading";
 
 const BookService = () => {
     const {user}=useContext(AuthContext)
-    const [datas, setDatas]=useState([])
+    const [datas, setDatas]=useState([]);
+    
+    console.log(datas);
     const [loading, setLoading] = useState(true);
     console.log(user?.email)
     console.log(datas)

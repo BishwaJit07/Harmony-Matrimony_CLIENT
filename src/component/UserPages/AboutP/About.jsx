@@ -19,11 +19,12 @@ import Contact from "./Contact";
 
 const About = () => {
   const [team, setTeam] = useState([]);
+  console.log(team);
   useEffect(() => {
     fetch("https://soulmates-server.vercel.app/team")
       .then((res) => res.json())
       .then((data) => setTeam(data));
-  }, [team]);
+  }, []);
 
   return (
     <div className='font-poppins mb-32 dark:bg-gray-800'>

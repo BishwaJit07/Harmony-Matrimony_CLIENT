@@ -3,6 +3,7 @@ import { AuthContext } from '../../../../Provider/AuthProvider';
 
 const DashboardProfile = () => {
   const {user} = useContext(AuthContext);
+  console.log(user);
   const [profileDatas, setProfileDatas] = useState({});
   const [loading, setLoading]= useState(true)
   useEffect(() =>{

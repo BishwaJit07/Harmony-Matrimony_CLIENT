@@ -86,7 +86,7 @@ const Plans = () => {
         </p>
       </div>
       {/* card section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto font-lato py-8 gap-7  mb-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto font-lato py-8 gap-7  mb-20 w-[90%] md:full">
         {/* card */}
         <div className="border border-[#E1E5EA] rounded-2xl hover:shadow-2xl duration-500 overflow-hidden dark:bg-gray-600">
           <Header
@@ -170,7 +170,7 @@ const Header = ({ isPopular, title, titleImg, price, profileCount, bg }) => {
             <img className="w-9 h-9" src={titleImg} alt="" />
             <p className="text-[36px] font-alice dark:text-white">{title}</p>
           </div>
-          <p
+          {/* <p
             className={
               isPopular
                 ? "text-[#272932] dark:text-white py-[13px] px-[22px] border rounded-full font-lato border-[#0F7173]"
@@ -178,7 +178,7 @@ const Header = ({ isPopular, title, titleImg, price, profileCount, bg }) => {
             }
           >
             POPULAR
-          </p>
+          </p> */}
         </div>
         <p className="text-[#3E4A5B] font-lato text-[22px] dark:text-white">
           Perfect to get Started
