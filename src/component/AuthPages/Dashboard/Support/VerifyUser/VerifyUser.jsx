@@ -9,7 +9,7 @@ const VerifyUser = () => {
   console.log(verify)
   useEffect(() => {
     
-    fetch('http://localhost:5000/verifyUser')
+    fetch('https://soulmates-server.vercel.app/verifyUser')
       .then(res => res.json())
       .then(data => {
         setVerify(data);
@@ -24,7 +24,7 @@ const VerifyUser = () => {
 
   
   const handleVerify = email => {
-    fetch(`http://localhost:5000/userVerify/${email}`, {
+    fetch(`https://soulmates-server.vercel.app/userVerify/${email}`, {
       method: "PATCH"
     })
       .then(res => res.json())
@@ -47,7 +47,7 @@ const VerifyUser = () => {
   }
 
   const handleCancle = email => {
-    fetch(`http://localhost:5000/userCancle/${email}`, {
+    fetch(`https://soulmates-server.vercel.app/userCancle/${email}`, {
       method: "PUT"
     })
       .then(res => res.json())

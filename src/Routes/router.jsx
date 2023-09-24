@@ -167,7 +167,7 @@ const router = createBrowserRouter([
       {
         path: "hotel/:id",
         element: <ServiceCard></ServiceCard>,
-        loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`),
+        loader: ({ params }) => fetch(`https://soulmates-server.vercel.app/service/${params.id}`),
 
       },
    

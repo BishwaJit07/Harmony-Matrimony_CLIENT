@@ -24,17 +24,17 @@ const FixedMet = ({ partnerUser }) => {
 
   const { refetch: refetchAccept, data: acceptInfo = [] } = useCustomQuery(
     ["accept", userId],
-    `http://localhost:5000/reqAccept/${userId}`
+    `https://soulmates-server.vercel.app/reqAccept/${userId}`
   );
 
   const { refetch: refetchPending, data: pendingInfo = [] } = useCustomQuery(
     ["req", userId],
-    `http://localhost:5000/getReqPending/${userId}`
+    `https://soulmates-server.vercel.app/getReqPending/${userId}`
   );
 
   const { refetch: refetchReq, data: requestInfo = [] } = useCustomQuery(
     ["pending", userId],
-    `http://localhost:5000/sendReqPending/${userId}`
+    `https://soulmates-server.vercel.app/sendReqPending/${userId}`
   );
 
   useEffect(() => {

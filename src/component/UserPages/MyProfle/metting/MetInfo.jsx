@@ -16,7 +16,7 @@ const MetInfo = ({ infoData, actionType, refetch, user }) => {
       status: "proposed",
     };
     axios
-      .put(`http://localhost:5000/setProposal/${delId}`, delMEt)
+      .put(`https://soulmates-server.vercel.app/setProposal/${delId}`, delMEt)
       .then((response) => {
         if (response.data.modifiedCount > 0) {
           refetch();

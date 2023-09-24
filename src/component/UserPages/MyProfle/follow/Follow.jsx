@@ -15,7 +15,7 @@ const Follow = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/showFlowing/${userInfo._id}`
+        `https://soulmates-server.vercel.app/showFlowing/${userInfo._id}`
       )
       .then((response) => {
         if (response.data) {
@@ -27,7 +27,7 @@ const Follow = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/showFlowers/${userInfo._id}`
+        `https://soulmates-server.vercel.app/showFlowers/${userInfo._id}`
       )
       .then((response) => {
         if (response.data) {
