@@ -48,8 +48,9 @@ const Profile = () => {
   const [loader, setLoader] = useState(true);
   const [disable, setDisable] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
-    fetch(`https://soulmates-server.vercel.app/specificUser/${params.id}`)
+    fetch(`http://localhost:5000/specificUser/${params.id}`)
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, [params]);
@@ -97,7 +98,7 @@ const Profile = () => {
   useEffect(() => {
     axios
       .get(
-        `https://soulmates-server.vercel.app/disableFav/${userInfo._id}/${user._id}`
+        `http://localhost:5000/disableFav/${userInfo._id}/${user._id}`
       )
       .then((response) => {
         if (response.data.userId) {
@@ -133,7 +134,7 @@ const Profile = () => {
     };
     axios
       .put(
-        `https://soulmates-server.vercel.app/makeUnfollow/${userInfo._id}`,
+        `http://localhost:5000/makeUnfollow/${userInfo._id}`,
         unfollow
       )
       .then((response) => {
@@ -146,7 +147,7 @@ const Profile = () => {
   const handleClick = async () => {
     try {
       const res = await axios.get(
-        `https://soulmates-server.vercel.app/conversations/find/${userInfo._id}/${params.id}`
+        `http://localhost:5000/conversations/find/${userInfo._id}/${params.id}`
       );
       console.log(res.data);
       navigate("/message");

@@ -7,7 +7,7 @@ const UserDetails = () => {
   const [datas, setDatas] = useState([]);
 
   // useEffect(() => {
-  //   fetch(`https://soulmates-server.vercel.app/userStats/${user?.email}`)
+  //   fetch(`http://localhost:5000/userStats/${user?.email}`)
   //     .then((res) => res.json())
   //     .then((data) => console.log(data));
   // }, []);

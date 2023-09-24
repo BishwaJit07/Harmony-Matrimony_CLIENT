@@ -14,9 +14,10 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
   const [react, setReact] = useState(false);
 
+  console.log(blogData, react)
   // fetch Blog data
   useEffect(() => {
-    fetch("https://soulmates-server.vercel.app/blogs")
+    fetch("http://localhost:5000/blogs")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -31,7 +32,7 @@ const Blog = () => {
   }, [react]);
 
   const handleShowBlogByCategory = (type) => {
-    fetch(`https://soulmates-server.vercel.app/blogs/type/${type}`)
+    fetch(`http://localhost:5000/blogs/type/${type}`)
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
@@ -59,7 +60,6 @@ const Blog = () => {
 
       {/* Title */}
       <Helmet>
-        <meta charSet="utf-8" />
         <title>Soulmate | Blog</title>
       </Helmet>
 

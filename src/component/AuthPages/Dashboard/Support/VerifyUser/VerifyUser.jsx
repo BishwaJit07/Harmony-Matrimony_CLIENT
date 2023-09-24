@@ -6,10 +6,10 @@ const VerifyUser = () => {
   const [verify, setVerify] = useState([]);
   const [loading, setLoading] = useState(true);
   
-  
+  console.log(verify)
   useEffect(() => {
     
-    fetch('https://soulmates-server.vercel.app/verifyUser')
+    fetch('http://localhost:5000/verifyUser')
       .then(res => res.json())
       .then(data => {
         setVerify(data);
@@ -24,7 +24,7 @@ const VerifyUser = () => {
 
   
   const handleVerify = email => {
-    fetch(`https://soulmates-server.vercel.app/userVerify/${email}`, {
+    fetch(`http://localhost:5000/userVerify/${email}`, {
       method: "PATCH"
     })
       .then(res => res.json())
@@ -47,7 +47,7 @@ const VerifyUser = () => {
   }
 
   const handleCancle = email => {
-    fetch(`https://soulmates-server.vercel.app/userCancle/${email}`, {
+    fetch(`http://localhost:5000/userCancle/${email}`, {
       method: "PUT"
     })
       .then(res => res.json())

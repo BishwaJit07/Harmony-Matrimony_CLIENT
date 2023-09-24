@@ -14,7 +14,7 @@ const Follow = () => {
 
   const { refetch, data: reqRltnShip = [] } = useCustomQuery(
     ["reqRltnShip", userInfo._id],
-    `https://soulmates-server.vercel.app/shwGetReqRltn/${userInfo._id}`
+    `http://localhost:5000/shwGetReqRltn/${userInfo._id}`
   );
 
   const handleDelRelation = (userId) => {
@@ -32,7 +32,7 @@ const Follow = () => {
     };
 
     axios
-      .post(`https://soulmates-server.vercel.app/setCouple`, setCouple)
+      .post(`http://localhost:5000/setCouple`, setCouple)
       .then((response) => {
         if (response.data.insertedId) {
           const unfollow = {

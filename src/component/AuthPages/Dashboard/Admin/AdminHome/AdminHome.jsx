@@ -53,7 +53,7 @@ const AdminHome = () => {
   
   const [datas, setDatas] = useState([]);
   useEffect(() => {
-    fetch("https://soulmates-server.vercel.app/adminStats")
+    fetch("http://localhost:5000/adminStats")
 
       .then((res) => res.json())
       .then((data) => setDatas(data));

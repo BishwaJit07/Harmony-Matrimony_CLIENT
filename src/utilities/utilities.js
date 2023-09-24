@@ -58,7 +58,7 @@ export const updateStatus = (path, upId, newStatus, refetch) => {
   const data = {
     status: newStatus,
   };
-  axios.put(`https://soulmates-server.vercel.app/${path}/${upId}`, data).then((response) => {
+  axios.put(`http://localhost:5000/${path}/${upId}`, data).then((response) => {
     if (response.data.modifiedCount > 0) {
       refetch();
     }
@@ -68,7 +68,7 @@ export const updateStatus = (path, upId, newStatus, refetch) => {
 export const useProposalInfo = (id) => {
   const { refetch: refetchProposal, data: proposal = [] } = useCustomQuery(
     ["proposal", id],
-    `https://soulmates-server.vercel.app/getProposal/${id}`
+    `http://localhost:5000/getProposal/${id}`
   );
 
   return { refetchProposal, proposal };
@@ -77,7 +77,7 @@ export const useProposalInfo = (id) => {
 export const useRelationInfo = (id) => {
   const { refetch: refetchRelation, data: relationship = [] } = useCustomQuery(
     ["relationship", id],
-    `https://soulmates-server.vercel.app/showPartner/${id}`
+    `http://localhost:5000/showPartner/${id}`
   );
 
   return { refetchRelation, relationship };
@@ -91,10 +91,10 @@ export const performAction = (
   data,
   successCallback
 ) => {
-  axios.get(`https://soulmates-server.vercel.app/${getpath}/${id}`).then((response) => {
+  axios.get(`http://localhost:5000/${getpath}/${id}`).then((response) => {
     if (response.data.userId) {
       axios
-        .put(`https://soulmates-server.vercel.app/${putPath}/${id}`, data)
+        .put(`http://localhost:5000/${putPath}/${id}`, data)
         .then((response) => {
           if (response.data.modifiedCount > 0) {
             successCallback();
@@ -102,7 +102,7 @@ export const performAction = (
         });
     } else {
       axios
-        .post(`https://soulmates-server.vercel.app/${postPath}/${id}`, data)
+        .post(`http://localhost:5000/${postPath}/${id}`, data)
         .then((response) => {
           if (response.data.insertedId) {
             successCallback();
@@ -113,7 +113,7 @@ export const performAction = (
 };
 
 export const unFlwDelAction = (id, data, func) => {
-  axios.put(`https://soulmates-server.vercel.app/delRltn/${id}`, data).then((response) => {
+  axios.put(`http://localhost:5000/delRltn/${id}`, data).then((response) => {
     if (response.data.modifiedCount > 0) {
       func();
     }

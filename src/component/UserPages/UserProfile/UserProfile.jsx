@@ -29,7 +29,7 @@ import { useForm } from "react-hook-form";
 const UserProfile = () => {
   const [userInfo] = useMyData();
   const [partner, setPartner] = useState([]);
-
+  console.log(userInfo, partner)
   const { refetchRelation, relationship } = useRelationInfo(userInfo._id);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const UserProfile = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://soulmates-server.vercel.app/deleteUser/${id}`, {
+        fetch(`http://localhost:5000/deleteUser/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -95,7 +95,7 @@ const UserProfile = () => {
         );
         axios
           .delete(
-            `https://soulmates-server.vercel.app/delPartner/${id}/${userInfo._id}/${partner._id}`
+            `http://localhost:5000/delPartner/${id}/${userInfo._id}/${partner._id}`
           )
           .then((response) => {
             if (response.data.deletedCount > 0) {
@@ -276,7 +276,6 @@ const Status = () => {
   const [userInfo] = useMyData();
 
   const { age, height, jobSector, city , state } = userInfo;
-  console.log(userInfo)
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
       <div className="p-3  rounded-2xl bg-[#F0F2F5]">
@@ -440,7 +439,7 @@ const SocialMedia = () => {
           console.log(data.data.data.url)
           const imgLink = { img: data.data.data.url, userId: _id }
           console.log(imgLink)
-          axios.post('https://soulmates-server.vercel.app/galleryImg', imgLink)
+          axios.post('http://localhost:5000/galleryImg', imgLink)
             .then(data => {
               if (data.status == 200) {
                 setLoading(false)
@@ -517,7 +516,7 @@ const Plan = () => {
         if (data.status) {
           console.log(data.data.data.url)
           const imgLink = { img: data.data.data.url, userId: _id }
-          axios.post('https://soulmates-server.vercel.app/galleryImg', imgLink)
+          axios.post('http://localhost:5000/galleryImg', imgLink)
             .then(data => {
               if (data.status == 200) {
                 setLoading(false)
