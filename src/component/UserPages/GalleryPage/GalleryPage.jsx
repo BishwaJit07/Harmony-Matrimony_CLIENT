@@ -19,10 +19,17 @@ const GalleryPage = () => {
   const params = useParams();
   const [happyStories, setHappyStories] = useState([]);
   useEffect(() => {
+
     fetch(`https://soulmates-server.vercel.app/reviews`)
       .then(res => res.json())
       .then(data => setHappyStories(data));
+
   }, [params.id])
+  const getName = (coupleName) => {
+    const name = coupleName.split('and')
+    return name
+  }
+
   const getName = (coupleName) => {
     const name = coupleName.split('and')
     return name
