@@ -467,7 +467,7 @@ export const Info = ({ title, value }) => {
   );
 };
 
-const GalleryImg = ({img}) => {
+export const GalleryImg = ({img, isProfile}) => {
   return(
     <Link to={img} className={`relative group cursor-pointer mb-2 w-[145px] ${!isProfile && 'lg:w-full'}`}>
       <img
