@@ -17,12 +17,18 @@ const imgs = [
 
 const GalleryPage = () => {
   const params = useParams();
-const [happyStories, setHappyStories] = useState([]);
+  const [happyStories, setHappyStories] = useState([]);
   useEffect(() => {
-      fetch(`https://soulmates-server.vercel.app/reviews`)
-          .then(res => res.json())
-          .then(data => {setHappyStories(data)});
+
+    fetch(`https://soulmates-server.vercel.app/reviews`)
+      .then(res => res.json())
+      .then(data => setHappyStories(data));
+
   }, [params.id])
+  const getName = (coupleName) => {
+    const name = coupleName.split('and')
+    return name
+  }
 
   const getName = (coupleName) => {
     const name = coupleName.split('and')
@@ -32,7 +38,7 @@ const [happyStories, setHappyStories] = useState([]);
   return (
     <div className='max-w-7xl mx-auto px-2'>
       <Header title="Our Sweet Couples Gallery" text=' Discover the beautiful love stories of couples who found their perfect match through our platform. Join us in celebrating their journey to happiness and everlasting love.' />
-     
+
       <div className="">
         <PhotoGallerySection />
 
