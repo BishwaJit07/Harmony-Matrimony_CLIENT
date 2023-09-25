@@ -166,7 +166,7 @@ const Profile = () => {
   };
 
 
-  
+
 
   return (
     <>
@@ -189,23 +189,23 @@ const Profile = () => {
                   {/* sticky the photo */}
                   {/* photo gallery */}
                   <div className="flex flex-col lg:flex-row gap-2 ">
-                    <img className={user?.gallery ? "mx-auto h-[590px] rounded-2xl object-cover w-[95%] lg:w-[75%]  " : "w-[98%] mx-auto h-[590px] rounded-2xl object-cover "} src={profileImage} alt="" />
+                    <img className={user?.gallery ? "mx-auto h-[590px] rounded-2xl object-cover object-top w-[95%] lg:w-[75%]  " : "w-[98%] mx-auto h-[590px] rounded-2xl object-cover object-top"} src={profileImage} alt="" />
 
                     {/* Gallery imgs */}
-                      <div className="flex  gap-8 md:gap-4 px-1 hide-scrollbar overflow-x-scroll lg:overflow-y-scroll lg:h-[590px] soulContainer">
+                    <div className="flex  gap-8 md:gap-4 px-1 hide-scrollbar overflow-x-scroll lg:overflow-y-scroll lg:h-[590px] soulContainer">
                       {
                         // user?.gallery?.map((img, index) => <GalleryImg key={index} img={img} />)
                       }
 
-                        <LightGallery
-                          onInit={onInit}
-                          speed={500}
-                          plugins={[lgThumbnail, lgZoom]}
-                        >
-                          {
-                            user?.gallery?.map((img, index) => <GalleryImg key={index} img={img} />)
-                          }
-                        </LightGallery>
+                      <LightGallery
+                        onInit={onInit}
+                        speed={500}
+                        plugins={[lgThumbnail, lgZoom]}
+                      >
+                        {
+                          user?.gallery?.map((img, index) => <GalleryImg key={index} img={img} />)
+                        }
+                      </LightGallery>
                     </div>
                     {/* small imgs end */}
                   </div>
@@ -432,18 +432,20 @@ const Profile = () => {
 
                 {/* Hobbies Section */}
                 {
-                  interests ?
+                  Array.isArray(interests) && interests.length > 0 ? (
                     <>
                       <BorderBottom />
                       <Title title="Hobbies" />
                       <div className="flex gap-3 flex-wrap">
-                        {interests?.map((interest, index) => (
+                        {interests.map((interest, index) => (
                           <HBox key={index} value={interest} />
                         ))}
-                      </div></> : <></>
+                      </div>
+                    </>
+                  ) : null
                 }
 
-                
+
 
                 {/* info div */}
               </div>
@@ -475,8 +477,8 @@ export const Info = ({ title, value }) => {
   );
 };
 
-export const GalleryImg = ({img, isProfile}) => {
-  return(
+export const GalleryImg = ({ img, isProfile }) => {
+  return (
     <Link to={img} className={`relative group cursor-pointer mb-2 w-[145px] ${!isProfile && 'lg:w-full'}`}>
       <img
         className="w-[145px] h-[133px] rounded-2xl object-cover  "
@@ -492,3 +494,10 @@ export const GalleryImg = ({img, isProfile}) => {
   )
 }
 
+const HBox = ({ value }) => {
+  return (
+    <div className="bg-white py-3 px-4 rounded-full text-[#536279] text-base ">
+      {value}
+    </div>
+  );
+};

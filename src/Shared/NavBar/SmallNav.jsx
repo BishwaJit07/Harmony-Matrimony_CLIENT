@@ -1,5 +1,5 @@
 import React from 'react';
-import { HiChevronUpDown, HiCheck, HiHome, HiUser, HiViewColumns, HiEnvelope } from "react-icons/hi2";
+import {  HiHome, } from "react-icons/hi2";
 import { Link } from 'react-router-dom';
 import noProfile from "../../assets/other/blank.png";
 import useMyData from '../../Hooks/useMyData';
