@@ -57,11 +57,11 @@ const AddBlog = () => {
   }
 
   return (
-    <div className=' max-w-7xl mx-auto'>
+    <div className=' max-w-7xl mx-auto bg-gray-100'>
       <Header title="Add Blogs" />
       <form onSubmit={handleSubmit(onSubmit)} className='space-y-6 px-10 bg-white my-10 py-10 w-[700px] mx-auto rounded-[30px]' action="">
         {/* input field */}
-        <div>
+        <div className=''>
           <label htmlFor="blog_title" className="text-[20px] font-lato  block mb-2 font-medium text-gray-900 ">Blog Tittle</label>
           <input {...register('title', {required: true})} type="text" id="blog_title" className="text-[18px] font-medium font-lato rounded-full py-5 pl-7 bg-gray-50 border border-gray-300 text-gray-900   focus:ring-blue-500 focus:border-blue-500 block w-full "placeholder="Type Blog title" />
         </div>

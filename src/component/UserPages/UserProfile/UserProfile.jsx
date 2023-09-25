@@ -8,10 +8,7 @@ import 'lightgallery/css/lightgallery.css';
 import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lg-thumbnail.css';
 import banner from "../../../assets/userProfile/userBanner.png";
-import img2 from "../../../assets/home/recommendation/girl.png";
-import img3 from "../../../assets/home/recommendation/girl2.png";
-import img4 from "../../../assets/home/recommendation/girl3.png";
-import img5 from "../../../assets/home/recommendation/girl4.png";
+
 import edit from "../../../assets/other/edit.svg";
 import share from "../../../assets/other/share.svg";
 import { GalleryImg, Info } from "../MyProfle/Profile/Profile";
