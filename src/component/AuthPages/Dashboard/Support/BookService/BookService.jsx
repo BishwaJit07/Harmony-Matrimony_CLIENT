@@ -15,7 +15,7 @@ const BookService = () => {
     
     
     useEffect(()=>{
-        fetch(`https://soulmates-server.vercel.app/singleBookedService/${user?.email}`)
+        fetch(`http://localhost:5000/singleBookedService/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setLoading(false)

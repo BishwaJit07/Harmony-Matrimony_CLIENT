@@ -12,20 +12,21 @@ import Loading from "../../../Shared/Loading";
 const BlogDetails = () => {
  
   const [latests, setLatests] = useState([]);
-  console.log(latests);
   const [loading, setLoading] = useState(true);
-
   const params = useParams();
   const [data, setData] = useState([]);
+  
+  console.log(latests, data);
+
   useEffect(() => {
-      fetch(`https://soulmates-server.vercel.app/blogs/${params.id}`)
+      fetch(`http://localhost:5000/blogs/${params.id}`)
           .then(res => res.json())
           .then(data => setData(data));
   }, [params.id])
 
 
   useEffect(() => {
-    fetch("https://soulmates-server.vercel.app/blogsLatest")
+    fetch("http://localhost:5000/blogsLatest")
       .then((res) => res.json())
       .then((data) => {
         setLatests(data);

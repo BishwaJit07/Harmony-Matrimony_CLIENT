@@ -45,7 +45,7 @@ const SignUp = () => {
               profile_complete: 10,
               profileVisit: 50,
             };
-            fetch("https://soulmates-server.vercel.app/alluser", {
+            fetch("http://localhost:5000/alluser", {
               method: "POST",
               headers: {
                 "content-type": "application/json",

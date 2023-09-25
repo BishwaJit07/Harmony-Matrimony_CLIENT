@@ -18,8 +18,9 @@ const imgs = [
 const GalleryPage = () => {
   const params = useParams();
   const [happyStories, setHappyStories] = useState([]);
+  console.log(happyStories)
   useEffect(() => {
-    fetch(`https://soulmates-server.vercel.app/reviews`)
+    fetch(`http://localhost:5000/reviews`)
       .then(res => res.json())
       .then(data => setHappyStories(data));
   }, [params.id])

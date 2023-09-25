@@ -36,7 +36,7 @@ const genders = [
 const UserInfo1 = () => {
   const location = useLocation();
   const profileFor = location.state;
-  const [userInfo] = useMyData();
+
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
   const [selectedOption, setSelectedOption] = useState({});
@@ -53,17 +53,14 @@ const UserInfo1 = () => {
   const [cityData, setCityData] = useState();
   const [country, setCountry] = useState("Country");
   const [state, setState] = useState();
-  console.log(sta);
   const [city, setCity] = useState();
   const [date, setDate] = useState(new Date());
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   
   const handleChange = (newDate) => {
     setDate(newDate);
     setIsOpen(false); // Close the modal when a date is selected
   };
-
-  console.log(userInfo);
 
   useEffect(() => {
     setStateData(State.getStatesOfCountry(country?.isoCode));
@@ -114,7 +111,7 @@ const UserInfo1 = () => {
       sect: sect?.name,
     };
     console.log(data);
-    fetch("https://soulmates-server.vercel.app/update1", {
+    fetch("http://localhost:5000/update1", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
