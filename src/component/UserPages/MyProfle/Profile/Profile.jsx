@@ -126,6 +126,14 @@ const Profile = () => {
     );
   };
 
+  const HBox = ({ value }) => {
+    return (
+      <div className="bg-gray-200 py-3 px-4 rounded-full text-[#536279] text-base">
+        {value}
+      </div>
+    );
+  };
+
   const unfollowHandle = () => {
     const unfollow = {
       favId: user._id,
@@ -378,8 +386,8 @@ const Profile = () => {
                       <Info title="Qualifications" value={qualifications} />
                       <Info title="Work" value={work} />
                       <Info title="Yearly Income" value={yearlyIncome} />
-                      <Info title="Drink Habbit" value={drinkHabit} />
-                      <Info title="Food Habbit" value={foodHabit} />
+                      <Info title="Drink Habit" value={drinkHabit} />
+                      <Info title="Food Habit" value={foodHabit} />
                     </div>
                   </div>
                 </div>
@@ -437,7 +445,6 @@ const Profile = () => {
                   ) : null
                 }
 
-                <BorderBottom />
 
 
                 {/* info div */}
