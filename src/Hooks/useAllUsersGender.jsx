@@ -5,6 +5,7 @@ const useAllUsersGender = () => {
     const [userInfo] = useMyData();
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    console.log(data, userInfo)
     useEffect(() => {
         async function fetchData(gender) {
             try {

@@ -48,6 +48,7 @@ const Profile = () => {
   const [loader, setLoader] = useState(true);
   const [disable, setDisable] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
     fetch(`https://soulmates-server.vercel.app/specificUser/${params.id}`)
       .then((res) => res.json())
@@ -467,7 +468,7 @@ export const Info = ({ title, value }) => {
   );
 };
 
-const GalleryImg = ({img}) => {
+export const GalleryImg = ({img, isProfile}) => {
   return(
     <Link to={img} className={`relative group cursor-pointer mb-2 w-[145px] ${!isProfile && 'lg:w-full'}`}>
       <img

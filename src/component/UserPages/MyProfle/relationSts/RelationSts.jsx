@@ -6,7 +6,6 @@ import { performAction } from "../../../../utilities/utilities";
 const RelationSts = ({ partnerUser }) => {
   const [userInfo] = useMyData();
   const [disable, setDisable] = useState(false);
-
   useEffect(() => {
     axios
       .get(

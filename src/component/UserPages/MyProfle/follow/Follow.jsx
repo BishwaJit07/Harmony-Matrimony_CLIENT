@@ -7,9 +7,12 @@ import "react-tabs/style/react-tabs.css";
 
 const Follow = () => {
   const [userInfo] = useMyData();
+  console.log(userInfo);
   const [following, setFollowing] = useState([]);
   const [followers, setFollowers] = useState([]);
- 
+ console.log(followers)
+ console.log(following )
+ console.log(userInfo )
   useEffect(() => {
     axios
       .get(

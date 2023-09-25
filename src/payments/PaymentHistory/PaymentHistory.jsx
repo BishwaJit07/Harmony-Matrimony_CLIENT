@@ -13,7 +13,7 @@ const PaymentHistory = () => {
   const[payments, setPayments] = useState([])
   const [user] = useMyData();
 
-
+  console.log(payments, user)
   useEffect(() => {
     // Check if user and user.uid are not null or undefined
     if (user && user._id) {
@@ -44,7 +44,7 @@ const PaymentHistory = () => {
         </div>
       </div>
       
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 max-w-7xl mx-auto">
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 max-w-7xl mx-auto my-10 shadow-xl rounded-lg">
         {/* table head */}
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>

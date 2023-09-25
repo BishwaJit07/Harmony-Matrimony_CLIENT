@@ -30,11 +30,6 @@ const GalleryPage = () => {
     return name
   }
 
-  const getName = (coupleName) => {
-    const name = coupleName.split('and')
-    return name
-  }
-
   return (
     <div className='max-w-7xl mx-auto px-2'>
       <Header title="Our Sweet Couples Gallery" text=' Discover the beautiful love stories of couples who found their perfect match through our platform. Join us in celebrating their journey to happiness and everlasting love.' />

@@ -12,11 +12,12 @@ import Loading from "../../../Shared/Loading";
 const BlogDetails = () => {
  
   const [latests, setLatests] = useState([]);
-  console.log(latests);
   const [loading, setLoading] = useState(true);
-
   const params = useParams();
   const [data, setData] = useState([]);
+  
+  console.log(latests, data);
+
   useEffect(() => {
       fetch(`https://soulmates-server.vercel.app/blogs/${params.id}`)
           .then(res => res.json())

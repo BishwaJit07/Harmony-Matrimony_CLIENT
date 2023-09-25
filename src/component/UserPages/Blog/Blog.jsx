@@ -14,6 +14,7 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
   const [react, setReact] = useState(false);
 
+  console.log(blogData, react)
   // fetch Blog data
   useEffect(() => {
     fetch("https://soulmates-server.vercel.app/blogs")
@@ -59,7 +60,6 @@ const Blog = () => {
 
       {/* Title */}
       <Helmet>
-        <meta charSet="utf-8" />
         <title>Soulmate | Blog</title>
       </Helmet>
 

@@ -6,7 +6,7 @@ const VerifyUser = () => {
   const [verify, setVerify] = useState([]);
   const [loading, setLoading] = useState(true);
   
-  
+  console.log(verify)
   useEffect(() => {
     
     fetch('https://soulmates-server.vercel.app/verifyUser')

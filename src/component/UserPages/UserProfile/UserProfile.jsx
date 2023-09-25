@@ -41,7 +41,7 @@ import topLottie from '../../../assets/lottie/bigLove.json'
 const UserProfile = () => {
   const [userInfo] = useMyData();
   const [partner, setPartner] = useState([]);
-
+  console.log(userInfo, partner)
   const { refetchRelation, relationship } = useRelationInfo(userInfo._id);
 
   useEffect(() => {
