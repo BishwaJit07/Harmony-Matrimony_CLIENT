@@ -59,7 +59,7 @@ const Userinfo7 = () => {
 
     }
     return (
-        <div>
+        <div className="select-none">
             <div className="bg-green-200 h-2" style={{ width: `${70}%` }}></div>
             <form className='p-10' onSubmit={handleSubmit(onSubmit)}>
 

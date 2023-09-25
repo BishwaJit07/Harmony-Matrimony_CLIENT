@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import VerifyTr from './VerifyTr';
-import Swal from 'sweetalert2';
+import Loading from '../../../../../Shared/Loading';
 
 const VerifyUser = () => {
   const [verify, setVerify] = useState([]);
@@ -20,6 +20,9 @@ const VerifyUser = () => {
         setLoading(false);
       });
   }, []);
+
+  if(loading)
+  return <><Loading></Loading></>
 
   return (
     <div className="relative overflow-x-auto  rounded-2xl px-6 w-[75%] mx-auto py-6 my-5">

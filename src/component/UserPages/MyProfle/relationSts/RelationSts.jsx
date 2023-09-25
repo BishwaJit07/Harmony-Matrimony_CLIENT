@@ -6,10 +6,11 @@ import { performAction } from "../../../../utilities/utilities";
 const RelationSts = ({ partnerUser }) => {
   const [userInfo] = useMyData();
   const [disable, setDisable] = useState(false);
+
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/disableRltn/${userInfo._id}/${partnerUser?._id}`
+        `https://soulmates-server.vercel.app/disableRltn/${userInfo._id}/${partnerUser?._id}`
       )
       .then((response) => {
         if (response.data.userId) {
@@ -46,7 +47,7 @@ const RelationSts = ({ partnerUser }) => {
     };
     axios
       .put(
-        `http://localhost:5000/delRltn/${userInfo._id}`,
+        `https://soulmates-server.vercel.app/delRltn/${userInfo._id}`,
         unfollow
       )
       .then((response) => {
@@ -57,20 +58,20 @@ const RelationSts = ({ partnerUser }) => {
   };
 
   return (
-    <div className="select-none">
+    <div>
       {disable ? (
         <button
           onClick={handleDelRelation}
-          className="py-4 px-6 outline  text-red-500  rounded-full outline-2 outline-red-500 outline-offset-0 "
+          className="py-4 px-4 bg-[#2F9D54] text-[#F0F2F5] rounded-full"
         >
-          Cancel Request
+          Req Sent
         </button>
       ) : (
         <button
           onClick={handleRelation}
-          className="py-4 px-6 bg-[#2F9D54] text-[#F0F2F5] rounded-full"
+          className="py-4 px-4 bg-[#2F9D54] text-[#F0F2F5] rounded-full"
         >
-          Relationship Request
+          Relationship Req
         </button>
       )}
     </div>
