@@ -6,6 +6,7 @@ import { performAction } from "../../../../utilities/utilities";
 const RelationSts = ({ partnerUser }) => {
   const [userInfo] = useMyData();
   const [disable, setDisable] = useState(false);
+
   useEffect(() => {
     axios
       .get(
@@ -58,22 +59,22 @@ const RelationSts = ({ partnerUser }) => {
 
   return (
     <div className="select-none">
-      {disable ? (
-        <button
-          onClick={handleDelRelation}
-          className="py-4 px-6 outline  text-red-500  rounded-full outline-2 outline-red-500 outline-offset-0 "
-        >
-          Cancel Request
-        </button>
-      ) : (
-        <button
-          onClick={handleRelation}
-          className="py-4 px-6 bg-[#2F9D54] text-[#F0F2F5] rounded-full"
-        >
-          Relationship Request
-        </button>
-      )}
-    </div>
+    {disable ? (
+      <button
+        onClick={handleDelRelation}
+        className="xl:py-4 xl:px-4 py-2 px-2 outline  text-red-500  rounded-full outline-2 outline-red-500 outline-offset-0 "
+      >
+        Cancel Request
+      </button>
+    ) : (
+      <button
+        onClick={handleRelation}
+        className="xl:py-4 xl:px-4 py-2 px-2 bg-[#2F9D54] text-[#F0F2F5] rounded-full"
+      >
+        Relationship Request
+      </button>
+    )}
+  </div>
   );
 };
 

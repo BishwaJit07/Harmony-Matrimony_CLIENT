@@ -9,6 +9,10 @@ import 'lightgallery/css/lightgallery.css';
 import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lg-thumbnail.css';
 import './style.css'
+import img2 from "../../../../assets/home/recommendation/girl.png";
+import img3 from "../../../../assets/home/recommendation/girl2.png";
+import img4 from "../../../../assets/home/recommendation/girl3.png";
+import img5 from "../../../../assets/home/recommendation/girl4.png";
 import location from "../../../../assets/other/location.svg";
 import share from "../../../../assets/other/share.svg";
 import bookmark from "../../../../assets/other/bookmark.svg";
@@ -16,12 +20,17 @@ import ages from "../../../../assets/other/age.svg";
 import heights from "../../../../assets/other/height.svg";
 import job from "../../../../assets/other/job.svg";
 import citys from "../../../../assets/other/city.svg";
+import facebook from "../../../../assets/other/facebook.svg";
+import linkedin from "../../../../assets/other/linkedin.svg";
+import insta from "../../../../assets/other/insta.svg";
+import twitter from "../../../../assets/other/twitter.svg";
 import { useEffect, useState } from "react";
+
 import { Link, useNavigate, useParams } from "react-router-dom";
 import FixedMet from "../metting/FixedMet";
 import useMyData from "../../../../Hooks/useMyData";
 import axios from "axios";
-
+import { RiUserUnfollowFill } from "react-icons/ri";
 import RelationSts from "../relationSts/RelationSts";
 import { performAction } from "../../../../utilities/utilities";
 
@@ -116,13 +125,6 @@ const Profile = () => {
       }
     );
   };
-  const HBox = ({ value }) => {
-    return (
-      <div className="bg-[#F0F2F5] py-3 px-4 rounded-full text-[#536279] text-base">
-        {value}
-      </div>
-    );
-  };
 
   const unfollowHandle = () => {
     const unfollow = {
@@ -156,7 +158,7 @@ const Profile = () => {
   };
 
 
-  
+
 
   return (
     <>
@@ -179,23 +181,23 @@ const Profile = () => {
                   {/* sticky the photo */}
                   {/* photo gallery */}
                   <div className="flex flex-col lg:flex-row gap-2 ">
-                    <img className={user?.gallery ? "mx-auto h-[590px] rounded-2xl object-cover w-[95%] lg:w-[75%]  " : "w-[98%] mx-auto h-[590px] rounded-2xl object-cover "} src={profileImage} alt="" />
+                    <img className={user?.gallery ? "mx-auto h-[590px] rounded-2xl object-cover object-top w-[95%] lg:w-[75%]  " : "w-[98%] mx-auto h-[590px] rounded-2xl object-cover object-top"} src={profileImage} alt="" />
 
                     {/* Gallery imgs */}
-                      <div className="flex  gap-8 md:gap-4 px-1 hide-scrollbar overflow-x-scroll lg:overflow-y-scroll lg:h-[590px] soulContainer">
+                    <div className="flex  gap-8 md:gap-4 px-1 hide-scrollbar overflow-x-scroll lg:overflow-y-scroll lg:h-[590px] soulContainer">
                       {
                         // user?.gallery?.map((img, index) => <GalleryImg key={index} img={img} />)
                       }
 
-                        <LightGallery
-                          onInit={onInit}
-                          speed={500}
-                          plugins={[lgThumbnail, lgZoom]}
-                        >
-                          {
-                            user?.gallery?.map((img, index) => <GalleryImg key={index} img={img} />)
-                          }
-                        </LightGallery>
+                      <LightGallery
+                        onInit={onInit}
+                        speed={500}
+                        plugins={[lgThumbnail, lgZoom]}
+                      >
+                        {
+                          user?.gallery?.map((img, index) => <GalleryImg key={index} img={img} />)
+                        }
+                      </LightGallery>
                     </div>
                     {/* small imgs end */}
                   </div>
@@ -421,21 +423,22 @@ const Profile = () => {
 
 
                 {/* Hobbies Section */}
-                
                 {
-                  interests ?
+                  Array.isArray(interests) && interests.length > 0 ? (
                     <>
                       <BorderBottom />
                       <Title title="Hobbies" />
                       <div className="flex gap-3 flex-wrap">
-                        {interests?.map((interest, index) => (
+                        {interests.map((interest, index) => (
                           <HBox key={index} value={interest} />
                         ))}
-                      </div></> : <></>
+                      </div>
+                    </>
+                  ) : null
                 }
 
                 <BorderBottom />
-                
+
 
                 {/* info div */}
               </div>
@@ -467,8 +470,8 @@ export const Info = ({ title, value }) => {
   );
 };
 
-export const GalleryImg = ({img, isProfile}) => {
-  return(
+export const GalleryImg = ({ img, isProfile }) => {
+  return (
     <Link to={img} className={`relative group cursor-pointer mb-2 w-[145px] ${!isProfile && 'lg:w-full'}`}>
       <img
         className="w-[145px] h-[133px] rounded-2xl object-cover  "
@@ -484,3 +487,10 @@ export const GalleryImg = ({img, isProfile}) => {
   )
 }
 
+const HBox = ({ value }) => {
+  return (
+    <div className="bg-white py-3 px-4 rounded-full text-[#536279] text-base ">
+      {value}
+    </div>
+  );
+};

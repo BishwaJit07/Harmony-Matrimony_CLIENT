@@ -1,19 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {
-  useCustomQuery,
-  useProposalInfo,
-} from "../../../../utilities/utilities";
+import { useCustomQuery } from "../../../../utilities/utilities";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
+import "../../../../style.css";
 import MetInfo from "./MetInfo";
 
 const FixedMet = ({ partnerUser }) => {
   const { _id } = partnerUser;
   const params = useParams();
   const [userId, setUserId] = useState("");
-  const { refetchProposal } = useProposalInfo(userId);
- 
+
   useEffect(() => {
     if (params.id) {
       setUserId(params.id);
@@ -41,12 +37,10 @@ const FixedMet = ({ partnerUser }) => {
     refetchAccept();
     refetchReq();
     refetchPending();
-    refetchProposal();
   }, [userId]);
 
   const refetch = () => {
     refetchAccept();
-    refetchProposal();
     refetchReq();
     refetchPending();
   };
@@ -54,11 +48,12 @@ const FixedMet = ({ partnerUser }) => {
   return (
     <>
       <Tabs>
-        <TabList>
-          <Tab>Pendings</Tab>
-          <Tab>Accept</Tab>
-          <Tab>Request Sent</Tab>
+        <TabList className="text-center flex gap-4 justify-center mb-4">
+          <Tab className="btn bg-gray-400 text-white btn-sm">Pendings</Tab>
+          <Tab className="btn bg-gray-400 text-white btn-sm">Accept</Tab>
+          <Tab className="btn bg-gray-400 text-white btn-sm">Request Sent</Tab>
         </TabList>
+
 
         <TabPanel>
           <MetInfo
