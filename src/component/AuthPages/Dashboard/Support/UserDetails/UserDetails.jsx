@@ -20,10 +20,10 @@ const UserDetails = () => {
       
         <div className="flex flex-col items-center">
       <DashboardProfile/>
-      <div className="  md:flex flex-row justify-around m-10 ">
-        <div className=" m-5 ">
-          <div className="stats stats-vertical shadow bg-blue-50">
-            <div className="stat flex items-center justify-between ">
+      <div className="  md:flex flex-row justify-around m-10">
+        <div className=" m-5">
+          <div className="stats stats-vertical shadow">
+            <div className="stat flex items-center justify-between">
               <h1 className="stat-title font-semibold text-lg">Package</h1>
               <p className="stat-desc font-semibold text-lg">
                 {datas.package ? datas.package.order.plan : "Free"}
@@ -72,28 +72,28 @@ const UserDetails = () => {
           </div>
         </div>
         {/* total number */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
-          <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5 bg-blue-50">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5">
             <div className="stat flex items-center justify-between">
               <div className="stat-title">Total Blogs</div>
               <div className="stat-value text-2xl font-semibold">{datas? datas.blogs:0}</div>
             </div>
           </div>
-          <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5 bg-blue-50">
+          <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5">
             <div className="stat flex items-center justify-between">
               <div className="stat-title">Total Orders</div>
               <div className="stat-value text-2xl font-semibold">{datas.subscription ? datas.subscription : 0}</div>
               {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
             </div>
           </div>
-          <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5 bg-blue-50">
+          <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5">
             <div className="stat flex items-center justify-between">
               <div className="stat-title"> Total Booked Services</div>
               <div className="stat-value text-2xl font-semibold">{datas.bookedServices ? datas.bookedServices : 0}</div>
               {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
             </div>
           </div>
-          <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5 bg-blue-50">
+          <div className="stats stats-vertical lg:stats-horizontal shadow w-full gap-5">
             <div className="stat flex items-center justify-between">
               <div className="stat-title">Total CoupleDate</div>
               <div className="stat-value text-2xl font-semibold">{datas?datas.coupleDate:0}</div>
