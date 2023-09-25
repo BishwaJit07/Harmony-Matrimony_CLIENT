@@ -9,10 +9,6 @@ import 'lightgallery/css/lightgallery.css';
 import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lg-thumbnail.css';
 import './style.css'
-import img2 from "../../../../assets/home/recommendation/girl.png";
-import img3 from "../../../../assets/home/recommendation/girl2.png";
-import img4 from "../../../../assets/home/recommendation/girl3.png";
-import img5 from "../../../../assets/home/recommendation/girl4.png";
 import location from "../../../../assets/other/location.svg";
 import share from "../../../../assets/other/share.svg";
 import bookmark from "../../../../assets/other/bookmark.svg";
@@ -20,17 +16,12 @@ import ages from "../../../../assets/other/age.svg";
 import heights from "../../../../assets/other/height.svg";
 import job from "../../../../assets/other/job.svg";
 import citys from "../../../../assets/other/city.svg";
-import facebook from "../../../../assets/other/facebook.svg";
-import linkedin from "../../../../assets/other/linkedin.svg";
-import insta from "../../../../assets/other/insta.svg";
-import twitter from "../../../../assets/other/twitter.svg";
 import { useEffect, useState } from "react";
-
 import { Link, useNavigate, useParams } from "react-router-dom";
 import FixedMet from "../metting/FixedMet";
 import useMyData from "../../../../Hooks/useMyData";
 import axios from "axios";
-import { RiUserUnfollowFill } from "react-icons/ri";
+
 import RelationSts from "../relationSts/RelationSts";
 import { performAction } from "../../../../utilities/utilities";
 
@@ -123,6 +114,13 @@ const Profile = () => {
       () => {
         setDisable(true);
       }
+    );
+  };
+  const HBox = ({ value }) => {
+    return (
+      <div className="bg-[#F0F2F5] py-3 px-4 rounded-full text-[#536279] text-base">
+        {value}
+      </div>
     );
   };
 
@@ -423,6 +421,7 @@ const Profile = () => {
 
 
                 {/* Hobbies Section */}
+                
                 {
                   interests ?
                     <>
