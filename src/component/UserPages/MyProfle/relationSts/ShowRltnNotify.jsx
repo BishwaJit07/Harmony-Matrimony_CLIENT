@@ -32,7 +32,7 @@ const Follow = () => {
     };
 
     axios
-      .post(`https://soulmates-server.vercel.app/setCouple`, setCouple)
+      .post(`http://localhost:5000/setCouple`, setCouple)
       .then((response) => {
         if (response.data.insertedId) {
           const unfollow = {

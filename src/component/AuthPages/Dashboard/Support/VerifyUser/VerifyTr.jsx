@@ -8,6 +8,7 @@ const VerifyTr = ({ user, index }) => {
   const [modal, setModal] = useState(false);
   console.log(user)
   const handleVerify = () => {
+
     fetch(`https://soulmates-server.vercel.app/userVerify/${user?.email}`, {
       method: "PUT"
     })
@@ -32,6 +33,7 @@ const VerifyTr = ({ user, index }) => {
   }
 
   const handleCancle = () => {
+
     fetch(`https://soulmates-server.vercel.app/userCancle/${user?.email}`, {
       method: "PUT"
     })

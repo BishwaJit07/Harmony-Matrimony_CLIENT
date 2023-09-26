@@ -111,7 +111,7 @@ const UserInfo1 = () => {
       sect: sect?.name,
     };
     console.log(data);
-    fetch("https://soulmates-server.vercel.app/update1", {
+    fetch("http://localhost:5000/update1", {
       method: "PUT",
       headers: {
         "content-type": "application/json",

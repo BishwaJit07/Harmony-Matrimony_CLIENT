@@ -19,14 +19,14 @@ const BlogDetails = () => {
   console.log(latests, data);
 
   useEffect(() => {
-      fetch(`https://soulmates-server.vercel.app/blogs/${params.id}`)
+      fetch(`http://localhost:5000/blogs/${params.id}`)
           .then(res => res.json())
           .then(data => setData(data));
   }, [params.id])
 
 
   useEffect(() => {
-    fetch("https://soulmates-server.vercel.app/blogsLatest")
+    fetch("http://localhost:5000/blogsLatest")
       .then((res) => res.json())
       .then((data) => {
         setLatests(data);
