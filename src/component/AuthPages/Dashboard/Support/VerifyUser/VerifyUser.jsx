@@ -9,7 +9,8 @@ const VerifyUser = () => {
   console.log(verify);
   
   useEffect(() => {
-    fetch('http://localhost:5000/verifyUser')
+
+    fetch('https://soulmates-server.vercel.app/verifyUser')
       .then(res => res.json())
       .then(data => {
         setVerify(data);

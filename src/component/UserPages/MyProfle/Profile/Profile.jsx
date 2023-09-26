@@ -126,6 +126,14 @@ const Profile = () => {
     );
   };
 
+  const HBox = ({ value }) => {
+    return (
+      <div className="bg-gray-200 py-3 px-4 rounded-full text-[#536279] text-base">
+        {value}
+      </div>
+    );
+  };
+
   const unfollowHandle = () => {
     const unfollow = {
       favId: user._id,
@@ -181,7 +189,7 @@ const Profile = () => {
                   {/* sticky the photo */}
                   {/* photo gallery */}
                   <div className="flex flex-col lg:flex-row gap-2 ">
-                    <img className={user?.gallery ? "mx-auto h-[590px] rounded-2xl object-cover w-[95%] lg:w-[75%]  " : "w-[98%] mx-auto h-[590px] rounded-2xl object-cover "} src={profileImage} alt="" />
+                    <img className={user?.gallery ? "mx-auto h-[590px] rounded-2xl object-cover object-top w-[95%] lg:w-[75%]  " : "w-[98%] mx-auto h-[590px] rounded-2xl object-cover object-top"} src={profileImage} alt="" />
 
                     {/* Gallery imgs */}
                     <div className="flex  gap-8 md:gap-4 px-1 hide-scrollbar overflow-x-scroll lg:overflow-y-scroll lg:h-[590px] soulContainer">
@@ -378,8 +386,8 @@ const Profile = () => {
                       <Info title="Qualifications" value={qualifications} />
                       <Info title="Work" value={work} />
                       <Info title="Yearly Income" value={yearlyIncome} />
-                      <Info title="Drink Habbit" value={drinkHabit} />
-                      <Info title="Food Habbit" value={foodHabit} />
+                      <Info title="Drink Habit" value={drinkHabit} />
+                      <Info title="Food Habit" value={foodHabit} />
                     </div>
                   </div>
                 </div>
@@ -436,10 +444,6 @@ const Profile = () => {
                     </>
                   ) : null
                 }
-
-                <BorderBottom />
-
-
                 {/* info div */}
               </div>
             </div>
