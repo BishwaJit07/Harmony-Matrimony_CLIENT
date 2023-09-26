@@ -3,7 +3,6 @@ import { RxCross1 } from "react-icons/rx";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import useMyData from "../../../../../Hooks/useMyData";
 
 const VerifyTr = ({ user, index }) => {
   const [modal, setModal] = useState(false);

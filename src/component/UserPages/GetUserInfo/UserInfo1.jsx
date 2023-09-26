@@ -38,7 +38,7 @@ const UserInfo1 = () => {
   const profileFor = location.state;
   const [userInfo] = useMyData();
   const navigate = useNavigate();
-  const { register, handleSubmit, reset } = useForm();
+  const {  handleSubmit, reset } = useForm();
   const [selectedOption, setSelectedOption] = useState({});
   const [maritalStatus, setMaritalStatus] = useState({});
   const [religion, setReligion] = useState({});

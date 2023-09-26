@@ -8,12 +8,6 @@ import 'lightgallery/css/lightgallery.css';
 import 'lightgallery/css/lg-zoom.css';
 import 'lightgallery/css/lg-thumbnail.css';
 import banner from "../../../assets/userProfile/userBanner.png";
-import img2 from "../../../assets/home/recommendation/girl.png";
-import img3 from "../../../assets/home/recommendation/girl2.png";
-import img4 from "../../../assets/home/recommendation/girl3.png";
-import img5 from "../../../assets/home/recommendation/girl4.png";
-import edit from "../../../assets/other/edit.svg";
-import share from "../../../assets/other/share.svg";
 import { GalleryImg, Info } from "../MyProfle/Profile/Profile";
 import ages from "../../../assets/other/age.svg";
 import heights from "../../../assets/other/height.svg";
@@ -39,21 +33,21 @@ import topLottie from '../../../assets/lottie/bigLove.json'
 
 const UserProfile = () => {
   const [userInfo] = useMyData();
-const [partner, setPartner] = useState([]);
-console.log(userInfo, partner)
-const { refetchRelation, relationship } = useRelationInfo(userInfo._id);
+  const [partner, setPartner] = useState([]);
+  console.log(userInfo, partner)
+  const { refetchRelation, relationship } = useRelationInfo(userInfo._id);
 
-useEffect(() => {
-  if (relationship[0]?.partner1 !== undefined) {
-    setPartner(relationship[0]?.partner1);
-  } else if (relationship[0]?.partner2 !== undefined) {
-    setPartner(relationship[0]?.partner2);
-  } else {
-    setPartner([]);  
-  }
-}, [relationship]);
+  useEffect(() => {
+    if (relationship[0]?.partner1 !== undefined) {
+      setPartner(relationship[0]?.partner1);
+    } else if (relationship[0]?.partner2 !== undefined) {
+      setPartner(relationship[0]?.partner2);
+    } else {
+      setPartner([]);
+    }
+  }, [relationship]);
 
-const { profileImage, name, email, _id, profileVisit, status, gallery } = userInfo;
+  const { profileImage, name, email, _id, profileVisit, status, gallery } = userInfo;
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -132,11 +126,10 @@ const { profileImage, name, email, _id, profileVisit, status, gallery } = userIn
                 alt=""
               />
               <img
-              
-                className={`absolute top-[50%] left-7 h-[150px] w-[150px] object-cover object-top rounded-full border-[3px] ${
-                  userInfo?.profile_complete === 100 ? 'border-green-400  border-l-0' : 'border-primary-400  border-l-0'
-                }`}
-              
+
+                className={`absolute top-[50%] left-7 h-[150px] w-[150px] object-cover object-top rounded-full border-[3px] ${userInfo?.profile_complete === 100 ? 'border-green-400  border-l-0' : 'border-primary-400  border-l-0'
+                  }`}
+
                 src={profileImage}
                 alt=""
               />
@@ -169,46 +162,6 @@ const { profileImage, name, email, _id, profileVisit, status, gallery } = userIn
                   </div>
                 </div>
                 {/* follow section */}
-                {status === "successful" ? (
-                  <div className="flex justify-between mt-5">
-                    <p>
-                      Married with <Link>{partner?.name}</Link>
-                    </p>
-
-                    <div className="flex items-center space-x-4 p-4 border-b border-gray-300">
-                      <Link
-                        to={`/profile/${partner?._id}`}
-                        className="flex items-center gap-3"
-                      >
-                        <div className="flex-shrink-0">
-                          <img
-                            src={partner?.profileImage}
-                            className="h-12 w-12 rounded-full"
-                          />
-                        </div>
-
-                        <div className="flex-grow">
-                          <p className="text-lg font-medium text-gray-800">
-                            {partner?.name}
-                          </p>
-                        </div>
-                      </Link>
-                      <div className="flex-grow">
-                        <button
-                          onClick={() =>
-                            handlePartnerDelete(relationship[0]?._id)
-                          }
-                          className="bg-primary-300 px-[8px] py-[6px] rounded-full tooltip"
-                          data-tip="Delete Profile"
-                        >
-                          <AiOutlineDelete className="text-white text-1xl" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <></>
-                )}
               </div>
             </div>
           </div>
@@ -217,18 +170,18 @@ const { profileImage, name, email, _id, profileVisit, status, gallery } = userIn
           <BoxBorderContent title="Status" content={<Status />} />
           <BoxBorderContent title="About Me" content={<AboutMe />} />
           <BoxBorderContent title="Personal Info" content={<PersonalInfo />} />
-          <BoxBorderContent title="Contact Info" content={<ContactInfo />} />
+        <BoxBorderContent title="Contact Info" content={<ContactInfo />} />
         </div>
 
         {/* other section */}
         <div className=" md:w-[40%]">
-          <MarriedStatus />
+          <MarriedStatus userInfo={userInfo} partner={partner} handlePartnerDelete={handlePartnerDelete} relationship={relationship} />
           <ShowRltnNotify />
           <MetForUser />
           <Follow />
           <BoxBorderContent title="Hobbies" content={<Hobbies />} />
           <BoxBorderContent title="Photos" content={<SocialMedia gallery={gallery} />} />
-          <Plan />
+
         </div>
       </div>
     </div>
@@ -237,15 +190,35 @@ const { profileImage, name, email, _id, profileVisit, status, gallery } = userIn
 
 export default UserProfile;
 
-const MarriedStatus = () => {
+const MarriedStatus = ({ userInfo, partner, handlePartnerDelete, relationship }) => {
+  console.log
   return (
-    <div className="relative mb-5 flex flex-col  border border-[#C3CAD5] rounded-2xl overflow-hidden">
-      <Lottie className="w-[52%] h-[50%] mx-auto" animationData={topLottie} />
-      <Lottie className="absolute bottom-0" animationData={manyLove} />
-      <p className="text-3xl font-alice text-black text-center">In a relationship with </p>
-      <p className="text-[#3E43CB] text-lg font-lato text-center">Wade Warren</p>
-      <p className="font-bold  mt-2 mb-6 p-2 rounded-full bg-gray-100 mx-auto w-[120px] flex justify-center">24/05/2023</p>
-    </div>
+    <>
+      {userInfo?.status === "successful" ? (
+        <div className="relative mb-5 flex flex-col  border border-[#C3CAD5] rounded-2xl overflow-hidden">
+          <div className="flex justify-end mt-2 mr-2">
+            <button
+              onClick={() =>
+                handlePartnerDelete(relationship[0]?._id)
+              }
+              className="bg-primary-300 px-[8px] py-[6px] rounded-full tooltip"
+              
+            >
+              <AiOutlineDelete className="text-white text-1xl" />
+            </button>
+          </div>
+          <Lottie className="w-[52%] h-[50%] mx-auto" animationData={topLottie} />
+          <Lottie className="absolute bottom-0" animationData={manyLove} />
+          <p className="text-3xl font-alice text-black text-center">In a relationship with </p>
+          <div className="flex justify-center items-center gap-3 mb-5 mt-2 rela">
+            <img src={partner?.profileImage} className="h-12 w-12 rounded-full" />
+            <Link to={`/profile/${partner?._id}`}>
+              <p className="text-[#3E43CB] text-lg font-lato text-center relative">{partner?.name}</p>
+            </Link>
+          </div>
+        </div>) : <></>
+      }
+    </>
   )
 }
 
@@ -277,7 +250,7 @@ const HBox = ({ value }) => {
 const Status = () => {
   const [userInfo] = useMyData();
 
-  const { age, height, jobSector, city, state } = userInfo;
+  const { age, height, jobSector, state } = userInfo;
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
       <div className="p-3  rounded-2xl bg-[#F0F2F5]">

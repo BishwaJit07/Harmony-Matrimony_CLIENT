@@ -58,23 +58,23 @@ const RelationSts = ({ partnerUser }) => {
   };
 
   return (
-    <div>
-      {disable ? (
-        <button
-          onClick={handleDelRelation}
-          className="py-4 px-4 bg-[#2F9D54] text-[#F0F2F5] rounded-full"
-        >
-          Req Sent
-        </button>
-      ) : (
-        <button
-          onClick={handleRelation}
-          className="py-4 px-4 bg-[#2F9D54] text-[#F0F2F5] rounded-full"
-        >
-          Relationship Req
-        </button>
-      )}
-    </div>
+    <div className="select-none">
+    {disable ? (
+      <button
+        onClick={handleDelRelation}
+        className="xl:py-4 xl:px-4 py-2 px-2 outline  text-red-500  rounded-full outline-2 outline-red-500 outline-offset-0 "
+      >
+        Cancel Request
+      </button>
+    ) : (
+      <button
+        onClick={handleRelation}
+        className="xl:py-4 xl:px-4 py-2 px-2 bg-[#2F9D54] text-[#F0F2F5] rounded-full"
+      >
+        Relationship Request
+      </button>
+    )}
+  </div>
   );
 };
 
